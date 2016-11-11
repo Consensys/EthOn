@@ -54,7 +54,7 @@ This ethereum ontology strives to be recognized by the ethereum foundation as ca
 The scope of the ontology is defined by the competency questions.
 However it should be taken care that the scope stays narrow for the first iteration of the ontology.
 Guidelines
-* Stick to ethereum intrinsic concepts. That means the concept bitcoin[a][b] will not be part of the ontology.
+* Stick to ethereum intrinsic concepts. That means the concept bitcoin will not be part of the ontology.
 * Focus on concepts that are part of the state of the chain. For example the concepts block, transaction and nonce are relevant to the state of the chain while mining, double spend and decentralization are not.
 
 
@@ -72,7 +72,7 @@ The ontology will be developed directly on GitHub. Discussions will be done thro
 
 
 ## Matters to decide
-* The ontology should be versioned[c][d] and tagged to accommodate future changes in hard forks and potentially an ethereum 2.0. 
+* The ontology should be versioned and tagged to accommodate future changes in hard forks and potentially an ethereum 2.0. 
 
 
 ## Intended use of the ontology
