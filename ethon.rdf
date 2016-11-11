@@ -1,0 +1,21 @@
+<!-- This is the Ethon formal vocabulary description, expressed using W3C RDFS and OWL markup. -->
+<!-- This is a stub! -->
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+	xmlns:owl="http://www.w3.org/2002/07/owl#">
+    
+  <owl:Ontology rdf:about="http://consensys.net/ethereum-ontology/latest/" dc:title="Ethon - ethereum ontology" dc:description="The ethon ethereum ontology, described using W3C RDF Schema and the Web Ontology Language." >
+  </owl:Ontology>
+
+  <rdfs:Class rdf:about="http://consensys.net/ethereum-ontology/latest/Block" rdfs:label="Block" rdfs:comment="A block in the ethereum blockchain." vs:term_status="unstable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:isDefinedBy rdf:resource="http://consensys.net/ethereum-ontology/latest/"/>
+  </rdfs:Class>
+
+  <rdf:Property rdf:about="http://consensys.net/ethereum-ontology/blockNumber" vs:term_status="unstable" rdfs:label="block number" rdfs:comment="The number of a block in the ethereum blockchain.">
+    <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/latest/Block"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="http://consensys.net/ethereum-ontology/"/>
+  </rdf:Property>
+</rdf:RDF>
