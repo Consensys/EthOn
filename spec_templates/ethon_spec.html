@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <title about="http://consensys.net/ethereum-ontology/" property="dc:title">EthOn - The Ethereum Ontology</title>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="http://consensys.net/ethereum-ontology/" />
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div class="container">
+  <h1><span about="http://purl.org/ontology/olo/core#" property="dc:title">The EthOn Ethereum Ontology</span> (Version <span about="http://consensys.net/ethereum-ontology/" property="owl:versionInfo" datatype="xsd:decimal">1</span>)</h1>
+
+<!-- Class list -->
+    <h2>Classes</h2>
+    {{ classes_list }}
+
+<!-- Object properties list-->
+    <h2>Object properties</h2>
+    {{ object_properties_list }}
+
+<!-- Data properties list-->
+    <h2>Data properties</h2>
+    {{ data_properties_list }}
+
+    <h2>Class descriptions</h2>
+    {% for class in classes %}
+    <dl>
+        <dt>{{ class.rdfs_label }}</dt>
+        <dd>{{ class.rdfs_comment }}</dd>
+    </dl>
+    <table class="table table-striped">
+        <tr>
+                <td>Status</td>
+                <td>{{ class.status }}</td>
+        </tr>
+        <tr>
+                <td>SubClassOf</td>
+                <td>{{ class.subclassOf }}</td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+
+</body>
+</html>
+
+
