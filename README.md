@@ -26,3 +26,6 @@ WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 You can look at the specification that is generated automatically. Just clone the repo and open _ethon_spec.html_ in a browser.
 
 There is also a fancy specification generator http://hacks.michelepasin.org/ontospy/. See https://github.com/lambdamusic/OntospyWeb.
+
+### Open the ontology in Protégé
+Download [Protégé](http://protege.stanford.edu/) and open the ontology file to browse around and view all assertions.
