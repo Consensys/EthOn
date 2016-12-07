@@ -47,6 +47,7 @@ def bootstrapDesc(onto):
 
 def main():
     ETHON = Namespace('http://consensys.net/ethereum-ontology/')
+    VOCAB = Namespace('http://www.w3.org/2003/06/sw-vocab-status/ns#')
     ontospy.BOOTSTRAP_ONTOLOGIES.append('http://consensys.net/ethereum-ontology/')
 
     onto = ontospy.Ontospy("ethon.rdf")
@@ -57,11 +58,13 @@ def main():
         c.RDFScomment = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.comment)])
         c.RDFSlabel = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.label)])
         c.ETHONsuggestedStringRepresentation = ", ".join([x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)])
+        c.VOCABterm_status = ", ".join([x for x in c.rdfgraph.objects(c.uri, VOCAB.term_status)])
 
     for p in onto.properties:
         p.RDFScomment = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.comment)])
         p.RDFSlabel = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.label)])
         p.ETHONsuggestedStringRepresentation = ", ".join([x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)])
+        p.VOCABterm_status = ", ".join([x for x in p.rdfgraph.objects(p.uri, VOCAB.term_status)])
 
     env = Environment(loader=FileSystemLoader('spec_resources/templates'))
     template = env.get_template('ethon_spec.html')

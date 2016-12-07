@@ -20,6 +20,15 @@
     <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
 
 </head>
+{% macro status(name) -%}
+    {% if name == 'unstable'%}
+         text-danger
+    {% elif name == "testing" %}
+        text-warning
+    {% elif name == "stable" %}
+        text-success
+    {% endif %}
+{%- endmacro %}
 
 <body data-spy="scroll" data-target="#toc">
 <div class="container">
@@ -37,7 +46,7 @@
         <dt>Preferred prefix</dt>
         <dd>{{ meta.prefix }}</dd>
         <dt>Term status</dt>
-        <dd class="text-danger">{{ meta.term_status }}</dd>
+        <dd class="{{ status(meta.term_status) }}">{{ meta.term_status }}</dd>
         <dt>Imports</dt>
         <dd><a href="{{ meta.imports }}">{{ meta.imports }}</a></dd>
     </dl>
@@ -104,7 +113,7 @@
         <table class="table table-striped">
             <tr>
                 <td class="col-md-2">Status</td>
-                <td class="col-md-10 text-danger">unstable</td>
+                <td class="col-md-10 {{ status(class.VOCABterm_status) }}">{{ class.VOCABterm_status }}</td>
             </tr>
             <tr>
                 <td class="col-md-2">URI</td>
@@ -154,7 +163,7 @@
         <table class="table table-striped">
             <tr>
                 <td class="col-md-2">Status</td>
-                <td class="col-md-10 text-danger">unstable</td>
+                <td class="col-md-10 {{ status(prop.VOCABterm_status) }}">{{ prop.VOCABterm_status }}</td>
             </tr>
             <tr>
                 <td class="col-md-2">URI</td>
@@ -204,7 +213,7 @@
         <table class="table table-striped">
             <tr>
                 <td class="col-md-2">Status</td>
-                <td class="col-md-10 text-danger">unstable</td>
+                <td class="col-md-10 {{ status(prop.VOCABterm_status) }}">{{ prop.VOCABterm_status }}</td>
             </tr>
             <tr>
                 <td class="col-md-2">URI</td>
@@ -253,7 +262,7 @@
         <table class="table table-striped">
             <tr>
                 <td class="col-md-2">Status</td>
-                <td class="col-md-10 text-danger">unstable</td>
+                <td class="col-md-10  {{ status(prop.VOCABterm_status) }}">{{ prop.VOCABterm_status }}</td>
             </tr>
             <tr>
                 <td class="col-md-2">URI</td>
