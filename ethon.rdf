@@ -1,23 +1,1258 @@
-<!-- This is the Ethon formal vocabulary description, expressed using W3C RDFS and OWL markup. -->
-<!-- This is a stub! -->
-<rdf:RDF 
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
-	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
-	xmlns:owl="http://www.w3.org/2002/07/owl#" 
-	xmlns:dc="http://purl.org/dc/elements/1.1/" 
-	xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://consensys.net/ethereum-ontology/"
+     xml:base="http://consensys.net/ethereum-ontology/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:ns1="http://consensys.net/ethereum-ontology/1/"
+     xmlns:ethon="http://consensys.net/ethereum-ontology/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://consensys.net/ethereum-ontology/">
+        <owl:versionIRI rdf:resource="http://consensys.net/ethereum-ontology/1/"/>
+        <owl:imports rdf:resource="http://www.w3.org/2003/06/sw-vocab-status/ns"/>
+        <ns:term_status>testing</ns:term_status>
+        <dc:creator rdf:resource="mailto:johannes.pfeffer@consensys.net"/>
+        <dc:contributor>mailto:shahan.khatchadourian@consensys.net</dc:contributor>
+        <dc:title>EthOn - An Ethereum Ontology</dc:title>
+        <rdfs:comment xml:lang="en">The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language.</rdfs:comment>
+        <vann:preferredNamespacePrefix>ethon</vann:preferredNamespacePrefix>
+    </owl:Ontology>
     
-  <owl:Ontology rdf:about="http://consensys.net/ethereum-ontology/latest/" dc:title="Ethon - ethereum ontology" dc:description="The ethon ethereum ontology, described using W3C RDF Schema and the Web Ontology Language." >
-  </owl:Ontology>
 
-  <rdfs:Class rdf:about="http://consensys.net/ethereum-ontology/latest/Block" rdfs:label="Block" rdfs:comment="A block in the ethereum blockchain." vs:term_status="unstable">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:isDefinedBy rdf:resource="http://consensys.net/ethereum-ontology/latest/"/>
-  </rdfs:Class>
 
-  <rdf:Property rdf:about="http://consensys.net/ethereum-ontology/blockNumber" vs:term_status="unstable" rdfs:label="block number" rdfs:comment="The number of a block in the ethereum blockchain.">
-    <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/latest/Block"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:isDefinedBy rdf:resource="http://consensys.net/ethereum-ontology/"/>
-  </rdf:Property>
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthOnAnnotationProperty -->
+
+    <owl:AnnotationProperty rdf:about="http://consensys.net/ethereum-ontology/EthOnAnnotationProperty">
+        <rdfs:comment xml:lang="en">Superclass of all EthOn specific annotation properties.</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/suggestedStringRepresentation -->
+
+    <owl:AnnotationProperty rdf:about="http://consensys.net/ethereum-ontology/suggestedStringRepresentation">
+        <rdfs:comment xml:lang="en">This property relates an EthOn concept with a suggested string representation. It can be used to give the concept a name, e.g. in program code.</rdfs:comment>
+        <ns:term_status xml:lang="en">unstable</ns:term_status>
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAnnotationProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/EthereumConcept"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthOnAccountObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/EthOnAccountObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthOnObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/EthOnObjectProperty"/>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthonBlockObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/EthonBlockObjectProperty">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/containsTransaction -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/containsTransaction">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthonBlockObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Relates a Block to a Transaction included in it. The property is inverse functional because a Transaction can only be included in one block.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/controlsAccount -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/controlsAccount">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountObjectProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/ExternalActor"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <rdfs:comment xml:lang="en">This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate.</rdfs:comment>
+        <rdfs:label xml:lang="en">controls Account</rdfs:label>
+        <ns:term_status xml:lang="en">unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/hasAccountStorage -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasAccountStorage">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/ContractAccountState"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/AccountStorage"/>
+        <rdfs:comment xml:lang="en">Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/hasCurrentState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasCurrentState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/hasState"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+        <suggestedStringRepresentation>hasCurrentState</suggestedStringRepresentation>
+        <rdfs:comment>This property relates an EthOn concept to its most current state.</rdfs:comment>
+        <rdfs:comment>has current State</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/hasHeader -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasHeader">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthonBlockObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:comment xml:lang="en">Relates a Block to its Block Header. The property is functional because a Block can have only exactly one Block Header and it is also inverse functionals because a Block header can only be associated with exactly one Block.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/hasState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+        <suggestedStringRepresentation>hasState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept. Only some EthOn concepts have associated states. This is defined in the domain restriction.</rdfs:comment>
+        <rdfs:label xml:lang="en">has state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/knowsOfOmmer -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/knowsOfOmmer">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthonBlockObjectProperty"/>
+        <rdfs:comment xml:lang="en">Relates a Block to a known Ommer.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthOnAccountDataProperties -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/EthOnAccountDataProperties">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthOnBlockDataProperties -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnDataProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockConcept"/>
+        <rdfs:label xml:lang="en">Groups all data properties that are specific to a Block. These properties are usually functional because a block can only be associated with a single instance of them.</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthOnDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/EthOnDataProperty">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/accountBalance -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/accountBalance">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <suggestedStringRepresentation>accountBalance</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei owned by an account at a given account state.</rdfs:comment>
+        <rdfs:label xml:lang="en">Account balance</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/accountCode -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/accountCode">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <suggestedStringRepresentation>accountCode</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The imutable EVM bytecode of the Contract Account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Account code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/accountCodeHash -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/accountCodeHash">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <suggestedStringRepresentation>accountCodeHash</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The immutable hash of the EVM code of an account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Account code hash</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/accountNonce -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/accountNonce">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <suggestedStringRepresentation>accountNonce</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of transactions sent from this account or, in the case of accounts with associated code, the number of contract-creations made by this account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Account nonce</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/address -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/address">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <suggestedStringRepresentation>address</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A 160-bit identifier for Accounts.</rdfs:comment>
+        <rdfs:label xml:lang="en">Address</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/beneficary -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/beneficary">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The 160-bit address to which all fees collected from the successful mining of this block be transferred.</rdfs:comment>
+        <rdfs:label xml:lang="en">Beneficary</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/blockHash -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/blockHash">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the block&apos;s header, in its entierty.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block hash</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/blockNonce -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/blockNonce">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block nonce</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/blockReward -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/blockReward">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <suggestedStringRepresentation>blockReward</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Also base reward, amount of Wei a miner gets for finding a Block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block reward</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/difficulty -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/difficulty">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">A scalar value corresponding to the difficulty level of this block. This can be calculated from the previous block&apos;s difficulty level and the timestamp.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block difficulty</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/extraData -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/extraData">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">An arbitrary byte array containing data relevant to this block. This must be 32 bytes or fewer.</rdfs:comment>
+        <rdfs:label xml:lang="en">Extra data</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/gasLimit -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/gasLimit">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">A scalar value equal to the current limit of gas expenditure per block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Gas limit</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/gasUsed -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/gasUsed">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">A scalar value equal to the total gas used in transactions in this block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Gas used</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/logsBloom -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/logsBloom">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.</rdfs:comment>
+        <rdfs:label xml:lang="en">Logs bloom filter</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/mixHash -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/mixHash">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Mix hash</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/number -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/number">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of ancestor blocks. The genesis block has a number of zero.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/ommersHash -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/ommersHash">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The keccak 256-bit hash of the uncles list portion of this block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Ommers hash</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/parentHash -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/parentHash">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the parent block&apos;s header, in its entierty.</rdfs:comment>
+        <rdfs:label xml:lang="en">Parent block hash</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/receiptsRoot -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/receiptsRoot">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Receipts root</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/stateRoot -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/stateRoot">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the state trie, after all transactions are executed and finalisations applied.</rdfs:comment>
+        <rdfs:label xml:lang="en">State root</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/storageRoot -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/storageRoot">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAccountDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/AccountStorage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <suggestedStringRepresentation>storageRoot</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</rdfs:comment>
+        <rdfs:label xml:lang="en">Storage root</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/timestamp -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/timestamp">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">A scalar value equal to the reasonable output of Unix&apos;s time() at this block&apos;s inception.</rdfs:comment>
+        <rdfs:label xml:lang="en">Timestamp</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/transactionsRoot -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/transactionsRoot">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnBlockDataProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transactions root</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/Account -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Account">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/AccountConcept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasState"/>
+                <owl:someValuesFrom rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/address"/>
+        </owl:hasKey>
+        <suggestedStringRepresentation xml:lang="en">Account</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of account: those with empty associated EVM Code (thus the account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the account represents an Autonomous Object). Each Account has a single Address that identifies it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Account</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasState"/>
+                <owl:someValuesFrom rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">An Account must have at least 1 state.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#hasKey"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/address"/>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">An Address is the unique 160-bit identifier of an Account.</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/AccountConcept -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/AccountConcept">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnConcept"/>
+        <suggestedStringRepresentation xml:lang="en">AccountConcept</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Accounts.</rdfs:comment>
+        <rdfs:label xml:lang="en">EthOn Account Concept</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/AccountState -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/AccountState">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/AccountConcept"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MerklePatriciaTree"/>
+        <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">State of an Ethereum account. It is comprised on four pieces of information: nonce, balance, storage root and code hash.</rdfs:comment>
+        <rdfs:label xml:lang="en">Account State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/AccountStorage -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/AccountStorage">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/AccountConcept"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MerklePatriciaTree"/>
+        <suggestedStringRepresentation xml:lang="en">AccountStorage</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Merkle Patricia tree that encodes the storage contents of an Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</rdfs:comment>
+        <rdfs:label xml:lang="en">Storage</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/AutonomousObject -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/AutonomousObject">
+        <owl:equivalentClass rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <suggestedStringRepresentation xml:lang="en">ContractAccount</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">This is a more abstract term for a Contract Account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Autonomous Object</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/Block -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Block">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/BlockConcept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasHeader"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/blockHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/blockHash"/>
+        </owl:hasKey>
+        <suggestedStringRepresentation xml:lang="en">Block</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A block is the basic element of a blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous block. A block is chained to its preceeding block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new blocks (&quot;mine blocks&quot;) that comply to the rules of Ethereum by issuing a reward to an account specified by the miner.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#hasKey"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/blockHash"/>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">The blockHash is the unique identifier of a block. It is generated via the Keccak 256-bit hash of its Block Header.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasHeader"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment>A Block must have exactly 1 Block Header.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/blockHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block must have an associated hash that identifies it uniquely.</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/BlockConcept -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/BlockConcept">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnConcept"/>
+        <suggestedStringRepresentation xml:lang="en">BlockConcept</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Blocks.</rdfs:comment>
+        <rdfs:label xml:lang="en">EthOn Block Concept</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/BlockHeader -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/BlockHeader">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/BlockConcept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/beneficary"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/blockNonce"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/difficulty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/extraData"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/gasLimit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/gasUsed"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/logsBloom"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/mixHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/number"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/ommersHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/parentHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/receiptsRoot"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/stateRoot"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/timestamp"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/transactionsRoot"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <suggestedStringRepresentation xml:lang="en">BlockHeader</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The header of a Block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block Header</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/beneficary"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Beneficary value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/blockNonce"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Block Nonce value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/difficulty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Difficulty value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/extraData"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Extra Data value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/gasLimit"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Gas Limit value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/gasUsed"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Gas Used value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/logsBloom"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Logs Bloom value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/mixHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment>A Block Header must include a Mix Hash value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/number"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Block Number value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/ommersHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Ommers Hash value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/parentHash"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Parent Hash value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/receiptsRoot"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Receipts Root value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/stateRoot"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a State Root value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/timestamp"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">A Block Header must include a Timestamp value.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/transactionsRoot"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment>A Block Header must include a Transactions Root value.</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/ContractAccount -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/ContractAccount">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/ExternalAccount"/>
+        <suggestedStringRepresentation xml:lang="en">ContractAccount</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A notional object existent only within the hypothetical state of Ethereum. Has an intrinsic address and thus an associated account; the account will have non-empty associated EVM Code. Incorporated only as the Storage State of that account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Contract Account</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/ContractAccountState -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/ContractAccountState">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+        <suggestedStringRepresentation xml:lang="en">ContractAccountState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">State of an Ethereum Contract Account. In addition to the fields of an Account State it also references an Account Storage.</rdfs:comment>
+        <rdfs:label xml:lang="en">Contract Account State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthOnConcept -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/EthOnConcept">
+        <suggestedStringRepresentation xml:lang="en">EthonConcept</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Groups al EthOn concepts.</rdfs:comment>
+        <rdfs:label xml:lang="en">EthOn Concept</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/EthereumState -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/EthereumState">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MerklePatriciaTree"/>
+        <suggestedStringRepresentation xml:lang="en">State</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The world state (mostly just &quot;state&quot;), is a mapping between addresses (160-bit identifiers) and account states (a data structure serials as RLP). The mapping is not stored on the blockchain itself but in a modified Merkle Patricia tree.</rdfs:comment>
+        <rdfs:label xml:lang="en">Ethereum State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/ExternalAccount -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/ExternalAccount">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
+        <suggestedStringRepresentation xml:lang="en">ExternalAccount</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An account owned by an External Actor.</rdfs:comment>
+        <rdfs:label xml:lang="en">Externally controlled Account</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/ExternalActor -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/ExternalActor">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnConcept"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <suggestedStringRepresentation xml:lang="en">ExternalActor</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but external to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
+        <rdfs:label xml:lang="en">External Actor</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/MerklePatriciaTree -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/MerklePatriciaTree">
+        <suggestedStringRepresentation xml:lang="en">MerklePatriciaTree</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Merkle Patricia trees provide a cryptographically authenticated data structure that can be used to store all (key, value) bindings, although for the scope of this paper we are restricting keys and values to strings (to remove this restriction, just use any serialization format for other data types). They are fully deterministic, meaning that a Patricia tree with the same (key,value) bindings is guaranteed to be exactly the same down to the last byte and therefore have the same root hash, provide the holy grail of O(log(n)) efficiency for inserts, lookups and deletes, and are much easier to understand and code than more complex comparison-based alternatives like red-black trees.</rdfs:comment>
+        <rdfs:label>Merkle Patricia Tree</rdfs:label>
+        <rdfs:label xml:lang="en">Merkle Patricia Tree</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/MessageConcept -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/MessageConcept">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnConcept"/>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/Ommer -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Ommer">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/containsTransaction"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/Transaction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasHeader"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/OmmerHeader"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <suggestedStringRepresentation xml:lang="en">Ommer</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An Ommer.</rdfs:comment>
+        <rdfs:label xml:lang="en">Ommer</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Ommer"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/containsTransaction"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/Transaction"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">The transactions list of an Ommer must be empty.</rdfs:comment>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Ommer"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasHeader"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/OmmerHeader"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <rdfs:comment xml:lang="en">An Ommer must have exactly 1 OmmerHeader.</rdfs:comment>
+    </owl:Axiom>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/OmmerHeader -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/OmmerHeader">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <suggestedStringRepresentation xml:lang="en">OmmerHeader</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The header of an Ommer.</rdfs:comment>
+        <rdfs:label xml:lang="en">Ommer Header</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/Transaction -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Transaction">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MessageConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/TransactionReceipt -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/TransactionReceipt">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MessageConcept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/AccountState1 -->
+
+    <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/AccountState1">
+        <rdf:type rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
+        <hasAccountStorage rdf:resource="http://consensys.net/ethereum-ontology/AccountStorage1"/>
+        <accountBalance rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</accountBalance>
+        <accountNonce rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</accountNonce>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/AccountStorage1 -->
+
+    <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/AccountStorage1">
+        <rdf:type rdf:resource="http://consensys.net/ethereum-ontology/AccountStorage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/Block0 -->
+
+    <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/Block0">
+        <rdf:type rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <hasHeader rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader0"/>
+        <rdfs:label>Block 0</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/BlockHeader0 -->
+
+    <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/BlockHeader0">
+        <rdf:type rdf:resource="http://consensys.net/ethereum-ontology/BlockHeader"/>
+        <beneficary rdf:datatype="http://www.w3.org/2001/XMLSchema#base64Binary">MA==</beneficary>
+        <number rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</number>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/addresses/0x0000000000000000000000000000000000000000 -->
+
+    <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/addresses/0x0000000000000000000000000000000000000000">
+        <rdf:type rdf:resource="http://consensys.net/ethereum-ontology/ExternalAccount"/>
+        <hasState rdf:resource="http://consensys.net/ethereum-ontology/AccountState1"/>
+        <address rdf:datatype="http://www.w3.org/2001/XMLSchema#base64Binary">MA==</address>
+        <rdfs:label>Genesis Address</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Account"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/AccountState"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/AccountStorage"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/EthereumState"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/AccountConcept"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/BlockConcept"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/ExternalActor"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Transaction"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

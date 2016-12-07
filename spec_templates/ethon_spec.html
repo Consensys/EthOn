@@ -2,19 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <title about="http://consensys.net/ethereum-ontology/" property="dc:title">EthOn - The Ethereum Ontology</title>
+  <title about="{{ meta.uri }}" property="dc:title">{{ meta.title }}</title>
   <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="http://consensys.net/ethereum-ontology/" />
 
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
   <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="bootstrap.min.css">
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -23,34 +19,220 @@
 
 <body>
 <div class="container">
-  <h1><span about="http://purl.org/ontology/olo/core#" property="dc:title">The EthOn Ethereum Ontology</span> (Version <span about="http://consensys.net/ethereum-ontology/" property="owl:versionInfo" datatype="xsd:decimal">1</span>)</h1>
-
-<!-- Class list -->
-    <h2>Classes</h2>
-    {{ classes_list }}
-
-<!-- Object properties list-->
-    <h2>Object properties</h2>
-    {{ object_properties_list }}
-
-<!-- Data properties list-->
-    <h2>Data properties</h2>
-    {{ data_properties_list }}
-
-    <h2>Class descriptions</h2>
-    {% for class in classes %}
-    <dl>
-        <dt>{{ class.rdfs_label }}</dt>
-        <dd>{{ class.rdfs_comment }}</dd>
+  <h1><span about="http://purl.org/ontology/olo/core#" property="dc:title">{{ meta.title }}</span> </h1>
+    <p>{{ meta.comment }}</p>
+    <dl class="dl-horizontal">
+        <dt>IRI</dt>
+        <dd><a href="{{ meta.uri }}">{{ meta.uri }}</a></dd>
+        <dt>Version IRI</dt>
+        <dd><a href="{{ meta.versionIRI }}">{{ meta.versionIRI }}</a></dd>
+        <dt>Creators</dt>
+        <dd>{{ meta.creators }}</dd>
+        <dt>Contributors</dt>
+        <dd>{{ meta.contributors }}</dd>
+        <dt>Preferred prefix</dt>
+        <dd>{{ meta.prefix }}</dd>
+        <dt>Term status</dt>
+        <dd>{{ meta.term_status }}</dd>
+        <dt>Imports</dt>
+        <dd><a href="{{ meta.imports }}">{{ meta.imports }}</a></dd>
     </dl>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <!-- Class tree -->
+        <h2>Classes</h2>
+
+        <ul>
+        {%- for class in classes_tree recursive %}
+            <li><a class="label label-primary" href="#{{ class.slug }}">{{ class.locale }}</a>
+            {%- if class._children -%}
+                <ul>{{ loop(class._children) }}</ul>
+            {%- endif %}</li>
+        {%- endfor %}
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <!-- Properties tree-->
+        <h2>Properties</h2>
+        <ul>
+        {%- for prop in properties_tree recursive %}
+            <li><a class="label label-default" href="#{{ prop.slug }}">{{ prop.locale }}</a>
+            {%- if prop._children -%}
+                <ul>{{ loop(prop._children) }}</ul>
+            {%- endif %}</li>
+        {%- endfor %}
+        </ul>
+      </div>
+    </div>
+
+
+<!-- Class list-->
+    <h2>Class descriptions <span class="badge">{{ classes|length }}</span></h2>
+    {% for class in classes %}
+    <h3 id="{{ class.slug }}">{{ class.locale }}</h3>
+    <p>{{ class.RDFScomment }}</p>
     <table class="table table-striped">
         <tr>
                 <td>Status</td>
-                <td>{{ class.status }}</td>
+                <td class="text-danger">unstable</td>
         </tr>
         <tr>
-                <td>SubClassOf</td>
-                <td>{{ class.subclassOf }}</td>
+                <td>URI</td>
+                <td><a href="{{ class.uri }}">{{ class.uri }}</a></td>
+        </tr>
+        <tr>
+                <td>Suggested string representation</td>
+                <td>{{ class.ETHONsuggestedStringRepresentation }}</td>
+        </tr>
+        <tr>
+                <td>Superclasses</td>
+                <td>
+                    {% for item in class._parents %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Subclasses</td>
+                <td>
+                    {% for item in class._children %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Properties include</td>
+                <td>
+                    {% for item in class.domain_of %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Used with</td>
+                <td>
+                    {% for item in class.range_of %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+    </table>
+    {% endfor %}
+
+
+<!-- Object Property list-->
+    <h2>Object Property descriptions <span class="badge">{{ o_properties|length }}</span></h2>
+    {% for prop in o_properties %}
+    <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
+    <p>{{ prop.RDFScomment }}</p>
+    <table class="table table-striped">
+        <tr>
+                <td>Status</td>
+                <td class="text-danger">unstable</td>
+        </tr>
+        <tr>
+                <td>URI</td>
+                <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
+        </tr>
+        <tr>
+                <td>Superclasses</td>
+                <td>
+                    {% for item in prop._parents %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Subclasses</td>
+                <td>
+                    {% for item in prop._children %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Implies being a </td>
+                <td>
+                    {% for item in prop.domains %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Every value is a </td>
+                <td>
+                    {% for item in prop.ranges %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+    </table>
+    {% endfor %}
+
+
+<!-- Datatype Property list-->
+    <h2>Datatype Property descriptions <span class="badge">{{ d_properties|length }}</span></h2>
+    {% for prop in d_properties %}
+    <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
+    <p>{{ prop.RDFScomment }}</p>
+    <table class="table table-striped">
+        <tr>
+                <td>Status</td>
+                <td class="text-danger">unstable</td>
+        </tr>
+        <tr>
+                <td>URI</td>
+                <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
+        </tr>
+        <tr>
+                <td>Superclasses</td>
+                <td>
+                    {% for item in prop._parents %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Subclasses</td>
+                <td>
+                    {% for item in prop._children %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Implies being a </td>
+                <td>
+                    {% for item in prop.domains %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Every value is a </td>
+                <td>
+                    {% for item in prop.ranges %}<a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+        </tr>
+    </table>
+    {% endfor %}
+
+    <!-- Annotation Property list-->
+    <h2>Datatype Property descriptions <span class="badge">{{ a_properties|length }}</span></h2>
+    {% for prop in a_properties %}
+    <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
+    <p>{{ prop.RDFScomment }}</p>
+    <table class="table table-striped">
+        <tr>
+                <td>Status</td>
+                <td class="text-danger">unstable</td>
+        </tr>
+        <tr>
+                <td>URI</td>
+                <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
+        </tr>
+        <tr>
+                <td>Superclasses</td>
+                <td>
+                    {% for item in prop._parents %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Subclasses</td>
+                <td>
+                    {% for item in prop._children %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Implies being a </td>
+                <td>
+                    {% for item in prop.domains %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+        </tr>
+        <tr>
+                <td>Every value is a </td>
+                <td>
+                    {% for item in prop.ranges %}<a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
         </tr>
     </table>
     {% endfor %}
