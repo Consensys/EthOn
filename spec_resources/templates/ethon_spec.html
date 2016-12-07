@@ -103,41 +103,41 @@
         <p>{{ class.RDFScomment }}</p>
         <table class="table table-striped">
             <tr>
-                <td>Status</td>
-                <td class="text-danger">unstable</td>
+                <td class="col-md-2">Status</td>
+                <td class="col-md-10 text-danger">unstable</td>
             </tr>
             <tr>
-                <td>URI</td>
-                <td><a href="{{ class.uri }}">{{ class.uri }}</a></td>
+                <td class="col-md-2">URI</td>
+                <td class="col-md-10"><a href="{{ class.uri }}">{{ class.uri }}</a></td>
             </tr>
             <tr>
-                <td>Suggested string representation</td>
-                <td>{{ class.ETHONsuggestedStringRepresentation }}</td>
+                <td class="col-md-2">Suggested string</td>
+                <td class="col-md-10">{{ class.ETHONsuggestedStringRepresentation }}</td>
             </tr>
             <tr>
-                <td>Superclasses</td>
-                <td>
+                <td class="col-md-2">Superclasses</td>
+                <td class="col-md-10">
                     {% for item in class._parents %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Subclasses</td>
-                <td>
+                <td class="col-md-2">Subclasses</td>
+                <td class="col-md-10">
                     {% for item in class._children %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Properties include</td>
-                <td>
+                <td class="col-md-2">Properties include</td>
+                <td class="col-md-10">
                     {% for item in class.domain_of %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Used with</td>
-                <td>
+                <td class="col-md-2">Used with</td>
+                <td class="col-md-10">
                     {% for item in class.range_of %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
@@ -153,37 +153,41 @@
         <p>{{ prop.RDFScomment }}</p>
         <table class="table table-striped">
             <tr>
-                <td>Status</td>
-                <td class="text-danger">unstable</td>
+                <td class="col-md-2">Status</td>
+                <td class="col-md-10 text-danger">unstable</td>
             </tr>
             <tr>
-                <td>URI</td>
-                <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
+                <td class="col-md-2">URI</td>
+                <td class="col-md-10"><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
             </tr>
             <tr>
-                <td>Superclasses</td>
-                <td>
+                <td class="col-md-2">Suggested string</td>
+                <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
+            </tr>
+            <tr>
+                <td class="col-md-2">Superclasses</td>
+                <td class="col-md-10">
                     {% for item in prop._parents %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Subclasses</td>
-                <td>
+                <td class="col-md-2">Subclasses</td>
+                <td class="col-md-10">
                     {% for item in prop._children %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Implies being a</td>
-                <td>
+                <td class="col-md-2">Implies being a</td>
+                <td class="col-md-10">
                     {% for item in prop.domains %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Every value is a</td>
-                <td>
+                <td class="col-md-2">Every value is a</td>
+                <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
@@ -199,37 +203,41 @@
         <p>{{ prop.RDFScomment }}</p>
         <table class="table table-striped">
             <tr>
-                <td>Status</td>
-                <td class="text-danger">unstable</td>
+                <td class="col-md-2">Status</td>
+                <td class="col-md-10 text-danger">unstable</td>
             </tr>
             <tr>
-                <td>URI</td>
-                <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
+                <td class="col-md-2">URI</td>
+                <td class="col-md-10"><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
             </tr>
             <tr>
-                <td>Superclasses</td>
-                <td>
+                <td class="col-md-2">Suggested string</td>
+                <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
+            </tr>
+            <tr>
+                <td class="col-md-2">Superclasses</td>
+                <td class="col-md-10">
                     {% for item in prop._parents %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Subclasses</td>
-                <td>
+                <td class="col-md-2">Subclasses</td>
+                <td class="col-md-10">
                     {% for item in prop._children %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Implies being a</td>
-                <td>
+                <td class="col-md-2">Implies being a</td>
+                <td class="col-md-10">
                     {% for item in prop.domains %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Every value is a</td>
-                <td>
+                <td class="col-md-2">Every value is a</td>
+                <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
@@ -244,37 +252,41 @@
         <p>{{ prop.RDFScomment }}</p>
         <table class="table table-striped">
             <tr>
-                <td>Status</td>
-                <td class="text-danger">unstable</td>
+                <td class="col-md-2">Status</td>
+                <td class="col-md-10 text-danger">unstable</td>
             </tr>
             <tr>
-                <td>URI</td>
-                <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
+                <td class="col-md-2">URI</td>
+                <td class="col-md-10"><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
             </tr>
             <tr>
-                <td>Superclasses</td>
-                <td>
+                <td class="col-md-2">Suggested string</td>
+                <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
+            </tr>
+            <tr>
+                <td class="col-md-2">Superclasses</td>
+                <td class="col-md-10">
                     {% for item in prop._parents %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Subclasses</td>
-                <td>
+                <td class="col-md-2">Subclasses</td>
+                <td class="col-md-10">
                     {% for item in prop._children %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Implies being a</td>
-                <td>
+                <td class="col-md-2">Implies being a</td>
+                <td class="col-md-10">
                     {% for item in prop.domains %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>
             <tr>
-                <td>Every value is a</td>
-                <td>
+                <td class="col-md-2">Every value is a</td>
+                <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
