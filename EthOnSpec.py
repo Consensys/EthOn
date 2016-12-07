@@ -70,6 +70,7 @@ def main():
         classes_tree=onto.toplayer,
         properties_tree=onto.toplayerProperties,
         classes=onto.classes,
+        properties=onto.properties,
         a_properties=onto.annotationProperties,
         d_properties=onto.datatypeProperties,
         o_properties=onto.objectProperties

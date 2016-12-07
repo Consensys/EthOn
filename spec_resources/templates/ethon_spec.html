@@ -2,24 +2,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <title about="{{ meta.uri }}" property="dc:title">{{ meta.title }}</title>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title about="{{ meta.uri }}" property="dc:title">{{ meta.title }}</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- JQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.css">
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
 
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#toc">
 <div class="container">
-  <h1><span about="http://purl.org/ontology/olo/core#" property="dc:title">{{ meta.title }}</span> </h1>
+    <h1><span about="http://purl.org/ontology/olo/core#" property="dc:title">{{ meta.title }}</span></h1>
     <p>{{ meta.comment }}</p>
     <dl class="dl-horizontal">
         <dt>IRI</dt>
@@ -37,221 +41,245 @@
         <dt>Imports</dt>
         <dd><a href="{{ meta.imports }}">{{ meta.imports }}</a></dd>
     </dl>
+    <h2 data-toc-skip>Table of contents</h2>
+    <nav id="toc" data-toggle="toc"></nav>
 
     <h2>Illustrations</h2>
     <div class="row">
         <div class="col-sm-4">
-            <a href="spec_resources/img/account_concept.png"><img src="spec_resources/img/account_concept.png" class="img-thumbnail" alt="The Account Concept" width="350"/></a><br/>
+            <a href="spec_resources/img/account_concept.png"><img src="spec_resources/img/account_concept.png"
+                                                                  class="img-thumbnail" alt="The Account Concept"
+                                                                  width="350"/></a><br/>
             The Account Concept
         </div>
         <div class="col-sm-4">
-            <a href="spec_resources/img/block_concept.png"><img src="spec_resources/img/block_concept.png" class="img-thumbnail" alt="The Block Concept" width="350"/></a><br/>
+            <a href="spec_resources/img/block_concept.png"><img src="spec_resources/img/block_concept.png"
+                                                                class="img-thumbnail" alt="The Block Concept"
+                                                                width="350"/></a><br/>
             The Block Concept
         </div>
         <div class="col-sm-4">
-            <a href="spec_resources/img/message_concept.png"><img src="spec_resources/img/message_concept.png" class="img-thumbnail" alt="The Message Concept" width="350"/></a><br/>
-            The Message Concept
+            <a href="spec_resources/img/message_concept.png"><img src="spec_resources/img/message_concept.png"
+                                                                  class="img-thumbnail" alt="The Message Concept"
+                                                                  width="350"/></a><br/>
+            The Message Concept (not available, yet)
         </div>
     </div>
 
     <h2>Concept hierarchies</h2>
     <div class="row">
-      <div class="col-sm-4">
-        <!-- Class tree -->
-        <h3>Classes</h3>
+        <div class="col-sm-4">
+            <!-- Class tree -->
+            <h3>Classes <span class="badge">{{ classes|length }}</span></h3>
 
-        <ul>
-        {%- for class in classes_tree recursive %}
-            <li><a class="label label-primary" href="#{{ class.slug }}">{{ class.locale }}</a>
-            {%- if class._children -%}
-                <ul>{{ loop(class._children) }}</ul>
-            {%- endif %}</li>
-        {%- endfor %}
-        </ul>
-      </div>
-      <div class="col-sm-4">
-        <!-- Properties tree-->
-        <h3>Properties</h3>
-        <ul>
-        {%- for prop in properties_tree recursive %}
-            <li><a class="label label-default" href="#{{ prop.slug }}">{{ prop.locale }}</a>
-            {%- if prop._children -%}
-                <ul>{{ loop(prop._children) }}</ul>
-            {%- endif %}</li>
-        {%- endfor %}
-        </ul>
-      </div>
+            <ul>
+                {%- for class in classes_tree recursive %}
+                    <li><a class="label label-primary" href="#{{ class.slug }}">{{ class.locale }}</a>
+                        {%- if class._children -%}
+                            <ul>{{ loop(class._children) }}</ul>
+                        {%- endif %}</li>
+                {%- endfor %}
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <!-- Properties tree-->
+            <h3>Properties <span class="badge">{{ properties|length }}</span></h3>
+            <ul>
+                {%- for prop in properties_tree recursive %}
+                    <li><a class="label label-default" href="#{{ prop.slug }}">{{ prop.locale }}</a>
+                        {%- if prop._children -%}
+                            <ul>{{ loop(prop._children) }}</ul>
+                        {%- endif %}</li>
+                {%- endfor %}
+            </ul>
+        </div>
     </div>
 
 
-<!-- Class list-->
+    <!-- Class list-->
     <h2>Class descriptions <span class="badge">{{ classes|length }}</span></h2>
     {% for class in classes %}
-    <h3 id="{{ class.slug }}">{{ class.locale }}</h3>
-    <p>{{ class.RDFScomment }}</p>
-    <table class="table table-striped">
-        <tr>
+        <h3 id="{{ class.slug }}">{{ class.locale }}</h3>
+        <p>{{ class.RDFScomment }}</p>
+        <table class="table table-striped">
+            <tr>
                 <td>Status</td>
                 <td class="text-danger">unstable</td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>URI</td>
                 <td><a href="{{ class.uri }}">{{ class.uri }}</a></td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Suggested string representation</td>
                 <td>{{ class.ETHONsuggestedStringRepresentation }}</td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Superclasses</td>
                 <td>
-                    {% for item in class._parents %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in class._parents %}
+                        <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Subclasses</td>
                 <td>
-                    {% for item in class._children %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in class._children %}
+                        <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Properties include</td>
                 <td>
-                    {% for item in class.domain_of %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in class.domain_of %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Used with</td>
                 <td>
-                    {% for item in class.range_of %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in class.range_of %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-    </table>
+            </tr>
+        </table>
     {% endfor %}
 
 
-<!-- Object Property list-->
+    <!-- Object Property list-->
     <h2>Object Property descriptions <span class="badge">{{ o_properties|length }}</span></h2>
     {% for prop in o_properties %}
-    <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
-    <p>{{ prop.RDFScomment }}</p>
-    <table class="table table-striped">
-        <tr>
+        <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
+        <p>{{ prop.RDFScomment }}</p>
+        <table class="table table-striped">
+            <tr>
                 <td>Status</td>
                 <td class="text-danger">unstable</td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>URI</td>
                 <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Superclasses</td>
                 <td>
-                    {% for item in prop._parents %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop._parents %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Subclasses</td>
                 <td>
-                    {% for item in prop._children %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop._children %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
-                <td>Implies being a </td>
+            </tr>
+            <tr>
+                <td>Implies being a</td>
                 <td>
-                    {% for item in prop.domains %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop.domains %}
+                        <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
-                <td>Every value is a </td>
+            </tr>
+            <tr>
+                <td>Every value is a</td>
                 <td>
-                    {% for item in prop.ranges %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop.ranges %}
+                        <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-    </table>
+            </tr>
+        </table>
     {% endfor %}
 
 
-<!-- Datatype Property list-->
+    <!-- Datatype Property list-->
     <h2>Datatype Property descriptions <span class="badge">{{ d_properties|length }}</span></h2>
     {% for prop in d_properties %}
-    <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
-    <p>{{ prop.RDFScomment }}</p>
-    <table class="table table-striped">
-        <tr>
+        <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
+        <p>{{ prop.RDFScomment }}</p>
+        <table class="table table-striped">
+            <tr>
                 <td>Status</td>
                 <td class="text-danger">unstable</td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>URI</td>
                 <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Superclasses</td>
                 <td>
-                    {% for item in prop._parents %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop._parents %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Subclasses</td>
                 <td>
-                    {% for item in prop._children %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop._children %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
-                <td>Implies being a </td>
+            </tr>
+            <tr>
+                <td>Implies being a</td>
                 <td>
-                    {% for item in prop.domains %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop.domains %}
+                        <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
-                <td>Every value is a </td>
+            </tr>
+            <tr>
+                <td>Every value is a</td>
                 <td>
-                    {% for item in prop.ranges %}<a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
+                    {% for item in prop.ranges %}
+                        <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
-        </tr>
-    </table>
+            </tr>
+        </table>
     {% endfor %}
 
     <!-- Annotation Property list-->
     <h2>Datatype Property descriptions <span class="badge">{{ a_properties|length }}</span></h2>
     {% for prop in a_properties %}
-    <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
-    <p>{{ prop.RDFScomment }}</p>
-    <table class="table table-striped">
-        <tr>
+        <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
+        <p>{{ prop.RDFScomment }}</p>
+        <table class="table table-striped">
+            <tr>
                 <td>Status</td>
                 <td class="text-danger">unstable</td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>URI</td>
                 <td><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Superclasses</td>
                 <td>
-                    {% for item in prop._parents %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop._parents %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
+            </tr>
+            <tr>
                 <td>Subclasses</td>
                 <td>
-                    {% for item in prop._children %}<a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop._children %}
+                        <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
-                <td>Implies being a </td>
+            </tr>
+            <tr>
+                <td>Implies being a</td>
                 <td>
-                    {% for item in prop.domains %}<a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                    {% for item in prop.domains %}
+                        <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-        </tr>
-        <tr>
-                <td>Every value is a </td>
+            </tr>
+            <tr>
+                <td>Every value is a</td>
                 <td>
-                    {% for item in prop.ranges %}<a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
+                    {% for item in prop.ranges %}
+                        <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
-        </tr>
-    </table>
+            </tr>
+        </table>
     {% endfor %}
 </div>
 
