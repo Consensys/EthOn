@@ -38,10 +38,27 @@
         <dd><a href="{{ meta.imports }}">{{ meta.imports }}</a></dd>
     </dl>
 
+    <h2>Illustrations</h2>
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="spec_resources/img/account_concept.png"><img src="spec_resources/img/account_concept.png" class="img-thumbnail" alt="The Account Concept" width="350"/></a><br/>
+            The Account Concept
+        </div>
+        <div class="col-sm-4">
+            <a href="spec_resources/img/block_concept.png"><img src="spec_resources/img/block_concept.png" class="img-thumbnail" alt="The Block Concept" width="350"/></a><br/>
+            The Block Concept
+        </div>
+        <div class="col-sm-4">
+            <a href="spec_resources/img/message_concept.png"><img src="spec_resources/img/message_concept.png" class="img-thumbnail" alt="The Message Concept" width="350"/></a><br/>
+            The Message Concept
+        </div>
+    </div>
+
+    <h2>Concept hierarchies</h2>
     <div class="row">
       <div class="col-sm-4">
         <!-- Class tree -->
-        <h2>Classes</h2>
+        <h3>Classes</h3>
 
         <ul>
         {%- for class in classes_tree recursive %}
@@ -54,7 +71,7 @@
       </div>
       <div class="col-sm-4">
         <!-- Properties tree-->
-        <h2>Properties</h2>
+        <h3>Properties</h3>
         <ul>
         {%- for prop in properties_tree recursive %}
             <li><a class="label label-default" href="#{{ prop.slug }}">{{ prop.locale }}</a>

@@ -63,7 +63,7 @@ def main():
         p.RDFSlabel = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.label)])
         p.ETHONsuggestedStringRepresentation = ", ".join([x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)])
 
-    env = Environment(loader=FileSystemLoader('spec_templates'))
+    env = Environment(loader=FileSystemLoader('spec_resources/templates'))
     template = env.get_template('ethon_spec.html')
     site = template.render(
         meta=bootstrapDesc(onto),
