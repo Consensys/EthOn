@@ -79,7 +79,7 @@ def main():
         o_properties=onto.objectProperties
     )
 
-    with open("ethon_spec_template.html", "wb") as fh:
+    with open("ethon_spec.html", "wb") as fh:
         fh.write(site)
 
 main()
