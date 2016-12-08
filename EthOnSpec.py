@@ -67,7 +67,7 @@ def main():
         p.VOCABterm_status = ", ".join([x for x in p.rdfgraph.objects(p.uri, VOCAB.term_status)])
 
     env = Environment(loader=FileSystemLoader('spec_resources/templates'))
-    template = env.get_template('ethon_spec.html')
+    template = env.get_template('ethon_spec_template.html')
     site = template.render(
         meta=bootstrapDesc(onto),
         classes_tree=onto.toplayer,
@@ -79,7 +79,7 @@ def main():
         o_properties=onto.objectProperties
     )
 
-    with open("ethon_spec.html", "wb") as fh:
+    with open("ethon_spec_template.html", "wb") as fh:
         fh.write(site)
 
 main()
