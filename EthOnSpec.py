@@ -22,8 +22,9 @@ def bootstrapDesc(onto):
     VANNprefPrefix = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, VANN.preferredNamespacePrefix)])
     DCtitle = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.title)])
     VOCABterm_status = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, VOCAB.term_status)])
-    OWLimports = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.imports)])
+    OWLimports = [x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.imports)]
     OWLversionIRI = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.versionIRI)])
+    RDFSseeAlso = [x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.seeAlso)]
 
 
     RDFSlabel = "\n".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.label)])
@@ -42,7 +43,8 @@ def bootstrapDesc(onto):
         "term_status": VOCABterm_status,
         "imports": OWLimports,
         "versionIRI": OWLversionIRI,
-        "uri": onto.ontologyURI
+        "uri": onto.ontologyURI,
+        "seeAlso": RDFSseeAlso
     }
 
 def main():

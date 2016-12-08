@@ -48,7 +48,9 @@
         <dt>Term status</dt>
         <dd class="{{ status(meta.term_status) }}">{{ meta.term_status }}</dd>
         <dt>Imports</dt>
-        <dd><a href="{{ meta.imports }}">{{ meta.imports }}</a></dd>
+        <dd>{%- for uri in meta.imports %}<a href="{{ uri }}">{{ uri }}</a><br/>{%- endfor %}</dd>
+        <dt>See also</dt>
+        <dd>{%- for uri in meta.seeAlso %}<a href="{{ uri }}">{{ uri }}</a><br/>{%- endfor %}</dd>
     </dl>
     <h2 data-toc-skip>Table of contents</h2>
     <nav id="toc" data-toggle="toc"></nav>
