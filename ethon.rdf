@@ -14,11 +14,13 @@
     <owl:Ontology rdf:about="http://consensys.net/ethereum-ontology/">
         <owl:versionIRI rdf:resource="http://consensys.net/ethereum-ontology/1/"/>
         <owl:imports rdf:resource="http://www.w3.org/2003/06/sw-vocab-status/ns"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/ethereum/yellowpaper"/>
         <ns:term_status>testing</ns:term_status>
+        <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/White-Paper"/>
         <dc:creator rdf:resource="mailto:johannes.pfeffer@consensys.net"/>
         <dc:contributor>mailto:shahan.khatchadourian@consensys.net</dc:contributor>
+        <rdfs:comment xml:lang="en">The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language. It is closely aligned with Gavin Wood&apos;s Ethereum yellow paper.</rdfs:comment>
         <dc:title>EthOn - An Ethereum Ontology</dc:title>
-        <rdfs:comment xml:lang="en">The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language.</rdfs:comment>
         <vann:preferredNamespacePrefix>ethon</vann:preferredNamespacePrefix>
     </owl:Ontology>
     
@@ -39,6 +41,7 @@
 
     <owl:AnnotationProperty rdf:about="http://consensys.net/ethereum-ontology/EthOnAnnotationProperty">
         <rdfs:comment xml:lang="en">Superclass of all EthOn specific annotation properties.</rdfs:comment>
+        <ns:term_status>unstable</ns:term_status>
     </owl:AnnotationProperty>
     
 
