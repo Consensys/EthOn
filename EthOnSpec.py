@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # Command line tool for using alethio-scraper
 
-#TODO: show OWL:versionInfo for Ontology
-
 import argparse
 import ontospy
 from jinja2 import Environment, FileSystemLoader
@@ -26,15 +24,9 @@ def bootstrapDesc(onto):
     VOCABterm_status = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, VOCAB.term_status)])
     OWLimports = [x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.imports)]
     OWLversionIRI = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.versionIRI)])
+    OWLversionInfo = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.versionInfo)])
     RDFSseeAlso = [x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.seeAlso)]
-
-
-    RDFSlabel = "\n".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.label)])
     RDFScomment = "\n".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.comment)])
-
-    DCdescription = "\n".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.description)])
-    DCTERMSdescription = "\n".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, DCTERMS.description)])
-    DCTERMStitle = "\n".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, DCTERMS.description)])
 
     return {
         "comment": RDFScomment,
@@ -45,6 +37,7 @@ def bootstrapDesc(onto):
         "term_status": VOCABterm_status,
         "imports": OWLimports,
         "versionIRI": OWLversionIRI,
+        "versionInfo": OWLversionInfo,
         "uri": onto.ontologyURI,
         "seeAlso": RDFSseeAlso
     }
