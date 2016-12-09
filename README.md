@@ -39,7 +39,7 @@ Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
 WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
 ### 3. Look at the specification
-You can look at the specification that is generated automatically. Just clone the repo and open _ethon_spec.html_ in a browser.
+You can look at the specification that is generated automatically. Just clone the repo and open _EthOn_spec.html_ in a browser.
 
 There is also a fancy specification generator http://hacks.michelepasin.org/ontospy/. See https://github.com/lambdamusic/OntospyWeb.
 
