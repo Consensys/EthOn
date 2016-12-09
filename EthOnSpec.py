@@ -5,6 +5,12 @@ import argparse
 import ontospy
 from jinja2 import Environment, FileSystemLoader
 from rdflib import *
+import collections
+import string
+
+
+def slicedict(d, s):
+    return {k: v for k, v in d.iteritems() if k.startswith(s)}
 
 
 def bootstrapDesc(onto):
@@ -42,6 +48,35 @@ def bootstrapDesc(onto):
         "seeAlso": RDFSseeAlso
     }
 
+
+def merge_dicts(*dict_args):
+    """
+    Given any number of dicts, shallow copy and merge into a new dict,
+    precedence goes to key value pairs in latter dicts.
+    """
+    result = {}
+    for dictionary in dict_args:
+        result.update(dictionary)
+    return result
+
+
+def makeGlossary(onto):
+    terms = {}
+    glossary = collections.OrderedDict()
+    az = string.uppercase[:26]
+
+    for term in onto.classes:
+        terms[term.locale] = ", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
+    for term in onto.properties:
+        terms[term.locale] = ", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
+
+    for letter in az:
+        glossary[letter] = collections.OrderedDict(
+            sorted(merge_dicts(slicedict(terms, letter), slicedict(terms, letter.lower())).items()))
+
+    return glossary
+
+
 def main():
     ETHON = Namespace('http://consensys.net/ethereum-ontology/')
     VOCAB = Namespace('http://www.w3.org/2003/06/sw-vocab-status/ns#')
@@ -54,7 +89,8 @@ def main():
     for c in onto.classes:
         c.RDFScomment = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.comment)])
         c.RDFSlabel = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.label)])
-        c.ETHONsuggestedStringRepresentation = ", ".join([x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)])
+        c.ETHONsuggestedStringRepresentation = ", ".join(
+            [x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)])
         c.VOCABterm_status = ", ".join([x for x in c.rdfgraph.objects(c.uri, VOCAB.term_status)])
         c.RDFSseeAlso = [x for x in c.rdfgraph.objects(c.uri, RDFS.seeAlso)]
         c.RDFSisDefinedBy = [x for x in c.rdfgraph.objects(c.uri, RDFS.isDefinedBy)]
@@ -62,14 +98,17 @@ def main():
     for p in onto.properties:
         p.RDFScomment = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.comment)])
         p.RDFSlabel = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.label)])
-        p.ETHONsuggestedStringRepresentation = ", ".join([x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)])
+        p.ETHONsuggestedStringRepresentation = ", ".join(
+            [x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)])
         p.VOCABterm_status = ", ".join([x for x in p.rdfgraph.objects(p.uri, VOCAB.term_status)])
         p.RDFSseeAlso = [x for x in p.rdfgraph.objects(p.uri, RDFS.seeAlso)]
         p.RDFSisDefinedBy = [x for x in p.rdfgraph.objects(p.uri, RDFS.isDefinedBy)]
 
     env = Environment(loader=FileSystemLoader('spec_resources/templates'))
-    template = env.get_template('ethon_spec_template.html')
-    site = template.render(
+
+    # Render specification website
+    spec_template = env.get_template('EthOn_spec_template.html')
+    spec = spec_template.render(
         meta=bootstrapDesc(onto),
         classes_tree=onto.toplayer,
         properties_tree=onto.toplayerProperties,
@@ -79,8 +118,15 @@ def main():
         d_properties=onto.datatypeProperties,
         o_properties=onto.objectProperties
     )
+    with open("EthOn_spec.html", "wb") as fh:
+        fh.write(spec)
 
-    with open("ethon_spec.html", "wb") as fh:
-        fh.write(site)
+    # Render glossary
+    glossary_template = env.get_template('EthOn_glossary_template.md')
+    glossary = glossary_template.render(glossary=makeGlossary(onto))
+
+    with open("EthOn_glossary.md", "wb") as fh:
+        fh.write(glossary)
+
 
 main()
