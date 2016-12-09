@@ -257,7 +257,7 @@
     {% endfor %}
 
     <!-- Annotation Property list-->
-    <h2>Datatype Property descriptions <span class="badge">{{ a_properties|length }}</span></h2>
+    <h2>Annotation Property descriptions <span class="badge">{{ a_properties|length }}</span></h2>
     {% for prop in a_properties %}
         <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
         <p>{{ prop.RDFScomment }}</p>
@@ -292,14 +292,14 @@
                 <td class="col-md-2">Implies being a</td>
                 <td class="col-md-10">
                     {% for item in prop.domains %}
-                        <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                        <a class="label label-primary" href="#{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
             </tr>{% endif %}
             {% if prop.ranges %}<tr>
                 <td class="col-md-2">Every value is a</td>
                 <td class="col-md-10">
                     {% for item in prop.ranges %}
-                        <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
+                        <a class="label label-primary" href="#{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
             </tr>{% endif %}
         </table>
