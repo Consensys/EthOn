@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # Command line tool for using alethio-scraper
 
+#TODO: show only lines with values
+#TODO: show RDFS:seeAlso for Entities
+#TODO: show RDFS:isDefinedBy for Entities
+#TODO: show OWL:versionInfo for Ontology
+
 import argparse
 import ontospy
 from jinja2 import Environment, FileSystemLoader
@@ -52,7 +57,7 @@ def main():
     VOCAB = Namespace('http://www.w3.org/2003/06/sw-vocab-status/ns#')
     ontospy.BOOTSTRAP_ONTOLOGIES.append('http://consensys.net/ethereum-ontology/')
 
-    onto = ontospy.Ontospy("ethon.rdf")
+    onto = ontospy.Ontospy("EthOn.rdf")
     onto.ontologyURI = onto.ontologies[0].uri
     onto.namespaces.append(("ethon", URIRef("http://consensys.net/ethereum-ontology/")))
 
