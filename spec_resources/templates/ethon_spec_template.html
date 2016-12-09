@@ -113,46 +113,46 @@
         <h3 id="{{ class.slug }}">{{ class.locale }}</h3>
         <p>{{ class.RDFScomment }}</p>
         <table class="table table-striped">
-            <tr>
+            {% if class.VOCABterm_status %}<tr>
                 <td class="col-md-2">Status</td>
                 <td class="col-md-10 {{ status(class.VOCABterm_status) }}">{{ class.VOCABterm_status }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if class.uri %}<tr>
                 <td class="col-md-2">URI</td>
                 <td class="col-md-10"><a href="{{ class.uri }}">{{ class.uri }}</a></td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if class.ETHONsuggestedStringRepresentation %}<tr>
                 <td class="col-md-2">Suggested string</td>
                 <td class="col-md-10">{{ class.ETHONsuggestedStringRepresentation }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if class._parents %}<tr>
                 <td class="col-md-2">Superclasses</td>
                 <td class="col-md-10">
                     {% for item in class._parents %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if class._children %}<tr>
                 <td class="col-md-2">Subclasses</td>
                 <td class="col-md-10">
                     {% for item in class._children %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if class.domain_of %}<tr>
                 <td class="col-md-2">Properties include</td>
                 <td class="col-md-10">
                     {% for item in class.domain_of %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if class.range_of %}<tr>
                 <td class="col-md-2">Used with</td>
                 <td class="col-md-10">
                     {% for item in class.range_of %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
+            </tr>{% endif %}
         </table>
     {% endfor %}
 
@@ -163,46 +163,46 @@
         <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
         <p>{{ prop.RDFScomment }}</p>
         <table class="table table-striped">
-            <tr>
+            {% if prop.VOCABterm_status %}<tr>
                 <td class="col-md-2">Status</td>
                 <td class="col-md-10 {{ status(prop.VOCABterm_status) }}">{{ prop.VOCABterm_status }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.uri %}<tr>
                 <td class="col-md-2">URI</td>
                 <td class="col-md-10"><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.ETHONsuggestedStringRepresentation %}<tr>
                 <td class="col-md-2">Suggested string</td>
                 <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop._parents %}<tr>
                 <td class="col-md-2">Superclasses</td>
                 <td class="col-md-10">
                     {% for item in prop._parents %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop._children %}<tr>
                 <td class="col-md-2">Subclasses</td>
                 <td class="col-md-10">
                     {% for item in prop._children %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.domains %}<tr>
                 <td class="col-md-2">Implies being a</td>
                 <td class="col-md-10">
                     {% for item in prop.domains %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.ranges %}<tr>
                 <td class="col-md-2">Every value is a</td>
                 <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
+            </tr>{% endif %}
         </table>
     {% endfor %}
 
@@ -213,46 +213,46 @@
         <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
         <p>{{ prop.RDFScomment }}</p>
         <table class="table table-striped">
-            <tr>
+            {% if prop.VOCABterm_status %}<tr>
                 <td class="col-md-2">Status</td>
                 <td class="col-md-10 {{ status(prop.VOCABterm_status) }}">{{ prop.VOCABterm_status }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.uri %}<tr>
                 <td class="col-md-2">URI</td>
                 <td class="col-md-10"><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.ETHONsuggestedStringRepresentation %}<tr>
                 <td class="col-md-2">Suggested string</td>
                 <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop._parents %}<tr>
                 <td class="col-md-2">Superclasses</td>
                 <td class="col-md-10">
                     {% for item in prop._parents %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop._children %}<tr>
                 <td class="col-md-2">Subclasses</td>
                 <td class="col-md-10">
                     {% for item in prop._children %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.domains %}<tr>
                 <td class="col-md-2">Implies being a</td>
                 <td class="col-md-10">
                     {% for item in prop.domains %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.ranges %}<tr>
                 <td class="col-md-2">Every value is a</td>
                 <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
-            </tr>
+            </tr>{% endif %}
         </table>
     {% endfor %}
 
@@ -262,46 +262,46 @@
         <h3 id="{{ prop.slug }}">{{ prop.locale }}</h3>
         <p>{{ prop.RDFScomment }}</p>
         <table class="table table-striped">
-            <tr>
+            {% if prop.VOCABterm_status %}<tr>
                 <td class="col-md-2">Status</td>
                 <td class="col-md-10  {{ status(prop.VOCABterm_status) }}">{{ prop.VOCABterm_status }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.uri %}<tr>
                 <td class="col-md-2">URI</td>
                 <td class="col-md-10"><a href="{{ prop.uri }}">{{ prop.uri }}</a></td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.ETHONsuggestedStringRepresentation %}<tr>
                 <td class="col-md-2">Suggested string</td>
                 <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop._parents %}<tr>
                 <td class="col-md-2">Superclasses</td>
                 <td class="col-md-10">
                     {% for item in prop._parents %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop._children %}<tr>
                 <td class="col-md-2">Subclasses</td>
                 <td class="col-md-10">
                     {% for item in prop._children %}
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.domains %}<tr>
                 <td class="col-md-2">Implies being a</td>
                 <td class="col-md-10">
                     {% for item in prop.domains %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
-            </tr>
-            <tr>
+            </tr>{% endif %}
+            {% if prop.ranges %}<tr>
                 <td class="col-md-2">Every value is a</td>
                 <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
-            </tr>
+            </tr>{% endif %}
         </table>
     {% endfor %}
 </div>
