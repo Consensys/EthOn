@@ -1,5 +1,5 @@
 # EthOn Glossary
-This glossary is compiled of the _rdfs:comment_ annotations of the EthOn ontology.
+This glossary is compiled from the _rdfs:comment_ annotations of the EthOn ontology.
 ## A
 ### Account
 Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of account: those with empty associated EVM Code (thus the account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the account represents an Autonomous Object). Each Account has a single Address that identifies it.
