@@ -21,6 +21,7 @@
         <dc:contributor>mailto:shahan.khatchadourian@consensys.net</dc:contributor>
         <rdfs:comment xml:lang="en">The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language. It is closely aligned with Gavin Wood&apos;s Ethereum yellow paper.</rdfs:comment>
         <dc:title>EthOn - An Ethereum Ontology</dc:title>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</owl:versionInfo>
         <vann:preferredNamespacePrefix>ethon</vann:preferredNamespacePrefix>
     </owl:Ontology>
     
@@ -1234,7 +1235,9 @@
 
     <!-- http://xmlns.com/foaf/0.1/Agent -->
 
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </owl:Class>
     
 
 
