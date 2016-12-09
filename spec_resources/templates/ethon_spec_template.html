@@ -153,6 +153,20 @@
                         <a class="label label-default" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
                 </td>
             </tr>{% endif %}
+            {% if class.RDFSisDefinedBy %}<tr>
+                <td class="col-md-2">Is defined by</td>
+                <td class="col-md-10">
+                    {% for item in class.RDFSisDefinedBy %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
+            {% if class.seeAlso %}<tr>
+                <td class="col-md-2">See also</td>
+                <td class="col-md-10">
+                    {% for item in class.seeAlso %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
         </table>
     {% endfor %}
 
@@ -201,6 +215,20 @@
                 <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="#{{ item.slug }}">{{ item.locale }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
+            {% if prop.RDFSisDefinedBy %}<tr>
+                <td class="col-md-2">Is defined by</td>
+                <td class="col-md-10">
+                    {% for item in prop.RDFSisDefinedBy %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
+            {% if prop.seeAlso %}<tr>
+                <td class="col-md-2">See also</td>
+                <td class="col-md-10">
+                    {% for item in prop.seeAlso %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
             </tr>{% endif %}
         </table>
@@ -253,6 +281,20 @@
                         <a class="label label-primary" href="{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
             </tr>{% endif %}
+            {% if prop.RDFSisDefinedBy %}<tr>
+                <td class="col-md-2">Is defined by</td>
+                <td class="col-md-10">
+                    {% for item in prop.RDFSisDefinedBy %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
+            {% if prop.seeAlso %}<tr>
+                <td class="col-md-2">See also</td>
+                <td class="col-md-10">
+                    {% for item in prop.seeAlso %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
         </table>
     {% endfor %}
 
@@ -300,6 +342,20 @@
                 <td class="col-md-10">
                     {% for item in prop.ranges %}
                         <a class="label label-primary" href="#{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
+            {% if prop.RDFSisDefinedBy %}<tr>
+                <td class="col-md-2">Is defined by</td>
+                <td class="col-md-10">
+                    {% for item in prop.RDFSisDefinedBy %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
+                </td>
+            </tr>{% endif %}
+            {% if prop.seeAlso %}<tr>
+                <td class="col-md-2">See also</td>
+                <td class="col-md-10">
+                    {% for item in prop.seeAlso %}
+                        <a class="label label-default" href="#{{ item }}">{{ item }}</a> {% endfor %}
                 </td>
             </tr>{% endif %}
         </table>

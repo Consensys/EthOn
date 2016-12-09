@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # Command line tool for using alethio-scraper
 
-#TODO: show only lines with values
-#TODO: show RDFS:seeAlso for Entities
-#TODO: show RDFS:isDefinedBy for Entities
 #TODO: show OWL:versionInfo for Ontology
 
 import argparse
@@ -66,12 +63,16 @@ def main():
         c.RDFSlabel = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.label)])
         c.ETHONsuggestedStringRepresentation = ", ".join([x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)])
         c.VOCABterm_status = ", ".join([x for x in c.rdfgraph.objects(c.uri, VOCAB.term_status)])
+        c.RDFSseeAlso = [x for x in c.rdfgraph.objects(c.uri, RDFS.seeAlso)]
+        c.RDFSisDefinedBy = [x for x in c.rdfgraph.objects(c.uri, RDFS.isDefinedBy)]
 
     for p in onto.properties:
         p.RDFScomment = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.comment)])
         p.RDFSlabel = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.label)])
         p.ETHONsuggestedStringRepresentation = ", ".join([x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)])
         p.VOCABterm_status = ", ".join([x for x in p.rdfgraph.objects(p.uri, VOCAB.term_status)])
+        p.RDFSseeAlso = [x for x in p.rdfgraph.objects(p.uri, RDFS.seeAlso)]
+        p.RDFSisDefinedBy = [x for x in p.rdfgraph.objects(p.uri, RDFS.isDefinedBy)]
 
     env = Environment(loader=FileSystemLoader('spec_resources/templates'))
     template = env.get_template('ethon_spec_template.html')
