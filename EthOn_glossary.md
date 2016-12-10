@@ -85,7 +85,7 @@ A scalar value equal to the total gas used in transactions in this block.
 ### hasAccountStorage
 Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.
 ### hasCurrentState
-This property relates an EthOn concept to its most current state., has current State
+has current State, This property relates an EthOn concept to its most current state.
 ### hasHeader
 Relates a Block to its Block Header. The property is functional because a Block can have only exactly one Block Header and it is also inverse functionals because a Block header can only be associated with exactly one Block.
 ### hasState
