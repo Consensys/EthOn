@@ -4,8 +4,8 @@ _An Ethereum ontology that is closely aligned with the [Ethereum yellow paper](h
 __Contributors:__
 * Johannes Pfeffer (ontology engineering)
 * Shahan Khatchadourian (ontology engineering)
-* Herman Junge (domain knowledge)
-* Maurycy (domain knowledge)
+* Herman Junge (requirements, ethereum knowledge)
+* Maurycy (requirements, ethereum knowledge)
 * Marian Oancea (domain knowledge)
 * Casey Detrio cdetrio@gmail.com (ethereum internals)
 * Alex Beregszaszi (ethereum internals)
