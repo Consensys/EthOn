@@ -22,6 +22,41 @@ EthOn can be used
 * to semantically annotate content provided by Ethereum based tools and dApps (e.g. block explorers, analysis tools, markets, ...)
 (incomplete list)
 
+## Examples
+### Describing an Account
+
+    ethereum:Account0000000000000000000000000000000000000000
+        a ethon:Account ;
+        rdfs:label "Genesis Address" ;
+        ethon:address "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
+        ethon:hasState ethereum:AccountState0 ;
+        rdfs:seeAlso <https://etherscan.io/address/0x0000000000000000000000000000000000000000> .
+    
+    ethereum:AccountState0
+        ethon:accountBalance 0 ;
+        ethon:accountNonce 0 .
+        
+
+### Describing a Block
+Among other things, EthOn can be used to formally describe Ethereum artefacts. 
+The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description of the Genesis Block of the current Ethereum main net.
+
+    ethereum:Block0
+        a ethon:Block ;
+        rdfs:label "Genesis Block" ;
+        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain."
+        ethon:hasHeader ethon:BlockHeader0 ;
+        ethon:blockReward 5000000000000000000 ;
+        rdfs:seeAlso <https://etherscan.io/block/0> .
+        
+    ethereum:BlockHeader0
+        a ethon:Blockheader ;
+        ethon:number 0 ;
+        ethon:beneficary "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
+        ethon:gasLimit 5000 ;
+        [...]
+        ethon:blockNonce "0000000000000042"^^xsd:hexBinary .
+
 ## 4 approaches to understanding EthOn
 ### 1. Look at the concept illustrations
 #### Account concept
