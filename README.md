@@ -54,15 +54,15 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         rdfs:seeAlso <https://etherscan.io/block/0> .
 
 ## 4 approaches to understanding EthOn
-### 1. Look at the concept illustrations
+### 1. Look at the concept and modelling illustrations
 #### Account concept
-![Account concept](https://github.com/ConsenSys/ethereum-ontology/blob/master/spec_resources/img/account_concept.png)
+![Account concept](doc_resources/img/account_concept.png)
 #### Block concept
-![Block concept](https://github.com/ConsenSys/ethereum-ontology/blob/master/spec_resources/img/block_concept.png)
+![Modelling blocks](doc_resources/img/block_concept.png)
 #### Message concept
-![Message concept](https://github.com/ConsenSys/ethereum-ontology/blob/master/spec_resources/img/message_concept.png)
+![Message concept](doc_resources/img/message_concept.png)
 #### Illustration key
-![Illustration key](https://github.com/ConsenSys/ethereum-ontology/blob/master/spec_resources/img/key.png)
+![Illustration key](doc_resources/img/key.png)
 
 ### 2. Visualize the Ontology
 Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
