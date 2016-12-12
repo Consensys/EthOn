@@ -44,18 +44,14 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
     ethereum:Block0
         a ethon:Block ;
         rdfs:label "Genesis Block" ;
-        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain."
-        ethon:hasHeader ethon:BlockHeader0 ;
-        ethon:blockReward 5000000000000000000 ;
-        rdfs:seeAlso <https://etherscan.io/block/0> .
-        
-    ethereum:BlockHeader0
-        a ethon:Blockheader ;
+        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain. ;
         ethon:number 0 ;
-        ethon:beneficary "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
+        ethon:blockBeneficary ethereum:Account0000000000000000000000000000000000000000 ;
+        ethon:blockReward 5000000000000000000 ;
         ethon:gasLimit 5000 ;
+        ethon:blockNonce "0000000000000042"^^xsd:hexBinary ;
         [...]
-        ethon:blockNonce "0000000000000042"^^xsd:hexBinary .
+        rdfs:seeAlso <https://etherscan.io/block/0> .
 
 ## 4 approaches to understanding EthOn
 ### 1. Look at the concept illustrations
