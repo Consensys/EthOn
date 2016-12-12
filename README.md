@@ -63,8 +63,9 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
 ![Modelling blocks](doc_resources/img/block_modeling_scheme.png)
 #### Message concept
 ![Message concept](doc_resources/img/message_concept.png)
-#### State Transition concept
-![State Transition concept](doc_resources/img/state_transition_concept.png)
+#### State Transition concept and modeling scheme
+![State Transition concept](doc_resources/img/transition_concept.png)
+![State Transition modeling scheme](doc_resources/img/transition_modeling_scheme.png)
 #### Network concept and modeling scheme
 ![State Transition concept](doc_resources/img/network_concept.png)
 
