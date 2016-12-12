@@ -23,6 +23,8 @@ EthOn can be used
 (incomplete list)
 
 ## Examples
+Among other things, EthOn can be used to formally describe Ethereum artefacts. 
+The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description of the Genesis Block of the current Ethereum main net.
 ### Describing an Account
 
     ethereum:Account0000000000000000000000000000000000000000
@@ -38,8 +40,6 @@ EthOn can be used
         
 
 ### Describing a Block
-Among other things, EthOn can be used to formally describe Ethereum artefacts. 
-The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description of the Genesis Block of the current Ethereum main net.
 
     ethereum:Block0
         a ethon:Block ;
