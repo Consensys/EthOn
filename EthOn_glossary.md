@@ -109,7 +109,7 @@ An account owned by an External Actor.
 A person or other entity able to interface to an Ethereum node, but external to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.
 ## F
 ### FullNode
-Ethereum Full Node, A Full Node is a participant in an Ethereum Network that keeps a record of the full blockchain, the full state and engages in mining.
+A Full Node is a participant in an Ethereum Network that keeps a record of the full blockchain, the full state and engages in mining., Ethereum Full Node
 ### from
 Relates a Message with the Account it originates from.
 ## G
