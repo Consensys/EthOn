@@ -104,7 +104,7 @@ def main():
         p.RDFSseeAlso = [x for x in p.rdfgraph.objects(p.uri, RDFS.seeAlso)]
         p.RDFSisDefinedBy = [x for x in p.rdfgraph.objects(p.uri, RDFS.isDefinedBy)]
 
-    env = Environment(loader=FileSystemLoader('spec_resources/templates'))
+    env = Environment(loader=FileSystemLoader('doc_resources/templates'))
 
     # Render specification website
     spec_template = env.get_template('EthOn_spec_template.html')
