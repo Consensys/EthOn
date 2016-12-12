@@ -71,7 +71,7 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
 
 ### 2. Visualize the Ontology
 Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
-[It should be enough to click this link](http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/ethon.rdf?token=ABeN2FXA5BqQMkSypsnxRyvsbDQwgZGKks5YUVL0wA%3D%3D). 
+[It should be enough to click this link](https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf?token=ABeN2BS6JNYwG2ADzI7vBJihTu02xpgjks5YWBKpwA%3D%3D). 
 WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
 ### 3. Look at the specification
