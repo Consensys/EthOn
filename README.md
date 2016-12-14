@@ -57,6 +57,8 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
 ### 1. Look at the concept and modelling illustrations
 #### Illustration key
 ![Illustration key](doc_resources/img/key.png)
+#### Simplified EthOn model of Ethereum
+![EthOn model](doc_resources/img/EthOn_model.png)
 #### Account concept
 ![Account concept](doc_resources/img/account_concept.png)
 #### Block modeling scheme
