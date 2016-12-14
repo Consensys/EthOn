@@ -94,10 +94,12 @@ EthOn matures. The axioms can be used with reasoners to infer information from d
 ### Example: _Block_ axioms
 
 __Informal statement:__ _Blocks_ have exactly one property _blockHash_ of type _xsd:hexBinary_.  
-__EthOn axiom__ in [Manchester Syntax](https://www.w3.org/TR/owl2-manchester-syntax/): `blockHash exactly 1 xsd:hexBinary SubClassOf Block`
+__EthOn axiom__ in [Manchester Syntax](https://www.w3.org/TR/owl2-manchester-syntax/): `Class: Block SubClassOf: blockHash exactly 1 xsd:hexBinary SubClassOf Block`
   
-To be exact the axiom states "A Block is a subclass of all things that have exactly one _blockHash_ property with a value of type _xsd:hexBinary_".
-Something that doesn't have such a property may still be a _Block_. We don't know, maybe it's just one that is not as well described (see [open world assumption](https://en.wikipedia.org/wiki/Open-world_assumption)).
+To be exact the axiom states "A Block is a subclass of the theoretical class of 'all things that have exactly one _blockHash_ property with a value of type _xsd:hexBinary_'".
+We have specified a necessary but not sufficient condition. We are saying there might be other things that have a _blockHash_ and are not _Blocks_. 
+
+Also, something that doesn't have such a property may still be a _Block_. We don't know, maybe it's just one that is not as well described (see [open world assumption](https://en.wikipedia.org/wiki/Open-world_assumption)).
 
 __Informal statement:__ _Blocks_ with a _number_ of 0 are _Genesis Blocks_.  
 __EthOn axiom__: `Block and (number some {"0"^^xsd:int}) EquivalentTo GenesisBlock`
