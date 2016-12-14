@@ -1,6 +1,8 @@
 # EthOn - An Ethereum Ontology
 _An Ethereum ontology that is closely aligned with the [Ethereum yellow paper](https://github.com/ethereum/yellowpaper)._
 
+An ontology is a formalization of concepts and relations within a domain.
+EthOn is written in [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) and [OWL](OWL).
 __Contributors:__
 * Johannes Pfeffer (ontology engineering)
 * Shahan Khatchadourian (ontology engineering)
@@ -53,7 +55,7 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         [...]
         rdfs:seeAlso <https://etherscan.io/block/0> .
 
-## 4 approaches to understanding EthOn
+## Four approaches to understanding EthOn
 ### 1. Look at the concept and modelling illustrations
 #### Illustration key
 ![Illustration key](doc_resources/img/key.png)
@@ -83,3 +85,19 @@ There is also a fancy specification generator http://hacks.michelepasin.org/onto
 
 ### 4. Open the ontology in Protégé
 Download [Protégé](http://protege.stanford.edu/) and open the ontology file to browse around and view all assertions.
+
+## Axioms and constraints
+Axioms are sentences in [description logic](https://en.wikipedia.org/wiki/Description_logic) statements. 
+At this early stage only a few axioms have been defined in EthOn. The expressiveness will increase as the structure of
+EthOn matures. The axioms can be used with reasoners to infer information from data. You can best have a look at them if you open EthOn in Protégé (see above).
+
+### Example: A _Block_ axiom
+
+Informal statement: _Blocks_ hava exactly one property _blockHash_ of type _xsd:hexBinary_.  
+EthOn Axiom in [Manchester Syntax](https://www.w3.org/TR/owl2-manchester-syntax/): `Class: Block SubClassOf: blockHash exactly 1 xsd:hexBinary`  
+To be exact the axiom states "A Block is a subclass of all things that have exactly one _blockHash_ property with a value of type _xsd:hexBinary_".
+
+Something that doesn't have such a property may still be a _Block_, we don't know, maybe it's just one that is not as well described (see [open world assumption](https://en.wikipedia.org/wiki/Open-world_assumption)).
+
+## Why EthOn?
+Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
