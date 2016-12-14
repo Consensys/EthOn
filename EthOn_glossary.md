@@ -78,6 +78,8 @@ Relates a create transaction to the Contract Account it creates.
 ### createsState
 Relates a Transition to the State it creates.
 ## D
+### DASE_RULE
+
 ## E
 ### EthOnAccountDataProperty
 Groups all Data Properties that are specific to an Account.
@@ -113,10 +115,12 @@ An Account owned by an External Actor.
 A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination.
 ## F
 ### FullNode
-A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining., Ethereum Full Node
+Ethereum Full Node, A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining.
 ### from
 Relates a Message with the Account it originates from.
 ## G
+### GenesisBlock
+A Genesis Block is the unmined, deliberately created, very first Block in a Blockchain. It has no predecessors, i.e. no parent Block.
 ## H
 ### hasAccountStorage
 Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.
