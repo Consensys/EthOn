@@ -91,13 +91,16 @@ Axioms are sentences in [description logic](https://en.wikipedia.org/wiki/Descri
 At this early stage only a few axioms have been defined in EthOn. The expressiveness will increase as the structure of
 EthOn matures. The axioms can be used with reasoners to infer information from data. You can best have a look at them if you open EthOn in Protégé (see above).
 
-### Example: A _Block_ axiom
+### Example: _Block_ axioms
 
-Informal statement: _Blocks_ hava exactly one property _blockHash_ of type _xsd:hexBinary_.  
-EthOn Axiom in [Manchester Syntax](https://www.w3.org/TR/owl2-manchester-syntax/): `Class: Block SubClassOf: blockHash exactly 1 xsd:hexBinary`  
+__Informal statement:__ _Blocks_ have exactly one property _blockHash_ of type _xsd:hexBinary_.  
+__EthOn axiom__ in [Manchester Syntax](https://www.w3.org/TR/owl2-manchester-syntax/): `blockHash exactly 1 xsd:hexBinary SubClassOf Block`
+  
 To be exact the axiom states "A Block is a subclass of all things that have exactly one _blockHash_ property with a value of type _xsd:hexBinary_".
+Something that doesn't have such a property may still be a _Block_. We don't know, maybe it's just one that is not as well described (see [open world assumption](https://en.wikipedia.org/wiki/Open-world_assumption)).
 
-Something that doesn't have such a property may still be a _Block_, we don't know, maybe it's just one that is not as well described (see [open world assumption](https://en.wikipedia.org/wiki/Open-world_assumption)).
+__Informal statement:__ _Blocks_ with a _number_ of 0 are _Genesis Blocks_.  
+__EthOn axiom__: `Block and (number some {"0"^^xsd:int}) SubClassOf GenesisBlock`
 
 ## Why EthOn?
 Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
