@@ -1253,12 +1253,60 @@
     <!-- http://consensys.net/ethereum-ontology/GenesisBlock -->
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/GenesisBlock">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Block"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/number"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
         <suggestedStringRepresentation>GenesisBlock</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Genesis Block is the unmined, deliberately created, very first Block in a Blockchain. It has no predecessors, i.e. no parent Block.</rdfs:comment>
         <rdfs:label xml:lang="en">Genesis Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/GenesisBlock"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#equivalentClass"/>
+        <owl:annotatedTarget>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Block"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/number"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:oneOf>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </owl:oneOf>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R1___Block(?b)^number(?b,0)-&gt;GenesisBlock(?b)___</DASE_RULE>
+        <rdfs:comment xml:lang="en">Blocks with a number of 0 are Genesis Blocks.</rdfs:comment>
+    </owl:Axiom>
     
 
 
@@ -1633,33 +1681,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:Axiom>
-        <owl:annotatedSource>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Block"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/number"/>
-                        <owl:someValuesFrom>
-                            <rdfs:Datatype>
-                                <owl:oneOf>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</rdf:first>
-                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    </rdf:Description>
-                                </owl:oneOf>
-                            </rdfs:Datatype>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-                <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/GenesisBlock"/>
-            </owl:Class>
-        </owl:annotatedSource>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/GenesisBlock"/>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R1___Block(?b)^number(?b,0)-&gt;GenesisBlock(?b)___</DASE_RULE>
-    </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource>
             <owl:Restriction>

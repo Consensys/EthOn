@@ -100,7 +100,7 @@ To be exact the axiom states "A Block is a subclass of all things that have exac
 Something that doesn't have such a property may still be a _Block_. We don't know, maybe it's just one that is not as well described (see [open world assumption](https://en.wikipedia.org/wiki/Open-world_assumption)).
 
 __Informal statement:__ _Blocks_ with a _number_ of 0 are _Genesis Blocks_.  
-__EthOn axiom__: `Block and (number some {"0"^^xsd:int}) SubClassOf GenesisBlock`
+__EthOn axiom__: `Block and (number some {"0"^^xsd:int}) EquivalentTo GenesisBlock`
 
 ## Why "EthOn"?
 Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
