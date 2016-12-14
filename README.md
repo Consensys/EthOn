@@ -57,10 +57,10 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
 
 ## Four approaches to understanding EthOn
 ### 1. Look at the concept and modelling illustrations
-#### Illustration key
-![Illustration key](doc_resources/img/key.png)
 #### Simplified EthOn model of Ethereum
 ![EthOn model](doc_resources/img/EthOn_model.png)
+#### Illustration key
+![Illustration key](doc_resources/img/key.png)
 #### Account concept
 ![Account concept](doc_resources/img/account_concept.png)
 #### Block modeling scheme
@@ -102,5 +102,5 @@ Something that doesn't have such a property may still be a _Block_. We don't kno
 __Informal statement:__ _Blocks_ with a _number_ of 0 are _Genesis Blocks_.  
 __EthOn axiom__: `Block and (number some {"0"^^xsd:int}) SubClassOf GenesisBlock`
 
-## Why EthOn?
+## Why "EthOn"?
 Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
