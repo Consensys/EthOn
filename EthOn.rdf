@@ -1120,7 +1120,7 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/AccountState">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/AccountConcept"/>
-        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/State"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/SubState"/>
         <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states.</rdfs:comment>
         <rdfs:label xml:lang="en">Account State</rdfs:label>
@@ -1220,7 +1220,10 @@
                 <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <suggestedStringRepresentation>CallContractMsg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Call Contract Message is a Contract Message that calls a function in another Contract.</rdfs:comment>
+        <rdfs:label xml:lang="en">Call Contract Message</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/CallContractMsg"/>
@@ -1248,6 +1251,10 @@
                 <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <suggestedStringRepresentation>CallTx</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A type of Transaction that is directed towards a Contract Account and calls a method in the Contract&apos;s code.</rdfs:comment>
+        <rdfs:label xml:lang="en">Call Transaction</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/CallTx"/>
@@ -1289,7 +1296,10 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
+        <suggestedStringRepresentation>ContractMsg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Contract Message</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/ContractMsg"/>
@@ -1317,7 +1327,10 @@
                 <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <suggestedStringRepresentation>CreateContractMsg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A create Contract Message is a special type of Contract Message that results in creation of a new Contract.</rdfs:comment>
+        <rdfs:label xml:lang="en">Create Contract Message</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/CreateContractMsg"/>
@@ -1345,6 +1358,10 @@
                 <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <suggestedStringRepresentation>CreateTx</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A type of Transaction that results in creation of a new Contract Account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Create Transaction</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/CreateTx"/>
@@ -1532,10 +1549,12 @@
     <!-- http://consensys.net/ethereum-ontology/Msg -->
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Msg">
-        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MessageConcept"/>
         <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/TxReceipt"/>
+        <suggestedStringRepresentation>Msg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Message</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
 
@@ -1636,9 +1655,12 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/State">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateConcept"/>
+        <suggestedStringRepresentation>State</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The concept of a state in a generic state transition system.</rdfs:comment>
+        <rdfs:label xml:lang="en">State</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Transition_system"/>
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/State_(computer_science)"/>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
 
@@ -1657,10 +1679,24 @@
     <!-- http://consensys.net/ethereum-ontology/StateTransition -->
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/StateTransition">
-        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateConcept"/>
+        <suggestedStringRepresentation>StateTransition</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The concept of a transition in a state transition system.</rdfs:comment>
         <rdfs:label xml:lang="en">State Transition</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Transition_system"/>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/SubState -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/SubState">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/State"/>
+        <suggestedStringRepresentation>SubState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Substate in the State hierachry. The semantics associated with State nesting are as follows: If a system is in the Substate, it also (implicitly) is in the surrounding State (Superstate).</rdfs:comment>
+        <rdfs:label xml:lang="en">Sub State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
 
@@ -1676,6 +1712,8 @@
                 <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/ExternalAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <suggestedStringRepresentation>Tx</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Transactions represent a valid arc between two states. A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. While is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1731,7 +1769,10 @@
                 <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/ExternalAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <suggestedStringRepresentation>ValueContractMsg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Value Contract Messages go from a Contract to an External Account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Value Contract Message</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/ValueContractMsg"/>
@@ -1758,6 +1799,10 @@
                 <owl:someValuesFrom rdf:resource="http://consensys.net/ethereum-ontology/ExternalAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <suggestedStringRepresentation>ValueTx</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A type of Transaction that transfers only value.</rdfs:comment>
+        <rdfs:label xml:lang="en">Value Transaction</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/ValueTx"/>
