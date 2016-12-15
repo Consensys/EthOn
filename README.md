@@ -56,24 +56,10 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         rdfs:seeAlso <https://etherscan.io/block/0> .
 
 ## Four approaches to understanding EthOn
-### 1. Look at the concept and modelling illustrations
-#### Simplified EthOn model of Ethereum
+### 1. Look at simplified EthOn model of Ethereum
 ![EthOn model](doc_resources/img/EthOn_model.png)
-#### Illustration key
-![Illustration key](doc_resources/img/key.png)
-#### Account concept
-![Account concept](doc_resources/img/account_concept.png)
-#### Block modeling scheme
-![Modelling blocks](doc_resources/img/block_modeling_scheme.png)
-#### Message, Transaction Receipt and Log concepts
-![Message concept](doc_resources/img/message_concept.png)
-![Transaction Receipt concept](doc_resources/img/tx_receipt_concept.png)
-![Log concept](doc_resources/img/log_concept.png)
-#### State Transition concept and modeling scheme
-![State Transition concept](doc_resources/img/transition_concept.png)
-![State Transition modeling scheme](doc_resources/img/transition_modeling_scheme.png)
-#### Network concept and modeling scheme
-![State Transition concept](doc_resources/img/network_concept.png)
+
+Find more illustrations here: [EthOn illustrations](EthOn_illustrations.md)
 
 ### 2. Visualize the Ontology
 Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
