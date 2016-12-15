@@ -1120,9 +1120,9 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/AccountState">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/AccountConcept"/>
-        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/SubState"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/State"/>
         <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states.</rdfs:comment>
+        <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State.</rdfs:comment>
         <rdfs:label xml:lang="en">Account State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1159,6 +1159,7 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Block">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/BlockConcept"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/blockHash"/>
@@ -1625,6 +1626,30 @@
     
 
 
+    <!-- http://consensys.net/ethereum-ontology/PostBlockState -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/PostBlockState">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/PostTxState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/PostMsgState -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/PostMsgState">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/WorldState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/PostTxState -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/PostTxState">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/PostMsgState"/>
+    </owl:Class>
+    
+
+
     <!-- http://consensys.net/ethereum-ontology/ProtocollVariant -->
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/ProtocollVariant">
@@ -1684,18 +1709,6 @@
         <rdfs:comment xml:lang="en">The concept of a transition in a state transition system.</rdfs:comment>
         <rdfs:label xml:lang="en">State Transition</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Transition_system"/>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    
-
-
-    <!-- http://consensys.net/ethereum-ontology/SubState -->
-
-    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/SubState">
-        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/State"/>
-        <suggestedStringRepresentation>SubState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Substate in the State hierachry. The semantics associated with State nesting are as follows: If a system is in the Substate, it also (implicitly) is in the surrounding State (Superstate).</rdfs:comment>
-        <rdfs:label xml:lang="en">Sub State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     

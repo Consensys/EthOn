@@ -10,7 +10,7 @@ Groups all Data Properties that are specific to an Account.
 ### AccountObjectProperty
 Groups all EthOn Account Object Properties
 ### AccountState
-State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states.
+State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State.
 ### AccountStorage
 A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account's code, but the execution state of the code. The Account's code is stored in the
 ### Agent
@@ -186,6 +186,12 @@ A scalar value equal to the number of ancestor Blocks. The genesis Block has a n
 ### Ommer
 An Ommer.
 ## P
+### PostBlockState
+
+### PostMsgState
+
+### PostTxState
+
 ### ProtocollVariant
 A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork.
 ### partOf
@@ -211,8 +217,6 @@ Groups EthOn concepts related to state.
 Groups all EthOn State Object Properties.
 ### StateTransition
 The concept of a transition in a state transition system.
-### SubState
-Substate in the State hierachry. The semantics associated with State nesting are as follows: If a system is in the Substate, it also (implicitly) is in the surrounding State (Superstate).
 ### stateRoot
 The Keccak 256-bit hash of the root node of the state trie, after all transactions are executed and finalisations applied.
 ### storageRoot

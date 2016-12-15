@@ -36,7 +36,7 @@
         <dt>Creators</dt>
         <dd>mailto:johannes.pfeffer@consensys.net</dd>
         <dt>Contributors</dt>
-        <dd>mailto:herman.junge@consensys.net, mailto:shahan.khatchadourian@consensys.net</dd>
+        <dd>mailto:shahan.khatchadourian@consensys.net, mailto:herman.junge@consensys.net</dd>
         <dt>Preferred prefix</dt>
         <dd>ethon</dd>
         <dt>Term status</dt>
@@ -46,7 +46,7 @@
         <dt>Imports</dt>
         <dd><a href="http://www.w3.org/2003/06/sw-vocab-status/ns">http://www.w3.org/2003/06/sw-vocab-status/ns</a><br/></dd>
         <dt>See also</dt>
-        <dd><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/></dd>
+        <dd><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/></dd>
     </dl>
     <h2 data-toc-skip>Table of contents</h2>
     <nav id="toc" data-toggle="toc"></nav>
@@ -130,7 +130,7 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">42</span></h3>
+            <h3>Classes <span class="badge">44</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
@@ -167,7 +167,10 @@
                     <li><a class="label label-primary" href="#class-accountstorage">AccountStorage</a></li>
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
                     <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li>
-                    <li><a class="label label-primary" href="#class-worldstate">WorldState</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-worldstate">WorldState</a><ul>
+                    <li><a class="label label-primary" href="#class-postmsgstate">PostMsgState</a><ul>
+                    <li><a class="label label-primary" href="#class-posttxstate">PostTxState</a><ul>
+                    <li><a class="label label-primary" href="#class-postblockstate">PostBlockState</a></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-networkconcept">NetworkConcept</a><ul>
                     <li><a class="label label-primary" href="#class-blockchain">Blockchain</a></li>
                     <li><a class="label label-primary" href="#class-network">Network</a></li>
@@ -177,10 +180,15 @@
                     <li><a class="label label-primary" href="#class-protocollvariant">ProtocollVariant</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-stateconcept">StateConcept</a><ul>
                     <li><a class="label label-primary" href="#class-state">State</a><ul>
-                    <li><a class="label label-primary" href="#class-substate">SubState</a><ul>
-                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-worldstate">WorldState</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-statetransition">StateTransition</a></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li>
+                    <li><a class="label label-primary" href="#class-worldstate">WorldState</a><ul>
+                    <li><a class="label label-primary" href="#class-postmsgstate">PostMsgState</a><ul>
+                    <li><a class="label label-primary" href="#class-posttxstate">PostTxState</a><ul>
+                    <li><a class="label label-primary" href="#class-postblockstate">PostBlockState</a></li></ul></li></ul></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
+                    <li><a class="label label-primary" href="#class-block">Block</a><ul>
+                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
+                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-httpxmlnscomfoaf01agent">Agent</a><ul>
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
             </ul>
@@ -269,7 +277,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">42</span></h2>
+    <h2>Class descriptions <span class="badge">44</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of Account: those with empty associated EVM Code (thus the Account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the Account represents an Autonomous Object). Each Account has a single Address that identifies it.</p>
@@ -386,7 +394,7 @@
         </table>
     
         <h3 id="class-accountstate">AccountState</h3>
-        <p>State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states.</p>
+        <p>State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -411,7 +419,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-accountconcept">AccountConcept</a> 
-                            <a class="label label-primary" href="#class-substate">SubState</a> 
+                            <a class="label label-primary" href="#class-state">State</a> 
                     </td>
                 </tr>
             
@@ -548,6 +556,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-blockconcept">BlockConcept</a> 
+                            <a class="label label-primary" href="#class-statetransition">StateTransition</a> 
                     </td>
                 </tr>
             
@@ -1575,6 +1584,95 @@
             
         </table>
     
+        <h3 id="class-postblockstate">PostBlockState</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/PostBlockState">http://consensys.net/ethereum-ontology/PostBlockState</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-posttxstate">PostTxState</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-postmsgstate">PostMsgState</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/PostMsgState">http://consensys.net/ethereum-ontology/PostMsgState</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-posttxstate">PostTxState</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-posttxstate">PostTxState</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/PostTxState">http://consensys.net/ethereum-ontology/PostTxState</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-postmsgstate">PostMsgState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-postblockstate">PostBlockState</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
         <h3 id="class-protocollvariant">ProtocollVariant</h3>
         <p>A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork.</p>
         <table class="table table-striped">
@@ -1687,7 +1785,7 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-substate">SubState</a> 
+                            <a class="label label-primary" href="#class-accountstate">AccountState</a> 
                             <a class="label label-primary" href="#class-worldstate">WorldState</a> 
                     </td>
                 </tr>
@@ -1779,6 +1877,13 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Properties include</td>
@@ -1787,48 +1892,6 @@
                             <a class="label label-default" href="#prop-createsstate">createsState</a> 
                     </td>
                 </tr>
-            
-            
-            
-        </table>
-    
-        <h3 id="class-substate">SubState</h3>
-        <p>Substate in the State hierachry. The semantics associated with State nesting are as follows: If a system is in the Substate, it also (implicitly) is in the surrounding State (Superstate).</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/SubState">http://consensys.net/ethereum-ontology/SubState</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">SubState</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-state">State</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Subclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-accountstate">AccountState</a> 
-                    </td>
-                </tr>
-            
             
             
             
@@ -2088,6 +2151,13 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-postmsgstate">PostMsgState</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Properties include</td>
