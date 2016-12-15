@@ -48,8 +48,8 @@ Download [Protégé](http://protege.stanford.edu/) and open the ontology file to
 Among other things, EthOn can be used to formally describe Ethereum artefacts. 
 The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description of the Genesis Block of the current Ethereum main net.
 #### Describing an Account
-    @prefix ethon: http://consensys.net/ethereum-ontology/
-    @prefix ethereum: http://consensys.net/ethereum-data/
+    @prefix ethon: <http://consensys.net/ethereum-ontology/>
+    @prefix ethereum: <http://consensys.net/ethereum-data/>
     
     ethereum:Account0000000000000000000000000000000000000000
         a ethon:Account ;
