@@ -5,6 +5,10 @@ This glossary is compiled from the _rdfs:comment_ annotations of the EthOn ontol
 Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of Account: those with empty associated EVM Code (thus the Account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the Account represents an Autonomous Object). Each Account has a single Address that identifies it.
 ### AccountConcept
 Groups EthOn concepts related to Accounts.
+### AccountDataProperty
+Groups all Data Properties that are specific to an Account.
+### AccountObjectProperty
+Groups all EthOn Account Object Properties
 ### AccountState
 State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states.
 ### AccountStorage
@@ -28,6 +32,10 @@ A 160-bit identifier for Accounts.
 A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.
 ### BlockConcept
 Groups EthOn concepts related to Blocks.
+### BlockDataProperty
+Groups all Data Properties that are specific to a Block. These properties are usually functional because a Block can only be associated with a single instance of them.
+### BlockObjectProperty
+Groups all EthOn Block Object Properties
 ### Blockchain
 An Ethereum Blockchain is a distributed database that maintains a continuously-growing list of records called *Blocks* secured from tampering and revision. Each Block contains a timestamp and a link to a previous Block in a Merkle tree structure.
 ### blockCreationTime
@@ -77,45 +85,27 @@ This property connects an External Actor an Account that it controls. This means
 Relates a create transaction to the Contract Account it creates.
 ### createsState
 Relates a Transition to the State it creates.
+### cumulativeGasUsed
+The cumulative gas used in the block containing the Transaction Receipt as of immediately after the Transaction has happened.
 ## D
 ### DASE_RULE
 
 ## E
-### EthOnAccountDataProperty
-Groups all Data Properties that are specific to an Account.
-### EthOnAccountObjectProperty
-Groups all EthOn Account Object Properties
 ### EthOnAnnotationProperty
 Superclass of all EthOn specific annotation properties.
-### EthOnBlockDataProperty
-Groups all Data Properties that are specific to a Block. These properties are usually functional because a Block can only be associated with a single instance of them.
-### EthOnBlockObjectProperty
-Groups all EthOn Block Object Properties
 ### EthOnConcept
 Groups al EthOn concepts.
 ### EthOnDataProperty
 Groups all Data Properties specific to EthOn.
-### EthOnMessageDataProperty
-Groups all EthOn Message Data Properties.
-### EthOnMessageObjectProperty
-Groups all EthOn State Object Properties.
-### EthOnNetworkDataProperty
-Groups all EthOn Network Data Properties.
-### EthOnNetworkObjectProperty
-Groups all EthOn Network Object Properties.
 ### EthOnObjectProperty
 Groups all EthOn Object Properties
-### EthOnStateDataProperty
-
-### EthOnStateObjectProperty
-Groups all EthOn State Object Properties.
 ### ExternalAccount
 An Account owned by an External Actor.
 ### ExternalActor
 A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination.
 ## F
 ### FullNode
-Ethereum Full Node, A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining.
+A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining., Ethereum Full Node
 ### from
 Relates a Message with the Account it originates from.
 ## G
@@ -130,12 +120,18 @@ Relates a Block to the Account to which all fees collected from the successful m
 This property relates an EthOn concept to its most current state.
 ### hasFork
 Relates a Protocol variant to a forked version of it. It is inverse functional because a forked Blockchain can have only one Blockchain it forked from. It is Transitive because if a Blockchain C that was forked from Blockchain B that in turn was forked from Blockchain A, Blockchain C was also forked from Blockchain A. It is assymetric because if Blockchain A is forked from Blockchain B, B cannot be also forked from A. It is irreflexive because a Blockchain cannot be a fork of itself.
+### hasLogEntry
+Relates a Transaction Receipt to a Log Entry created by the Transaction of the Receipt.
+### hasLogTopic
+Relates a Log Entry to a Log Topic.
 ### hasNextState
 Relates a State to the following State. In EthOn the state transition system has no branches.
 ### hasParentBlock
 Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.
-### hasPostExecutionState
+### hasPostBlockState
 Relates a Block to the global state of the system after all Transactions in the Block have been executed.
+### hasPostTxState
+Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.
 ### hasReceipt
 Relates a transaction to its receipt.
 ### hasReceiptsTrie
@@ -154,9 +150,19 @@ Relates a Block to a known Ommer.
 ## L
 ### LightNode
 A light node is a participant in an Ethereum Network that does not completely do any of the following: store the complete Blockchain, store the complete world state, engage in mining.
+### LogEntry
+A Log Entry is a tuple of a logger's address (i.e. the Account with that address), a series of 32-bytes Log Topics and some number of bytes of data.
+### LogTopic
+A 32-bytes long topic of a LogEntry. The LogTopics of a LogEntry have an order given by a topicIndex value.
+### loggedBy
+Relates a Log Entry to its logger's Account.
 ## M
 ### MessageConcept
 Groups EthOn concepts related to Messages.
+### MessageDataProperty
+Groups all EthOn Message Data Properties.
+### MessageObjectProperty
+Groups all EthOn State Object Properties.
 ### ModifiedMerklePatriciaTree
 Merkle Patricia trees provide a cryptographically authenticated data structure that can be used to store all (key, value) bindings, although for the scope of this paper we are restricting keys and values to strings (to remove this restriction, just use any serialization format for other data types). They are fully deterministic, meaning that a Patricia tree with the same (key,value) bindings is guaranteed to be exactly the same down to the last byte and therefore have the same root hash, provide the holy grail of O(log(n)) efficiency for inserts, lookups and deletes, and are much easier to understand and code than more complex comparison-based alternatives like red-black trees.
 ### Msg
@@ -168,6 +174,10 @@ Relates a mining Node to the Blockchain it mines for.
 An Ethereum network is the group of all Nodes that conform to a certain Protocol Variant.
 ### NetworkConcept
 Groups all EthOn Network concepts.
+### NetworkDataProperty
+Groups all EthOn Network Data Properties.
+### NetworkObjectProperty
+Groups all EthOn Network Object Properties.
 ### Node
 A participan in an Ethereum Network.
 ### number
@@ -195,6 +205,10 @@ The Keccak 256-bit hash of the root node of the trie structure populated with th
 The concept of a state in a generic state transition system.
 ### StateConcept
 Groups EthOn concepts related to state.
+### StateDataProperty
+
+### StateObjectProperty
+Groups all EthOn State Object Properties.
 ### StateTransition
 
 ### stateRoot
@@ -207,13 +221,19 @@ This property relates an EthOn concept with a suggested string representation. I
 ### Tx
 
 ### TxReceipt
-
+The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs.
 ### TxTrie
 A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block.
 ### to
 Relates a Message with the Account it is sent to.
+### topicData
+Relates a Log Topic to the 32 bytes of data it contains.
+### topicIndex
+Relates a Log Topic to its index in the Log Entry. The topic index defines the order of the Log Topics of a Log Entry.
 ### transactionsRoot
 The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.
+### txLogsBloom
+Relates a Transaction Receipt to the Bloom filter of its Log Entries.
 ## U
 ## V
 ### ValueContractMsg

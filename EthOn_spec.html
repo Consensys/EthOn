@@ -36,7 +36,7 @@
         <dt>Creators</dt>
         <dd>mailto:johannes.pfeffer@consensys.net</dd>
         <dt>Contributors</dt>
-        <dd>mailto:shahan.khatchadourian@consensys.net, mailto:herman.junge@consensys.net</dd>
+        <dd>mailto:herman.junge@consensys.net, mailto:shahan.khatchadourian@consensys.net</dd>
         <dt>Preferred prefix</dt>
         <dd>ethon</dd>
         <dt>Term status</dt>
@@ -46,7 +46,7 @@
         <dt>Imports</dt>
         <dd><a href="http://www.w3.org/2003/06/sw-vocab-status/ns">http://www.w3.org/2003/06/sw-vocab-status/ns</a><br/></dd>
         <dt>See also</dt>
-        <dd><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/></dd>
+        <dd><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/></dd>
     </dl>
     <h2 data-toc-skip>Table of contents</h2>
     <nav id="toc" data-toggle="toc"></nav>
@@ -130,7 +130,7 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">39</span></h3>
+            <h3>Classes <span class="badge">41</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
@@ -149,6 +149,9 @@
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
                     <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-messageconcept">MessageConcept</a><ul>
+                    <li><a class="label label-primary" href="#class-logentry">LogEntry</a></li>
+                    <li><a class="label label-primary" href="#class-logtopic">LogTopic</a></li>
+                    <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
                     <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
@@ -159,7 +162,8 @@
                     <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
                     <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
                     <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li></ul></li>
-                    <li><a class="label label-primary" href="#class-txreceipt">TxReceipt</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-txreceipt">TxReceipt</a></li>
+                    <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-modifiedmerklepatriciatree">ModifiedMerklePatriciaTree</a><ul>
                     <li><a class="label label-primary" href="#class-accountstorage">AccountStorage</a></li>
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
@@ -192,20 +196,20 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">62</span></h3>
+            <h3>Properties <span class="badge">70</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
                     <li><a class="label label-default" href="#prop-suggestedstringrepresentation">suggestedStringRepresentation</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-ethondataproperty">EthOnDataProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-accountbalance">accountBalance</a></li>
                     <li><a class="label label-default" href="#prop-accountcode">accountCode</a></li>
                     <li><a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a></li>
                     <li><a class="label label-default" href="#prop-accountnonce">accountNonce</a></li>
                     <li><a class="label label-default" href="#prop-address">address</a></li>
                     <li><a class="label label-default" href="#prop-storageroot">storageRoot</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-blockcreationtime">blockCreationTime</a></li>
                     <li><a class="label label-default" href="#prop-blockdifficulty">blockDifficulty</a></li>
                     <li><a class="label label-default" href="#prop-blockextradata">blockExtraData</a></li>
@@ -218,43 +222,53 @@
                     <li><a class="label label-default" href="#prop-blocknonce">blockNonce</a></li>
                     <li><a class="label label-default" href="#prop-blockreward">blockReward</a></li>
                     <li><a class="label label-default" href="#prop-number">number</a></li>
-                    <li><a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a></li>
-                    <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li>
-                    <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonmessagedataproperty">EthOnMessageDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-payload">payload</a></li>
+                    <li><a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a></li>
+                    <li><a class="label label-default" href="#prop-topicdata">topicData</a></li>
+                    <li><a class="label label-default" href="#prop-topicindex">topicIndex</a></li>
+                    <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li>
+                    <li><a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a></li>
                     <li><a class="label label-default" href="#prop-value">value</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonnetworkdataproperty">EthOnNetworkDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-networkdataproperty">NetworkDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-clientversion">clientVersion</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonstatedataproperty">EthOnStateDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-root">root</a></li></ul></li></ul></li>
                     <li><a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasstate">hasState</a><ul>
                     <li><a class="label label-default" href="#prop-hascurrentstate">hasCurrentState</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonaccountobjectproperty">EthOnAccountObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-accountobjectproperty">AccountObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasaccountstorage">hasAccountStorage</a></li>
                     <li><a class="label label-default" href="#prop-controlsaccount">controlsAccount</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a></li>
                     <li><a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a></li>
-                    <li><a class="label label-default" href="#prop-haspostexecutionstate">hasPostExecutionState</a></li>
+                    <li><a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a></li>
                     <li><a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a></li>
                     <li><a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a></li>
                     <li><a class="label label-default" href="#prop-containstx">containsTx</a></li>
                     <li><a class="label label-default" href="#prop-knowsofommer">knowsOfOmmer</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonmessageobjectproperty">EthOnMessageObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-createsstate">createsState</a></li>
                     <li><a class="label label-default" href="#prop-from">from</a></li>
+                    <li><a class="label label-default" href="#prop-haslogentry">hasLogEntry</a></li>
+                    <li><a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a></li>
+                    <li><a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a></li>
                     <li><a class="label label-default" href="#prop-hasreceipt">hasReceipt</a></li>
+                    <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li>
                     <li><a class="label label-default" href="#prop-to">to</a><ul>
                     <li><a class="label label-default" href="#prop-creates">creates</a></li></ul></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonnetworkobjectproperty">EthOnNetworkObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-conformsto">conformsTo</a></li>
                     <li><a class="label label-default" href="#prop-hasfork">hasFork</a></li>
                     <li><a class="label label-default" href="#prop-minesfor">minesFor</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-ethonstateobjectproperty">EthOnStateObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a></li>
                     <li><a class="label label-default" href="#prop-createsstate">createsState</a></li>
                     <li><a class="label label-default" href="#prop-hasnextstate">hasNextState</a></li>
+                    <li><a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a></li>
                     <li><a class="label label-default" href="#prop-hastransition">hasTransition</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-partof">partOf</a></li></ul></li>
             </ul>
@@ -263,7 +277,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">39</span></h2>
+    <h2>Class descriptions <span class="badge">41</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of Account: those with empty associated EVM Code (thus the Account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the Account represents an Autonomous Object). Each Account has a single Address that identifies it.</p>
@@ -320,6 +334,7 @@
                         
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
                             <a class="label label-default" href="#prop-controlsaccount">controlsAccount</a> 
+                            <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
                     </td>
                 </tr>
             
@@ -370,7 +385,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
                     </td>
                 </tr>
             
@@ -565,7 +580,7 @@
                             <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-number">number</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
-                            <a class="label label-default" href="#prop-haspostexecutionstate">hasPostExecutionState</a> 
+                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
                     </td>
                 </tr>
@@ -624,7 +639,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -993,7 +1008,7 @@
         </table>
     
         <h3 id="class-fullnode">FullNode</h3>
-        <p>Ethereum Full Node, A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining.</p>
+        <p>A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining., Ethereum Full Node</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1097,6 +1112,106 @@
             
         </table>
     
+        <h3 id="class-logentry">LogEntry</h3>
+        <p>A Log Entry is a tuple of a logger's address (i.e. the Account with that address), a series of 32-bytes Log Topics and some number of bytes of data.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/LogEntry">http://consensys.net/ethereum-ontology/LogEntry</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">LogEntry</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-messageconcept">MessageConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a> 
+                            <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-logtopic">LogTopic</h3>
+        <p>A 32-bytes long topic of a LogEntry. The LogTopics of a LogEntry have an order given by a topicIndex value.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/LogTopic">http://consensys.net/ethereum-ontology/LogTopic</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">LogTopic</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-messageconcept">MessageConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-topicdata">topicData</a> 
+                            <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="class-messageconcept">MessageConcept</h3>
         <p>Groups EthOn concepts related to Messages.</p>
         <table class="table table-striped">
@@ -1126,8 +1241,12 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-primary" href="#class-logentry">LogEntry</a> 
+                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
+                            <a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a> 
                             <a class="label label-primary" href="#class-statetransition">StateTransition</a> 
                             <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                            <a class="label label-primary" href="#class-txtrie">TxTrie</a> 
                     </td>
                 </tr>
             
@@ -1135,7 +1254,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonmessagedataproperty">EthOnMessageDataProperty</a> 
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
                     </td>
                 </tr>
             
@@ -1458,6 +1577,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-blockconcept">BlockConcept</a> 
+                            <a class="label label-primary" href="#class-messageconcept">MessageConcept</a> 
                             <a class="label label-primary" href="#class-modifiedmerklepatriciatree">ModifiedMerklePatriciaTree</a> 
                     </td>
                 </tr>
@@ -1553,7 +1673,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonstatedataproperty">EthOnStateDataProperty</a> 
+                            <a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a> 
                     </td>
                 </tr>
             
@@ -1640,6 +1760,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
                             <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
                     </td>
                 </tr>
@@ -1656,15 +1777,25 @@
         </table>
     
         <h3 id="class-txreceipt">TxReceipt</h3>
-        <p></p>
+        <p>The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/TxReceipt">http://consensys.net/ethereum-ontology/TxReceipt</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">TxReceipt</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1675,6 +1806,15 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
+                            <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
+                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Used with</td>
@@ -1713,6 +1853,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-blockconcept">BlockConcept</a> 
+                            <a class="label label-primary" href="#class-messageconcept">MessageConcept</a> 
                             <a class="label label-primary" href="#class-modifiedmerklepatriciatree">ModifiedMerklePatriciaTree</a> 
                     </td>
                 </tr>
@@ -1823,7 +1964,8 @@
                     <td class="col-md-2">Used with</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-haspostexecutionstate">hasPostExecutionState</a> 
+                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
+                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
                     </td>
                 </tr>
             
@@ -1865,7 +2007,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">28</span></h2>
+    <h2>Object Property descriptions <span class="badge">32</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -1892,7 +2034,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -1941,7 +2083,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountobjectproperty">EthOnAccountObjectProperty</a> 
+                            <a class="label label-default" href="#prop-accountobjectproperty">AccountObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -1983,7 +2125,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2007,7 +2149,7 @@
             
         </table>
     
-        <h3 id="prop-haspostexecutionstate">hasPostExecutionState</h3>
+        <h3 id="prop-haspostblockstate">hasPostBlockState</h3>
         <p>Relates a Block to the global state of the system after all Transactions in the Block have been executed.</p>
         <table class="table table-striped">
             
@@ -2020,19 +2162,20 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasPostExecutionState">http://consensys.net/ethereum-ontology/hasPostExecutionState</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasPostBlockState">http://consensys.net/ethereum-ontology/hasPostBlockState</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">hasPostExecutionState</td>
+                    <td class="col-md-10">hasPostBlockState</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2081,7 +2224,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2116,7 +2259,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2151,7 +2294,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2280,7 +2423,7 @@
             
         </table>
     
-        <h3 id="prop-ethonaccountobjectproperty">EthOnAccountObjectProperty</h3>
+        <h3 id="prop-accountobjectproperty">AccountObjectProperty</h3>
         <p>Groups all EthOn Account Object Properties</p>
         <table class="table table-striped">
             
@@ -2293,7 +2436,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnAccountObjectProperty">http://consensys.net/ethereum-ontology/EthOnAccountObjectProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/AccountObjectProperty">http://consensys.net/ethereum-ontology/AccountObjectProperty</a></td>
                 </tr>
             
             
@@ -2319,7 +2462,7 @@
             
         </table>
     
-        <h3 id="prop-ethonblockobjectproperty">EthOnBlockObjectProperty</h3>
+        <h3 id="prop-blockobjectproperty">BlockObjectProperty</h3>
         <p>Groups all EthOn Block Object Properties</p>
         <table class="table table-striped">
             
@@ -2332,7 +2475,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnBlockObjectProperty">http://consensys.net/ethereum-ontology/EthOnBlockObjectProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/BlockObjectProperty">http://consensys.net/ethereum-ontology/BlockObjectProperty</a></td>
                 </tr>
             
             
@@ -2350,92 +2493,11 @@
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
-                            <a class="label label-default" href="#prop-haspostexecutionstate">hasPostExecutionState</a> 
+                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
                             <a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a> 
                             <a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
                             <a class="label label-default" href="#prop-knowsofommer">knowsOfOmmer</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-        </table>
-    
-        <h3 id="prop-ethonmessageobjectproperty">EthOnMessageObjectProperty</h3>
-        <p>Groups all EthOn State Object Properties.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnMessageObjectProperty">http://consensys.net/ethereum-ontology/EthOnMessageObjectProperty</a></td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Subclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
-                            <a class="label label-default" href="#prop-from">from</a> 
-                            <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
-                            <a class="label label-default" href="#prop-to">to</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-        </table>
-    
-        <h3 id="prop-ethonnetworkobjectproperty">EthOnNetworkObjectProperty</h3>
-        <p>Groups all EthOn Network Object Properties.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnNetworkObjectProperty">http://consensys.net/ethereum-ontology/EthOnNetworkObjectProperty</a></td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Subclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-conformsto">conformsTo</a> 
-                            <a class="label label-default" href="#prop-hasfork">hasFork</a> 
-                            <a class="label label-default" href="#prop-minesfor">minesFor</a> 
                     </td>
                 </tr>
             
@@ -2467,11 +2529,11 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-hasstate">hasState</a> 
-                            <a class="label label-default" href="#prop-ethonaccountobjectproperty">EthOnAccountObjectProperty</a> 
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
-                            <a class="label label-default" href="#prop-ethonmessageobjectproperty">EthOnMessageObjectProperty</a> 
-                            <a class="label label-default" href="#prop-ethonnetworkobjectproperty">EthOnNetworkObjectProperty</a> 
-                            <a class="label label-default" href="#prop-ethonstateobjectproperty">EthOnStateObjectProperty</a> 
+                            <a class="label label-default" href="#prop-accountobjectproperty">AccountObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                            <a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a> 
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
                             <a class="label label-default" href="#prop-partof">partOf</a> 
                     </td>
                 </tr>
@@ -2481,7 +2543,7 @@
             
         </table>
     
-        <h3 id="prop-ethonstateobjectproperty">EthOnStateObjectProperty</h3>
+        <h3 id="prop-messageobjectproperty">MessageObjectProperty</h3>
         <p>Groups all EthOn State Object Properties.</p>
         <table class="table table-striped">
             
@@ -2494,7 +2556,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnStateObjectProperty">http://consensys.net/ethereum-ontology/EthOnStateObjectProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/MessageObjectProperty">http://consensys.net/ethereum-ontology/MessageObjectProperty</a></td>
                 </tr>
             
             
@@ -2511,7 +2573,94 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-createsstate">createsState</a> 
+                            <a class="label label-default" href="#prop-from">from</a> 
+                            <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
+                            <a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a> 
+                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
+                            <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
+                            <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
+                            <a class="label label-default" href="#prop-to">to</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-networkobjectproperty">NetworkObjectProperty</h3>
+        <p>Groups all EthOn Network Object Properties.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/NetworkObjectProperty">http://consensys.net/ethereum-ontology/NetworkObjectProperty</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-conformsto">conformsTo</a> 
+                            <a class="label label-default" href="#prop-hasfork">hasFork</a> 
+                            <a class="label label-default" href="#prop-minesfor">minesFor</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-stateobjectproperty">StateObjectProperty</h3>
+        <p>Groups all EthOn State Object Properties.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/StateObjectProperty">http://consensys.net/ethereum-ontology/StateObjectProperty</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
+                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
                             <a class="label label-default" href="#prop-hasnextstate">hasNextState</a> 
+                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
                             <a class="label label-default" href="#prop-hastransition">hasTransition</a> 
                     </td>
                 </tr>
@@ -2546,7 +2695,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonnetworkobjectproperty">EthOnNetworkObjectProperty</a> 
+                            <a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2588,7 +2737,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountobjectproperty">EthOnAccountObjectProperty</a> 
+                            <a class="label label-default" href="#prop-accountobjectproperty">AccountObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2679,8 +2828,8 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonmessageobjectproperty">EthOnMessageObjectProperty</a> 
-                            <a class="label label-default" href="#prop-ethonstateobjectproperty">EthOnStateObjectProperty</a> 
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2729,7 +2878,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonmessageobjectproperty">EthOnMessageObjectProperty</a> 
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2764,7 +2913,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonnetworkobjectproperty">EthOnNetworkObjectProperty</a> 
+                            <a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2782,6 +2931,104 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-blockchain">Blockchain</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-haslogentry">hasLogEntry</h3>
+        <p>Relates a Transaction Receipt to a Log Entry created by the Transaction of the Receipt.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasLogEntry">http://consensys.net/ethereum-ontology/hasLogEntry</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">hasLogEntry</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logentry">LogEntry</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-haslogtopic">hasLogTopic</h3>
+        <p>Relates a Log Entry to a Log Topic.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasLogTopic">http://consensys.net/ethereum-ontology/hasLogTopic</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">hasLogTopic</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logentry">LogEntry</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
                     </td>
                 </tr>
             
@@ -2813,12 +3060,62 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonstateobjectproperty">EthOnStateObjectProperty</a> 
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
                     </td>
                 </tr>
             
             
             
+            
+            
+        </table>
+    
+        <h3 id="prop-hasposttxstate">hasPostTxState</h3>
+        <p>Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasPostTxState">http://consensys.net/ethereum-ontology/hasPostTxState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">hasPostTxState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -2848,7 +3145,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonmessageobjectproperty">EthOnMessageObjectProperty</a> 
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2897,7 +3194,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonstateobjectproperty">EthOnStateObjectProperty</a> 
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2932,12 +3229,61 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockobjectproperty">EthOnBlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                     </td>
                 </tr>
             
             
             
+            
+            
+        </table>
+    
+        <h3 id="prop-loggedby">loggedBy</h3>
+        <p>Relates a Log Entry to its logger's Account.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/loggedBy">http://consensys.net/ethereum-ontology/loggedBy</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">loggedBy</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logentry">LogEntry</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -2967,7 +3313,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonnetworkobjectproperty">EthOnNetworkObjectProperty</a> 
+                            <a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -3051,7 +3397,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonmessageobjectproperty">EthOnMessageObjectProperty</a> 
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -3085,9 +3431,9 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">31</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">35</span></h2>
     
-        <h3 id="prop-ethonaccountdataproperty">EthOnAccountDataProperty</h3>
+        <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
         <table class="table table-striped">
             
@@ -3100,7 +3446,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnAccountDataProperty">http://consensys.net/ethereum-ontology/EthOnAccountDataProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/AccountDataProperty">http://consensys.net/ethereum-ontology/AccountDataProperty</a></td>
                 </tr>
             
             
@@ -3137,7 +3483,7 @@
             
         </table>
     
-        <h3 id="prop-ethonblockdataproperty">EthOnBlockDataProperty</h3>
+        <h3 id="prop-blockdataproperty">BlockDataProperty</h3>
         <p>Groups all Data Properties that are specific to a Block. These properties are usually functional because a Block can only be associated with a single instance of them.</p>
         <table class="table table-striped">
             
@@ -3150,7 +3496,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnBlockDataProperty">http://consensys.net/ethereum-ontology/EthOnBlockDataProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/BlockDataProperty">http://consensys.net/ethereum-ontology/BlockDataProperty</a></td>
                 </tr>
             
             
@@ -3178,9 +3524,7 @@
                             <a class="label label-default" href="#prop-blocknonce">blockNonce</a> 
                             <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-number">number</a> 
-                            <a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a> 
                             <a class="label label-default" href="#prop-stateroot">stateRoot</a> 
-                            <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
                     </td>
                 </tr>
             
@@ -3218,11 +3562,11 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
-                            <a class="label label-default" href="#prop-ethonmessagedataproperty">EthOnMessageDataProperty</a> 
-                            <a class="label label-default" href="#prop-ethonnetworkdataproperty">EthOnNetworkDataProperty</a> 
-                            <a class="label label-default" href="#prop-ethonstatedataproperty">EthOnStateDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                            <a class="label label-default" href="#prop-networkdataproperty">NetworkDataProperty</a> 
+                            <a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3231,14 +3575,14 @@
             
         </table>
     
-        <h3 id="prop-ethonmessagedataproperty">EthOnMessageDataProperty</h3>
+        <h3 id="prop-messagedataproperty">MessageDataProperty</h3>
         <p>Groups all EthOn Message Data Properties.</p>
         <table class="table table-striped">
             
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnMessageDataProperty">http://consensys.net/ethereum-ontology/EthOnMessageDataProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/MessageDataProperty">http://consensys.net/ethereum-ontology/MessageDataProperty</a></td>
                 </tr>
             
             
@@ -3254,7 +3598,13 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
                             <a class="label label-default" href="#prop-payload">payload</a> 
+                            <a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a> 
+                            <a class="label label-default" href="#prop-topicdata">topicData</a> 
+                            <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
+                            <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
+                            <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
                     </td>
                 </tr>
@@ -3271,7 +3621,7 @@
             
         </table>
     
-        <h3 id="prop-ethonnetworkdataproperty">EthOnNetworkDataProperty</h3>
+        <h3 id="prop-networkdataproperty">NetworkDataProperty</h3>
         <p>Groups all EthOn Network Data Properties.</p>
         <table class="table table-striped">
             
@@ -3284,7 +3634,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnNetworkDataProperty">http://consensys.net/ethereum-ontology/EthOnNetworkDataProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/NetworkDataProperty">http://consensys.net/ethereum-ontology/NetworkDataProperty</a></td>
                 </tr>
             
             
@@ -3309,14 +3659,14 @@
             
         </table>
     
-        <h3 id="prop-ethonstatedataproperty">EthOnStateDataProperty</h3>
+        <h3 id="prop-statedataproperty">StateDataProperty</h3>
         <p></p>
         <table class="table table-striped">
             
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/EthOnStateDataProperty">http://consensys.net/ethereum-ontology/EthOnStateDataProperty</a></td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/StateDataProperty">http://consensys.net/ethereum-ontology/StateDataProperty</a></td>
                 </tr>
             
             
@@ -3373,7 +3723,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3422,7 +3772,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3471,7 +3821,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3520,7 +3870,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3569,7 +3919,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3618,7 +3968,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3667,7 +4017,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3709,7 +4059,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3751,7 +4101,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3793,7 +4143,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3835,7 +4185,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3884,7 +4234,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3933,7 +4283,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -3975,7 +4325,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4017,7 +4367,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4066,7 +4416,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4115,7 +4465,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonnetworkdataproperty">EthOnNetworkDataProperty</a> 
+                            <a class="label label-default" href="#prop-networkdataproperty">NetworkDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4133,6 +4483,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-cumulativegasused">cumulativeGasUsed</h3>
+        <p>The cumulative gas used in the block containing the Transaction Receipt as of immediately after the Transaction has happened.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/cumulativeGasUsed">http://consensys.net/ethereum-ontology/cumulativeGasUsed</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">cumulativeGasUsed</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
                     </td>
                 </tr>
             
@@ -4164,7 +4563,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4213,7 +4612,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonmessagedataproperty">EthOnMessageDataProperty</a> 
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4262,7 +4661,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4301,7 +4700,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonstatedataproperty">EthOnStateDataProperty</a> 
+                            <a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4336,7 +4735,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4385,7 +4784,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonaccountdataproperty">EthOnAccountDataProperty</a> 
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4403,6 +4802,104 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#base64Binary">http://www.w3.org/2001/XMLSchema#base64Binary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-topicdata">topicData</h3>
+        <p>Relates a Log Topic to the 32 bytes of data it contains.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/topicData">http://consensys.net/ethereum-ontology/topicData</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">topicData</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-topicindex">topicIndex</h3>
+        <p>Relates a Log Topic to its index in the Log Entry. The topic index defines the order of the Log Topics of a Log Entry.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/topicIndex">http://consensys.net/ethereum-ontology/topicIndex</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">topicIndex</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
                     </td>
                 </tr>
             
@@ -4434,7 +4931,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonblockdataproperty">EthOnBlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
                     </td>
                 </tr>
             
@@ -4444,6 +4941,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-txtrie">TxTrie</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-txlogsbloom">txLogsBloom</h3>
+        <p>Relates a Transaction Receipt to the Bloom filter of its Log Entries.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/txLogsBloom">http://consensys.net/ethereum-ontology/txLogsBloom</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txLogsBloom</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
                     </td>
                 </tr>
             
@@ -4483,7 +5029,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonmessagedataproperty">EthOnMessageDataProperty</a> 
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
                     </td>
                 </tr>
             
