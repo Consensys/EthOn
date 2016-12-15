@@ -3,6 +3,7 @@ _An Ethereum ontology that is closely aligned with the [Ethereum yellow paper](h
 
 An ontology is a formalization of concepts and relations within a domain.
 EthOn is written in [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) and [OWL](OWL).
+
 __Contributors:__
 * Johannes Pfeffer (ontology engineering)
 * Shahan Khatchadourian (ontology engineering)
