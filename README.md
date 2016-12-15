@@ -24,38 +24,7 @@ EthOn can be used
 * to semantically annotate content provided by Ethereum based tools and dApps (e.g. block explorers, analysis tools, markets, ...)
 (incomplete list)
 
-## Examples
-Among other things, EthOn can be used to formally describe Ethereum artefacts. 
-The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description of the Genesis Block of the current Ethereum main net.
-### Describing an Account
-
-    ethereum:Account0000000000000000000000000000000000000000
-        a ethon:Account ;
-        rdfs:label "Genesis Address" ;
-        ethon:address "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
-        ethon:hasState ethereum:AccountState0 ;
-        rdfs:seeAlso <https://etherscan.io/address/0x0000000000000000000000000000000000000000> .
-    
-    ethereum:AccountState0
-        ethon:accountBalance 0 ;
-        ethon:accountNonce 0 .
-        
-
-### Describing a Block
-
-    ethereum:Block0
-        a ethon:Block ;
-        rdfs:label "Genesis Block" ;
-        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain. ;
-        ethon:number 0 ;
-        ethon:blockBeneficary ethereum:Account0000000000000000000000000000000000000000 ;
-        ethon:blockReward 5000000000000000000 ;
-        ethon:gasLimit 5000 ;
-        ethon:blockNonce "0000000000000042"^^xsd:hexBinary ;
-        [...]
-        rdfs:seeAlso <https://etherscan.io/block/0> .
-
-## Four approaches to understanding EthOn
+## Five approaches to understanding EthOn
 ### 1. Look at simplified EthOn model of Ethereum
 ![EthOn model](doc_resources/img/EthOn_model.png)
 
@@ -73,6 +42,37 @@ There is also a fancy specification generator http://hacks.michelepasin.org/onto
 
 ### 4. Open the ontology in Protégé
 Download [Protégé](http://protege.stanford.edu/) and open the ontology file to browse around and view all assertions.
+
+### 5. Look at some examples
+Among other things, EthOn can be used to formally describe Ethereum artefacts. 
+The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description of the Genesis Block of the current Ethereum main net.
+#### Describing an Account
+
+    ethereum:Account0000000000000000000000000000000000000000
+        a ethon:Account ;
+        rdfs:label "Genesis Address" ;
+        ethon:address "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
+        ethon:hasState ethereum:AccountState0 ;
+        rdfs:seeAlso <https://etherscan.io/address/0x0000000000000000000000000000000000000000> .
+    
+    ethereum:AccountState0
+        ethon:accountBalance 0 ;
+        ethon:accountNonce 0 .
+        
+
+#### Describing a Block
+
+    ethereum:Block0
+        a ethon:Block ;
+        rdfs:label "Genesis Block" ;
+        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain. ;
+        ethon:number 0 ;
+        ethon:blockBeneficary ethereum:Account0000000000000000000000000000000000000000 ;
+        ethon:blockReward 5000000000000000000 ;
+        ethon:gasLimit 5000 ;
+        ethon:blockNonce "0000000000000042"^^xsd:hexBinary ;
+        [...]
+        rdfs:seeAlso <https://etherscan.io/block/0> .
 
 ## Axioms and constraints
 Axioms are sentences in [description logic](https://en.wikipedia.org/wiki/Description_logic) statements. 
