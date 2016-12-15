@@ -64,7 +64,7 @@ Also base reward, amount of Wei a miner gets for finding a Block.
 ### CallContractMsg
 A Call Contract Message is a Contract Message that calls a function in another Contract.
 ### CallTx
-
+A type of Transaction that is directed towards a Contract Account and calls a method in the Contract's code.
 ### ContractAccount
 A notional object existent only within the hypothetical state of Ethereum. Has an intrinsic address and thus an associated Account; the Account will have non-empty associated EVM Code. Incorporated only as the Storage State of that Account.
 ### ContractMsg
@@ -72,7 +72,7 @@ A Contract Message is passed between a Contract Account and any other Account (E
 ### CreateContractMsg
 A create Contract Message is a special type of Contract Message that results in creation of a new Contract.
 ### CreateTx
-
+A type of Transaction that results in creation of a new Contract Account.
 ### clientVersion
 Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).
 ### conformsTo
@@ -210,7 +210,9 @@ Groups EthOn concepts related to state.
 ### StateObjectProperty
 Groups all EthOn State Object Properties.
 ### StateTransition
-
+The concept of a transition in a state transition system.
+### SubState
+Substate in the State hierachry. The semantics associated with State nesting are as follows: If a system is in the Substate, it also (implicitly) is in the surrounding State (Superstate).
 ### stateRoot
 The Keccak 256-bit hash of the root node of the state trie, after all transactions are executed and finalisations applied.
 ### storageRoot
@@ -219,7 +221,7 @@ A 256-bit hash of the root node of a Merkle Patricia tree that encodes the stora
 This property relates an EthOn concept with a suggested string representation. It can be used to give the term a name, e.g. in program code.
 ## T
 ### Tx
-
+Transactions represent a valid arc between two states. A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. While is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.
 ### TxReceipt
 The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs.
 ### TxTrie
@@ -232,6 +234,8 @@ Relates a Log Topic to the 32 bytes of data it contains.
 Relates a Log Topic to its index in the Log Entry. The topic index defines the order of the Log Topics of a Log Entry.
 ### transactionsRoot
 The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.
+### triggersMsg
+Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.
 ### txLogsBloom
 Relates a Transaction Receipt to the Bloom filter of its Log Entries.
 ## U
@@ -239,7 +243,7 @@ Relates a Transaction Receipt to the Bloom filter of its Log Entries.
 ### ValueContractMsg
 Value Contract Messages go from a Contract to an External Account.
 ### ValueTx
-
+A type of Transaction that transfers only value.
 ### value
 A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.
 ## W

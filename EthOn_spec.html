@@ -130,7 +130,7 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">41</span></h3>
+            <h3>Classes <span class="badge">42</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
@@ -151,8 +151,6 @@
                     <li><a class="label label-primary" href="#class-messageconcept">MessageConcept</a><ul>
                     <li><a class="label label-primary" href="#class-logentry">LogEntry</a></li>
                     <li><a class="label label-primary" href="#class-logtopic">LogTopic</a></li>
-                    <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
-                    <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
                     <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
@@ -161,7 +159,8 @@
                     <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
                     <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
                     <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
-                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
                     <li><a class="label label-primary" href="#class-txreceipt">TxReceipt</a></li>
                     <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-modifiedmerklepatriciatree">ModifiedMerklePatriciaTree</a><ul>
@@ -178,25 +177,17 @@
                     <li><a class="label label-primary" href="#class-protocollvariant">ProtocollVariant</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-stateconcept">StateConcept</a><ul>
                     <li><a class="label label-primary" href="#class-state">State</a><ul>
-                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li>
+                    <li><a class="label label-primary" href="#class-substate">SubState</a><ul>
+                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-worldstate">WorldState</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
-                    <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
-                    <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
-                    <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
-                    <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
-                    <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
-                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li></ul></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-statetransition">StateTransition</a></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-httpxmlnscomfoaf01agent">Agent</a><ul>
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
             </ul>
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">70</span></h3>
+            <h3>Properties <span class="badge">71</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -259,7 +250,8 @@
                     <li><a class="label label-default" href="#prop-hasreceipt">hasReceipt</a></li>
                     <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li>
                     <li><a class="label label-default" href="#prop-to">to</a><ul>
-                    <li><a class="label label-default" href="#prop-creates">creates</a></li></ul></li></ul></li>
+                    <li><a class="label label-default" href="#prop-creates">creates</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-triggersmsg">triggersMsg</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-conformsto">conformsTo</a></li>
                     <li><a class="label label-default" href="#prop-hasfork">hasFork</a></li>
@@ -277,7 +269,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">41</span></h2>
+    <h2>Class descriptions <span class="badge">42</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of Account: those with empty associated EVM Code (thus the Account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the Account represents an Autonomous Object). Each Account has a single Address that identifies it.</p>
@@ -419,7 +411,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-accountconcept">AccountConcept</a> 
-                            <a class="label label-primary" href="#class-state">State</a> 
+                            <a class="label label-primary" href="#class-substate">SubState</a> 
                     </td>
                 </tr>
             
@@ -701,12 +693,22 @@
         <p>A Call Contract Message is a Contract Message that calls a function in another Contract.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/CallContractMsg">http://consensys.net/ethereum-ontology/CallContractMsg</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">CallContractMsg</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -723,15 +725,25 @@
         </table>
     
         <h3 id="class-calltx">CallTx</h3>
-        <p></p>
+        <p>A type of Transaction that is directed towards a Contract Account and calls a method in the Contract's code.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/CallTx">http://consensys.net/ethereum-ontology/CallTx</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">CallTx</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -801,12 +813,22 @@
         <p>A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/ContractMsg">http://consensys.net/ethereum-ontology/ContractMsg</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">ContractMsg</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -827,6 +849,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-triggersmsg">triggersMsg</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -835,12 +864,22 @@
         <p>A create Contract Message is a special type of Contract Message that results in creation of a new Contract.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/CreateContractMsg">http://consensys.net/ethereum-ontology/CreateContractMsg</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">CreateContractMsg</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -857,15 +896,25 @@
         </table>
     
         <h3 id="class-createtx">CreateTx</h3>
-        <p></p>
+        <p>A type of Transaction that results in creation of a new Contract Account.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/CreateTx">http://consensys.net/ethereum-ontology/CreateTx</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">CreateTx</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1243,8 +1292,8 @@
                         
                             <a class="label label-primary" href="#class-logentry">LogEntry</a> 
                             <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                             <a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a> 
-                            <a class="label label-primary" href="#class-statetransition">StateTransition</a> 
                             <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
                             <a class="label label-primary" href="#class-txtrie">TxTrie</a> 
                     </td>
@@ -1311,18 +1360,28 @@
         <p>Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/Msg">http://consensys.net/ethereum-ontology/Msg</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">Msg</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-statetransition">StateTransition</a> 
+                            <a class="label label-primary" href="#class-messageconcept">MessageConcept</a> 
                     </td>
                 </tr>
             
@@ -1599,12 +1658,22 @@
         <p>The concept of a state in a generic state transition system.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/State">http://consensys.net/ethereum-ontology/State</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">State</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1618,7 +1687,7 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-accountstate">AccountState</a> 
+                            <a class="label label-primary" href="#class-substate">SubState</a> 
                             <a class="label label-primary" href="#class-worldstate">WorldState</a> 
                     </td>
                 </tr>
@@ -1682,32 +1751,34 @@
         </table>
     
         <h3 id="class-statetransition">StateTransition</h3>
-        <p></p>
+        <p>The concept of a transition in a state transition system.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/StateTransition">http://consensys.net/ethereum-ontology/StateTransition</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">StateTransition</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-messageconcept">MessageConcept</a> 
                             <a class="label label-primary" href="#class-stateconcept">StateConcept</a> 
                     </td>
                 </tr>
             
-                <tr>
-                    <td class="col-md-2">Subclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-msg">Msg</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Properties include</td>
@@ -1721,8 +1792,50 @@
             
         </table>
     
+        <h3 id="class-substate">SubState</h3>
+        <p>Substate in the State hierachry. The semantics associated with State nesting are as follows: If a system is in the Substate, it also (implicitly) is in the surrounding State (Superstate).</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/SubState">http://consensys.net/ethereum-ontology/SubState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">SubState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-state">State</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-accountstate">AccountState</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
         <h3 id="class-tx">Tx</h3>
-        <p></p>
+        <p>Transactions represent a valid arc between two states. A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. While is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1737,6 +1850,10 @@
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/Tx">http://consensys.net/ethereum-ontology/Tx</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">Tx</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1875,12 +1992,22 @@
         <p>Value Contract Messages go from a Contract to an External Account.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/ValueContractMsg">http://consensys.net/ethereum-ontology/ValueContractMsg</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">ValueContractMsg</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1897,15 +2024,25 @@
         </table>
     
         <h3 id="class-valuetx">ValueTx</h3>
-        <p></p>
+        <p>A type of Transaction that transfers only value.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
                     <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/ValueTx">http://consensys.net/ethereum-ontology/ValueTx</a></td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">ValueTx</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -2007,7 +2144,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">32</span></h2>
+    <h2>Object Property descriptions <span class="badge">33</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -2580,6 +2717,7 @@
                             <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
                             <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
+                            <a class="label label-default" href="#prop-triggersmsg">triggersMsg</a> 
                     </td>
                 </tr>
             
@@ -3422,6 +3560,48 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-msg">Msg</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-triggersmsg">triggersMsg</h3>
+        <p>Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/triggersMsg">http://consensys.net/ethereum-ontology/triggersMsg</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">triggersMsg</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
                     </td>
                 </tr>
             
