@@ -79,7 +79,7 @@ Axioms are sentences in [description logic](https://en.wikipedia.org/wiki/Descri
 At this early stage only a few axioms have been defined in EthOn. The expressiveness will increase as the structure of
 EthOn matures. The axioms can be used with reasoners to infer information from data. You can best have a look at them if you open EthOn in Protégé (see above).
 
-### Example: _Block_ axioms
+### Some example axioms
 
 __Informal statement:__ _Blocks_ have exactly one property _blockHash_ of type _xsd:hexBinary_.  
 __EthOn axiom__ in [Manchester Syntax](https://www.w3.org/TR/owl2-manchester-syntax/): `Class: Block SubClassOf: blockHash exactly 1 xsd:hexBinary SubClassOf Block`
