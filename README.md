@@ -65,8 +65,10 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
 ![Account concept](doc_resources/img/account_concept.png)
 #### Block modeling scheme
 ![Modelling blocks](doc_resources/img/block_modeling_scheme.png)
-#### Message concept
+#### Message, Transaction Receipt and Log concepts
 ![Message concept](doc_resources/img/message_concept.png)
+![Transaction Receipt concept](doc_resources/img/tx_receipt_concept.png)
+![Log concept](doc_resources/img/log_concept.png)
 #### State Transition concept and modeling scheme
 ![State Transition concept](doc_resources/img/transition_concept.png)
 ![State Transition modeling scheme](doc_resources/img/transition_modeling_scheme.png)
@@ -103,6 +105,9 @@ Also, something that doesn't have such a property may still be a _Block_. We don
 
 __Informal statement:__ _Blocks_ with a _number_ of 0 are _Genesis Blocks_.  
 __EthOn axiom__: `Block and (number some {"0"^^xsd:int}) EquivalentTo GenesisBlock`
+
+__Informal statement:__ When a _Tx Receipt_ has a _post Tx state_, the _Tx_ itself has a _createsState_ property relation.  
+__EthOn axiom__: `hasReceipt o hasPostTxState SubPropertyOf: createsState`
 
 ## Why "EthOn"?
 Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
