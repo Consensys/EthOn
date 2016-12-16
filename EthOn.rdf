@@ -1,14 +1,17 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://consensys.net/ethereum-ontology/"
      xml:base="http://consensys.net/ethereum-ontology/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:ns1="http://consensys.net/ethereum-ontology/1/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://consensys.net/ethereum-ontology/">
         <owl:versionIRI rdf:resource="http://consensys.net/ethereum-ontology/1/"/>
@@ -61,6 +64,12 @@
         <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnAnnotationProperty"/>
         <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/EthOnConcept"/>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
     
 
 
@@ -203,6 +212,44 @@
     
 
 
+    <!-- http://consensys.net/ethereum-ontology/createsPostBlockState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/createsPostBlockState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/createsState"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/WorldState"/>
+        <suggestedStringRepresentation>createsPostBlockState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Block to the global state of the system after all Transactions in the Block have been executed.</rdfs:comment>
+        <rdfs:label xml:lang="en">creates post Block execution State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/createsPostMsgState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/createsPostMsgState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/createsState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/createsPostTxState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/createsPostTxState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/createsState"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/TxReceipt"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/WorldState"/>
+        <suggestedStringRepresentation>createsPostTxState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Transaction Receipt to the global state of the system after the Receipt&apos;s Transaction has been executed.</rdfs:comment>
+        <rdfs:label xml:lang="en">creates post Transaction execution State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://consensys.net/ethereum-ontology/createsState -->
 
     <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/createsState">
@@ -210,25 +257,11 @@
         <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/StateObjectProperty"/>
         <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
         <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/State"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/hasReceipt"/>
-            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/hasPostTxState"/>
-        </owl:propertyChainAxiom>
         <suggestedStringRepresentation>createsState</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Transition to the State it creates.</rdfs:comment>
         <rdfs:label xml:lang="en">creates State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/createsState"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
-        <owl:annotatedTarget rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/hasReceipt"/>
-            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/hasPostTxState"/>
-        </owl:annotatedTarget>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">postTxState___hasReceipt(?T,?TxR)^hasPostTxState(?TxR,?S)-&gt;createsState(?T,?S)___When a Tx Receipt has a post Tx state, the Tx itself has a createsState relation.</DASE_RULE>
-        <rdfs:comment xml:lang="en">When a Tx Receipt has a post Tx state, the Tx itself has a createsState relation.</rdfs:comment>
-    </owl:Axiom>
     
 
 
@@ -361,38 +394,6 @@
     
 
 
-    <!-- http://consensys.net/ethereum-ontology/hasPostBlockState -->
-
-    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasPostBlockState">
-        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/BlockObjectProperty"/>
-        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/StateObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
-        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/WorldState"/>
-        <suggestedStringRepresentation>hasPostBlockState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to the global state of the system after all Transactions in the Block have been executed.</rdfs:comment>
-        <rdfs:label xml:lang="en">has post Block execution State</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://consensys.net/ethereum-ontology/hasPostTxState -->
-
-    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasPostTxState">
-        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/MessageObjectProperty"/>
-        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/StateObjectProperty"/>
-        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/TxReceipt"/>
-        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/WorldState"/>
-        <suggestedStringRepresentation>hasPostTxState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transaction Receipt to the global state of the system after the Receipt&apos;s Transaction has been executed.</rdfs:comment>
-        <rdfs:label xml:lang="en">has post Transaction execution State</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://consensys.net/ethereum-ontology/hasReceipt -->
 
     <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasReceipt">
@@ -424,7 +425,7 @@
     <!-- http://consensys.net/ethereum-ontology/hasState -->
 
     <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasState">
-        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/EthOnObjectProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/StateObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Account"/>
         <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/AccountState"/>
@@ -495,7 +496,7 @@
         <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Node"/>
         <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/Blockchain"/>
         <suggestedStringRepresentation>minesFor</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a mining Node to the Blockchain it mines for.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.</rdfs:comment>
         <rdfs:label xml:lang="en">mines for</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -890,6 +891,48 @@
     
 
 
+    <!-- http://consensys.net/ethereum-ontology/data -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/data">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/payload"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/CallContractMsg"/>
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/CallTx"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        <suggestedStringRepresentation>data</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the input data of the call.</rdfs:comment>
+        <rdfs:label xml:lang="en">call data</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/init -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/init">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/payload"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/CreateContractMsg"/>
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/CreateTx"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        <suggestedStringRepresentation>init</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the EVM-code for the account initialisation procedure.</rdfs:comment>
+        <rdfs:label xml:lang="en">init code</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://consensys.net/ethereum-ontology/number -->
 
     <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/number">
@@ -914,7 +957,7 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>payload</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">An unlimited size byte array specifying the data payload of the Message.</rdfs:comment>
-        <rdfs:label xml:lang="en">payload</rdfs:label>
+        <rdfs:label xml:lang="en">Message payload</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1017,6 +1060,30 @@
     
 
 
+    <!-- http://consensys.net/ethereum-ontology/txGasLimit -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/txGasLimit">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/MessageDataProperty"/>
+        <suggestedStringRepresentation>txGasLimit</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction gas limit</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/txGasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/txGasPrice">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/MessageDataProperty"/>
+        <suggestedStringRepresentation>txGasPrice</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction gas price</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://consensys.net/ethereum-ontology/txLogsBloom -->
 
     <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/txLogsBloom">
@@ -1026,6 +1093,62 @@
         <suggestedStringRepresentation>txLogsBloom</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Transaction Receipt to the Bloom filter of its Log Entries.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction Logs Bloom filter</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/txNonce -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/txNonce">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <suggestedStringRepresentation>txNonce</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of transactions sent by the sender.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction nonce</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/txR -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/txR">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        <suggestedStringRepresentation>txR</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The txR value is a Byte array of length 32.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction r-value</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/txS -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/txS">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        <suggestedStringRepresentation>txS</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txS is a byte array of length 32.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction s-value</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/txV -->
+
+    <owl:DatatypeProperty rdf:about="http://consensys.net/ethereum-ontology/txV">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#byte"/>
+        <suggestedStringRepresentation>txV</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV is aecovery id, a 1 byte value specifying the sign and finiteness of the curve point. This value is in the range of [27,30], however we declare the upper to possibilities, representing infinite values, invalid.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction v-value</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1160,13 +1283,6 @@
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Block">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/BlockConcept"/>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/blockHash"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <owl:hasKey rdf:parseType="Collection">
             <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/blockHash"/>
         </owl:hasKey>
@@ -1175,6 +1291,12 @@
         <rdfs:label xml:lang="en">Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-2.1___Block(?x)-&gt;StateTransition(?x)___A valid State Transition is one which comes about through a Block.</DASE_RULE>
+    </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#hasKey"/>
@@ -1430,60 +1552,12 @@
     <!-- http://consensys.net/ethereum-ontology/GenesisBlock -->
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/GenesisBlock">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Block"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/number"/>
-                        <owl:someValuesFrom>
-                            <rdfs:Datatype>
-                                <owl:oneOf>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</rdf:first>
-                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    </rdf:Description>
-                                </owl:oneOf>
-                            </rdfs:Datatype>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
         <suggestedStringRepresentation>GenesisBlock</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Genesis Block is the unmined, deliberately created, very first Block in a Blockchain. It has no predecessors, i.e. no parent Block.</rdfs:comment>
         <rdfs:label xml:lang="en">Genesis Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/GenesisBlock"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#equivalentClass"/>
-        <owl:annotatedTarget>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Block"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/number"/>
-                        <owl:someValuesFrom>
-                            <rdfs:Datatype>
-                                <owl:oneOf>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">0</rdf:first>
-                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    </rdf:Description>
-                                </owl:oneOf>
-                            </rdfs:Datatype>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:annotatedTarget>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R1___Block(?b)^number(?b,0)-&gt;GenesisBlock(?b)___</DASE_RULE>
-        <rdfs:comment xml:lang="en">Blocks with a number of 0 are Genesis Blocks.</rdfs:comment>
-    </owl:Axiom>
     
 
 
@@ -1551,12 +1625,19 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Msg">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MessageConcept"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
         <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/TxReceipt"/>
         <suggestedStringRepresentation>Msg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Msg"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.1___Msg(?x)-&gt;StateTransition(?x)___A valid State Transition is one which comes about through a Message.</DASE_RULE>
+    </owl:Axiom>
     
 
 
@@ -1718,6 +1799,7 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Tx">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Msg"/>
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/from"/>
@@ -1730,6 +1812,12 @@
         <rdfs:label xml:lang="en">Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.2___Tx(?x)-&gt;StateTransition(?x)___A valid State Transition is one which comes about through a Transaction.</DASE_RULE>
+    </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
@@ -1901,6 +1989,22 @@
     
 
 
+    <!-- http://consensys.net/ethereum-ontology/ProtocolVariantFrontier -->
+
+    <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/ProtocolVariantFrontier">
+        <rdf:type rdf:resource="http://consensys.net/ethereum-ontology/ProtocollVariant"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/ProtocolVariantHomestead -->
+
+    <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/ProtocolVariantHomestead">
+        <rdf:type rdf:resource="http://consensys.net/ethereum-ontology/ProtocollVariant"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://consensys.net/ethereum-ontology/TestBlock -->
 
     <owl:NamedIndividual rdf:about="http://consensys.net/ethereum-ontology/TestBlock">
@@ -1936,6 +2040,72 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:Axiom>
+        <owl:annotatedSource>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Account"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasState"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/AccountState"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/accountCodeHash"/>
+                                        <owl:someValuesFrom>
+                                            <rdfs:Datatype>
+                                                <owl:oneOf>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </owl:oneOf>
+                                            </rdfs:Datatype>
+                                        </owl:someValuesFrom>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+                <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/ExternalAccount"/>
+            </owl:Class>
+        </owl:annotatedSource>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/ExternalAccount"/>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-p4.1___Account(?x)^AccountState(?y)^hasState(?x,?y)^accountCodeHash(?y,&quot;c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470&quot;)-&gt;ExternalAccount(?x)___If the codeHash field of an Account is the Keccac-256 hash of the empty string, then the node represents an External Account.</DASE_RULE>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Block"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/createsPostBlockState"/>
+                        <owl:someValuesFrom rdf:resource="http://consensys.net/ethereum-ontology/PostBlockState"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+                <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
+            </owl:Class>
+        </owl:annotatedSource>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.1___Block(?b)^hasPostBlockState(?b,?s)^PostBlockState(?s)-&gt;StateTransition(?b)___A valid Message State Transition is one which comes about through a Message.</DASE_RULE>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/hasTxTrie"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+            </owl:Restriction>
+        </owl:annotatedSource>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-3.1___hasTxTrie(?x,?y)-&gt;Block(?x)___Anything that has a TxTrie is a Block.</DASE_RULE>
+    </owl:Axiom>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
@@ -1960,6 +2130,151 @@
             <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/CreateTx"/>
             <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/ValueTx"/>
         </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Block level state transition function is the collection of all Transaction level state transition functions.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-4.1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+                        <swrl:argument1 rdf:resource="http://consensys.net/ethereum-ontology/x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
+                                <swrl:argument1 rdf:resource="http://consensys.net/ethereum-ontology/y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://consensys.net/ethereum-ontology/containsTx"/>
+                                        <swrl:argument1 rdf:resource="http://consensys.net/ethereum-ontology/x"/>
+                                        <swrl:argument2 rdf:resource="http://consensys.net/ethereum-ontology/y"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://consensys.net/ethereum-ontology/partOf"/>
+                        <swrl:argument1 rdf:resource="http://consensys.net/ethereum-ontology/y"/>
+                        <swrl:argument2 rdf:resource="http://consensys.net/ethereum-ontology/x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blocks with a number &lt; 1,150,000 conform to the Frontier protocol variant.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-13</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+                        <swrl:argument1 rdf:resource="http://consensys.net/ethereum-ontology/x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://consensys.net/ethereum-ontology/number"/>
+                                <swrl:argument1 rdf:resource="http://consensys.net/ethereum-ontology/x"/>
+                                <swrl:argument2 rdf:resource="http://consensys.net/ethereum-ontology/y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="http://consensys.net/ethereum-ontology/y"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1150000</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://consensys.net/ethereum-ontology/conformsTo"/>
+                        <swrl:argument1 rdf:resource="http://consensys.net/ethereum-ontology/x"/>
+                        <swrl:argument2 rdf:resource="http://consensys.net/ethereum-ontology/ProtocolVariantFrontier"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
 </rdf:RDF>
 
