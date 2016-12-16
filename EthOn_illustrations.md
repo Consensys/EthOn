@@ -8,6 +8,7 @@
 ![Modelling blocks](doc_resources/img/block_modeling_scheme.png)
 #### Message, Transaction Receipt and Log concepts
 ![Message concept](doc_resources/img/message_concept.png)
+![Transaction concept](doc_resources/img/transaction_concept.png)
 ![Transaction Receipt concept](doc_resources/img/tx_receipt_concept.png)
 ![Log concept](doc_resources/img/log_concept.png)
 #### State Transition concept and modeling scheme

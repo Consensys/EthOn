@@ -83,6 +83,12 @@ Relates a Block to a Transaction included in it. All containsTx relations of a B
 This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate.
 ### creates
 Relates a create transaction to the Contract Account it creates.
+### createsPostBlockState
+Relates a Block to the global state of the system after all Transactions in the Block have been executed.
+### createsPostMsgState
+
+### createsPostTxState
+Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.
 ### createsState
 Relates a Transition to the State it creates.
 ### cumulativeGasUsed
@@ -90,6 +96,8 @@ The cumulative gas used in the block containing the Transaction Receipt as of im
 ## D
 ### DASE_RULE
 
+### data
+An unlimited size byte array specifying the input data of the call.
 ## E
 ### EthOnAnnotationProperty
 Superclass of all EthOn specific annotation properties.
@@ -128,10 +136,6 @@ Relates a Log Entry to a Log Topic.
 Relates a State to the following State. In EthOn the state transition system has no branches.
 ### hasParentBlock
 Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.
-### hasPostBlockState
-Relates a Block to the global state of the system after all Transactions in the Block have been executed.
-### hasPostTxState
-Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.
 ### hasReceipt
 Relates a transaction to its receipt.
 ### hasReceiptsTrie
@@ -143,6 +147,10 @@ Relates a State to a Transition (i.e. a Message) that creates a new State.
 ### hasTxTrie
 Relates a Block to the trie that contains the data of the transactions contained in the Block.
 ## I
+### init
+An unlimited size byte array specifying the EVM-code for the account initialisation procedure.
+### isRuleEnabled
+
 ## J
 ## K
 ### knowsOfOmmer
@@ -168,7 +176,7 @@ Merkle Patricia trees provide a cryptographically authenticated data structure t
 ### Msg
 Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.
 ### minesFor
-Relates a mining Node to the Blockchain it mines for.
+Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.
 ## N
 ### Network
 An Ethereum network is the group of all Nodes that conform to a certain Protocol Variant.
@@ -240,8 +248,20 @@ Relates a Log Topic to its index in the Log Entry. The topic index defines the o
 The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.
 ### triggersMsg
 Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.
+### txGasLimit
+A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later.
+### txGasPrice
+A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.
 ### txLogsBloom
 Relates a Transaction Receipt to the Bloom filter of its Log Entries.
+### txNonce
+A scalar value equal to the number of transactions sent by the sender.
+### txR
+The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The txR value is a Byte array of length 32.
+### txS
+The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txS is a byte array of length 32.
+### txV
+The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV is aecovery id, a 1 byte value specifying the sign and finiteness of the curve point. This value is in the range of [27,30], however we declare the upper to possibilities, representing infinite values, invalid.
 ## U
 ## V
 ### ValueContractMsg

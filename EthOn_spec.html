@@ -46,7 +46,7 @@
         <dt>Imports</dt>
         <dd><a href="http://www.w3.org/2003/06/sw-vocab-status/ns">http://www.w3.org/2003/06/sw-vocab-status/ns</a><br/></dd>
         <dt>See also</dt>
-        <dd><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/></dd>
+        <dd><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/></dd>
     </dl>
     <h2 data-toc-skip>Table of contents</h2>
     <nav id="toc" data-toggle="toc"></nav>
@@ -82,21 +82,27 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <p><a href="doc_resources/img/message_concept.png"><img src="doc_resources/img/message_concept.png"
                                                                  class="img-thumbnail" alt="The Message concept"
                                                                  width="350"/></a><br/>
             The Message concept</p>
         </div>
-
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+            <p><a href="doc_resources/img/transaction_concept.png"><img src="doc_resources/img/transaction_concept.png"
+                                                                    class="img-thumbnail"
+                                                                    alt="The Transaction concept"
+                                                                    width="350"/></a><br/>
+            The Transaction concept</p>
+        </div>
+        <div class="col-sm-3">
             <p><a href="doc_resources/img/tx_receipt_concept.png"><img src="doc_resources/img/tx_receipt_concept.png"
                                                                     class="img-thumbnail"
                                                                     alt="The Transaction Receipt concept"
                                                                     width="350"/></a><br/>
             The Transaction Receipt concept</p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <p><a href="doc_resources/img/log_concept.png"><img src="doc_resources/img/log_concept.png"
                                                              class="img-thumbnail" alt="The Log concept"
                                                              width="350"/></a><br/>
@@ -188,18 +194,32 @@
                     <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
                     <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li></ul></li></ul></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
+                    <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
+                    <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
+                    <li><a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a></li>
+                    <li><a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
+                    <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
+                    <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
+                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
+                    <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
+                    <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
+                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-httpxmlnscomfoaf01agent">Agent</a><ul>
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
             </ul>
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">71</span></h3>
+            <h3>Properties <span class="badge">81</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
                     <li><a class="label label-default" href="#prop-suggestedstringrepresentation">suggestedStringRepresentation</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-swrlaisruleenabled">isRuleEnabled</a></li>
                     <li><a class="label label-default" href="#prop-ethondataproperty">EthOnDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-accountbalance">accountBalance</a></li>
@@ -224,37 +244,44 @@
                     <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
-                    <li><a class="label label-default" href="#prop-payload">payload</a></li>
+                    <li><a class="label label-default" href="#prop-payload">payload</a><ul>
+                    <li><a class="label label-default" href="#prop-data">data</a></li>
+                    <li><a class="label label-default" href="#prop-init">init</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a></li>
                     <li><a class="label label-default" href="#prop-topicdata">topicData</a></li>
                     <li><a class="label label-default" href="#prop-topicindex">topicIndex</a></li>
                     <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li>
+                    <li><a class="label label-default" href="#prop-txgaslimit">txGasLimit</a></li>
+                    <li><a class="label label-default" href="#prop-txgasprice">txGasPrice</a></li>
                     <li><a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a></li>
+                    <li><a class="label label-default" href="#prop-txnonce">txNonce</a></li>
+                    <li><a class="label label-default" href="#prop-txr">txR</a></li>
+                    <li><a class="label label-default" href="#prop-txs">txS</a></li>
+                    <li><a class="label label-default" href="#prop-txv">txV</a></li>
                     <li><a class="label label-default" href="#prop-value">value</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-networkdataproperty">NetworkDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-clientversion">clientVersion</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-root">root</a></li></ul></li></ul></li>
                     <li><a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-hasstate">hasState</a><ul>
-                    <li><a class="label label-default" href="#prop-hascurrentstate">hasCurrentState</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-accountobjectproperty">AccountObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasaccountstorage">hasAccountStorage</a></li>
                     <li><a class="label label-default" href="#prop-controlsaccount">controlsAccount</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a></li>
                     <li><a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a></li>
-                    <li><a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a></li>
                     <li><a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a></li>
                     <li><a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a></li>
                     <li><a class="label label-default" href="#prop-containstx">containsTx</a></li>
                     <li><a class="label label-default" href="#prop-knowsofommer">knowsOfOmmer</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-createsstate">createsState</a></li>
+                    <li><a class="label label-default" href="#prop-createsstate">createsState</a><ul>
+                    <li><a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a></li>
+                    <li><a class="label label-default" href="#prop-createspostmsgstate">createsPostMsgState</a></li>
+                    <li><a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-from">from</a></li>
                     <li><a class="label label-default" href="#prop-haslogentry">hasLogEntry</a></li>
                     <li><a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a></li>
-                    <li><a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a></li>
                     <li><a class="label label-default" href="#prop-hasreceipt">hasReceipt</a></li>
                     <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li>
                     <li><a class="label label-default" href="#prop-to">to</a><ul>
@@ -265,10 +292,13 @@
                     <li><a class="label label-default" href="#prop-hasfork">hasFork</a></li>
                     <li><a class="label label-default" href="#prop-minesfor">minesFor</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a></li>
-                    <li><a class="label label-default" href="#prop-createsstate">createsState</a></li>
+                    <li><a class="label label-default" href="#prop-hasstate">hasState</a><ul>
+                    <li><a class="label label-default" href="#prop-hascurrentstate">hasCurrentState</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-createsstate">createsState</a><ul>
+                    <li><a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a></li>
+                    <li><a class="label label-default" href="#prop-createspostmsgstate">createsPostMsgState</a></li>
+                    <li><a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-hasnextstate">hasNextState</a></li>
-                    <li><a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a></li>
                     <li><a class="label label-default" href="#prop-hastransition">hasTransition</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-partof">partOf</a></li></ul></li>
             </ul>
@@ -580,8 +610,8 @@
                             <a class="label label-default" href="#prop-blocknonce">blockNonce</a> 
                             <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-number">number</a> 
+                            <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
-                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
                     </td>
                 </tr>
@@ -1391,6 +1421,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-messageconcept">MessageConcept</a> 
+                            <a class="label label-primary" href="#class-statetransition">StateTransition</a> 
                     </td>
                 </tr>
             
@@ -1882,6 +1913,8 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-block">Block</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             
@@ -1923,6 +1956,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-msg">Msg</a> 
+                            <a class="label label-primary" href="#class-statetransition">StateTransition</a> 
                     </td>
                 </tr>
             
@@ -1940,6 +1974,10 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-txnonce">txNonce</a> 
+                            <a class="label label-default" href="#prop-txr">txR</a> 
+                            <a class="label label-default" href="#prop-txs">txS</a> 
+                            <a class="label label-default" href="#prop-txv">txV</a> 
                             <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
                             <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
                     </td>
@@ -1992,7 +2030,7 @@
                         
                             <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
                             <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
-                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
+                            <a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a> 
                     </td>
                 </tr>
             
@@ -2171,8 +2209,8 @@
                     <td class="col-md-2">Used with</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
-                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
+                            <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
+                            <a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a> 
                     </td>
                 </tr>
             
@@ -2214,7 +2252,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">33</span></h2>
+    <h2>Object Property descriptions <span class="badge">34</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -2259,6 +2297,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-createspostblockstate">createsPostBlockState</h3>
+        <p>Relates a Block to the global state of the system after all Transactions in the Block have been executed.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/createsPostBlockState">http://consensys.net/ethereum-ontology/createsPostBlockState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">createsPostBlockState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
                     </td>
                 </tr>
             
@@ -2350,56 +2437,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-account">Account</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-haspostblockstate">hasPostBlockState</h3>
-        <p>Relates a Block to the global state of the system after all Transactions in the Block have been executed.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasPostBlockState">http://consensys.net/ethereum-ontology/hasPostBlockState</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">hasPostBlockState</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
-                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
                     </td>
                 </tr>
             
@@ -2599,7 +2636,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a> 
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
                     </td>
                 </tr>
             
@@ -2700,7 +2737,6 @@
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
-                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
                             <a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a> 
                             <a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
@@ -2735,7 +2771,6 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-hasstate">hasState</a> 
                             <a class="label label-default" href="#prop-accountobjectproperty">AccountObjectProperty</a> 
                             <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                             <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
@@ -2783,7 +2818,6 @@
                             <a class="label label-default" href="#prop-from">from</a> 
                             <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
                             <a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a> 
-                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
                             <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
                             <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
@@ -2865,10 +2899,9 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-haspostblockstate">hasPostBlockState</a> 
+                            <a class="label label-default" href="#prop-hasstate">hasState</a> 
                             <a class="label label-default" href="#prop-createsstate">createsState</a> 
                             <a class="label label-default" href="#prop-hasnextstate">hasNextState</a> 
-                            <a class="label label-default" href="#prop-hasposttxstate">hasPostTxState</a> 
                             <a class="label label-default" href="#prop-hastransition">hasTransition</a> 
                     </td>
                 </tr>
@@ -3011,6 +3044,80 @@
             
         </table>
     
+        <h3 id="prop-createspostmsgstate">createsPostMsgState</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/createsPostMsgState">http://consensys.net/ethereum-ontology/createsPostMsgState</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-createsposttxstate">createsPostTxState</h3>
+        <p>Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/createsPostTxState">http://consensys.net/ethereum-ontology/createsPostTxState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">createsPostTxState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-createsstate">createsState</h3>
         <p>Relates a Transition to the State it creates.</p>
         <table class="table table-striped">
@@ -3041,6 +3148,15 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
+                            <a class="label label-default" href="#prop-createspostmsgstate">createsPostMsgState</a> 
+                            <a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Implies being a</td>
@@ -3278,56 +3394,6 @@
             
         </table>
     
-        <h3 id="prop-hasposttxstate">hasPostTxState</h3>
-        <p>Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasPostTxState">http://consensys.net/ethereum-ontology/hasPostTxState</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">hasPostTxState</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
-                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
         <h3 id="prop-hasreceipt">hasReceipt</h3>
         <p>Relates a transaction to its receipt.</p>
         <table class="table table-striped">
@@ -3497,7 +3563,7 @@
         </table>
     
         <h3 id="prop-minesfor">minesFor</h3>
-        <p>Relates a mining Node to the Blockchain it mines for.</p>
+        <p>Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3681,7 +3747,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">35</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">43</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -3854,7 +3920,13 @@
                             <a class="label label-default" href="#prop-topicdata">topicData</a> 
                             <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
                             <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
+                            <a class="label label-default" href="#prop-txgaslimit">txGasLimit</a> 
+                            <a class="label label-default" href="#prop-txgasprice">txGasPrice</a> 
                             <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
+                            <a class="label label-default" href="#prop-txnonce">txNonce</a> 
+                            <a class="label label-default" href="#prop-txr">txR</a> 
+                            <a class="label label-default" href="#prop-txs">txS</a> 
+                            <a class="label label-default" href="#prop-txv">txV</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
                     </td>
                 </tr>
@@ -4788,6 +4860,90 @@
             
         </table>
     
+        <h3 id="prop-data">data</h3>
+        <p>An unlimited size byte array specifying the input data of the call.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/data">http://consensys.net/ethereum-ontology/data</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">data</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-payload">payload</a> 
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-init">init</h3>
+        <p>An unlimited size byte array specifying the EVM-code for the account initialisation procedure.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/init">http://consensys.net/ethereum-ontology/init</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">init</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-payload">payload</a> 
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-number">number</h3>
         <p>A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.</p>
         <table class="table table-striped">
@@ -4866,6 +5022,14 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-data">data</a> 
+                            <a class="label label-default" href="#prop-init">init</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Implies being a</td>
@@ -5205,6 +5369,76 @@
             
         </table>
     
+        <h3 id="prop-txgaslimit">txGasLimit</h3>
+        <p>A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/txGasLimit">http://consensys.net/ethereum-ontology/txGasLimit</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txGasLimit</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-txgasprice">txGasPrice</h3>
+        <p>A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/txGasPrice">http://consensys.net/ethereum-ontology/txGasPrice</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txGasPrice</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
         <h3 id="prop-txlogsbloom">txLogsBloom</h3>
         <p>Relates a Transaction Receipt to the Bloom filter of its Log Entries.</p>
         <table class="table table-striped">
@@ -5248,6 +5482,202 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-txnonce">txNonce</h3>
+        <p>A scalar value equal to the number of transactions sent by the sender.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/txNonce">http://consensys.net/ethereum-ontology/txNonce</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txNonce</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-txr">txR</h3>
+        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The txR value is a Byte array of length 32.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/txR">http://consensys.net/ethereum-ontology/txR</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txR</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-txs">txS</h3>
+        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txS is a byte array of length 32.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/txS">http://consensys.net/ethereum-ontology/txS</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txS</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-txv">txV</h3>
+        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV is aecovery id, a 1 byte value specifying the sign and finiteness of the curve point. This value is in the range of [27,30], however we declare the upper to possibilities, representing infinite values, invalid.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/txV">http://consensys.net/ethereum-ontology/txV</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txV</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#byte">http://www.w3.org/2001/XMLSchema#byte</a> 
                     </td>
                 </tr>
             
@@ -5305,7 +5735,7 @@
     
 
     <!-- Annotation Property list-->
-    <h2>Annotation Property descriptions <span class="badge">3</span></h2>
+    <h2>Annotation Property descriptions <span class="badge">4</span></h2>
     
         <h3 id="prop-dase_rule">DASE_RULE</h3>
         <p></p>
@@ -5389,6 +5819,24 @@
                             <a class="label label-primary" href="#<Class *http://consensys.net/ethereum-ontology/EthOnConcept*>"><Class *http://consensys.net/ethereum-ontology/EthOnConcept*></a> 
                     </td>
                 </tr>
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-swrlaisruleenabled">isRuleEnabled</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled</a></td>
+                </tr>
+            
+            
+            
+            
             
             
             
