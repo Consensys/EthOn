@@ -4,16 +4,6 @@ _An Ethereum ontology that is closely aligned with the [Ethereum yellow paper](h
 An ontology is a formalization of concepts and relations within a domain.
 EthOn is written in [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) and [OWL](OWL).
 
-__Contributors:__
-* Johannes Pfeffer (ontology engineering)
-* Shahan Khatchadourian (ontology engineering)
-* Herman Junge (requirements, ethereum knowledge)
-* Maurycy (requirements, ethereum knowledge)
-* Marian Oancea (domain knowledge)
-* Casey Detrio cdetrio@gmail.com (ethereum internals)
-* Alex Beregszaszi (ethereum internals)
-* Stefano Bertolo <stefano@ethereum.org> (review, testing)
-
 ## Status and scope
 EthOn is currently under heavy development. It is not complete, nor ever will be, probably. The goal is to model Ethereum as a [State Transition System](https://en.wikipedia.org/wiki/Transition_system).
 

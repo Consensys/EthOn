@@ -66,9 +66,9 @@ def makeGlossary(onto):
     az = string.uppercase[:26]
 
     for term in onto.classes:
-        terms[term.locale] = ", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
+        terms[term.RDFSlabel] = "`ethon:"+term.locale+"`   \n"+", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
     for term in onto.properties:
-        terms[term.locale] = ", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
+        terms[term.RDFSlabel] = "`ethon:"+term.locale+"`   \n"+", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
 
     for letter in az:
         glossary[letter] = collections.OrderedDict(
