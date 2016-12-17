@@ -78,13 +78,13 @@ def makeGlossary(onto):
 
 
 def main():
-    ETHON = Namespace('http://consensys.net/ethereum-ontology/')
+    ETHON = Namespace('http://ethon.consensys.net/')
     VOCAB = Namespace('http://www.w3.org/2003/06/sw-vocab-status/ns#')
-    ontospy.BOOTSTRAP_ONTOLOGIES.append('http://consensys.net/ethereum-ontology/')
+    ontospy.BOOTSTRAP_ONTOLOGIES.append('http://ethon.consensys.net/')
 
     onto = ontospy.Ontospy("EthOn.rdf")
     onto.ontologyURI = onto.ontologies[0].uri
-    onto.namespaces.append(("ethon", URIRef("http://consensys.net/ethereum-ontology/")))
+    onto.namespaces.append(("ethon", URIRef("http://ethon.consensys.net/")))
 
     for c in onto.classes:
         c.RDFScomment = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.comment)])
