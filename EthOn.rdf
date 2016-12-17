@@ -365,18 +365,6 @@
     
 
 
-    <!-- http://consensys.net/ethereum-ontology/hasNextState -->
-
-    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasNextState">
-        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/StateObjectProperty"/>
-        <suggestedStringRepresentation>hasNextState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a State to the following State. In EthOn the state transition system has no branches.</rdfs:comment>
-        <rdfs:label xml:lang="en">has next State</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://consensys.net/ethereum-ontology/hasParentBlock -->
 
     <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/hasParentBlock">
@@ -498,6 +486,62 @@
         <suggestedStringRepresentation>minesFor</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.</rdfs:comment>
         <rdfs:label xml:lang="en">mines for</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/nextBlockState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/nextBlockState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/nextTxState"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/PostBlockState"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/PostBlockState"/>
+        <suggestedStringRepresentation>nextBlockState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Post Block State to the following Post Block State.</rdfs:comment>
+        <rdfs:label xml:lang="en">next Post Block State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/nextMsgState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/nextMsgState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/nextState"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/PostMsgState"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/PostMsgState"/>
+        <suggestedStringRepresentation>nextMsgState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Post Message State to the following Post Message State.</rdfs:comment>
+        <rdfs:label xml:lang="en">next Post Message State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/nextState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/nextState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/StateObjectProperty"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/WorldState"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/WorldState"/>
+        <suggestedStringRepresentation>nextState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a State to the following State. In EthOn the state transition system has no branches.</rdfs:comment>
+        <rdfs:label xml:lang="en">next State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/nextTxState -->
+
+    <owl:ObjectProperty rdf:about="http://consensys.net/ethereum-ontology/nextTxState">
+        <rdfs:subPropertyOf rdf:resource="http://consensys.net/ethereum-ontology/nextMsgState"/>
+        <rdfs:domain rdf:resource="http://consensys.net/ethereum-ontology/PostTxState"/>
+        <rdfs:range rdf:resource="http://consensys.net/ethereum-ontology/PostTxState"/>
+        <suggestedStringRepresentation>nextTxState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Post Transaction State to the following Post Transaction State.</rdfs:comment>
+        <rdfs:label xml:lang="en">next Post Transaction State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -1245,7 +1289,7 @@
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/State"/>
         <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State.</rdfs:comment>
+        <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1418,7 +1462,6 @@
                 <owl:onClass rdf:resource="http://consensys.net/ethereum-ontology/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
         <suggestedStringRepresentation>ContractMsg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Contract Message</rdfs:label>
@@ -1541,6 +1584,7 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/FullNode">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Node"/>
+        <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/LightNode"/>
         <suggestedStringRepresentation>FullNode</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining.</rdfs:comment>
         <rdfs:comment xml:lang="en">Ethereum Full Node</rdfs:comment>
@@ -1626,7 +1670,6 @@
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Msg">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
-        <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/TxReceipt"/>
         <suggestedStringRepresentation>Msg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Message</rdfs:label>
@@ -1679,6 +1722,7 @@
     <!-- http://consensys.net/ethereum-ontology/Ommer -->
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Ommer">
+        <owl:equivalentClass rdf:resource="http://consensys.net/ethereum-ontology/Uncle"/>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1688,7 +1732,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation xml:lang="en">Ommer</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An Ommer.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An Ommer (or Uncle) is the direct child of the k&apos;th generation ancestor of a Block B, where 2&lt;=k&lt;=7 but not a direct ancestor of B. They are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</rdfs:comment>
         <rdfs:label xml:lang="en">Ommer</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1761,6 +1805,7 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/State">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateConcept"/>
+        <owl:disjointWith rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
         <suggestedStringRepresentation>State</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The concept of a state in a generic state transition system.</rdfs:comment>
         <rdfs:label xml:lang="en">State</rdfs:label>
@@ -1799,7 +1844,6 @@
 
     <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Tx">
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Msg"/>
-        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://consensys.net/ethereum-ontology/from"/>
@@ -1815,8 +1859,8 @@
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/StateTransition"/>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.2___Tx(?x)-&gt;StateTransition(?x)___A valid State Transition is one which comes about through a Transaction.</DASE_RULE>
+        <owl:annotatedTarget rdf:resource="http://consensys.net/ethereum-ontology/Msg"/>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.2___Tx(?x)-&gt;Msg(?x)___A valid State Transition is one which comes about through a Transaction.</DASE_RULE>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://consensys.net/ethereum-ontology/Tx"/>
@@ -1854,6 +1898,18 @@
         <suggestedStringRepresentation>TxTrie</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block.</rdfs:comment>
         <rdfs:label xml:lang="en">Transactions Trie</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://consensys.net/ethereum-ontology/Uncle -->
+
+    <owl:Class rdf:about="http://consensys.net/ethereum-ontology/Uncle">
+        <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/Block"/>
+        <suggestedStringRepresentation>Uncle</suggestedStringRepresentation>
+        <rdfs:label xml:lang="en">Uncle</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://consensys.net/ethereum-ontology/Ommer"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
@@ -1925,7 +1981,7 @@
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/ModifiedMerklePatriciaTree"/>
         <rdfs:subClassOf rdf:resource="http://consensys.net/ethereum-ontology/State"/>
         <suggestedStringRepresentation xml:lang="en">State</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The world state, is a mapping between addresses (160-bit identifiers) and Account states (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The world state, is a mapping between addresses (160-bit identifiers) of all Accounts and their States (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</rdfs:comment>
         <rdfs:label xml:lang="en">World State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2112,7 +2168,28 @@
             <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Account"/>
             <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/AccountState"/>
             <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/AccountStorage"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/ExternalActor"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/ReceiptsTrie"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/TxTrie"/>
             <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/WorldState"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Block"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Msg"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/ReceiptsTrie"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/TxTrie"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Blockchain"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Network"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/Node"/>
+            <rdf:Description rdf:about="http://consensys.net/ethereum-ontology/ProtocollVariant"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>

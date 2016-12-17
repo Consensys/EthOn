@@ -10,7 +10,7 @@ Groups all Data Properties that are specific to an Account.
 ### AccountObjectProperty
 Groups all EthOn Account Object Properties
 ### AccountState
-State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State.
+State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.
 ### AccountStorage
 A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account's code, but the execution state of the code. The Account's code is stored in the
 ### Agent
@@ -132,8 +132,6 @@ Relates a Protocol variant to a forked version of it. It is inverse functional b
 Relates a Transaction Receipt to a Log Entry created by the Transaction of the Receipt.
 ### hasLogTopic
 Relates a Log Entry to a Log Topic.
-### hasNextState
-Relates a State to the following State. In EthOn the state transition system has no branches.
 ### hasParentBlock
 Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.
 ### hasReceipt
@@ -188,11 +186,19 @@ Groups all EthOn Network Data Properties.
 Groups all EthOn Network Object Properties.
 ### Node
 A participan in an Ethereum Network.
+### nextBlockState
+Relates a Post Block State to the following Post Block State.
+### nextMsgState
+Relates a Post Message State to the following Post Message State.
+### nextState
+Relates a State to the following State. In EthOn the state transition system has no branches.
+### nextTxState
+Relates a Post Transaction State to the following Post Transaction State.
 ### number
 A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.
 ## O
 ### Ommer
-An Ommer.
+An Ommer (or Uncle) is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. They are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.
 ## P
 ### PostBlockState
 
@@ -263,6 +269,8 @@ The values txV, txR and txS correspond to the signature of the transaction and a
 ### txV
 The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV is aecovery id, a 1 byte value specifying the sign and finiteness of the curve point. This value is in the range of [27,30], however we declare the upper to possibilities, representing infinite values, invalid.
 ## U
+### Uncle
+
 ## V
 ### ValueContractMsg
 Value Contract Messages go from a Contract to an External Account.
@@ -272,7 +280,7 @@ A type of Transaction that transfers only value.
 A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.
 ## W
 ### WorldState
-The world state, is a mapping between addresses (160-bit identifiers) and Account states (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.
+The world state, is a mapping between addresses (160-bit identifiers) of all Accounts and their States (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.
 ## X
 ## Y
 ## Z

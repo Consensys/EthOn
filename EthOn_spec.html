@@ -136,7 +136,7 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">44</span></h3>
+            <h3>Classes <span class="badge">45</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
@@ -151,7 +151,8 @@
                     <li><a class="label label-primary" href="#class-blockconcept">BlockConcept</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
                     <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li>
+                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
                     <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-messageconcept">MessageConcept</a><ul>
@@ -194,7 +195,8 @@
                     <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
                     <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li>
+                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
                     <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
@@ -203,18 +205,14 @@
                     <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
                     <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
                     <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
-                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li>
-                    <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
-                    <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
-                    <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
-                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-httpxmlnscomfoaf01agent">Agent</a><ul>
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
             </ul>
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">81</span></h3>
+            <h3>Properties <span class="badge">84</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -298,8 +296,11 @@
                     <li><a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a></li>
                     <li><a class="label label-default" href="#prop-createspostmsgstate">createsPostMsgState</a></li>
                     <li><a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-hasnextstate">hasNextState</a></li>
-                    <li><a class="label label-default" href="#prop-hastransition">hasTransition</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-hastransition">hasTransition</a></li>
+                    <li><a class="label label-default" href="#prop-nextstate">nextState</a><ul>
+                    <li><a class="label label-default" href="#prop-nextmsgstate">nextMsgState</a><ul>
+                    <li><a class="label label-default" href="#prop-nexttxstate">nextTxState</a><ul>
+                    <li><a class="label label-default" href="#prop-nextblockstate">nextBlockState</a></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-default" href="#prop-partof">partOf</a></li></ul></li>
             </ul>
         </div>
@@ -307,7 +308,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">44</span></h2>
+    <h2>Class descriptions <span class="badge">45</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of Account: those with empty associated EVM Code (thus the Account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the Account represents an Autonomous Object). Each Account has a single Address that identifies it.</p>
@@ -424,7 +425,7 @@
         </table>
     
         <h3 id="class-accountstate">AccountState</h3>
-        <p>State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State.</p>
+        <p>State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -596,6 +597,7 @@
                         
                             <a class="label label-primary" href="#class-genesisblock">GenesisBlock</a> 
                             <a class="label label-primary" href="#class-ommer">Ommer</a> 
+                            <a class="label label-primary" href="#class-uncle">Uncle</a> 
                     </td>
                 </tr>
             
@@ -1581,7 +1583,7 @@
         </table>
     
         <h3 id="class-ommer">Ommer</h3>
-        <p>An Ommer.</p>
+        <p>An Ommer (or Uncle) is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. They are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1635,7 +1637,21 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextblockstate">nextBlockState</a> 
+                    </td>
+                </tr>
             
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextblockstate">nextBlockState</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -1667,7 +1683,21 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextmsgstate">nextMsgState</a> 
+                    </td>
+                </tr>
             
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextmsgstate">nextMsgState</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -1699,7 +1729,21 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nexttxstate">nextTxState</a> 
+                    </td>
+                </tr>
             
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nexttxstate">nextTxState</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -1914,7 +1958,6 @@
                         
                             <a class="label label-primary" href="#class-block">Block</a> 
                             <a class="label label-primary" href="#class-msg">Msg</a> 
-                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             
@@ -1956,7 +1999,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-msg">Msg</a> 
-                            <a class="label label-primary" href="#class-statetransition">StateTransition</a> 
                     </td>
                 </tr>
             
@@ -2089,6 +2131,41 @@
             
         </table>
     
+        <h3 id="class-uncle">Uncle</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/Uncle">http://consensys.net/ethereum-ontology/Uncle</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">Uncle</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
         <h3 id="class-valuecontractmsg">ValueContractMsg</h3>
         <p>Value Contract Messages go from a Contract to an External Account.</p>
         <table class="table table-striped">
@@ -2160,7 +2237,7 @@
         </table>
     
         <h3 id="class-worldstate">WorldState</h3>
-        <p>The world state, is a mapping between addresses (160-bit identifiers) and Account states (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</p>
+        <p>The world state, is a mapping between addresses (160-bit identifiers) of all Accounts and their States (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2202,6 +2279,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-stateroot">stateRoot</a> 
+                            <a class="label label-default" href="#prop-nextstate">nextState</a> 
                     </td>
                 </tr>
             
@@ -2211,6 +2289,7 @@
                         
                             <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
                             <a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a> 
+                            <a class="label label-default" href="#prop-nextstate">nextState</a> 
                     </td>
                 </tr>
             
@@ -2252,7 +2331,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">34</span></h2>
+    <h2>Object Property descriptions <span class="badge">37</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -2901,8 +2980,8 @@
                         
                             <a class="label label-default" href="#prop-hasstate">hasState</a> 
                             <a class="label label-default" href="#prop-createsstate">createsState</a> 
-                            <a class="label label-default" href="#prop-hasnextstate">hasNextState</a> 
                             <a class="label label-default" href="#prop-hastransition">hasTransition</a> 
+                            <a class="label label-default" href="#prop-nextstate">nextState</a> 
                     </td>
                 </tr>
             
@@ -3359,41 +3438,6 @@
             
         </table>
     
-        <h3 id="prop-hasnextstate">hasNextState</h3>
-        <p>Relates a State to the following State. In EthOn the state transition system has no branches.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/hasNextState">http://consensys.net/ethereum-ontology/hasNextState</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">hasNextState</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
         <h3 id="prop-hasreceipt">hasReceipt</h3>
         <p>Relates a transaction to its receipt.</p>
         <table class="table table-striped">
@@ -3605,6 +3649,223 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-blockchain">Blockchain</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-nextblockstate">nextBlockState</h3>
+        <p>Relates a Post Block State to the following Post Block State.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/nextBlockState">http://consensys.net/ethereum-ontology/nextBlockState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">nextBlockState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nexttxstate">nextTxState</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-postblockstate">PostBlockState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-postblockstate">PostBlockState</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-nextmsgstate">nextMsgState</h3>
+        <p>Relates a Post Message State to the following Post Message State.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/nextMsgState">http://consensys.net/ethereum-ontology/nextMsgState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">nextMsgState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextstate">nextState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nexttxstate">nextTxState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-postmsgstate">PostMsgState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-postmsgstate">PostMsgState</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-nextstate">nextState</h3>
+        <p>Relates a State to the following State. In EthOn the state transition system has no branches.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/nextState">http://consensys.net/ethereum-ontology/nextState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">nextState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextmsgstate">nextMsgState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-nexttxstate">nextTxState</h3>
+        <p>Relates a Post Transaction State to the following Post Transaction State.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://consensys.net/ethereum-ontology/nextTxState">http://consensys.net/ethereum-ontology/nextTxState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">nextTxState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextmsgstate">nextMsgState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-nextblockstate">nextBlockState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-posttxstate">PostTxState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-posttxstate">PostTxState</a> 
                     </td>
                 </tr>
             
