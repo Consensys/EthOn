@@ -66,9 +66,9 @@ def makeGlossary(onto):
     az = string.uppercase[:26]
 
     for term in onto.classes:
-        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n" + term.RDFScomment
+        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+str(term.uri)+")   \n" + term.RDFScomment
     for term in onto.properties:
-        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n" + term.RDFScomment
+        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+str(term.uri)+")   \n" + term.RDFScomment
 
     for letter in az:
         glossary[letter] = collections.OrderedDict(
@@ -87,7 +87,7 @@ def main():
     onto.namespaces.append(("ethon", URIRef("http://ethon.consensys.net/")))
 
     for c in onto.classes:
-        c.RDFScomment = ", ".join(sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.comment)]))
+        c.RDFScomment = " \n\n".join(sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.comment)]))
         c.RDFSlabel = ", ".join(sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.label)]))
         c.ETHONsuggestedStringRepresentation = ", ".join(
             sorted([x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)]))
