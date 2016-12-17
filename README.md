@@ -5,14 +5,21 @@ An ontology is a formalization of concepts and relations within a domain.
 EthOn is written in [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) and [OWL](OWL).
 
 ## Status and scope
-EthOn is currently under heavy development. It is not complete, nor ever will be, probably. The goal is to model Ethereum as a [State Transition System](https://en.wikipedia.org/wiki/Transition_system).
+EthOn is currently under heavy development. It is not complete, nor ever will be, probably. The goal is to model Ethereum 
+as a [State Transition System](https://en.wikipedia.org/wiki/Transition_system).
+
+EthOn is not canonical (i.e. "official"). However, it might be submitted as an EIP at some point in the future.
+
+Versioning is done according to [Semver](http://semver.org/). The ontology prefix IRI can only change with major versions. 
+The version IRI prefix changes with every major version.
 
 EthOn can be used
-* as a glossary of Ethereum terms
+* as a [glossary of Ethereum terms](EthOn_glossary.md)
 * as a learning ressource for understanding Ethereum and the yellow paper
 * as a means to improve communication (among developers, among technical and non-technical people, ...)
 * for checking the consistency of modeled aspects of blockchain data via reasoning
 * to semantically annotate content provided by Ethereum based tools and dApps (e.g. block explorers, analysis tools, markets, ...)
+
 (incomplete list)
 
 ## Five approaches to understanding EthOn
@@ -88,5 +95,5 @@ __EthOn axiom__: `Block and (number some {"0"^^xsd:int}) EquivalentTo GenesisBlo
 __Informal statement:__ When a _Tx Receipt_ has a _post Tx state_, the _Tx_ itself has a _createsState_ property relation.  
 __EthOn axiom__: `hasReceipt o hasPostTxState SubPropertyOf: createsState`
 
-## Why "EthOn"?
+## "EthOn"?
 Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
