@@ -119,14 +119,14 @@ def main():
         o_properties=onto.objectProperties
     )
     with open("EthOn_spec.html", "wb") as fh:
-        fh.write(spec)
+        fh.write(spec.encode('utf-8'))
 
     # Render glossary
     glossary_template = env.get_template('EthOn_glossary_template.md')
     glossary = glossary_template.render(glossary=makeGlossary(onto))
 
     with open("EthOn_glossary.md", "wb") as fh:
-        fh.write(glossary)
+        fh.write(glossary.encode('utf-8'))
 
 
 main()
