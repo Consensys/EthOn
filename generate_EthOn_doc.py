@@ -23,16 +23,16 @@ def bootstrapDesc(onto):
     VOCAB = Namespace('http://www.w3.org/2003/06/sw-vocab-status/ns#')
     OWL = Namespace('http://www.w3.org/2002/07/owl#')
 
-    DCcontributors = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.contributor)])
-    DCcreators = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.creator)])
-    VANNprefPrefix = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, VANN.preferredNamespacePrefix)])
-    DCtitle = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.title)])
+    DCcontributors = ", ".join(sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.contributor)]))
+    DCcreators = ", ".join(sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.creator)]))
+    VANNprefPrefix = ", ".join(sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, VANN.preferredNamespacePrefix)]))
+    DCtitle = ", ".join(sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, DC.title)]))
     VOCABterm_status = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, VOCAB.term_status)])
-    OWLimports = [x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.imports)]
-    OWLversionIRI = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.versionIRI)])
-    OWLversionInfo = ", ".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.versionInfo)])
-    RDFSseeAlso = [x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.seeAlso)]
-    RDFScomment = "\n".join([x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.comment)])
+    OWLimports = sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.imports)])
+    OWLversionIRI = ", ".join(sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.versionIRI)]))
+    OWLversionInfo = ", ".join(sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, OWL.versionInfo)]))
+    RDFSseeAlso = sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.seeAlso)])
+    RDFScomment = "\n".join(sorted([x for x in onto.rdfgraph.objects(onto.ontologyURI, RDFS.comment)]))
 
     return {
         "comment": RDFScomment,
@@ -66,9 +66,9 @@ def makeGlossary(onto):
     az = string.uppercase[:26]
 
     for term in onto.classes:
-        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n"+", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
+        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n" + term.RDFScomment
     for term in onto.properties:
-        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n"+", ".join([x for x in term.rdfgraph.objects(term.uri, RDFS.comment)])
+        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n" + term.RDFScomment
 
     for letter in az:
         glossary[letter] = collections.OrderedDict(
@@ -87,22 +87,22 @@ def main():
     onto.namespaces.append(("ethon", URIRef("http://ethon.consensys.net/")))
 
     for c in onto.classes:
-        c.RDFScomment = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.comment)])
-        c.RDFSlabel = ", ".join([x for x in c.rdfgraph.objects(c.uri, RDFS.label)])
+        c.RDFScomment = ", ".join(sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.comment)]))
+        c.RDFSlabel = ", ".join(sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.label)]))
         c.ETHONsuggestedStringRepresentation = ", ".join(
-            [x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)])
-        c.VOCABterm_status = ", ".join([x for x in c.rdfgraph.objects(c.uri, VOCAB.term_status)])
-        c.RDFSseeAlso = [x for x in c.rdfgraph.objects(c.uri, RDFS.seeAlso)]
-        c.RDFSisDefinedBy = [x for x in c.rdfgraph.objects(c.uri, RDFS.isDefinedBy)]
+            sorted([x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)]))
+        c.VOCABterm_status = ", ".join(sorted([x for x in c.rdfgraph.objects(c.uri, VOCAB.term_status)]))
+        c.RDFSseeAlso = sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.seeAlso)])
+        c.RDFSisDefinedBy = sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.isDefinedBy)])
 
     for p in onto.properties:
-        p.RDFScomment = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.comment)])
-        p.RDFSlabel = ", ".join([x for x in p.rdfgraph.objects(p.uri, RDFS.label)])
+        p.RDFScomment = ", ".join(sorted([x for x in p.rdfgraph.objects(p.uri, RDFS.comment)]))
+        p.RDFSlabel = ", ".join(sorted([x for x in p.rdfgraph.objects(p.uri, RDFS.label)]))
         p.ETHONsuggestedStringRepresentation = ", ".join(
-            [x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)])
-        p.VOCABterm_status = ", ".join([x for x in p.rdfgraph.objects(p.uri, VOCAB.term_status)])
-        p.RDFSseeAlso = [x for x in p.rdfgraph.objects(p.uri, RDFS.seeAlso)]
-        p.RDFSisDefinedBy = [x for x in p.rdfgraph.objects(p.uri, RDFS.isDefinedBy)]
+            sorted([x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)]))
+        p.VOCABterm_status = ", ".join(sorted([x for x in p.rdfgraph.objects(p.uri, VOCAB.term_status)]))
+        p.RDFSseeAlso = sorted([x for x in p.rdfgraph.objects(p.uri, RDFS.seeAlso)])
+        p.RDFSisDefinedBy = sorted([x for x in p.rdfgraph.objects(p.uri, RDFS.isDefinedBy)])
 
     env = Environment(loader=FileSystemLoader('doc_resources/templates'))
 
