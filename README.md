@@ -33,10 +33,10 @@ Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
 [It should be enough to click this link](http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf?token=ABeN2BS6JNYwG2ADzI7vBJihTu02xpgjks5YWBKpwA%3D%3D). 
 WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
-### 3. Look at the specification
-You can look at the specification that is generated automatically. Just clone the repo and open _EthOn_spec.html_ in a browser.
+### 3. Read the specification
+You can look at the automatically generated [EthOn specification](https://consensys.github.io/EthOn/EthOn_spec.html).
 
-There is also a fancy specification generator http://hacks.michelepasin.org/ontospy/. See https://github.com/lambdamusic/OntospyWeb.
+There is another more fancy specification generator available: http://hacks.michelepasin.org/ontospy/. The GitHub project page can be found here: https://github.com/lambdamusic/OntospyWeb.
 
 ### 4. Open the ontology in Protégé
 Download [Protégé](http://protege.stanford.edu/) and open the ontology file to browse around and view all assertions.
