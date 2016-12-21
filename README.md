@@ -13,14 +13,21 @@ EthOn is not canonical (i.e. "official"). However, it might be submitted as an E
 Versioning is done according to [Semver](http://semver.org/). The ontology prefix IRI can only change with major versions. 
 The version IRI prefix changes with every major version.
 
-EthOn can be used
+### EthOn can be used
 * as a [glossary of Ethereum terms](EthOn_glossary.md)
 * as a learning ressource for understanding Ethereum and the yellow paper
 * as a means to improve communication (among developers, among technical and non-technical people, ...)
 * for checking the consistency of modeled aspects of blockchain data via reasoning
 * to semantically annotate content provided by Ethereum based tools and dApps (e.g. block explorers, analysis tools, markets, ...)
 
-(incomplete list)
+### EthOn covers the following major Ethereum concepts:
+* Blockchain concepts: Blocks, Accounts, Transactions, Contract Messages, Block-, Transaction-, Message- and World-State, 
+State Transition
+* Network concepts: Blockchain, Node, Protocol Variant, Fork, Network.
+
+### The following aspects are not covered (yet):
+* EVM states and EVM execution.
+* Relation to other blockchain implementations, e.g. Bitcoin.
 
 ## Five approaches to understanding EthOn
 ### 1. Look at simplified EthOn model of Ethereum
