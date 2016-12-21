@@ -33,10 +33,10 @@ Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
 [It should be enough to click this link](http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf?token=ABeN2BS6JNYwG2ADzI7vBJihTu02xpgjks5YWBKpwA%3D%3D). 
 WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
-### 3. Look at the specification
-You can look at the specification that is generated automatically. Just clone the repo and open _EthOn_spec.html_ in a browser.
+### 3. Read the specification
+You can look at the automatically generated [EthOn specification](https://consensys.github.io/EthOn/EthOn_spec.html).
 
-There is also a fancy specification generator http://hacks.michelepasin.org/ontospy/. See https://github.com/lambdamusic/OntospyWeb.
+There is another more fancy specification generator available: http://hacks.michelepasin.org/ontospy/. The GitHub project page can be found here: https://github.com/lambdamusic/OntospyWeb.
 
 ### 4. Open the ontology in Protégé
 Download [Protégé](http://protege.stanford.edu/) and open the ontology file to browse around and view all assertions.
@@ -53,10 +53,12 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         rdfs:label "Genesis Address" ;
         ethon:address "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
         ethon:hasState ethereum:AccountState0 ;
+        [...]
         rdfs:seeAlso <https://etherscan.io/address/0x0000000000000000000000000000000000000000> .
     
     ethereum:AccountState0
         ethon:accountBalance 0 ;
+        [...]
         ethon:accountNonce 0 .
         
 
@@ -65,7 +67,7 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
     ethereum:Block0
         a ethon:Block ;
         rdfs:label "Genesis Block" ;
-        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain. ;
+        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain." ;
         ethon:number 0 ;
         ethon:blockBeneficary ethereum:Account0000000000000000000000000000000000000000 ;
         ethon:blockReward 5000000000000000000 ;
