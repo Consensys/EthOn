@@ -21,13 +21,13 @@ The version IRI prefix changes with every major version.
 * to semantically annotate content provided by Ethereum based tools and dApps (e.g. block explorers, analysis tools, markets, ...)
 
 ### EthOn covers the following major Ethereum concepts:
-* Blockchain concepts: Blocks, Accounts, Transactions, Contract Messages, Block-, Transaction-, Message- and World-State, 
+* _Blockchain and State Transition concepts:_ Blocks, Accounts, Transactions, Contract Messages, Block-, Transaction-, Message- and World-State, 
 State Transition
-* Network concepts: Blockchain, Node, Protocol Variant, Fork, Network.
+* _Network concepts:_ Blockchain, Node, Protocol Variant, Fork, Network
 
 ### The following aspects are not covered (yet):
-* EVM states and EVM execution.
-* Relation to other blockchain implementations, e.g. Bitcoin.
+* EVM states and EVM execution
+* Relation to other blockchain implementations, e.g. Bitcoin
 
 ## Five approaches to understanding EthOn
 ### 1. Look at simplified EthOn model of Ethereum
