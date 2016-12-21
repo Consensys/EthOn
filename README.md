@@ -24,7 +24,7 @@ EthOn can be used
 
 ## Five approaches to understanding EthOn
 ### 1. Look at simplified EthOn model of Ethereum
-![EthOn model](doc_resources/img/EthOn_model.png)
+![EthOn model](doc_resources/img/EthOn_overview.png)
 
 Find more illustrations here: [EthOn illustrations](EthOn_illustrations.md)
 

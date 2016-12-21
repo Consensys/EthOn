@@ -3,7 +3,7 @@ This is a collection of illustrations of EthOn concepts and modeling practice.
 
 ## EthOn model of Ethereum (simplified)
 Informal and simplified illustration of an Ethereum network and blockchain modeled with EthOn.
-![EthOn model](doc_resources/img/EthOn_model.png)
+![EthOn model](doc_resources/img/EthOn_overview.png)
 
 ## Illustration key
 The illustrations mainly comply with [VOWL](http://vowl.visualdataweb.org/v2/) for concept illustrations
