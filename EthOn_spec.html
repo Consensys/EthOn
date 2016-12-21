@@ -30,9 +30,9 @@
         <dt>IRI</dt>
         <dd><a href="http://ethon.consensys.net/">http://ethon.consensys.net/</a></dd>
         <dt>Version IRI</dt>
-        <dd><a href="http://ethon.consensys.net/1/">http://ethon.consensys.net/1/</a></dd>
+        <dd><a href="http://ethon.consensys.net/0/">http://ethon.consensys.net/0/</a></dd>
         <dt>Version Info</dt>
-        <dd>1</dd>
+        <dd>0.0.1</dd>
         <dt>Creators</dt>
         <dd>Johannes Pfeffer</dd>
         <dt>Contributors</dt>
@@ -57,7 +57,7 @@
             <p><a href="doc_resources/img/EthOn_overview.png"><img src="doc_resources/img/EthOn_overview.png"
                                                                 class="img-thumbnail"
                                                                 alt="Simplified EthOn model"/></a><br/>
-                This is a simplified illustration of how EthOn models Ethereum</p>
+                This is a simplified illustration of how EthOn models Ethereum.</p>
             <p>
                 More illustrations can be found in the <a href="https://github.com/ConsenSys/EthOn/blob/master/EthOn_illustrations.md">EthOn_illustrations.md</a> file.
             </p>
@@ -173,8 +173,8 @@
                     <li><a class="label label-default" href="#prop-number">number</a></li>
                     <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-calldepth">callDepth</a></li>
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
+                    <li><a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a></li>
                     <li><a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a></li>
                     <li><a class="label label-default" href="#prop-msggasprice">msgGasPrice</a></li>
                     <li><a class="label label-default" href="#prop-msgpayload">msgPayload</a><ul>
@@ -823,6 +823,13 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Used with</td>
@@ -1952,6 +1959,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
                             <a class="label label-default" href="#prop-txnonce">txNonce</a> 
                             <a class="label label-default" href="#prop-txr">txR</a> 
                             <a class="label label-default" href="#prop-txs">txS</a> 
@@ -1966,6 +1974,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
+                            <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                     </td>
                 </tr>
             
@@ -2656,7 +2665,21 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
             
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -4147,8 +4170,8 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-calldepth">callDepth</a> 
                             <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
+                            <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
                             <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
@@ -4996,41 +5019,6 @@
             
         </table>
     
-        <h3 id="prop-calldepth">callDepth</h3>
-        <p>A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/callDepth">http://ethon.consensys.net/callDepth</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">callDepth</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
         <h3 id="prop-clientversion">clientVersion</h3>
         <p>Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).</p>
         <table class="table table-striped">
@@ -5115,6 +5103,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msgcalldepth">msgCallDepth</h3>
+        <p>A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgCallDepth">http://ethon.consensys.net/msgCallDepth</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgCallDepth</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             

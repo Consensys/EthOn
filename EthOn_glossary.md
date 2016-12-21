@@ -75,9 +75,6 @@ A type of Transaction that results in creation of a new Contract Account.
 ### call data
 [`ethon:msgData`](http://ethon.consensys.net/msgData)   
 An unlimited size byte array specifying the input data of the call.
-### call depth
-[`ethon:callDepth`](http://ethon.consensys.net/callDepth)   
-A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.
 ### conforms to
 [`ethon:conformsTo`](http://ethon.consensys.net/conformsTo)   
 Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.
@@ -253,6 +250,9 @@ Merkle Patricia trees provide a cryptographically authenticated data structure t
 ### Message
 [`ethon:Msg`](http://ethon.consensys.net/Msg)   
 Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.
+### Message call depth
+[`ethon:msgCallDepth`](http://ethon.consensys.net/msgCallDepth)   
+A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.
 ### Message gas limit
 [`ethon:msgGasLimit`](http://ethon.consensys.net/msgGasLimit)   
 A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.

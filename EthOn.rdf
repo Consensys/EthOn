@@ -15,7 +15,7 @@
      xmlns:ethon="http://ethon.consensys.net/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://ethon.consensys.net/">
-        <owl:versionIRI rdf:resource="http://ethon.consensys.net/1/"/>
+        <owl:versionIRI rdf:resource="http://ethon.consensys.net/0/"/>
         <owl:imports rdf:resource="http://www.w3.org/2003/06/sw-vocab-status/ns"/>
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/yellowpaper"/>
         <dc:contributor>Shahan Khatchadourian</dc:contributor>
@@ -27,7 +27,7 @@
         <dc:contributor>Maurycy Pietrzak</dc:contributor>
         <dc:contributor>Alex Beregszazi</dc:contributor>
         <dc:title>EthOn - An Ethereum Ontology</dc:title>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1</owl:versionInfo>
+        <owl:versionInfo>0.0.1</owl:versionInfo>
         <dc:contributor>Herman Junge</dc:contributor>
         <vann:preferredNamespacePrefix>ethon</vann:preferredNamespacePrefix>
         <dc:contributor>Stefano Bertolo</dc:contributor>
