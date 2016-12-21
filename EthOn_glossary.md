@@ -73,8 +73,11 @@ A create Contract Message is a special type of Contract Message that results in 
 [`ethon:CreateTx`](http://ethon.consensys.net/CreateTx)   
 A type of Transaction that results in creation of a new Contract Account.
 ### call data
-[`ethon:data`](http://ethon.consensys.net/data)   
+[`ethon:msgData`](http://ethon.consensys.net/msgData)   
 An unlimited size byte array specifying the input data of the call.
+### call depth
+[`ethon:callDepth`](http://ethon.consensys.net/callDepth)   
+A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.
 ### conforms to
 [`ethon:conformsTo`](http://ethon.consensys.net/conformsTo)   
 Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.
@@ -194,6 +197,9 @@ Relates a Transaction Receipt to a Log Entry created by the Transaction of the R
 ### has Log Topic
 [`ethon:hasLogTopic`](http://ethon.consensys.net/hasLogTopic)   
 Relates a Log Entry to a Log Topic.
+### has Originator Transaction
+[`ethon:hasOriginatorTx`](http://ethon.consensys.net/hasOriginatorTx)   
+Relates a Contract Message to the Transaction it originated from.
 ### has Transition
 [`ethon:hasTransition`](http://ethon.consensys.net/hasTransition)   
 Relates a State to a Transition (i.e. a Message) that creates a new State.
@@ -219,9 +225,6 @@ Relates a transaction to its receipt.
 [`ethon:hasTxTrie`](http://ethon.consensys.net/hasTxTrie)   
 Relates a Block to the trie that contains the data of the transactions contained in the Block.
 ## I
-### init code
-[`ethon:init`](http://ethon.consensys.net/init)   
-An unlimited size byte array specifying the EVM-code for the account initialisation procedure.
 ## J
 ## K
 ### knows of Ommer
@@ -250,8 +253,17 @@ Merkle Patricia trees provide a cryptographically authenticated data structure t
 ### Message
 [`ethon:Msg`](http://ethon.consensys.net/Msg)   
 Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.
+### Message gas limit
+[`ethon:msgGasLimit`](http://ethon.consensys.net/msgGasLimit)   
+A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.
+### Message gas price
+[`ethon:msgGasPrice`](http://ethon.consensys.net/msgGasPrice)   
+A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.
+### Message init code
+[`ethon:msgInit`](http://ethon.consensys.net/msgInit)   
+An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
 ### Message payload
-[`ethon:payload`](http://ethon.consensys.net/payload)   
+[`ethon:msgPayload`](http://ethon.consensys.net/msgPayload)   
 An unlimited size byte array specifying the data payload of the Message.
 ### Mix hash
 [`ethon:blockMixHash`](http://ethon.consensys.net/blockMixHash)   
@@ -317,12 +329,6 @@ Transactions represent a valid arc between two states. A transaction is a single
 ### Transaction Logs Bloom filter
 [`ethon:txLogsBloom`](http://ethon.consensys.net/txLogsBloom)   
 Relates a Transaction Receipt to the Bloom filter of its Log Entries.
-### Transaction gas limit
-[`ethon:txGasLimit`](http://ethon.consensys.net/txGasLimit)   
-A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later.
-### Transaction gas price
-[`ethon:txGasPrice`](http://ethon.consensys.net/txGasPrice)   
-A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.
 ### Transaction nonce
 [`ethon:txNonce`](http://ethon.consensys.net/txNonce)   
 A scalar value equal to the number of transactions sent by the sender.

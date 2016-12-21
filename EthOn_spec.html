@@ -54,81 +54,13 @@
     <h2>Illustrations</h2>
     <div class="row">
         <div class="col-sm-12">
-            <p><a href="doc_resources/img/EthOn_model.png"><img src="doc_resources/img/EthOn_model.png"
+            <p><a href="doc_resources/img/EthOn_overview.png"><img src="doc_resources/img/EthOn_overview.png"
                                                                 class="img-thumbnail"
                                                                 alt="Simplified EthOn model"/></a><br/>
                 This is a simplified illustration of how EthOn models Ethereum</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <p><a href="doc_resources/img/key.png"><img src="doc_resources/img/key.png"
-                                                     class="img-thumbnail" alt="Illustrations key"
-                                                     width="350"/></a><br/>
-            The key to the illustrations</p>
-        </div>
-        <div class="col-sm-4">
-            <p><a href="doc_resources/img/account_concept.png"><img src="doc_resources/img/account_concept.png"
-                                                                 class="img-thumbnail" alt="The Account Concept"
-                                                                 width="350"/></a><br/>
-            The Account concept</p>
-        </div>
-        <div class="col-sm-4">
-            <p><a href="doc_resources/img/block_modeling_scheme.png"><img src="doc_resources/img/block_modeling_scheme.png"
-                                                                       class="img-thumbnail"
-                                                                       alt="The Block modeling scheme"
-                                                                       width="350"/></a><br/>
-            The Block modeling scheme</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">
-            <p><a href="doc_resources/img/message_concept.png"><img src="doc_resources/img/message_concept.png"
-                                                                 class="img-thumbnail" alt="The Message concept"
-                                                                 width="350"/></a><br/>
-            The Message concept</p>
-        </div>
-        <div class="col-sm-3">
-            <p><a href="doc_resources/img/transaction_concept.png"><img src="doc_resources/img/transaction_concept.png"
-                                                                    class="img-thumbnail"
-                                                                    alt="The Transaction concept"
-                                                                    width="350"/></a><br/>
-            The Transaction concept</p>
-        </div>
-        <div class="col-sm-3">
-            <p><a href="doc_resources/img/tx_receipt_concept.png"><img src="doc_resources/img/tx_receipt_concept.png"
-                                                                    class="img-thumbnail"
-                                                                    alt="The Transaction Receipt concept"
-                                                                    width="350"/></a><br/>
-            The Transaction Receipt concept</p>
-        </div>
-        <div class="col-sm-3">
-            <p><a href="doc_resources/img/log_concept.png"><img src="doc_resources/img/log_concept.png"
-                                                             class="img-thumbnail" alt="The Log concept"
-                                                             width="350"/></a><br/>
-            The Log concept</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <p><a href="doc_resources/img/transition_concept.png"><img src="doc_resources/img/transition_concept.png"
-                                                                    class="img-thumbnail"
-                                                                    alt="The State Transition concept"
-                                                                    width="350"/></a><br/>
-            The State Transition concept</p>
-        </div>
-        <div class="col-sm-4">
-            <p><a href="doc_resources/img/transition_modeling_scheme.png"><img
-                    src="doc_resources/img/transition_modeling_scheme.png"
-                    class="img-thumbnail" alt="The State Transition modeling scheme"
-                    width="350"/></a><br/>
-            The State Transition modeling scheme</p>
-        </div>
-        <div class="col-sm-4">
-            <p><a href="doc_resources/img/network_concept.png"><img src="doc_resources/img/network_concept.png"
-                                                                 class="img-thumbnail" alt="The Network concept"
-                                                                 width="350"/></a><br/>
-            The Network concept and modeling scheme</p>
+            <p>
+                More illustrations can be found in the <a href="https://github.com/ConsenSys/EthOn/blob/master/EthOn_illustrations.md">EthOn_illustrations.md</a> file.
+            </p>
         </div>
     </div>
 
@@ -212,7 +144,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">84</span></h3>
+            <h3>Properties <span class="badge">86</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -241,16 +173,17 @@
                     <li><a class="label label-default" href="#prop-number">number</a></li>
                     <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-calldepth">callDepth</a></li>
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
-                    <li><a class="label label-default" href="#prop-payload">payload</a><ul>
-                    <li><a class="label label-default" href="#prop-data">data</a></li>
-                    <li><a class="label label-default" href="#prop-init">init</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a></li>
+                    <li><a class="label label-default" href="#prop-msggasprice">msgGasPrice</a></li>
+                    <li><a class="label label-default" href="#prop-msgpayload">msgPayload</a><ul>
+                    <li><a class="label label-default" href="#prop-msgdata">msgData</a></li>
+                    <li><a class="label label-default" href="#prop-msginit">msgInit</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a></li>
                     <li><a class="label label-default" href="#prop-topicdata">topicData</a></li>
                     <li><a class="label label-default" href="#prop-topicindex">topicIndex</a></li>
                     <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li>
-                    <li><a class="label label-default" href="#prop-txgaslimit">txGasLimit</a></li>
-                    <li><a class="label label-default" href="#prop-txgasprice">txGasPrice</a></li>
                     <li><a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a></li>
                     <li><a class="label label-default" href="#prop-txnonce">txNonce</a></li>
                     <li><a class="label label-default" href="#prop-txr">txR</a></li>
@@ -273,6 +206,7 @@
                     <li><a class="label label-default" href="#prop-containstx">containsTx</a></li>
                     <li><a class="label label-default" href="#prop-knowsofommer">knowsOfOmmer</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a></li>
                     <li><a class="label label-default" href="#prop-createsstate">createsState</a><ul>
                     <li><a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a></li>
                     <li><a class="label label-default" href="#prop-createspostmsgstate">createsPostMsgState</a></li>
@@ -1440,7 +1374,9 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-payload">payload</a> 
+                            <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
+                            <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
+                            <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
                     </td>
@@ -2331,7 +2267,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">37</span></h2>
+    <h2>Object Property descriptions <span class="badge">38</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -2690,6 +2626,41 @@
             
         </table>
     
+        <h3 id="prop-hasoriginatortx">hasOriginatorTx</h3>
+        <p>Relates a Contract Message to the Transaction it originated from.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/hasOriginatorTx">http://ethon.consensys.net/hasOriginatorTx</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">hasOriginatorTx</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
         <h3 id="prop-hasstate">hasState</h3>
         <p>This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept. Only some EthOn concepts have associated states. This is defined in the domain restriction.</p>
         <table class="table table-striped">
@@ -2893,6 +2864,7 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                             <a class="label label-default" href="#prop-createsstate">createsState</a> 
                             <a class="label label-default" href="#prop-from">from</a> 
                             <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
@@ -4008,7 +3980,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">43</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">44</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4175,14 +4147,15 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-calldepth">callDepth</a> 
                             <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
-                            <a class="label label-default" href="#prop-payload">payload</a> 
+                            <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
+                            <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
+                            <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a> 
                             <a class="label label-default" href="#prop-topicdata">topicData</a> 
                             <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
                             <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
-                            <a class="label label-default" href="#prop-txgaslimit">txGasLimit</a> 
-                            <a class="label label-default" href="#prop-txgasprice">txGasPrice</a> 
                             <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
                             <a class="label label-default" href="#prop-txnonce">txNonce</a> 
                             <a class="label label-default" href="#prop-txr">txR</a> 
@@ -5023,6 +4996,41 @@
             
         </table>
     
+        <h3 id="prop-calldepth">callDepth</h3>
+        <p>A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/callDepth">http://ethon.consensys.net/callDepth</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">callDepth</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
         <h3 id="prop-clientversion">clientVersion</h3>
         <p>Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).</p>
         <table class="table table-striped">
@@ -5121,7 +5129,7 @@
             
         </table>
     
-        <h3 id="prop-data">data</h3>
+        <h3 id="prop-msgdata">msgData</h3>
         <p>An unlimited size byte array specifying the input data of the call.</p>
         <table class="table table-striped">
             
@@ -5134,19 +5142,19 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/data">http://ethon.consensys.net/data</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgData">http://ethon.consensys.net/msgData</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">data</td>
+                    <td class="col-md-10">msgData</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-payload">payload</a> 
+                            <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                     </td>
                 </tr>
             
@@ -5163,8 +5171,8 @@
             
         </table>
     
-        <h3 id="prop-init">init</h3>
-        <p>An unlimited size byte array specifying the EVM-code for the account initialisation procedure.</p>
+        <h3 id="prop-msggaslimit">msgGasLimit</h3>
+        <p>A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5176,23 +5184,171 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/init">http://ethon.consensys.net/init</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgGasLimit">http://ethon.consensys.net/msgGasLimit</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">init</td>
+                    <td class="col-md-10">msgGasLimit</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-payload">payload</a> 
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
                     </td>
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msggasprice">msgGasPrice</h3>
+        <p>A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgGasPrice">http://ethon.consensys.net/msgGasPrice</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgGasPrice</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
+                    </td>
+                </tr>
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-msginit">msgInit</h3>
+        <p>An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgInit">http://ethon.consensys.net/msgInit</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgInit</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msgpayload">msgPayload</h3>
+        <p>An unlimited size byte array specifying the data payload of the Message.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgPayload">http://ethon.consensys.net/msgPayload</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgPayload</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-msgdata">msgData</a> 
+                            <a class="label label-default" href="#prop-msginit">msgInit</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5248,63 +5404,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-payload">payload</h3>
-        <p>An unlimited size byte array specifying the data payload of the Message.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/payload">http://ethon.consensys.net/payload</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">payload</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Subclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-data">data</a> 
-                            <a class="label label-default" href="#prop-init">init</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-msg">Msg</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
                     </td>
                 </tr>
             
@@ -5626,76 +5725,6 @@
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
                     </td>
                 </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-txgaslimit">txGasLimit</h3>
-        <p>A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/txGasLimit">http://ethon.consensys.net/txGasLimit</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">txGasLimit</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
-        <h3 id="prop-txgasprice">txGasPrice</h3>
-        <p>A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/txGasPrice">http://ethon.consensys.net/txGasPrice</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">txGasPrice</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-            
             
             
         </table>

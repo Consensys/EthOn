@@ -21,6 +21,7 @@ dotted arrow with an open head.
 ![Message concept](doc_resources/img/message_concept.png)
 ![Transaction concept](doc_resources/img/transaction_concept.png)
 ![Transaction Receipt concept](doc_resources/img/tx_receipt_concept.png)
+![Contract Message concept](doc_resources/img/contract_message_concept.png)
 ![Log concept](doc_resources/img/log_concept.png)
 ### State Transition concept and modeling scheme
 ![State Transition concept](doc_resources/img/transition_concept.png)
