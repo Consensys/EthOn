@@ -53,10 +53,12 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         rdfs:label "Genesis Address" ;
         ethon:address "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
         ethon:hasState ethereum:AccountState0 ;
+        [...]
         rdfs:seeAlso <https://etherscan.io/address/0x0000000000000000000000000000000000000000> .
     
     ethereum:AccountState0
         ethon:accountBalance 0 ;
+        [...]
         ethon:accountNonce 0 .
         
 
@@ -65,7 +67,7 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
     ethereum:Block0
         a ethon:Block ;
         rdfs:label "Genesis Block" ;
-        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain. ;
+        rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain." ;
         ethon:number 0 ;
         ethon:blockBeneficary ethereum:Account0000000000000000000000000000000000000000 ;
         ethon:blockReward 5000000000000000000 ;
