@@ -10,8 +10,7 @@ as a [State Transition System](https://en.wikipedia.org/wiki/Transition_system).
 
 EthOn is not canonical (i.e. "official"). However, it might be submitted as an EIP at some point in the future.
 
-Versioning is done according to [Semver](http://semver.org/). The ontology prefix IRI can only change with major versions. 
-The version IRI prefix changes with every major version.
+For information on [contributing](https://github.com/ConsenSys/EthOn/wiki/How-to-contribute-to-EthOn), [versioning](https://github.com/ConsenSys/EthOn/wiki/Versioning-system) and [usage](https://github.com/ConsenSys/EthOn/wiki/Usage), please have a look at the [wiki](https://github.com/ConsenSys/EthOn/wiki).
 
 ### EthOn can be used
 * as a [glossary of Ethereum terms](EthOn_glossary.md)
@@ -82,27 +81,6 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         ethon:blockNonce "0000000000000042"^^xsd:hexBinary ;
         [...]
         rdfs:seeAlso <https://etherscan.io/block/0> .
-
-## Axioms and constraints
-Axioms are sentences in [description logic](https://en.wikipedia.org/wiki/Description_logic) statements. 
-At this early stage only a few axioms have been defined in EthOn. The expressiveness will increase as the structure of
-EthOn matures. The axioms can be used with reasoners to infer information from data. You can best have a look at them if you open EthOn in Protégé (see above).
-
-### Some example axioms
-
-__Informal statement:__ _Blocks_ have exactly one property _blockHash_ of type _xsd:hexBinary_.  
-__EthOn axiom__ in [Manchester Syntax](https://www.w3.org/TR/owl2-manchester-syntax/): `Class: Block SubClassOf: blockHash exactly 1 xsd:hexBinary SubClassOf Block`
-  
-To be exact the axiom states "A Block is a subclass of the theoretical class of 'all things that have exactly one _blockHash_ property with a value of type _xsd:hexBinary_'".
-We have specified a necessary but not sufficient condition. We are saying there might be other things that have a _blockHash_ and are not _Blocks_. 
-
-Also, something that doesn't have such a property may still be a _Block_. We don't know, maybe it's just one that is not as well described (see [open world assumption](https://en.wikipedia.org/wiki/Open-world_assumption)).
-
-__Informal statement:__ _Blocks_ with a _number_ of 0 are _Genesis Blocks_.  
-__EthOn axiom__: `Block and (number some {"0"^^xsd:int}) EquivalentTo GenesisBlock`
-
-__Informal statement:__ When a _Tx Receipt_ has a _post Tx state_, the _Tx_ itself has a _createsState_ property relation.  
-__EthOn axiom__: `hasReceipt o hasPostTxState SubPropertyOf: createsState`
 
 ## "EthOn"?
 Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
