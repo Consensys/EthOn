@@ -963,7 +963,7 @@ Actor<y:LabelModel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+              <y:BorderInsets bottom="5" bottomF="5.239791296882686" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="-1995.0937083452395" y="-1730.0570553969062"/>
@@ -999,7 +999,7 @@ Actor<y:LabelModel>
         <node id="n7::n1">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-194.62263459325004"/>
+              <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-657.4144485149698"/>
               <y:Fill color="#FFCC33" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.650390625" x="32.815083957123306" y="6.015625">hexBinary<y:LabelModel>
@@ -1016,23 +1016,6 @@ Actor<y:LabelModel>
         <node id="n7::n2">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-657.4144485149698"/>
-              <y:Fill color="#FFCC33" transparent="false"/>
-              <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.650390625" x="32.815083957123306" y="6.015625">hexBinary<y:LabelModel>
-                  <y:SmartNodeLabelModel distance="4.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:Shape type="rectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n7::n3">
-          <data key="d6">
-            <y:ShapeNode>
               <y:Geometry height="30.0" width="130.28055853924616" x="-1352.5817485527805" y="-249.30312449337248"/>
               <y:Fill color="#FFCC33" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
@@ -1047,7 +1030,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n4">
+        <node id="n7::n3">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.28055853924616" x="-1352.5817485527805" y="-147.27529348797293"/>
@@ -1064,7 +1047,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n5">
+        <node id="n7::n4">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.28055853924616" x="-1352.5817485527805" y="-555.3866175095704"/>
@@ -1081,7 +1064,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n6">
+        <node id="n7::n5">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.28055853924616" x="-1352.5817485527805" y="-657.4144485149698"/>
@@ -1098,10 +1081,10 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n7">
+        <node id="n7::n6">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-156.75550219109027"/>
+              <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952526" y="-193.04941769379002"/>
               <y:Fill color="#FFCC33" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="123.572265625" x="3.3541464571233064" y="6.015625">nonNegativeInteger<y:LabelModel>
@@ -1115,7 +1098,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n8">
+        <node id="n7::n7">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-537.0000431121478"/>
@@ -1132,7 +1115,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n9">
+        <node id="n7::n8">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-461.26577830782844"/>
@@ -1149,7 +1132,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n10">
+        <node id="n7::n9">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-423.3986459056687"/>
@@ -1166,7 +1149,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n11">
+        <node id="n7::n10">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-385.5315135035089"/>
@@ -1183,7 +1166,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n12">
+        <node id="n7::n11">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-347.66438110134914"/>
@@ -1200,7 +1183,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n13">
+        <node id="n7::n12">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-309.79724869918937"/>
@@ -1217,7 +1200,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n14">
+        <node id="n7::n13">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1764.9892855423243" y="-570.1066175095705"/>
@@ -1234,7 +1217,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n15">
+        <node id="n7::n14">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1764.9892855423243" y="-366.0509554987718"/>
@@ -1251,7 +1234,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n16">
+        <node id="n7::n15">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-574.8671755143073"/>
@@ -1268,7 +1251,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n17">
+        <node id="n7::n16">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-232.4897669954098"/>
@@ -1285,7 +1268,7 @@ Actor<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n18">
+        <node id="n7::n17">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1511.329665758292" y="-264.0231244933725"/>
@@ -1303,7 +1286,7 @@ Account<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n19">
+        <node id="n7::n18">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.28055853924616" x="-1352.5817485527805" y="-351.3309554987718"/>
@@ -1320,7 +1303,7 @@ Account<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n20">
+        <node id="n7::n19">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1511.329665758292" y="-161.99529348797296"/>
@@ -1338,7 +1321,7 @@ State<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n21">
+        <node id="n7::n20">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1511.329665758292" y="-570.1066175095705"/>
@@ -1356,7 +1339,7 @@ Trie<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n22">
+        <node id="n7::n21">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1511.329665758292" y="-672.1344485149698"/>
@@ -1374,7 +1357,7 @@ Trie<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n23">
+        <node id="n7::n22">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-499.1329107099882"/>
@@ -1391,7 +1374,7 @@ Trie<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n24">
+        <node id="n7::n23">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1511.329665758292" y="-366.0509554987718"/>
@@ -1409,7 +1392,7 @@ action<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n25">
+        <node id="n7::n24">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1764.9892855423243" y="-153.56816108581324"/>
@@ -1426,7 +1409,7 @@ action<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n26">
+        <node id="n7::n25">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1692.7188719165176" y="-519.0927020068707"/>
@@ -1443,7 +1426,7 @@ action<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n27">
+        <node id="n7::n26">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="59.44" width="59.44" x="-1600.7696657582921" y="-686.8544485149698"/>
@@ -1460,10 +1443,10 @@ action<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n7::n28">
+        <node id="n7::n27">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952529" y="-118.8883697889305"/>
+              <y:Geometry height="30.0" width="130.2805585392466" x="-2047.2300351952526" y="-153.60906839217023"/>
               <y:Fill color="#FFCC33" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="64.650390625" x="32.815083957123306" y="6.015625">hexBinary<y:LabelModel>
@@ -2316,7 +2299,7 @@ Topic<y:LabelModel>
     <node id="n15">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="59.44" width="59.44" x="-967.5540178559919" y="1345.3208698739857"/>
+          <y:Geometry height="59.44" width="59.44" x="-967.5540178559919" y="1357.0057639733802"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="2.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="36.455078125" x="11.492460937500027" y="20.735625000000027">Block<y:LabelModel>
@@ -2333,7 +2316,7 @@ Topic<y:LabelModel>
     <node id="n16">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="59.44" width="59.44" x="-967.5540178559918" y="1188.873684777427"/>
+          <y:Geometry height="59.44" width="59.44" x="-967.5540178559918" y="1200.5585788768215"/>
           <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="2.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="18.431640625" x="20.504179687500027" y="20.735625000000027">Tx<y:LabelModel>
@@ -2353,14 +2336,14 @@ Topic<y:LabelModel>
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="348.72656730688266" width="583.6986971256151" x="-872.9153207303764" y="1149.8599323739859"/>
+              <y:Geometry height="298.0279208040472" width="583.6986971256151" x="-872.9153207303764" y="1200.5585788768215"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="583.6986971256151" x="0.0" y="0.0">EthOn TxReceipts concept</y:NodeLabel>
               <y:Shape type="roundrectangle"/>
               <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
               <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="11" rightF="10.698697125615126" top="3" topF="2.552814903441117"/>
+              <y:BorderInsets bottom="0" bottomF="2.2737367544323206E-13" left="0" leftF="0.0" right="11" rightF="10.698697125615126" top="45" topF="45.3013534971642"/>
             </y:GroupNode>
             <y:GroupNode>
               <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
@@ -2449,23 +2432,6 @@ Trie<y:LabelModel>
         <node id="n17::n4">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="59.44" width="59.44" x="-431.6353207303764" y="1188.873684777427"/>
-              <y:Fill color="#99CCFF" transparent="false"/>
-              <y:BorderStyle color="#000000" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="35.763671875" x="11.838164062500027" y="20.735625000000027">State<y:LabelModel>
-                  <y:SmartNodeLabelModel distance="4.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="4.440892098500626E-16" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:Shape type="ellipse"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n17::n5">
-          <data key="d6">
-            <y:ShapeNode>
               <y:Geometry height="30.0" width="161.0" x="-666.9153207303764" y="1453.5864996808684"/>
               <y:Fill color="#FFCC33" transparent="false"/>
               <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
@@ -2480,7 +2446,7 @@ Trie<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n17::n6">
+        <node id="n17::n5">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="161.0" x="-475.9153207303764" y="1453.5864996808684"/>
@@ -4164,7 +4130,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e0" source="n7::n14" target="n7::n2">
+    <edge id="n7::e0" source="n7::n13" target="n7::n1">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.1151894517515" ty="0.0"/>
@@ -4182,7 +4148,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e1" source="n7::n15" target="n7::n14">
+    <edge id="n7::e1" source="n7::n14" target="n7::n13">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4200,7 +4166,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e2" source="n7::n15" target="n7::n23">
+    <edge id="n7::e2" source="n7::n14" target="n7::n22">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4218,7 +4184,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e3" source="n7::n15" target="n7::n16">
+    <edge id="n7::e3" source="n7::n14" target="n7::n15">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4236,7 +4202,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e4" source="n7::n15" target="n7::n17">
+    <edge id="n7::e4" source="n7::n14" target="n7::n16">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4254,7 +4220,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e5" source="n7::n15" target="n7::n25">
+    <edge id="n7::e5" source="n7::n14" target="n7::n24">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4272,7 +4238,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e6" source="n7::n15" target="n7::n18">
+    <edge id="n7::e6" source="n7::n14" target="n7::n17">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4290,7 +4256,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e7" source="n7::n15" target="n7::n24">
+    <edge id="n7::e7" source="n7::n14" target="n7::n23">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4308,25 +4274,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e8" source="n7::n15" target="n7::n1">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="2.0"/>
-          <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="left" anchorX="-104.14308887543461" anchorY="91.83192098779813" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_on_edge" ratio="0.5" textColor="#000000" upX="0.6531622963460205" upY="0.757217943944802" verticalTextPosition="bottom" visible="true" width="66.07421875" x="-154.1756729450687" y="91.83192098779813">blockHash<y:LabelModel>
-              <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:RotatedDiscreteEdgeLabelModelParameter position="ttail"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" placement="center" side="on_edge" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n7::e9" source="n7::n15" target="n7::n20">
+    <edge id="n7::e8" source="n7::n14" target="n7::n19">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4344,7 +4292,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e10" source="n7::n15" target="n7::n21">
+    <edge id="n7::e9" source="n7::n14" target="n7::n20">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4362,7 +4310,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e11" source="n7::n15" target="n7::n22">
+    <edge id="n7::e10" source="n7::n14" target="n7::n21">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4380,13 +4328,13 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e12" source="n7::n15" target="n7::n7">
+    <edge id="n7::e11" source="n7::n14" target="n7::n6">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.1468599821034" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="left" anchorX="-95.28944936074231" anchorY="104.05663267923012" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_on_edge" ratio="0.5" textColor="#000000" upX="0.7309243628992231" upY="0.682458479118228" verticalTextPosition="bottom" visible="true" width="89.541015625" x="-156.3974747028813" y="104.05663267923012">blockDifficulty<y:LabelModel>
+          <y:EdgeLabel alignment="left" anchorX="-86.75977731607918" anchorY="77.58874946667058" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_on_edge" ratio="0.5" textColor="#000000" upX="0.6568979880592289" upY="0.7539794647626267" verticalTextPosition="bottom" visible="true" width="89.541015625" x="-154.27186435131867" y="77.58874946667058">blockDifficulty<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -4398,7 +4346,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e13" source="n7::n15" target="n7::n8">
+    <edge id="n7::e12" source="n7::n14" target="n7::n7">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4416,7 +4364,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e14" source="n7::n15" target="n7::n9">
+    <edge id="n7::e13" source="n7::n14" target="n7::n8">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.1468599821034" ty="0.0"/>
@@ -4434,7 +4382,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e15" source="n7::n15" target="n7::n10">
+    <edge id="n7::e14" source="n7::n14" target="n7::n9">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4452,7 +4400,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e16" source="n7::n15" target="n7::n11">
+    <edge id="n7::e15" source="n7::n14" target="n7::n10">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4470,7 +4418,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e17" source="n7::n15" target="n7::n12">
+    <edge id="n7::e16" source="n7::n14" target="n7::n11">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4488,7 +4436,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e18" source="n7::n15" target="n7::n13">
+    <edge id="n7::e17" source="n7::n14" target="n7::n12">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4506,7 +4454,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e19" source="n7::n15" target="n7::n0">
+    <edge id="n7::e18" source="n7::n14" target="n7::n0">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.14685998210341" ty="0.0"/>
@@ -4524,7 +4472,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e20" source="n7::n18" target="n7::n3">
+    <edge id="n7::e19" source="n7::n17" target="n7::n2">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4542,7 +4490,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e21" source="n7::n24" target="n7::n19">
+    <edge id="n7::e20" source="n7::n23" target="n7::n18">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-65.11518945175128" ty="0.0"/>
@@ -4560,7 +4508,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e22" source="n7::n20" target="n7::n4">
+    <edge id="n7::e21" source="n7::n19" target="n7::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-65.14685998210318" ty="0.0"/>
@@ -4578,7 +4526,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e23" source="n7::n21" target="n7::n5">
+    <edge id="n7::e22" source="n7::n20" target="n7::n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4596,7 +4544,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e24" source="n7::n22" target="n7::n6">
+    <edge id="n7::e23" source="n7::n21" target="n7::n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-65.14685998210318" ty="0.0"/>
@@ -4614,7 +4562,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e25" source="n7::n24" target="n7::n21">
+    <edge id="n7::e24" source="n7::n23" target="n7::n20">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4632,7 +4580,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e26" source="n7::n15" target="n7::n26">
+    <edge id="n7::e25" source="n7::n14" target="n7::n25">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4650,7 +4598,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e27" source="n7::n26" target="n7::n27">
+    <edge id="n7::e26" source="n7::n25" target="n7::n26">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -4668,7 +4616,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n7::e28" source="n7::n14" target="n7::n27">
+    <edge id="n7::e27" source="n7::n13" target="n7::n26">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -5668,7 +5616,7 @@ Account<y:LabelModel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" anchorX="13.398623438295317" anchorY="16.191557211025838" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-0.3655436415175993" upY="-0.9307942018223216" verticalTextPosition="bottom" visible="true" width="99.80078125" x="6.830261129775955" y="-37.01519210739535">hasReceiptsTrie<y:LabelModel>
+          <y:EdgeLabel alignment="center" anchorX="15.360798273104706" anchorY="14.669300541914936" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-0.42206313674972984" upY="-0.9065664391521334" verticalTextPosition="bottom" visible="true" width="99.80078125" x="7.776851284632998" y="-43.74279594604859">hasReceiptsTrie<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -5704,7 +5652,7 @@ Account<y:LabelModel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" anchorX="113.40223173616221" anchorY="28.085789946314208" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="0.256983575827198" upY="-0.966415770646913" verticalTextPosition="bottom" visible="true" width="70.568359375" x="113.40223173616221" y="10.72050656750249">hasReceipt<y:LabelModel>
+          <y:EdgeLabel alignment="center" anchorX="112.84942282986617" anchorY="24.20254919734134" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="0.22661081355085816" upY="-0.9739853896141452" verticalTextPosition="bottom" visible="true" width="70.568359375" x="112.84942282986617" y="6.701249227712172">hasReceipt<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -5716,31 +5664,13 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n17::e2" source="n17::n0" target="n17::n4">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="2.0"/>
-          <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" anchorX="21.592400308728088" anchorY="-13.178173397942373" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-0.4518385324608646" upY="-0.8920997369036784" verticalTextPosition="bottom" visible="true" width="96.94140625" x="13.473426678571927" y="-73.00995328012283">hasPostTxState<y:LabelModel>
-              <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:RotatedDiscreteEdgeLabelModelParameter position="head"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="relative_to_edge_flow" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="left" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n7::e29" source="n7::n15" target="n7::n28">
+    <edge id="n7::e28" source="n7::n14" target="n7::n27">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="65.1151894517515" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" anchorX="-95.75683453914598" anchorY="124.49493977952079" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="0.7878442659598047" upY="0.6158745104274542" verticalTextPosition="bottom" visible="true" width="101.67578125" x="-158.37635653881867" y="124.49493977952079">blockLogsBloom<y:LabelModel>
+          <y:EdgeLabel alignment="center" anchorX="-87.77049681397193" anchorY="97.50715454149207" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="0.7362998792140953" upY="0.6766553686104239" verticalTextPosition="bottom" visible="true" width="101.67578125" x="-156.5699600544435" y="97.50715454149207">blockLogsBloom<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -5752,7 +5682,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n17::e3" source="n17::n0" target="n17::n5">
+    <edge id="n17::e2" source="n17::n0" target="n17::n4">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -5770,7 +5700,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n17::e4" source="n17::n0" target="n17::n6">
+    <edge id="n17::e3" source="n17::n0" target="n17::n5">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -5788,7 +5718,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n17::e5" source="n17::n0" target="n17::n3">
+    <edge id="n17::e4" source="n17::n0" target="n17::n3">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -5806,31 +5736,13 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e12" source="n16" target="n17::n4">
+    <edge id="e12" source="n15" target="n16">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="80.37109375" x="198.05379750369093" y="-19.968693152260585">createsState<y:LabelModel>
-              <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:RotatedDiscreteEdgeLabelModelParameter position="head"/>
-            </y:ModelParameter>
-            <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="relative_to_edge_flow" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="left" sideReference="relative_to_edge_flow"/>
-          </y:EdgeLabel>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e13" source="n15" target="n16">
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="2.0"/>
-          <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" anchorX="-1.999972445835624" anchorY="-13.8903642758562" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-1.0" upY="-1.1714553645825241E-15" verticalTextPosition="bottom" visible="true" width="69.2265625" x="-19.968722445835624" y="-83.11692677585623">containsTx<y:LabelModel>
+          <y:EdgeLabel alignment="center" anchorX="-1.999972445835624" anchorY="-13.890284629586631" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-1.0" upY="-1.1714553645825241E-15" verticalTextPosition="bottom" visible="true" width="69.2265625" x="-19.968722445835624" y="-83.11684712958666">containsTx<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -6170,7 +6082,7 @@ Account<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e14" source="n19::n0" target="n20">
+    <edge id="e13" source="n19::n0" target="n20">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
