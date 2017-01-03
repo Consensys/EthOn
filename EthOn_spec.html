@@ -83,7 +83,6 @@
                     <li><a class="label label-primary" href="#class-blockconcept">BlockConcept</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
                     <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li>
                     <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
                     <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
@@ -94,6 +93,7 @@
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
                     <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
                     <li><a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a></li>
+                    <li><a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a></li>
                     <li><a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
                     <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
@@ -127,12 +127,12 @@
                     <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
                     <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-ommer">Ommer</a></li>
                     <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
                     <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
                     <li><a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a></li>
+                    <li><a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a></li>
                     <li><a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
                     <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
@@ -204,7 +204,7 @@
                     <li><a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a></li>
                     <li><a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a></li>
                     <li><a class="label label-default" href="#prop-containstx">containsTx</a></li>
-                    <li><a class="label label-default" href="#prop-knowsofommer">knowsOfOmmer</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-knowsofuncle">knowsOfUncle</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a></li>
                     <li><a class="label label-default" href="#prop-createsstate">createsState</a><ul>
@@ -530,7 +530,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-genesisblock">GenesisBlock</a> 
-                            <a class="label label-primary" href="#class-ommer">Ommer</a> 
                             <a class="label label-primary" href="#class-uncle">Uncle</a> 
                     </td>
                 </tr>
@@ -819,6 +818,7 @@
                         
                             <a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a> 
                             <a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a> 
+                            <a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a> 
                             <a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a> 
                     </td>
                 </tr>
@@ -1525,41 +1525,6 @@
             
         </table>
     
-        <h3 id="class-ommer">Ommer</h3>
-        <p>An Ommer (or Uncle) is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. They are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/Ommer">http://ethon.consensys.net/Ommer</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">Ommer</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
         <h3 id="class-postblockstate">PostBlockState</h3>
         <p></p>
         <table class="table table-striped">
@@ -1765,6 +1730,41 @@
                             <a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a> 
                     </td>
                 </tr>
+            
+            
+            
+        </table>
+    
+        <h3 id="class-selfdestructcontractmsg">SelfdestructContractMsg</h3>
+        <p>A Selfdestruct Contract Message is a Contract Message that deletes the originating contract and refunds its balance to the receiver of the Message.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/SelfdestructContractMsg">http://ethon.consensys.net/SelfdestructContractMsg</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">SelfdestructContractMsg</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
+            
+            
             
             
             
@@ -2077,7 +2077,7 @@
         </table>
     
         <h3 id="class-uncle">Uncle</h3>
-        <p></p>
+        <p>An Uncle is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2813,7 +2813,7 @@
                             <a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a> 
                             <a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
-                            <a class="label label-default" href="#prop-knowsofommer">knowsOfOmmer</a> 
+                            <a class="label label-default" href="#prop-knowsofuncle">knowsOfUncle</a> 
                     </td>
                 </tr>
             
@@ -3517,8 +3517,8 @@
             
         </table>
     
-        <h3 id="prop-knowsofommer">knowsOfOmmer</h3>
-        <p>Relates a Block to a known Ommer.</p>
+        <h3 id="prop-knowsofuncle">knowsOfUncle</h3>
+        <p>Relates a Block to a known Uncle.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3530,12 +3530,12 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/knowsOfOmmer">http://ethon.consensys.net/knowsOfOmmer</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/knowsOfUncle">http://ethon.consensys.net/knowsOfUncle</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">knowsOfOmmer</td>
+                    <td class="col-md-10">knowsOfUncle</td>
                 </tr>
             
                 <tr>
@@ -4789,7 +4789,7 @@
         </table>
     
         <h3 id="prop-blockheader">blockHeader</h3>
-        <p>Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Ommers hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</p>
+        <p>Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5963,7 +5963,7 @@
         </table>
     
         <h3 id="prop-txv">txV</h3>
-        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV is aecovery id, a 1 byte value specifying the sign and finiteness of the curve point. This value is in the range of [27,30], however we declare the upper to possibilities, representing infinite values, invalid.</p>
+        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: txV = CHAIN_ID * 2 + 36</p>
         <table class="table table-striped">
             
                 <tr>

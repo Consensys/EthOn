@@ -43,7 +43,7 @@ An arbitrary byte array containing data relevant to this Block. This must be 32 
 The Keccak 256-bit hash of the Block's header, in its entierty.
 ### Block header
 [`ethon:blockHeader`](http://ethon.consensys.net/blockHeader)   
-Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Ommers hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.
+Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.
 ### Block nonce
 [`ethon:blockNonce`](http://ethon.consensys.net/blockNonce)   
 A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this Block.
@@ -224,9 +224,9 @@ Relates a Block to the trie that contains the data of the transactions contained
 ## I
 ## J
 ## K
-### knows of Ommer
-[`ethon:knowsOfOmmer`](http://ethon.consensys.net/knowsOfOmmer)   
-Relates a Block to a known Ommer.
+### knows of Uncle
+[`ethon:knowsOfUncle`](http://ethon.consensys.net/knowsOfUncle)   
+Relates a Block to a known Uncle.
 ## L
 ### Log Entry
 [`ethon:LogEntry`](http://ethon.consensys.net/LogEntry)   
@@ -288,9 +288,6 @@ Relates a Post Transaction State to the following Post Transaction State.
 [`ethon:nextState`](http://ethon.consensys.net/nextState)   
 Relates a State to the following State. In EthOn the state transition system has no branches.
 ## O
-### Ommer
-[`ethon:Ommer`](http://ethon.consensys.net/Ommer)   
-An Ommer (or Uncle) is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. They are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.
 ## P
 ### part of
 [`ethon:partOf`](http://ethon.consensys.net/partOf)   
@@ -307,6 +304,9 @@ The Keccak 256-bit hash of the root node of the trie structure populated with th
 [`ethon:clientVersion`](http://ethon.consensys.net/clientVersion)   
 Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).
 ## S
+### Selfdestruct Contract Message
+[`ethon:SelfdestructContractMsg`](http://ethon.consensys.net/SelfdestructContractMsg)   
+A Selfdestruct Contract Message is a Contract Message that deletes the originating contract and refunds its balance to the receiver of the Message.
 ### State
 [`ethon:State`](http://ethon.consensys.net/State)   
 The concept of a state in a generic state transition system.
@@ -340,7 +340,7 @@ The values txV, txR and txS correspond to the signature of the transaction and a
 The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txS is a byte array of length 32.
 ### Transaction v-value
 [`ethon:txV`](http://ethon.consensys.net/txV)   
-The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV is aecovery id, a 1 byte value specifying the sign and finiteness of the curve point. This value is in the range of [27,30], however we declare the upper to possibilities, representing infinite values, invalid.
+The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: txV = CHAIN_ID * 2 + 36
 ### TransactionReceipt
 [`ethon:TxReceipt`](http://ethon.consensys.net/TxReceipt)   
 The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs.
@@ -362,7 +362,7 @@ Relates a Message that was direct to a Contract Account to the Contract Messages
 ## U
 ### Uncle
 [`ethon:Uncle`](http://ethon.consensys.net/Uncle)   
-
+An Uncle is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.
 ## V
 ### Value Contract Message
 [`ethon:ValueContractMsg`](http://ethon.consensys.net/ValueContractMsg)   
