@@ -473,13 +473,13 @@
     
 
 
-    <!-- http://ethon.consensys.net/knowsOfOmmer -->
+    <!-- http://ethon.consensys.net/knowsOfUncle -->
 
-    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/knowsOfOmmer">
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/knowsOfUncle">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
-        <suggestedStringRepresentation>knowsOfOmmer</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to a known Ommer.</rdfs:comment>
-        <rdfs:label xml:lang="en">knows of Ommer</rdfs:label>
+        <suggestedStringRepresentation>knowsOfUncle</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Block to a known Uncle.</rdfs:comment>
+        <rdfs:label xml:lang="en">knows of Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -865,7 +865,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockHeader</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Ommers hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</rdfs:comment>
         <rdfs:label xml:lang="en">Block header</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1759,38 +1759,6 @@
     
 
 
-    <!-- http://ethon.consensys.net/Ommer -->
-
-    <owl:Class rdf:about="http://ethon.consensys.net/Ommer">
-        <owl:equivalentClass rdf:resource="http://ethon.consensys.net/Uncle"/>
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Block"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/containsTx"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/Tx"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <suggestedStringRepresentation xml:lang="en">Ommer</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An Ommer (or Uncle) is the direct child of the k&apos;th generation ancestor of a Block B, where 2&lt;=k&lt;=7 but not a direct ancestor of B. They are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</rdfs:comment>
-        <rdfs:label xml:lang="en">Ommer</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/Ommer"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/containsTx"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/Tx"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <rdfs:comment xml:lang="en">The transactions list of an Ommer must be empty.</rdfs:comment>
-    </owl:Axiom>
-    
-
-
     <!-- http://ethon.consensys.net/PostBlockState -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/PostBlockState">
@@ -1947,9 +1915,16 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/Uncle">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Block"/>
-        <suggestedStringRepresentation>Uncle</suggestedStringRepresentation>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ethon.consensys.net/containsTx"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Tx"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <suggestedStringRepresentation xml:lang="en">Uncle</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An Uncle is the direct child of the k&apos;th generation ancestor of a Block B, where 2&lt;=k&lt;=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</rdfs:comment>
         <rdfs:label xml:lang="en">Uncle</rdfs:label>
-        <rdfs:seeAlso rdf:resource="http://ethon.consensys.net/Ommer"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
