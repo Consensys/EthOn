@@ -315,7 +315,7 @@ The concept of a state in a generic state transition system.
 The concept of a transition in a state transition system.
 ### State root
 [`ethon:stateRoot`](http://ethon.consensys.net/stateRoot)   
-The Keccak 256-bit hash of the root node of the state trie, after all transactions are executed and finalisations applied.
+The Keccak 256-bit hash of the root node of the state trie that represents this state.
 ### Storage
 [`ethon:AccountStorage`](http://ethon.consensys.net/AccountStorage)   
 A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account's code, but the execution state of the code. The Account's code is stored in the

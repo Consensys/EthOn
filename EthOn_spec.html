@@ -36,7 +36,7 @@
         <dt>Creators</dt>
         <dd>Johannes Pfeffer</dd>
         <dt>Contributors</dt>
-        <dd>Alex Beregszazi, Casey Detrio, Herman Junge, Marian Oancea, Maurycy Pietrzak, Shahan Khatchadourian, Stefano Bertolo</dd>
+        <dd>Alex Beregszazi, Casey Detrio, Herman Junge, Joseph Chow, Marian Oancea, Maurycy Pietrzak, Shahan Khatchadourian, Stefano Bertolo</dd>
         <dt>Preferred prefix</dt>
         <dd>ethon</dd>
         <dt>Term status</dt>
@@ -144,7 +144,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">86</span></h3>
+            <h3>Properties <span class="badge">85</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -170,8 +170,7 @@
                     <li><a class="label label-default" href="#prop-blockmixhash">blockMixHash</a></li>
                     <li><a class="label label-default" href="#prop-blocknonce">blockNonce</a></li>
                     <li><a class="label label-default" href="#prop-blockreward">blockReward</a></li>
-                    <li><a class="label label-default" href="#prop-number">number</a></li>
-                    <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-number">number</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a></li>
@@ -193,7 +192,7 @@
                     <li><a class="label label-default" href="#prop-networkdataproperty">NetworkDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-clientversion">clientVersion</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-root">root</a></li></ul></li></ul></li>
+                    <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li></ul></li></ul></li>
                     <li><a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-accountobjectproperty">AccountObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasaccountstorage">hasAccountStorage</a></li>
@@ -1808,6 +1807,13 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-stateroot">stateRoot</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Used with</td>
@@ -2223,7 +2229,6 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-stateroot">stateRoot</a> 
                             <a class="label label-default" href="#prop-nextstate">nextState</a> 
                     </td>
                 </tr>
@@ -4003,7 +4008,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">44</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">43</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4096,7 +4101,6 @@
                             <a class="label label-default" href="#prop-blocknonce">blockNonce</a> 
                             <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-number">number</a> 
-                            <a class="label label-default" href="#prop-stateroot">stateRoot</a> 
                     </td>
                 </tr>
             
@@ -4261,7 +4265,7 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-root">root</a> 
+                            <a class="label label-default" href="#prop-stateroot">stateRoot</a> 
                     </td>
                 </tr>
             
@@ -5496,33 +5500,8 @@
             
         </table>
     
-        <h3 id="prop-root">root</h3>
-        <p></p>
-        <table class="table table-striped">
-            
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/root">http://ethon.consensys.net/root</a></td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
         <h3 id="prop-stateroot">stateRoot</h3>
-        <p>The Keccak 256-bit hash of the root node of the state trie, after all transactions are executed and finalisations applied.</p>
+        <p>The Keccak 256-bit hash of the root node of the state trie that represents this state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5539,14 +5518,14 @@
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">blockStateRoot</td>
+                    <td class="col-md-10">stateRoot</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
+                            <a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a> 
                     </td>
                 </tr>
             
@@ -5555,7 +5534,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
+                            <a class="label label-primary" href="#class-state">State</a> 
                     </td>
                 </tr>
             
