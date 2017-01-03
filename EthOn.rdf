@@ -1809,6 +1809,19 @@
     
 
 
+    <!-- http://ethon.consensys.net/SelfdestructContractMsg -->
+
+    <owl:Class rdf:about="http://ethon.consensys.net/SelfdestructContractMsg">
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+        <suggestedStringRepresentation>SelfdestructContractMsg</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A Selfdestruct Contract Message is a Contract Message that deletes the originating contract and refunds its balance to the receiver of the Message.</rdfs:comment>
+        <rdfs:label xml:lang="en">Selfdestruct Contract Message</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-6.md"/>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
     <!-- http://ethon.consensys.net/State -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/State">
