@@ -1084,23 +1084,15 @@
     
 
 
-    <!-- http://ethon.consensys.net/root -->
-
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/root">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateDataProperty"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://ethon.consensys.net/stateRoot -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/stateRoot">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/WorldState"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/State"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
-        <suggestedStringRepresentation>blockStateRoot</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the state trie, after all transactions are executed and finalisations applied.</rdfs:comment>
+        <suggestedStringRepresentation>stateRoot</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the state trie that represents this state.</rdfs:comment>
         <rdfs:label xml:lang="en">State root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
