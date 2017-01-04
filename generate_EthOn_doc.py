@@ -62,13 +62,34 @@ def merge_dicts(*dict_args):
 
 def makeGlossary(onto):
     terms = {}
+
+    # the following list serves to exclude the classes and properties that are only used for grouping concepts
+    exclude_list = ["AccountDataProperty",
+                    "AccountObjectProperty",
+                    "AccountConcept",
+                    "BlockDataProperty",
+                    "BlockObjectProperty",
+                    "BlockConcept",
+                    "EthOnConcept",
+                    "EthOnDataProperty",
+                    "MessageObjectProperty",
+                    "MessageConcept",
+                    "NetworkConcept",
+                    "NetworkDataProperty",
+                    "NetworkObjectProperty",
+                    "EthOnObjectProperty",
+                    "StateConcept",
+                    "StateObjectProperty"]
+
     glossary = collections.OrderedDict()
     az = string.uppercase[:26]
 
     for term in onto.classes:
-        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+str(term.uri)+")   \n" + term.RDFScomment
+        if term.locale not in exclude_list:
+            terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+str(term.uri)+")   \n" + term.RDFScomment
     for term in onto.properties:
-        terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+str(term.uri)+")   \n" + term.RDFScomment
+        if term.locale not in exclude_list:
+            terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+str(term.uri)+")   \n" + term.RDFScomment
 
     for letter in az:
         glossary[letter] = collections.OrderedDict(
