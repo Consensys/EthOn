@@ -126,8 +126,8 @@
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/MessageObjectProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn State Object Properties.</rdfs:comment>
-        <rdfs:label xml:lang="en">EthOn State Object Property</rdfs:label>
+        <rdfs:comment xml:lang="en">Groups all EthOn Message Object Properties.</rdfs:comment>
+        <rdfs:label xml:lang="en">EthOn Message Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
     
