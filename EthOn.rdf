@@ -718,7 +718,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
         <suggestedStringRepresentation>accountCode</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The imutable EVM bytecode of the Contract Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The immutable EVM bytecode of the Contract Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account code</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
