@@ -1,5 +1,7 @@
 # EthOn Glossary
 This glossary is compiled from the _rdfs:comment_ annotations of the EthOn ontology.
+Please also consider looking at the [specification of EthOn](https://consensys.github.io/EthOn/EthOn_spec.html). 
+It is more detailed and includes class/property hierarchy information and restrictions.
 ## A
 ### Account
 `ethon:Account`   
@@ -12,7 +14,7 @@ State of an Ethereum Account. It is comprised on four pieces of information: non
 A scalar value equal to the number of Wei owned by an Account at a given Account state.
 ### Account code
 `ethon:accountCode`   
-The imutable EVM bytecode of the Contract Account.
+The immutable EVM bytecode of the Contract Account.
 ### Account code hash
 `ethon:accountCodeHash`   
 The immutable hash of the EVM code of an Account.
