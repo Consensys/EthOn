@@ -83,4 +83,4 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         rdfs:seeAlso <https://etherscan.io/block/0> .
 
 ## "EthOn"?
-Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
+Ethon is in Greek, Latin and Indian mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
