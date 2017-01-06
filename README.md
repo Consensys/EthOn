@@ -36,7 +36,7 @@ Find more illustrations here: [EthOn illustrations](EthOn_illustrations.md)
 
 ### 2. Visualize the Ontology
 Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
-[It should be enough to click this link](http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf?token=ABeN2BS6JNYwG2ADzI7vBJihTu02xpgjks5YWBKpwA%3D%3D). 
+[It should be enough to click this link](http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf). 
 WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
 ### 3. Read the specification
