@@ -1145,7 +1145,7 @@ Tx</y:NodeLabel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="center" anchorX="26.13668752226556" anchorY="-20.586943522178018" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-0.5704265015639208" upY="-0.8213486508867877" verticalTextPosition="bottom" visible="true" width="51.337890625" x="15.886836322288858" y="-64.63004543968995">hasFork<y:LabelModel>
+          <y:EdgeLabel alignment="center" anchorX="13.506045720005545" anchorY="-11.814964889241452" backgroundColor="#FFFFFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-0.5704265015639208" upY="-0.8213486508867877" verticalTextPosition="bottom" visible="true" width="82.09375" x="3.256194520028842" y="-73.40202407262655">equivalentTo<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
