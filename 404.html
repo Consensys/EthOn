@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>React for GitHub Pages</title>
-  </head>
-  <body>
-    <script type="text/javascript">
-      var spec_url = 'http://ethon.consensys.net/EthOn_spec.html'
-      var pathname = window.location.pathname.split('/')[1];
-      if (pathname == "") {
+</head>
+<body>
+<script type="text/javascript">
+    var spec_url = 'http://ethon.consensys.net/EthOn_spec.html'
+    var pathname = window.location.pathname.split('/');
+    if (pathname[1] == "") {
         window.location.replace(spec_url);
-      }
-      else if (/^[A-Z]/.test(pathname)) {
-        window.location.replace(spec_url+'#class-' + pathname.toLowerCase());
-      }
-      else {
-        window.location.replace(spec_url+'#prop-' + pathname.toLowerCase());
-      }
-    </script>
-  </body>
+    }
+    else if (pathname[1] = "ERC20") {
+        if (/^[A-Z]/.test(pathname[2])) {
+            spec_url = 'http://ethon.consensys.net/ERC20/EthOn_ERC20_spec.html'
+            window.location.replace(spec_url + '#class-' + pathname[2].toLowerCase());
+        }
+        else if (/^[a-z]/.test(pathname[2])){ {
+            window.location.replace(spec_url + '#prop-' + pathname[2].toLowerCase());
+        }
+    }
+    else if (/^[A-Z]/.test(pathname[1])) {
+        window.location.replace(spec_url + '#class-' + pathname[1].toLowerCase());
+    }
+    else if (/^[a-z]/.test(pathname[1])){
+        window.location.replace(spec_url + '#prop-' + pathname[1].toLowerCase());
+    }
+</script>
+</body>
 </html>
