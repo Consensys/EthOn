@@ -18,7 +18,7 @@
         else if (pathname[1] == currentVersion.toString()) {
             window.location.replace(spec_url);
         }
-        else if (pathname[1] == "ERC20") {
+        else if (pathname.length == 3 && pathname[1] == "ERC20") {
             spec_url = 'http://ethon.consensys.net/ERC20/EthOn_ERC20_spec.html';
             if (pathname[2] == "") {
                 window.location.replace(spec_url);
@@ -33,10 +33,10 @@
                 window.location.replace(spec_url + '#prop-' + pathname[2].toLowerCase());
             }
         }
-        else if (/^[A-Z]/.test(pathname[1])) {
+        else if (pathname.length == 2 && /^[A-Z]/.test(pathname[1])) {
             window.location.replace(spec_url + '#class-' + pathname[1].toLowerCase());
         }
-        else if (/^[a-z]/.test(pathname[1])){
+        else if (pathname.length == 2 && /^[a-z]/.test(pathname[1])){
             window.location.replace(spec_url + '#prop-' + pathname[1].toLowerCase());
         }
     </script>
