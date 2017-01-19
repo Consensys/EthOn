@@ -778,9 +778,9 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <suggestedStringRepresentation>blockTimestamp</suggestedStringRepresentation>
+        <suggestedStringRepresentation>blockCreationTime</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">This Block&apos;s inception date and time.</rdfs:comment>
-        <rdfs:label xml:lang="en">Block Timestamp</rdfs:label>
+        <rdfs:label xml:lang="en">Block creation time</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1233,7 +1233,7 @@
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/155"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/value -->
@@ -1248,7 +1248,7 @@
         <rdfs:label xml:lang="en">value in Wei</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- 
