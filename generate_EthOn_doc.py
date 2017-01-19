@@ -141,10 +141,10 @@ class SpecGenerator():
 
         for term in onto.classes:
             if term.locale not in exclude_list:
-                terms[term.RDFSlabel] = "`ethon:"+term.locale+"`   \n" + term.RDFScomment
+                terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n" + term.RDFScomment
         for term in onto.properties:
             if term.locale not in exclude_list:
-                terms[term.RDFSlabel] = "`ethon:"+term.locale+"`   \n" + term.RDFScomment
+                terms[term.RDFSlabel] = "[`ethon:"+term.locale+"`]("+term.uri+")   \n" + term.RDFScomment
 
         for letter in az:
             glossary[letter] = collections.OrderedDict(
