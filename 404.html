@@ -6,9 +6,17 @@
   </head>
   <body>
     <script type="text/javascript">
+      var spec_url = 'http://ethon.consensys.net/EthOn_spec.html'
       var pathname = window.location.pathname.split('/')[1];
-      if (pathname == "") window.location.replace('http://ethon.consensys.net/EthOn_spec.html');
-      window.location.replace('http://ethon.consensys.net/EthOn_spec.html#class-' + pathname.toLowerCase());
+      if (pathname == "") {
+        window.location.replace(spec_url);
+      }
+      else if (/^[A-Z]/.test(pathname)) {
+        window.location.replace(spec_url+'#class-' + pathname.toLowerCase());
+      }
+      else {
+        window.location.replace(spec_url+'#prop-' + pathname.toLowerCase());
+      }
     </script>
   </body>
 </html>
