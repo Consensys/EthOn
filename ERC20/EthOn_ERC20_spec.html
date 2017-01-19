@@ -1,0 +1,1422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title about="http://ethon.consensys.net/ERC20/" property="dc:title">EthOn ERC20 - An ERC20 Extension to EthOn</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="doc_resources/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+
+</head>
+
+
+<body data-spy="scroll" data-target="#toc">
+<div class="container">
+    <h1><span about="http://purl.org/ontology/olo/core#" property="dc:title">EthOn ERC20 - An ERC20 Extension to EthOn</span></h1>
+    <p>This ontology extends EthOn with concepts that can be used to describe ERC20 compliant Tokens.</p>
+    <dl class="dl-horizontal">
+        <dt>IRI</dt>
+        <dd><a href="http://ethon.consensys.net/ERC20/">http://ethon.consensys.net/ERC20/</a></dd>
+        <dt>Version IRI</dt>
+        <dd><a href="http://ethon.consensys.net/ERC20/0/">http://ethon.consensys.net/ERC20/0/</a></dd>
+        <dt>Version Info</dt>
+        <dd>0.0.1</dd>
+        <dt>Creators</dt>
+        <dd>Johannes Pfeffer</dd>
+        <dt>Contributors</dt>
+        <dd>Marian Oancea</dd>
+        <dt>Preferred prefix</dt>
+        <dd>erc20</dd>
+        <dt>Term status</dt>
+        <dd class="
+        text-danger
+    ">unstable</dd>
+        <dt>Imports</dt>
+        <dd><a href="http://ethon.consensys.net/0/">http://ethon.consensys.net/0/</a><br/></dd>
+        <dt>See also</dt>
+        <dd><a href="http://ethon.consensys.net">http://ethon.consensys.net</a><br/><a href="https://github.com/ethereum/EIPs/issues/20">https://github.com/ethereum/EIPs/issues/20</a><br/></dd>
+    </dl>
+    <h2 data-toc-skip>Table of contents</h2>
+    <nav id="toc" data-toggle="toc"></nav>
+
+    <h2>Illustrations</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <p><a href="doc_resources/img/EthOn_ERC20_overview.png"><img src="doc_resources/img/EthOn_ERC20_overview.png"
+                                                                class="img-thumbnail"
+                                                                alt="Overview of the EthOn ERC-20 extension"/></a><br/>
+                This is an Overview of how the EthOn ERC-20 extension models a Token.</p>
+
+        </div>
+    </div>
+
+    <h2>Concept hierarchies</h2>
+    <div class="row">
+        <div class="col-sm-4">
+            <!-- Class tree -->
+            <h3>Classes <span class="badge">10</span></h3>
+
+            <ul>
+                    <li><a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a><ul>
+                    <li><a class="label label-primary" href="#class-allowance">Allowance</a></li>
+                    <li><a class="label label-primary" href="#class-erc20token">ERC20Token</a></li>
+                    <li><a class="label label-primary" href="#class-tokenbalance">TokenBalance</a></li>
+                    <li><a class="label label-primary" href="#class-tokenevent">TokenEvent</a><ul>
+                    <li><a class="label label-primary" href="#class-approvalevent">ApprovalEvent</a></li>
+                    <li><a class="label label-primary" href="#class-transferevent">TransferEvent</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a><ul>
+                    <li><a class="label label-primary" href="#class-delegatetokentransfer">DelegateTokenTransfer</a></li>
+                    <li><a class="label label-primary" href="#class-ownertokentransfer">OwnerTokenTransfer</a></li></ul></li></ul></li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <!-- Properties tree-->
+            <h3>Properties <span class="badge">24</span></h3>
+            <ul>
+                    <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
+                    <li><a class="label label-default" href="#prop-dccontributor">contributor</a></li>
+                    <li><a class="label label-default" href="#prop-dccreator">creator</a></li>
+                    <li><a class="label label-default" href="#prop-dctitle">title</a></li>
+                    <li><a class="label label-default" href="#prop-vannpreferrednamespaceprefix">preferredNamespacePrefix</a></li>
+                    <li><a class="label label-default" href="#prop-vannpreferrednamespaceuri">preferredNamespaceUri</a></li>
+                    <li><a class="label label-default" href="#prop-nsterm_status">term_status</a></li>
+                    <li><a class="label label-default" href="#prop-ethonerc20dataproperty">EthOnERC20DataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-allowance">allowance</a></li>
+                    <li><a class="label label-default" href="#prop-balance">balance</a></li>
+                    <li><a class="label label-default" href="#prop-httpethonconsensysneterc20value">value</a></li>
+                    <li><a class="label label-default" href="#prop-totalsupply">totalSupply</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-byspender">bySpender</a></li>
+                    <li><a class="label label-default" href="#prop-from">from</a></li>
+                    <li><a class="label label-default" href="#prop-hasowner">hasOwner</a></li>
+                    <li><a class="label label-default" href="#prop-hasspender">hasSpender</a></li>
+                    <li><a class="label label-default" href="#prop-lastchangedby">lastChangedBy</a></li>
+                    <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li>
+                    <li><a class="label label-default" href="#prop-to">to</a></li>
+                    <li><a class="label label-default" href="#prop-hastokenbalance">hasTokenBalance</a></li>
+                    <li><a class="label label-default" href="#prop-hastransfer">hasTransfer</a></li>
+                    <li><a class="label label-default" href="#prop-implementstoken">implementsToken</a></li>
+                    <li><a class="label label-default" href="#prop-providesallowance">providesAllowance</a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Class list-->
+    <h2>Class descriptions <span class="badge">10</span></h2>
+    
+        <h3 id="class-allowance">Allowance</h3>
+        <p>A Token Allowance Provided by a Token Balance. The Delegate Account of the Allowance can spend a fixed amount of Tokens on behalf of the token owner.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/Allowance">http://ethon.consensys.net/ERC20/Allowance</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-allowance">allowance</a> 
+                            <a class="label label-default" href="#prop-hasspender">hasSpender</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-providesallowance">providesAllowance</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-approvalevent">ApprovalEvent</h3>
+        <p>An Approval Event is emitted when an Allowance is set for a Token Balance.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/ApprovalEvent">http://ethon.consensys.net/ERC20/ApprovalEvent</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenevent">TokenEvent</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-delegatetokentransfer">DelegateTokenTransfer</h3>
+        <p>A Delgate Token Transfer is a Token Transfer executed by a Spender that has been given an Allowance to spend.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/DelegateTokenTransfer">http://ethon.consensys.net/ERC20/DelegateTokenTransfer</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-byspender">bySpender</a> 
+                    </td>
+                </tr>
+            
+            
+            
+        </table>
+    
+        <h3 id="class-erc20token">ERC20Token</h3>
+        <p>A token is a fungible virtual good that can be traded. ERC-20 Tokens comply to the standard described in the Ethereum ERC-20 proposal.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/ERC20Token">http://ethon.consensys.net/ERC20/ERC20Token</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-totalsupply">totalSupply</a> 
+                            <a class="label label-default" href="#prop-hastokenbalance">hasTokenBalance</a> 
+                            <a class="label label-default" href="#prop-hastransfer">hasTransfer</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-implementstoken">implementsToken</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-ethonerc20concept">EthOnERC20Concept</h3>
+        <p>Groups al EthOn ERC-20 extension concepts.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/EthOnERC20Concept">http://ethon.consensys.net/ERC20/EthOnERC20Concept</a></td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-allowance">Allowance</a> 
+                            <a class="label label-primary" href="#class-erc20token">ERC20Token</a> 
+                            <a class="label label-primary" href="#class-tokenbalance">TokenBalance</a> 
+                            <a class="label label-primary" href="#class-tokenevent">TokenEvent</a> 
+                            <a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-ownertokentransfer">OwnerTokenTransfer</h3>
+        <p>An Owner Token Transfer is a Token Transfer executed by the Account that owns the corresponding Token Balance.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/OwnerTokenTransfer">http://ethon.consensys.net/ERC20/OwnerTokenTransfer</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-tokenbalance">TokenBalance</h3>
+        <p>The Balance of a Token owned by an Account.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/TokenBalance">http://ethon.consensys.net/ERC20/TokenBalance</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-balance">balance</a> 
+                            <a class="label label-default" href="#prop-hasowner">hasOwner</a> 
+                            <a class="label label-default" href="#prop-lastchangedby">lastChangedBy</a> 
+                            <a class="label label-default" href="#prop-providesallowance">providesAllowance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hastokenbalance">hasTokenBalance</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-tokenevent">TokenEvent</h3>
+        <p>A Token Event is a subtype of a Log Topic that was created when an event related to the token was emitted.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/TokenEvent">http://ethon.consensys.net/ERC20/TokenEvent</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-approvalevent">ApprovalEvent</a> 
+                            <a class="label label-primary" href="#class-transferevent">TransferEvent</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-tokentransfer">TokenTransfer</h3>
+        <p>A Token Transfer is the record of an amount of tokens being transferred from one Account to another Account. If the Token complies to ERC-20 the Transfer is logged by an Event.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/TokenTransfer">http://ethon.consensys.net/ERC20/TokenTransfer</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-delegatetokentransfer">DelegateTokenTransfer</a> 
+                            <a class="label label-primary" href="#class-ownertokentransfer">OwnerTokenTransfer</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-httpethonconsensysneterc20value">value</a> 
+                            <a class="label label-default" href="#prop-from">from</a> 
+                            <a class="label label-default" href="#prop-to">to</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hastransfer">hasTransfer</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-transferevent">TransferEvent</h3>
+        <p>A Transfer Event is emitted when a Token Transfer from one Account to another Account takes place.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/TransferEvent">http://ethon.consensys.net/ERC20/TransferEvent</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenevent">TokenEvent</a> 
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-lastchangedby">lastChangedBy</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+
+
+    <!-- Object Property list-->
+    <h2>Object Property descriptions <span class="badge">12</span></h2>
+    
+        <h3 id="prop-byspender">bySpender</h3>
+        <p>Relates a Delegate Token Transfer to the Account that initiated it.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/bySpender">http://ethon.consensys.net/ERC20/bySpender</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-delegatetokentransfer">DelegateTokenTransfer</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#"></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-from">from</h3>
+        <p>Relates a Token Transfer with the Account it originates from.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/from">http://ethon.consensys.net/ERC20/from</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#"></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hasowner">hasOwner</h3>
+        <p>Relates a Token Balance with its owner Account.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/hasOwner">http://ethon.consensys.net/ERC20/hasOwner</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenbalance">TokenBalance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#"></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hasspender">hasSpender</h3>
+        <p>Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/hasSpender">http://ethon.consensys.net/ERC20/hasSpender</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-allowance">Allowance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#"></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-lastchangedby">lastChangedBy</h3>
+        <p>Relates a Token Balance with the most recent Transfer Event that affected it.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/lastChangedBy">http://ethon.consensys.net/ERC20/lastChangedBy</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenbalance">TokenBalance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-transferevent">TransferEvent</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-loggedby">loggedBy</h3>
+        <p>Relates a Token Transfer or an Allowance to the Event that was emitted when it was created.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/loggedBy">http://ethon.consensys.net/ERC20/loggedBy</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenevent">TokenEvent</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-to">to</h3>
+        <p>Relates a Token Transfer with the Account it is sent to.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/to">http://ethon.consensys.net/ERC20/to</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#"></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hastokenbalance">hasTokenBalance</h3>
+        <p>Relates a Contract Account to one of its Balances.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/hasTokenBalance">http://ethon.consensys.net/ERC20/hasTokenBalance</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-erc20token">ERC20Token</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenbalance">TokenBalance</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hastransfer">hasTransfer</h3>
+        <p>Relates an ERC20 Token to one of its Transfers.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/hasTransfer">http://ethon.consensys.net/ERC20/hasTransfer</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-erc20token">ERC20Token</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-implementstoken">implementsToken</h3>
+        <p>Relates a Contract Account to the Token it implements.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/implementsToken">http://ethon.consensys.net/ERC20/implementsToken</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#"></a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-erc20token">ERC20Token</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-providesallowance">providesAllowance</h3>
+        <p>Relates a Token Balance with an Allowance it provides.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/providesAllowance">http://ethon.consensys.net/ERC20/providesAllowance</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenbalance">TokenBalance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-allowance">Allowance</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</h3>
+        <p>Groups all EthOn ERC-20 extension Object Properties</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty">http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty</a></td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-byspender">bySpender</a> 
+                            <a class="label label-default" href="#prop-from">from</a> 
+                            <a class="label label-default" href="#prop-hasowner">hasOwner</a> 
+                            <a class="label label-default" href="#prop-hasspender">hasSpender</a> 
+                            <a class="label label-default" href="#prop-lastchangedby">lastChangedBy</a> 
+                            <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
+                            <a class="label label-default" href="#prop-to">to</a> 
+                            <a class="label label-default" href="#prop-hastokenbalance">hasTokenBalance</a> 
+                            <a class="label label-default" href="#prop-hastransfer">hasTransfer</a> 
+                            <a class="label label-default" href="#prop-implementstoken">implementsToken</a> 
+                            <a class="label label-default" href="#prop-providesallowance">providesAllowance</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+
+
+    <!-- Datatype Property list-->
+    <h2>Datatype Property descriptions <span class="badge">5</span></h2>
+    
+        <h3 id="prop-ethonerc20dataproperty">EthOnERC20DataProperty</h3>
+        <p>Groups all EthOn ERC-20 extension Data Properties.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty">http://ethon.consensys.net/ERC20/EthOnERC20DataProperty</a></td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-allowance">allowance</a> 
+                            <a class="label label-default" href="#prop-balance">balance</a> 
+                            <a class="label label-default" href="#prop-httpethonconsensysneterc20value">value</a> 
+                            <a class="label label-default" href="#prop-totalsupply">totalSupply</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-allowance">allowance</h3>
+        <p>A value equal to the base units of a Token that may be spent by an Allowance's delegate on behalf of the Tokens' owner.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/allowance">http://ethon.consensys.net/ERC20/allowance</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20dataproperty">EthOnERC20DataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-allowance">Allowance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-balance">balance</h3>
+        <p>A value equal to the base units of a Token that make up the current Balance at the time of the last Transfer Event that affects the Token Balance.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/balance">http://ethon.consensys.net/ERC20/balance</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20dataproperty">EthOnERC20DataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenbalance">TokenBalance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-httpethonconsensysneterc20value">value</h3>
+        <p>Value of the Token Transfer given in the Token's base unit.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/http://ethon.consensys.net/ERC20/value">http://ethon.consensys.net/ERC20/http://ethon.consensys.net/ERC20/value</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20dataproperty">EthOnERC20DataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokentransfer">TokenTransfer</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">http://www.w3.org/2001/XMLSchema#nonNegativeInteger</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-totalsupply">totalSupply</h3>
+        <p>The total supply of base units of a Token.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/totalSupply">http://ethon.consensys.net/ERC20/totalSupply</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20dataproperty">EthOnERC20DataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-erc20token">ERC20Token</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#positiveInteger">http://www.w3.org/2001/XMLSchema#positiveInteger</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+
+    <!-- Annotation Property list-->
+    <h2>Annotation Property descriptions <span class="badge">7</span></h2>
+    
+        <h3 id="prop-dase_rule">DASE_RULE</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/DASE_RULE">http://ethon.consensys.net/ERC20/DASE_RULE</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-dccontributor">contributor</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/dc/elements/1.1/contributor">http://purl.org/dc/elements/1.1/contributor</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-dccreator">creator</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-dctitle">title</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/dc/elements/1.1/title">http://purl.org/dc/elements/1.1/title</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-vannpreferrednamespaceprefix">preferredNamespacePrefix</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/vocab/vann/preferredNamespacePrefix">http://purl.org/vocab/vann/preferredNamespacePrefix</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-vannpreferrednamespaceuri">preferredNamespaceUri</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/vocab/vann/preferredNamespaceUri">http://purl.org/vocab/vann/preferredNamespaceUri</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-nsterm_status">term_status</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">http://www.w3.org/2003/06/sw-vocab-status/ns#term_status</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+</div>
+
+</body>
+</html>
+

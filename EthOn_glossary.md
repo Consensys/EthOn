@@ -1,6 +1,6 @@
 # EthOn Glossary
 This glossary is compiled from the _rdfs:comment_ annotations of the EthOn ontology.
-Please also consider looking at the [specification of EthOn](https://consensys.github.io/EthOn/EthOn_spec.html). 
+Please also consider looking at the [specification of EthOn](http://ethon.consensys.net/EthOn_spec.html). 
 It is more detailed and includes class/property hierarchy information and restrictions.
 ## A
 ### Account
@@ -17,7 +17,7 @@ A scalar value equal to the number of Wei owned by an Account at a given Account
 The immutable EVM bytecode of the Contract Account.
 ### Account code hash
 `ethon:accountCodeHash`   
-The immutable hash of the EVM code of an Account.
+The immutable Keccak-256 hash of the EVM code of an Account.
 ### Account nonce
 `ethon:accountNonce`   
 A scalar value equal to the number of transactions sent from this Account or, in the case of Accounts with associated code, the number of Contract-creations made by this Account.
@@ -31,7 +31,7 @@ This is a more abstract term for a Contract Account.
 ### Block
 `ethon:Block`   
 A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.
-### Block Timestamp
+### Block creation time
 `ethon:blockCreationTime`   
 This Block's inception date and time.
 ### Block difficulty
