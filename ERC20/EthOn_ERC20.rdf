@@ -17,10 +17,11 @@
         <owl:imports rdf:resource="http://ethon.consensys.net/0/"/>
         <ns:term_status>unstable</ns:term_status>
         <dc:creator>Johannes Pfeffer</dc:creator>
-        <rdfs:seeAlso rdf:resource="http://ethon.consensys.net"/>
+        <rdfs:seeAlso rdf:resource="http://ethon.consensys.net/ERC20"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/ConsenSys/EthOn"/>
         <owl:versionInfo>0.0.1</owl:versionInfo>
-        <dc:title>EthOn ERC20 - An ERC20 Extension to EthOn</dc:title>
-        <rdfs:comment>This ontology extends EthOn with concepts that can be used to describe ERC20 compliant Tokens.</rdfs:comment>
+        <dc:title>EthOn ERC-20 - An ERC-20 Extension to EthOn</dc:title>
+        <rdfs:comment>This ontology extends EthOn with concepts that can be used to describe ERC-20 compliant Tokens.</rdfs:comment>
         <vann:preferredNamespacePrefix>erc20</vann:preferredNamespacePrefix>
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/20"/>
         <dc:contributor>Marian Oancea</dc:contributor>
