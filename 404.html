@@ -6,13 +6,14 @@
 </head>
 <body>
 <script type="text/javascript">
-    var spec_url = 'http://ethon.consensys.net/EthOn_spec.html'
+    var spec_url = 'http://ethon.consensys.net/EthOn_spec.html';
     var pathname = window.location.pathname.split('/');
+    var pathname = "http://ethon.consensys.net/MessageDataProperty".split('/');
     if (pathname[1] == "") {
         window.location.replace(spec_url);
     }
-    else if (pathname[1] = "ERC20") {
-        spec_url = 'http://ethon.consensys.net/ERC20/EthOn_ERC20_spec.html'
+    else if (pathname[1] == "ERC20") {
+        spec_url = 'http://ethon.consensys.net/ERC20/EthOn_ERC20_spec.html';
         if (pathname[2] == "") {
             window.location.replace(spec_url);
         }
