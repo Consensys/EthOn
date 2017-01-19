@@ -734,7 +734,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
         <suggestedStringRepresentation>accountCodeHash</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The immutable hash of the EVM code of an Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The immutable Keccak-256 hash of the EVM code of an Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account code hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>

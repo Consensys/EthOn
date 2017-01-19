@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React for GitHub Pages</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var spec_url = 'http://ethon.consensys.net/EthOn_spec.html'
+      var pathname = window.location.pathname.split('/')[1];
+      if (pathname == "") {
+        window.location.replace(spec_url);
+      }
+      else if (/^[A-Z]/.test(pathname)) {
+        window.location.replace(spec_url+'#class-' + pathname.toLowerCase());
+      }
+      else {
+        window.location.replace(spec_url+'#prop-' + pathname.toLowerCase());
+      }
+    </script>
+  </body>
+</html>
