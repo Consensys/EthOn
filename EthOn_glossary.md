@@ -1,5 +1,7 @@
 # EthOn Glossary
 This glossary is compiled from the _rdfs:comment_ annotations of the EthOn ontology.
+Please also consider looking at the [specification of EthOn](http://ethon.consensys.net/EthOn_spec.html). 
+It is more detailed and includes class/property hierarchy information and restrictions.
 ## A
 ### Account
 [`ethon:Account`](http://ethon.consensys.net/Account)   
@@ -12,10 +14,10 @@ State of an Ethereum Account. It is comprised on four pieces of information: non
 A scalar value equal to the number of Wei owned by an Account at a given Account state.
 ### Account code
 [`ethon:accountCode`](http://ethon.consensys.net/accountCode)   
-The imutable EVM bytecode of the Contract Account.
+The immutable EVM bytecode of the Contract Account.
 ### Account code hash
 [`ethon:accountCodeHash`](http://ethon.consensys.net/accountCodeHash)   
-The immutable hash of the EVM code of an Account.
+The immutable Keccak-256 hash of the EVM code of an Account.
 ### Account nonce
 [`ethon:accountNonce`](http://ethon.consensys.net/accountNonce)   
 A scalar value equal to the number of transactions sent from this Account or, in the case of Accounts with associated code, the number of Contract-creations made by this Account.
@@ -29,7 +31,7 @@ This is a more abstract term for a Contract Account.
 ### Block
 [`ethon:Block`](http://ethon.consensys.net/Block)   
 A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.
-### Block Timestamp
+### Block creation time
 [`ethon:blockCreationTime`](http://ethon.consensys.net/blockCreationTime)   
 This Block's inception date and time.
 ### Block difficulty
@@ -101,51 +103,6 @@ Relates a Transaction Receipt to the global state of the system after the Receip
 The cumulative gas used in the block containing the Transaction Receipt as of immediately after the Transaction has happened.
 ## D
 ## E
-### EthOn Account Data Property
-[`ethon:AccountDataProperty`](http://ethon.consensys.net/AccountDataProperty)   
-Groups all Data Properties that are specific to an Account.
-### EthOn Account Object Property
-[`ethon:AccountObjectProperty`](http://ethon.consensys.net/AccountObjectProperty)   
-Groups all EthOn Account Object Properties
-### EthOn Account concept
-[`ethon:AccountConcept`](http://ethon.consensys.net/AccountConcept)   
-Groups EthOn concepts related to Accounts.
-### EthOn Block Data Property
-[`ethon:BlockDataProperty`](http://ethon.consensys.net/BlockDataProperty)   
-Groups all Data Properties that are specific to a Block. These properties are usually functional because a Block can only be associated with a single instance of them.
-### EthOn Block Object Property
-[`ethon:BlockObjectProperty`](http://ethon.consensys.net/BlockObjectProperty)   
-Groups all EthOn Block Object Properties
-### EthOn Block concept
-[`ethon:BlockConcept`](http://ethon.consensys.net/BlockConcept)   
-Groups EthOn concepts related to Blocks.
-### EthOn Concept
-[`ethon:EthOnConcept`](http://ethon.consensys.net/EthOnConcept)   
-Groups al EthOn concepts.
-### EthOn Data Property
-[`ethon:EthOnDataProperty`](http://ethon.consensys.net/EthOnDataProperty)   
-Groups all Data Properties specific to EthOn.
-### EthOn Message concept
-[`ethon:MessageConcept`](http://ethon.consensys.net/MessageConcept)   
-Groups EthOn concepts related to Messages.
-### EthOn Network Concept.
-[`ethon:NetworkConcept`](http://ethon.consensys.net/NetworkConcept)   
-Groups all EthOn Network concepts.
-### EthOn Network Data Property
-[`ethon:NetworkDataProperty`](http://ethon.consensys.net/NetworkDataProperty)   
-Groups all EthOn Network Data Properties.
-### EthOn Network Object Property
-[`ethon:NetworkObjectProperty`](http://ethon.consensys.net/NetworkObjectProperty)   
-Groups all EthOn Network Object Properties.
-### EthOn Object Property
-[`ethon:EthOnObjectProperty`](http://ethon.consensys.net/EthOnObjectProperty)   
-Groups all EthOn Object Properties
-### EthOn State Concept
-[`ethon:StateConcept`](http://ethon.consensys.net/StateConcept)   
-Groups EthOn concepts related to state.
-### EthOn State Object Property
-[`ethon:StateObjectProperty`](http://ethon.consensys.net/StateObjectProperty)   
-Groups all EthOn State Object Properties.
 ### Ethereum Blockchain
 [`ethon:Blockchain`](http://ethon.consensys.net/Blockchain)   
 An Ethereum Blockchain is a distributed database that maintains a continuously-growing list of records called *Blocks* secured from tampering and revision. Each Block contains a timestamp and a link to a previous Block in a Merkle tree structure.

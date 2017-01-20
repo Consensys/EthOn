@@ -46,7 +46,7 @@
         <dt>Imports</dt>
         <dd><a href="http://www.w3.org/2003/06/sw-vocab-status/ns">http://www.w3.org/2003/06/sw-vocab-status/ns</a><br/></dd>
         <dt>See also</dt>
-        <dd><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/></dd>
+        <dd><a href="https://github.com/ConsenSys/EthOn">https://github.com/ConsenSys/EthOn</a><br/><a href="https://github.com/ethereum/wiki/wiki/White-Paper">https://github.com/ethereum/wiki/wiki/White-Paper</a><br/><a href="https://github.com/ethereum/yellowpaper">https://github.com/ethereum/yellowpaper</a><br/></dd>
     </dl>
     <h2 data-toc-skip>Table of contents</h2>
     <nav id="toc" data-toggle="toc"></nav>
@@ -539,8 +539,14 @@
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
                             <a class="label label-default" href="#prop-blockcreationtime">blockCreationTime</a> 
+                            <a class="label label-default" href="#prop-blockdifficulty">blockDifficulty</a> 
+                            <a class="label label-default" href="#prop-blockextradata">blockExtraData</a> 
+                            <a class="label label-default" href="#prop-blockgaslimit">blockGasLimit</a> 
+                            <a class="label label-default" href="#prop-blockgasused">blockGasUsed</a> 
                             <a class="label label-default" href="#prop-blockhash">blockHash</a> 
                             <a class="label label-default" href="#prop-blockheader">blockHeader</a> 
+                            <a class="label label-default" href="#prop-blocklogsbloom">blockLogsBloom</a> 
+                            <a class="label label-default" href="#prop-blockmixhash">blockMixHash</a> 
                             <a class="label label-default" href="#prop-blocknonce">blockNonce</a> 
                             <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-number">number</a> 
@@ -2864,7 +2870,7 @@
         </table>
     
         <h3 id="prop-messageobjectproperty">MessageObjectProperty</h3>
-        <p>Groups all EthOn State Object Properties.</p>
+        <p>Groups all EthOn Message Object Properties.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4331,7 +4337,7 @@
         </table>
     
         <h3 id="prop-accountcode">accountCode</h3>
-        <p>The imutable EVM bytecode of the Contract Account.</p>
+        <p>The immutable EVM bytecode of the Contract Account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4380,7 +4386,7 @@
         </table>
     
         <h3 id="prop-accountcodehash">accountCodeHash</h3>
-        <p>The immutable hash of the EVM code of an Account.</p>
+        <p>The immutable Keccak-256 hash of the EVM code of an Account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4544,7 +4550,7 @@
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">blockTimestamp</td>
+                    <td class="col-md-10">blockCreationTime</td>
                 </tr>
             
                 <tr>
@@ -4605,6 +4611,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4647,6 +4660,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4689,6 +4709,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4731,6 +4758,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4871,6 +4905,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4913,6 +4954,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>

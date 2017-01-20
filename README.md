@@ -36,7 +36,7 @@ Find more illustrations here: [EthOn illustrations](EthOn_illustrations.md)
 
 ### 2. Visualize the Ontology
 Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
-[It should be enough to click this link](http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf?token=ABeN2BS6JNYwG2ADzI7vBJihTu02xpgjks5YWBKpwA%3D%3D). 
+[It should be enough to click this link](http://vowl.visualdataweb.org/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf). 
 WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
 ### 3. Read the specification
@@ -83,4 +83,4 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
         rdfs:seeAlso <https://etherscan.io/block/0> .
 
 ## "EthOn"?
-Ethon is in Greek, Latin and Inidan mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).
+Ethon is in Greek, Latin and Indian mythology the name of one of the horses [that pull the sun across the sky](https://books.google.de/books?id=mvLBAgAAQBAJ&pg=PA121&hl=en&q=ethon&f=false#v=snippet&q=ethon&f=false).

@@ -6,11 +6,8 @@ Informal and simplified illustration of an Ethereum network and blockchain model
 ![EthOn model](doc_resources/img/EthOn_overview.png)
 
 ## Illustration key
-The illustrations mainly comply with [VOWL](http://vowl.visualdataweb.org/v2/) for concept illustrations
+The illustrations basically comply with [VOWL](http://vowl.visualdataweb.org/v2/) for concept illustrations
 and [QueryVOWL](http://vowl.visualdataweb.org/queryvowl/v1/index.html) for modeling scheme illustrations.
-
-VOWL has been extended with one more relation type: _instance of_ relations are represented by an alternating dashed and 
-dotted arrow with an open head.
 
 ![Illustration key](doc_resources/img/key.png)
 ### Account concept
