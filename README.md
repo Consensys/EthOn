@@ -12,6 +12,9 @@ EthOn is not canonical (i.e. "official"). However, it might be submitted as an E
 
 For information on [contributing](https://github.com/ConsenSys/EthOn/wiki/How-to-contribute-to-EthOn), [versioning](https://github.com/ConsenSys/EthOn/wiki/Versioning-system) and [usage](https://github.com/ConsenSys/EthOn/wiki/Usage), please have a look at the [wiki](https://github.com/ConsenSys/EthOn/wiki).
 
+### Extensions
+* [ERC-20](ERC20) - Adds modeling for ERC-20 tokens
+
 ### EthOn can be used
 * as a [glossary of Ethereum terms](EthOn_glossary.md)
 * as a learning ressource for understanding Ethereum and the yellow paper
