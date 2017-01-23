@@ -32,7 +32,7 @@
         <dt>Version IRI</dt>
         <dd><a href="http://ethon.consensys.net/0/">http://ethon.consensys.net/0/</a></dd>
         <dt>Version Info</dt>
-        <dd>0.0.1</dd>
+        <dd>0.1.1</dd>
         <dt>Creators</dt>
         <dd>Johannes Pfeffer</dd>
         <dt>Contributors</dt>
@@ -144,7 +144,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">91</span></h3>
+            <h3>Properties <span class="badge">92</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -156,6 +156,7 @@
                     <li><a class="label label-default" href="#prop-accountcode">accountCode</a></li>
                     <li><a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a></li>
                     <li><a class="label label-default" href="#prop-accountnonce">accountNonce</a></li>
+                    <li><a class="label label-default" href="#prop-accountpublickey">accountPublicKey</a></li>
                     <li><a class="label label-default" href="#prop-address">address</a></li>
                     <li><a class="label label-default" href="#prop-storageroot">storageRoot</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a><ul>
@@ -1011,6 +1012,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-accountpublickey">accountPublicKey</a> 
+                    </td>
+                </tr>
             
             
             
@@ -4089,7 +4097,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">48</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">49</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4124,6 +4132,7 @@
                             <a class="label label-default" href="#prop-accountcode">accountCode</a> 
                             <a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a> 
                             <a class="label label-default" href="#prop-accountnonce">accountNonce</a> 
+                            <a class="label label-default" href="#prop-accountpublickey">accountPublicKey</a> 
                             <a class="label label-default" href="#prop-address">address</a> 
                             <a class="label label-default" href="#prop-storageroot">storageRoot</a> 
                     </td>
@@ -4557,6 +4566,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-accountpublickey">accountPublicKey</h3>
+        <p>The public key of an ExternalAccount.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/accountPublicKey">http://ethon.consensys.net/accountPublicKey</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">accountPublicKey</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-externalaccount">ExternalAccount</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
                     </td>
                 </tr>
             

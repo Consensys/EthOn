@@ -21,6 +21,9 @@ The immutable Keccak-256 hash of the EVM code of an Account.
 ### Account nonce
 [`ethon:accountNonce`](http://ethon.consensys.net/accountNonce)   
 A scalar value equal to the number of transactions sent from this Account or, in the case of Accounts with associated code, the number of Contract-creations made by this Account.
+### Account public key
+[`ethon:accountPublicKey`](http://ethon.consensys.net/accountPublicKey)   
+The public key of an ExternalAccount.
 ### Address
 [`ethon:address`](http://ethon.consensys.net/address)   
 A 160-bit identifier for Accounts.
