@@ -222,6 +222,9 @@ A scalar value equal to the number of Wei to be paid per unit of gas for all com
 ### Message init code
 [`ethon:msgInit`](http://ethon.consensys.net/msgInit)   
 An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
+### Message output
+[`ethon:msgOutput`](http://ethon.consensys.net/msgOutput)   
+The reulting output data from a CallContractMsg.
 ### Message payload
 [`ethon:msgPayload`](http://ethon.consensys.net/msgPayload)   
 An unlimited size byte array specifying the data payload of the Message.
