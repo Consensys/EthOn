@@ -55,6 +55,9 @@ A scalar value equal to the number of ancestor Blocks. The genesis Block has a n
 ### Block reward
 [`ethon:blockReward`](http://ethon.consensys.net/blockReward)   
 Also base reward, amount of Wei a miner gets for finding a Block.
+### Block size
+[`ethon:blockSize`](http://ethon.consensys.net/blockSize)   
+The size of the the Block header in bytes.
 ## C
 ### Call Contract Message
 [`ethon:CallContractMsg`](http://ethon.consensys.net/CallContractMsg)   

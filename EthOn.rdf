@@ -950,6 +950,21 @@
     
 
 
+    <!-- http://ethon.consensys.net/blockSize -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/blockSize">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>blockSize</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The size of the the Block header in bytes.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block size</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ethon.consensys.net/clientVersion -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/clientVersion">
