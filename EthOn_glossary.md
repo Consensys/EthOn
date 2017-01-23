@@ -197,6 +197,9 @@ Relates a Log Topic to the 32 bytes of data it contains.
 ### Logs bloom filter
 [`ethon:blockLogsBloom`](http://ethon.consensys.net/blockLogsBloom)   
 The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.
+### log index
+[`ethon:logIndex`](http://ethon.consensys.net/logIndex)   
+Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.
 ### logged by
 [`ethon:loggedBy`](http://ethon.consensys.net/loggedBy)   
 Relates a Log Entry to its logger's Account.
