@@ -32,7 +32,7 @@
         <dt>Version IRI</dt>
         <dd><a href="http://ethon.consensys.net/0/">http://ethon.consensys.net/0/</a></dd>
         <dt>Version Info</dt>
-        <dd>0.0.1</dd>
+        <dd>0.1.1</dd>
         <dt>Creators</dt>
         <dd>Johannes Pfeffer</dd>
         <dt>Contributors</dt>
@@ -82,10 +82,10 @@
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-blockconcept">BlockConcept</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
-                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
-                    <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li>
+                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-messageconcept">MessageConcept</a><ul>
                     <li><a class="label label-primary" href="#class-logentry">LogEntry</a></li>
                     <li><a class="label label-primary" href="#class-logtopic">LogTopic</a></li>
@@ -126,8 +126,7 @@
                     <li><a class="label label-primary" href="#class-postblockstate">PostBlockState</a></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
-                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
                     <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
@@ -144,7 +143,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">91</span></h3>
+            <h3>Properties <span class="badge">94</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -156,6 +155,7 @@
                     <li><a class="label label-default" href="#prop-accountcode">accountCode</a></li>
                     <li><a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a></li>
                     <li><a class="label label-default" href="#prop-accountnonce">accountNonce</a></li>
+                    <li><a class="label label-default" href="#prop-accountpublickey">accountPublicKey</a></li>
                     <li><a class="label label-default" href="#prop-address">address</a></li>
                     <li><a class="label label-default" href="#prop-storageroot">storageRoot</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a><ul>
@@ -176,6 +176,8 @@
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-logindex">logIndex</a></li>
                     <li><a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a></li>
+                    <li><a class="label label-default" href="#prop-msgerror">msgError</a></li>
+                    <li><a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a></li>
                     <li><a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a></li>
                     <li><a class="label label-default" href="#prop-msggasprice">msgGasPrice</a></li>
                     <li><a class="label label-default" href="#prop-msggasused">msgGasUsed</a></li>
@@ -536,7 +538,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-genesisblock">GenesisBlock</a> 
-                            <a class="label label-primary" href="#class-uncle">Uncle</a> 
                     </td>
                 </tr>
             
@@ -545,19 +546,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
-                            <a class="label label-default" href="#prop-blockcreationtime">blockCreationTime</a> 
-                            <a class="label label-default" href="#prop-blockdifficulty">blockDifficulty</a> 
-                            <a class="label label-default" href="#prop-blockextradata">blockExtraData</a> 
-                            <a class="label label-default" href="#prop-blockgaslimit">blockGasLimit</a> 
-                            <a class="label label-default" href="#prop-blockgasused">blockGasUsed</a> 
-                            <a class="label label-default" href="#prop-blockhash">blockHash</a> 
-                            <a class="label label-default" href="#prop-blockheader">blockHeader</a> 
-                            <a class="label label-default" href="#prop-blocklogsbloom">blockLogsBloom</a> 
-                            <a class="label label-default" href="#prop-blockmixhash">blockMixHash</a> 
-                            <a class="label label-default" href="#prop-blocknonce">blockNonce</a> 
-                            <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-blocksize">blockSize</a> 
-                            <a class="label label-default" href="#prop-number">number</a> 
                             <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
@@ -611,6 +600,7 @@
                             <a class="label label-primary" href="#class-block">Block</a> 
                             <a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a> 
                             <a class="label label-primary" href="#class-txtrie">TxTrie</a> 
+                            <a class="label label-primary" href="#class-uncle">Uncle</a> 
                     </td>
                 </tr>
             
@@ -848,6 +838,8 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-msgerror">msgError</a> 
+                            <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
                             <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                     </td>
                 </tr>
@@ -1011,6 +1003,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-accountpublickey">accountPublicKey</a> 
+                    </td>
+                </tr>
             
             
             
@@ -2138,7 +2137,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-block">Block</a> 
+                            <a class="label label-primary" href="#class-blockconcept">BlockConcept</a> 
                     </td>
                 </tr>
             
@@ -4089,7 +4088,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">48</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">51</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4124,6 +4123,7 @@
                             <a class="label label-default" href="#prop-accountcode">accountCode</a> 
                             <a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a> 
                             <a class="label label-default" href="#prop-accountnonce">accountNonce</a> 
+                            <a class="label label-default" href="#prop-accountpublickey">accountPublicKey</a> 
                             <a class="label label-default" href="#prop-address">address</a> 
                             <a class="label label-default" href="#prop-storageroot">storageRoot</a> 
                     </td>
@@ -4259,6 +4259,8 @@
                             <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
                             <a class="label label-default" href="#prop-logindex">logIndex</a> 
                             <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
+                            <a class="label label-default" href="#prop-msgerror">msgError</a> 
+                            <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
                             <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
                             <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
@@ -4563,6 +4565,55 @@
             
         </table>
     
+        <h3 id="prop-accountpublickey">accountPublicKey</h3>
+        <p>The public key of an ExternalAccount.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/accountPublicKey">http://ethon.consensys.net/accountPublicKey</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">accountPublicKey</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-externalaccount">ExternalAccount</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-address">address</h3>
         <p>A 160-bit identifier for Accounts.</p>
         <table class="table table-striped">
@@ -4642,13 +4693,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4691,13 +4735,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4740,13 +4777,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4789,13 +4819,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4838,13 +4861,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4887,13 +4903,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4936,13 +4945,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4985,13 +4987,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5034,13 +5029,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5083,13 +5071,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5132,13 +5113,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5432,6 +5406,104 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msgerror">msgError</h3>
+        <p>A boolean value indicating whether the ContractMessage execution resulted in an error. A "true" value indicates an error.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgError">http://ethon.consensys.net/msgError</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgError</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#boolean">http://www.w3.org/2001/XMLSchema#boolean</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msgerrorstring">msgErrorString</h3>
+        <p>A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgErrorString">http://ethon.consensys.net/msgErrorString</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgErrorString</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a> 
                     </td>
                 </tr>
             
@@ -5805,13 +5877,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
