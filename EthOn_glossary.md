@@ -225,6 +225,9 @@ A scalar value equal to the maximum amount of gas that should be used in executi
 ### Message gas price
 [`ethon:msgGasPrice`](http://ethon.consensys.net/msgGasPrice)   
 A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.
+### Message gas used
+[`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
+A scalar value equal to the total amount of gas that was used when processing this Msg and all Messages resulting from it.
 ### Message init code
 [`ethon:msgInit`](http://ethon.consensys.net/msgInit)   
 An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
