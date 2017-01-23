@@ -55,6 +55,9 @@ A scalar value equal to the number of ancestor Blocks. The genesis Block has a n
 ### Block reward
 [`ethon:blockReward`](http://ethon.consensys.net/blockReward)   
 Also base reward, amount of Wei a miner gets for finding a Block.
+### Block size
+[`ethon:blockSize`](http://ethon.consensys.net/blockSize)   
+The size of the the Block header in bytes.
 ## C
 ### Call Contract Message
 [`ethon:CallContractMsg`](http://ethon.consensys.net/CallContractMsg)   
@@ -83,12 +86,15 @@ Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.
 ### contains Transaction
 [`ethon:containsTx`](http://ethon.consensys.net/containsTx)   
 Relates a Block to a Transaction included in it. All containsTx relations of a Block comprise the Block's transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a Transaction can only be included in one Block.
+### contract balance in Wei
+[`ethon:msgRefundBalance`](http://ethon.consensys.net/msgRefundBalance)   
+A scalar value equal to the number of Wei that will be refunded in result of the SelfdestructContractMsg.
 ### controls Account
 [`ethon:controlsAccount`](http://ethon.consensys.net/controlsAccount)   
 This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate.
 ### creates
 [`ethon:creates`](http://ethon.consensys.net/creates)   
-Relates a create transaction to the Contract Account it creates.
+Relates a create transaction to the ContractAccount it creates.
 ### creates State
 [`ethon:createsState`](http://ethon.consensys.net/createsState)   
 Relates a Transition to the State it creates.
@@ -197,6 +203,9 @@ Relates a Log Topic to the 32 bytes of data it contains.
 ### Logs bloom filter
 [`ethon:blockLogsBloom`](http://ethon.consensys.net/blockLogsBloom)   
 The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.
+### log index
+[`ethon:logIndex`](http://ethon.consensys.net/logIndex)   
+Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.
 ### logged by
 [`ethon:loggedBy`](http://ethon.consensys.net/loggedBy)   
 Relates a Log Entry to its logger's Account.
@@ -216,9 +225,15 @@ A scalar value equal to the maximum amount of gas that should be used in executi
 ### Message gas price
 [`ethon:msgGasPrice`](http://ethon.consensys.net/msgGasPrice)   
 A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.
+### Message gas used
+[`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
+A scalar value equal to the total amount of gas that was used when processing this Msg and all Messages resulting from it.
 ### Message init code
 [`ethon:msgInit`](http://ethon.consensys.net/msgInit)   
 An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
+### Message output
+[`ethon:msgOutput`](http://ethon.consensys.net/msgOutput)   
+The reulting output data from a CallContractMsg.
 ### Message payload
 [`ethon:msgPayload`](http://ethon.consensys.net/msgPayload)   
 An unlimited size byte array specifying the data payload of the Message.
@@ -257,6 +272,9 @@ A trie structure that stores transaction receipts. Each Block has a reference to
 ### Receipts root
 [`ethon:receiptsRoot`](http://ethon.consensys.net/receiptsRoot)   
 The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the Block.
+### refunds
+[`ethon:refunds`](http://ethon.consensys.net/refunds)   
+Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to.
 ### runs client
 [`ethon:clientVersion`](http://ethon.consensys.net/clientVersion)   
 Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).
