@@ -82,10 +82,10 @@
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-blockconcept">BlockConcept</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
-                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
-                    <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li>
+                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-messageconcept">MessageConcept</a><ul>
                     <li><a class="label label-primary" href="#class-logentry">LogEntry</a></li>
                     <li><a class="label label-primary" href="#class-logtopic">LogTopic</a></li>
@@ -126,8 +126,7 @@
                     <li><a class="label label-primary" href="#class-postblockstate">PostBlockState</a></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-statetransition">StateTransition</a><ul>
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
-                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li>
-                    <li><a class="label label-primary" href="#class-uncle">Uncle</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
                     <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
@@ -539,7 +538,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-genesisblock">GenesisBlock</a> 
-                            <a class="label label-primary" href="#class-uncle">Uncle</a> 
                     </td>
                 </tr>
             
@@ -548,19 +546,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
-                            <a class="label label-default" href="#prop-blockcreationtime">blockCreationTime</a> 
-                            <a class="label label-default" href="#prop-blockdifficulty">blockDifficulty</a> 
-                            <a class="label label-default" href="#prop-blockextradata">blockExtraData</a> 
-                            <a class="label label-default" href="#prop-blockgaslimit">blockGasLimit</a> 
-                            <a class="label label-default" href="#prop-blockgasused">blockGasUsed</a> 
-                            <a class="label label-default" href="#prop-blockhash">blockHash</a> 
-                            <a class="label label-default" href="#prop-blockheader">blockHeader</a> 
-                            <a class="label label-default" href="#prop-blocklogsbloom">blockLogsBloom</a> 
-                            <a class="label label-default" href="#prop-blockmixhash">blockMixHash</a> 
-                            <a class="label label-default" href="#prop-blocknonce">blockNonce</a> 
-                            <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-blocksize">blockSize</a> 
-                            <a class="label label-default" href="#prop-number">number</a> 
                             <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
@@ -614,6 +600,7 @@
                             <a class="label label-primary" href="#class-block">Block</a> 
                             <a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a> 
                             <a class="label label-primary" href="#class-txtrie">TxTrie</a> 
+                            <a class="label label-primary" href="#class-uncle">Uncle</a> 
                     </td>
                 </tr>
             
@@ -2150,7 +2137,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-block">Block</a> 
+                            <a class="label label-primary" href="#class-blockconcept">BlockConcept</a> 
                     </td>
                 </tr>
             
@@ -4706,13 +4693,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4755,13 +4735,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4804,13 +4777,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4853,13 +4819,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4902,13 +4861,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -4951,13 +4903,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5000,13 +4945,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5049,13 +4987,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5098,13 +5029,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5147,13 +5071,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5196,13 +5113,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5967,13 +5877,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
