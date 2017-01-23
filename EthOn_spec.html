@@ -144,7 +144,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">86</span></h3>
+            <h3>Properties <span class="badge">87</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -217,6 +217,7 @@
                     <li><a class="label label-default" href="#prop-hasreceipt">hasReceipt</a></li>
                     <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li>
                     <li><a class="label label-default" href="#prop-to">to</a><ul>
+                    <li><a class="label label-default" href="#prop-refunds">refunds</a></li>
                     <li><a class="label label-default" href="#prop-creates">creates</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-triggersmsg">triggersMsg</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a><ul>
@@ -298,6 +299,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                            <a class="label label-default" href="#prop-refunds">refunds</a> 
                             <a class="label label-default" href="#prop-controlsaccount">controlsAccount</a> 
                             <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
                     </td>
@@ -775,6 +777,7 @@
                         
                             <a class="label label-default" href="#prop-accountcode">accountCode</a> 
                             <a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a> 
+                            <a class="label label-default" href="#prop-refunds">refunds</a> 
                     </td>
                 </tr>
             
@@ -2289,7 +2292,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">38</span></h2>
+    <h2>Object Property descriptions <span class="badge">39</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -2546,6 +2549,55 @@
             
             
             
+            
+            
+        </table>
+    
+        <h3 id="prop-refunds">refunds</h3>
+        <p>Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/refunds">http://ethon.consensys.net/refunds</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">refunds</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-to">to</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractaccount">ContractAccount</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -3090,7 +3142,7 @@
         </table>
     
         <h3 id="prop-creates">creates</h3>
-        <p>Relates a create transaction to the Contract Account it creates.</p>
+        <p>Relates a create transaction to the ContractAccount it creates.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3107,7 +3159,7 @@
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">createsContractAccount</td>
+                    <td class="col-md-10">creates</td>
                 </tr>
             
                 <tr>
@@ -3948,6 +4000,7 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-refunds">refunds</a> 
                             <a class="label label-default" href="#prop-creates">creates</a> 
                     </td>
                 </tr>

@@ -88,7 +88,7 @@ Relates a Block to a Transaction included in it. All containsTx relations of a B
 This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate.
 ### creates
 [`ethon:creates`](http://ethon.consensys.net/creates)   
-Relates a create transaction to the Contract Account it creates.
+Relates a create transaction to the ContractAccount it creates.
 ### creates State
 [`ethon:createsState`](http://ethon.consensys.net/createsState)   
 Relates a Transition to the State it creates.
@@ -260,6 +260,9 @@ A trie structure that stores transaction receipts. Each Block has a reference to
 ### Receipts root
 [`ethon:receiptsRoot`](http://ethon.consensys.net/receiptsRoot)   
 The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the Block.
+### refunds
+[`ethon:refunds`](http://ethon.consensys.net/refunds)   
+Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to.
 ### runs client
 [`ethon:clientVersion`](http://ethon.consensys.net/clientVersion)   
 Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).

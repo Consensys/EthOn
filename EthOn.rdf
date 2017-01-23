@@ -211,8 +211,8 @@
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-        <suggestedStringRepresentation>createsContractAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a create transaction to the Contract Account it creates.</rdfs:comment>
+        <suggestedStringRepresentation>creates</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a create transaction to the ContractAccount it creates.</rdfs:comment>
         <rdfs:label xml:lang="en">creates</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -579,6 +579,21 @@
         <rdfs:label xml:lang="en">part of</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/"/>
         <ns:term_status>testing</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ethon.consensys.net/refunds -->
+
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/refunds">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/to"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+        <suggestedStringRepresentation>refunds</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to.</rdfs:comment>
+        <rdfs:label xml:lang="en">refunds</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
     
 
