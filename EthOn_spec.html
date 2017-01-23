@@ -144,7 +144,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">88</span></h3>
+            <h3>Properties <span class="badge">89</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -181,6 +181,7 @@
                     <li><a class="label label-default" href="#prop-msgpayload">msgPayload</a><ul>
                     <li><a class="label label-default" href="#prop-msgdata">msgData</a></li>
                     <li><a class="label label-default" href="#prop-msginit">msgInit</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a></li>
                     <li><a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a></li>
                     <li><a class="label label-default" href="#prop-topicdata">topicData</a></li>
                     <li><a class="label label-default" href="#prop-topicindex">topicIndex</a></li>
@@ -1782,6 +1783,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a> 
+                    </td>
+                </tr>
             
             
             
@@ -4077,7 +4085,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">45</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">46</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4250,6 +4258,7 @@
                             <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
                             <a class="label label-default" href="#prop-msgoutput">msgOutput</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
+                            <a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a> 
                             <a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a> 
                             <a class="label label-default" href="#prop-topicdata">topicData</a> 
                             <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
@@ -5607,6 +5616,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msgrefundbalance">msgRefundBalance</h3>
+        <p>A scalar value equal to the number of Wei that will be refunded in result of the SelfdestructContractMsg.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgRefundBalance">http://ethon.consensys.net/msgRefundBalance</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgRefundBalance</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
                     </td>
                 </tr>
             

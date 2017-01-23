@@ -83,6 +83,9 @@ Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.
 ### contains Transaction
 [`ethon:containsTx`](http://ethon.consensys.net/containsTx)   
 Relates a Block to a Transaction included in it. All containsTx relations of a Block comprise the Block's transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a Transaction can only be included in one Block.
+### contract balance in Wei
+[`ethon:msgRefundBalance`](http://ethon.consensys.net/msgRefundBalance)   
+A scalar value equal to the number of Wei that will be refunded in result of the SelfdestructContractMsg.
 ### controls Account
 [`ethon:controlsAccount`](http://ethon.consensys.net/controlsAccount)   
 This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate.
