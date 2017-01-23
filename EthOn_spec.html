@@ -144,7 +144,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">92</span></h3>
+            <h3>Properties <span class="badge">94</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -177,6 +177,8 @@
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-logindex">logIndex</a></li>
                     <li><a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a></li>
+                    <li><a class="label label-default" href="#prop-msgerror">msgError</a></li>
+                    <li><a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a></li>
                     <li><a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a></li>
                     <li><a class="label label-default" href="#prop-msggasprice">msgGasPrice</a></li>
                     <li><a class="label label-default" href="#prop-msggasused">msgGasUsed</a></li>
@@ -849,6 +851,8 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-msgerror">msgError</a> 
+                            <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
                             <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                     </td>
                 </tr>
@@ -4097,7 +4101,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">49</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">51</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4268,6 +4272,8 @@
                             <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
                             <a class="label label-default" href="#prop-logindex">logIndex</a> 
                             <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
+                            <a class="label label-default" href="#prop-msgerror">msgError</a> 
+                            <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
                             <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
                             <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
@@ -5490,6 +5496,104 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msgerror">msgError</h3>
+        <p>A boolean value indicating whether the ContractMessage execution resulted in an error. A "true" value indicates an error.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgError">http://ethon.consensys.net/msgError</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgError</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#boolean">http://www.w3.org/2001/XMLSchema#boolean</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-msgerrorstring">msgErrorString</h3>
+        <p>A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgErrorString">http://ethon.consensys.net/msgErrorString</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">msgErrorString</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a> 
                     </td>
                 </tr>
             

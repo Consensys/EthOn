@@ -222,6 +222,12 @@ Data (as a set of bytes) and value (specified as Ether) that is passed between t
 ### Message call depth
 [`ethon:msgCallDepth`](http://ethon.consensys.net/msgCallDepth)   
 A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.
+### Message error
+[`ethon:msgError`](http://ethon.consensys.net/msgError)   
+A boolean value indicating whether the ContractMessage execution resulted in an error. A "true" value indicates an error.
+### Message error string
+[`ethon:msgErrorString`](http://ethon.consensys.net/msgErrorString)   
+A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.
 ### Message gas limit
 [`ethon:msgGasLimit`](http://ethon.consensys.net/msgGasLimit)   
 A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.
