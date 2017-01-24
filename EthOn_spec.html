@@ -143,7 +143,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">96</span></h3>
+            <h3>Properties <span class="badge">97</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -199,7 +199,8 @@
                     <li><a class="label label-default" href="#prop-txv">txV</a></li>
                     <li><a class="label label-default" href="#prop-value">value</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-networkdataproperty">NetworkDataProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-clientversion">clientVersion</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-clientversion">clientVersion</a></li>
+                    <li><a class="label label-default" href="#prop-startblocknumber">startBlockNumber</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-statedataproperty">StateDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-stateroot">stateRoot</a></li></ul></li></ul></li>
                     <li><a class="label label-default" href="#prop-ethonobjectproperty">EthOnObjectProperty</a><ul>
@@ -653,6 +654,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-startblocknumber">startBlockNumber</a> 
                             <a class="label label-default" href="#prop-hasfork">hasFork</a> 
                     </td>
                 </tr>
@@ -4099,7 +4101,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">53</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">54</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4335,6 +4337,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-clientversion">clientVersion</a> 
+                            <a class="label label-default" href="#prop-startblocknumber">startBlockNumber</a> 
                     </td>
                 </tr>
             
@@ -5952,6 +5955,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-startblocknumber">startBlockNumber</h3>
+        <p>The Block number of the first block in a new Blockchain after a hard fork.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/startBlockNumber">http://ethon.consensys.net/startBlockNumber</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">startBlockNumber</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-networkdataproperty">NetworkDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-blockchain">Blockchain</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
                     </td>
                 </tr>
             

@@ -306,6 +306,9 @@ A Merkle Patricia tree that encodes the storage contents of an Account. It is no
 ### Storage root
 [`ethon:storageRoot`](http://ethon.consensys.net/storageRoot)   
 A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.
+### start Block number
+[`ethon:startBlockNumber`](http://ethon.consensys.net/startBlockNumber)   
+The Block number of the first block in a new Blockchain after a hard fork.
 ## T
 ### Transaction
 [`ethon:Tx`](http://ethon.consensys.net/Tx)   
