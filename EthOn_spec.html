@@ -143,7 +143,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">95</span></h3>
+            <h3>Properties <span class="badge">96</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -159,6 +159,7 @@
                     <li><a class="label label-default" href="#prop-address">address</a></li>
                     <li><a class="label label-default" href="#prop-storageroot">storageRoot</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-blockbeneficiaryreward">blockBeneficiaryReward</a></li>
                     <li><a class="label label-default" href="#prop-blockcreationtime">blockCreationTime</a></li>
                     <li><a class="label label-default" href="#prop-blockdifficulty">blockDifficulty</a></li>
                     <li><a class="label label-default" href="#prop-blockextradata">blockExtraData</a></li>
@@ -169,9 +170,9 @@
                     <li><a class="label label-default" href="#prop-blocklogsbloom">blockLogsBloom</a></li>
                     <li><a class="label label-default" href="#prop-blockmixhash">blockMixHash</a></li>
                     <li><a class="label label-default" href="#prop-blocknonce">blockNonce</a></li>
-                    <li><a class="label label-default" href="#prop-blockreward">blockReward</a></li>
                     <li><a class="label label-default" href="#prop-blocksize">blockSize</a></li>
-                    <li><a class="label label-default" href="#prop-number">number</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-number">number</a></li>
+                    <li><a class="label label-default" href="#prop-unclebeneficiaryreward">uncleBeneficiaryReward</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-logindex">logIndex</a></li>
@@ -547,6 +548,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
+                            <a class="label label-default" href="#prop-blockbeneficiaryreward">blockBeneficiaryReward</a> 
                             <a class="label label-default" href="#prop-blocksize">blockSize</a> 
                             <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
@@ -2144,6 +2146,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-unclebeneficiaryreward">uncleBeneficiaryReward</a> 
+                    </td>
+                </tr>
             
             
             
@@ -4090,7 +4099,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">52</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">53</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4172,6 +4181,7 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-blockbeneficiaryreward">blockBeneficiaryReward</a> 
                             <a class="label label-default" href="#prop-blockcreationtime">blockCreationTime</a> 
                             <a class="label label-default" href="#prop-blockdifficulty">blockDifficulty</a> 
                             <a class="label label-default" href="#prop-blockextradata">blockExtraData</a> 
@@ -4182,9 +4192,9 @@
                             <a class="label label-default" href="#prop-blocklogsbloom">blockLogsBloom</a> 
                             <a class="label label-default" href="#prop-blockmixhash">blockMixHash</a> 
                             <a class="label label-default" href="#prop-blocknonce">blockNonce</a> 
-                            <a class="label label-default" href="#prop-blockreward">blockReward</a> 
                             <a class="label label-default" href="#prop-blocksize">blockSize</a> 
                             <a class="label label-default" href="#prop-number">number</a> 
+                            <a class="label label-default" href="#prop-unclebeneficiaryreward">uncleBeneficiaryReward</a> 
                     </td>
                 </tr>
             
@@ -4666,6 +4676,55 @@
             
         </table>
     
+        <h3 id="prop-blockbeneficiaryreward">blockBeneficiaryReward</h3>
+        <p>The reward the beneficiary receives for mining a block. It is comprised of the base reward (5ETH), rewards for including uncles (1/32 of block reward per uncle) and the fees of the Tx in the block.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/blockBeneficiaryReward">http://ethon.consensys.net/blockBeneficiaryReward</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">blockBenficiaryReward</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-blockcreationtime">blockCreationTime</h3>
         <p>This Block's inception date and time.</p>
         <table class="table table-striped">
@@ -5080,48 +5139,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-blockreward">blockReward</h3>
-        <p>Also base reward, amount of Wei a miner gets for finding a Block.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/blockReward">http://ethon.consensys.net/blockReward</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">blockReward</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
                     </td>
                 </tr>
             
@@ -6474,6 +6491,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#byte">http://www.w3.org/2001/XMLSchema#byte</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-unclebeneficiaryreward">uncleBeneficiaryReward</h3>
+        <p>The reward the beneficiary of an uncle receives if a Block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the Block in which it is included minus the Uncle's number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/uncleBeneficiaryReward">http://ethon.consensys.net/uncleBeneficiaryReward</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">uncleBenficiaryReward</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-blockdataproperty">BlockDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-uncle">Uncle</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
                     </td>
                 </tr>
             
