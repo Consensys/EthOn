@@ -801,6 +801,21 @@
     
 
 
+    <!-- http://ethon.consensys.net/blockBeneficiaryReward -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/blockBeneficiaryReward">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>blockBenficiaryReward</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The reward the beneficiary receives for mining a block. It is comprised of the base reward (5ETH), rewards for including uncles (1/32 of block reward per uncle) and the fees of the Tx in the block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Block beneficiary reward</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ethon.consensys.net/blockCreationTime -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/blockCreationTime">
@@ -1021,27 +1036,6 @@
     
 
 
-    <!-- http://ethon.consensys.net/blockReward -->
-
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/blockReward">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ethon.consensys.net/Block"/>
-                    <rdf:Description rdf:about="http://ethon.consensys.net/Uncle"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <suggestedStringRepresentation>blockReward</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Also base reward, amount of Wei a miner gets for finding a Block.</rdfs:comment>
-        <rdfs:label xml:lang="en">Block reward</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://ethon.consensys.net/blockSize -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/blockSize">
@@ -1197,11 +1191,12 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgGasUsed">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <owl:propertyDisjointWith rdf:resource="http://ethon.consensys.net/txGasUsed"/>
         <suggestedStringRepresentation>msgGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the total amount of gas that was used when processing this Msg and all Messages resulting from it.</rdfs:comment>
-        <rdfs:label xml:lang="en">Message gas used</rdfs:label>
+        <rdfs:comment xml:lang="en">The amount of gas that was used for processing this ContractMsg.</rdfs:comment>
+        <rdfs:label xml:lang="en">Msg gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1310,6 +1305,20 @@
     
 
 
+    <!-- http://ethon.consensys.net/startBlockNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/startBlockNumber">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkDataProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Blockchain"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>startBlockNumber</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The Block number of the first block in a new Blockchain after a hard fork.</rdfs:comment>
+        <rdfs:label xml:lang="en">start Block number</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ethon.consensys.net/stateRoot -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/stateRoot">
@@ -1385,6 +1394,21 @@
     
 
 
+    <!-- http://ethon.consensys.net/txGasUsed -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txGasUsed">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>txGasUsed</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Tx gas used</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ethon.consensys.net/txLogsBloom -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txLogsBloom">
@@ -1451,6 +1475,21 @@
         <rdfs:comment xml:lang="en">The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: txV = CHAIN_ID * 2 + 36</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction v-value</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/155"/>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ethon.consensys.net/uncleBeneficiaryReward -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/uncleBeneficiaryReward">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Uncle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>uncleBenficiaryReward</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The reward the beneficiary of an uncle receives if a Block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the Block in which it is included minus the Uncle&apos;s number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.</rdfs:comment>
+        <rdfs:label xml:lang="en">Uncle beneficiary reward</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -2275,6 +2314,7 @@
 
     <owl:NamedIndividual rdf:about="http://ethon.consensys.net/Block0">
         <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+        <blockBeneficiaryReward rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5000000000000000000</blockBeneficiaryReward>
         <blockCreationTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-07-30T03:26:13</blockCreationTime>
         <blockDifficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17179869184</blockDifficulty>
         <blockExtraData rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">11bbe8db4e347b4e8c937c1c8370e4b5ed33adb3db69cbdb7a38e1e50b1b82fa</blockExtraData>
@@ -2283,7 +2323,6 @@
         <blockHash rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3</blockHash>
         <blockLogsBloom rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</blockLogsBloom>
         <blockNonce rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">0000000000000042</blockNonce>
-        <blockReward rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5000000000000000000</blockReward>
         <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</number>
         <rdfs:comment xml:lang="en">This is the Block with Block number 0. It is the Genesis Block of the Ethereum Blockchain.</rdfs:comment>
         <rdfs:label>Genesis Block</rdfs:label>

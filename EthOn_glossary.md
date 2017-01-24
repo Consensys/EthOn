@@ -34,6 +34,9 @@ This is a more abstract term for a Contract Account.
 ### Block
 [`ethon:Block`](http://ethon.consensys.net/Block)   
 A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.
+### Block beneficiary reward
+[`ethon:blockBeneficiaryReward`](http://ethon.consensys.net/blockBeneficiaryReward)   
+The reward the beneficiary receives for mining a block. It is comprised of the base reward (5ETH), rewards for including uncles (1/32 of block reward per uncle) and the fees of the Tx in the block.
 ### Block creation time
 [`ethon:blockCreationTime`](http://ethon.consensys.net/blockCreationTime)   
 This Block's inception date and time.
@@ -55,9 +58,6 @@ A 64 bit hash which proves combined with the mix-hash that a sufficient amount o
 ### Block number
 [`ethon:number`](http://ethon.consensys.net/number)   
 A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.
-### Block reward
-[`ethon:blockReward`](http://ethon.consensys.net/blockReward)   
-Also base reward, amount of Wei a miner gets for finding a Block.
 ### Block size
 [`ethon:blockSize`](http://ethon.consensys.net/blockSize)   
 The size of the the Block header in bytes.
@@ -234,9 +234,6 @@ A scalar value equal to the maximum amount of gas that should be used in executi
 ### Message gas price
 [`ethon:msgGasPrice`](http://ethon.consensys.net/msgGasPrice)   
 A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.
-### Message gas used
-[`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
-A scalar value equal to the total amount of gas that was used when processing this Msg and all Messages resulting from it.
 ### Message init code
 [`ethon:msgInit`](http://ethon.consensys.net/msgInit)   
 An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
@@ -249,6 +246,9 @@ An unlimited size byte array specifying the data payload of the Message.
 ### Mix hash
 [`ethon:blockMixHash`](http://ethon.consensys.net/blockMixHash)   
 A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.
+### Msg gas used
+[`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
+The amount of gas that was used for processing this ContractMsg.
 ### mines for
 [`ethon:minesFor`](http://ethon.consensys.net/minesFor)   
 Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.
@@ -306,6 +306,9 @@ A Merkle Patricia tree that encodes the storage contents of an Account. It is no
 ### Storage root
 [`ethon:storageRoot`](http://ethon.consensys.net/storageRoot)   
 A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.
+### start Block number
+[`ethon:startBlockNumber`](http://ethon.consensys.net/startBlockNumber)   
+The Block number of the first block in a new Blockchain after a hard fork.
 ## T
 ### Transaction
 [`ethon:Tx`](http://ethon.consensys.net/Tx)   
@@ -334,6 +337,9 @@ A trie structure that stores transactions. The header of a Block contains a refe
 ### Transactions root
 [`ethon:transactionsRoot`](http://ethon.consensys.net/transactionsRoot)   
 The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.
+### Tx gas used
+[`ethon:txGasUsed`](http://ethon.consensys.net/txGasUsed)   
+The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.
 ### to
 [`ethon:to`](http://ethon.consensys.net/to)   
 Relates a Message with the Account it is sent to.
@@ -347,6 +353,9 @@ Relates a Message that was direct to a Contract Account to the Contract Messages
 ### Uncle
 [`ethon:Uncle`](http://ethon.consensys.net/Uncle)   
 An Uncle is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.
+### Uncle beneficiary reward
+[`ethon:uncleBeneficiaryReward`](http://ethon.consensys.net/uncleBeneficiaryReward)   
+The reward the beneficiary of an uncle receives if a Block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the Block in which it is included minus the Uncle's number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.
 ## V
 ### Value Contract Message
 [`ethon:ValueContractMsg`](http://ethon.consensys.net/ValueContractMsg)   
