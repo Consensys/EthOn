@@ -234,9 +234,6 @@ A scalar value equal to the maximum amount of gas that should be used in executi
 ### Message gas price
 [`ethon:msgGasPrice`](http://ethon.consensys.net/msgGasPrice)   
 A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.
-### Message gas used
-[`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
-A scalar value equal to the total amount of gas that was used when processing this Msg and all Messages resulting from it.
 ### Message init code
 [`ethon:msgInit`](http://ethon.consensys.net/msgInit)   
 An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
@@ -249,6 +246,9 @@ An unlimited size byte array specifying the data payload of the Message.
 ### Mix hash
 [`ethon:blockMixHash`](http://ethon.consensys.net/blockMixHash)   
 A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.
+### Msg gas used
+[`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
+The amount of gas that was used for processing this ContractMsg.
 ### mines for
 [`ethon:minesFor`](http://ethon.consensys.net/minesFor)   
 Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.
@@ -334,6 +334,9 @@ A trie structure that stores transactions. The header of a Block contains a refe
 ### Transactions root
 [`ethon:transactionsRoot`](http://ethon.consensys.net/transactionsRoot)   
 The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.
+### Tx gas used
+[`ethon:txGasUsed`](http://ethon.consensys.net/txGasUsed)   
+The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.
 ### to
 [`ethon:to`](http://ethon.consensys.net/to)   
 Relates a Message with the Account it is sent to.

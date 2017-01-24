@@ -143,7 +143,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">94</span></h3>
+            <h3>Properties <span class="badge">95</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -190,6 +190,7 @@
                     <li><a class="label label-default" href="#prop-topicdata">topicData</a></li>
                     <li><a class="label label-default" href="#prop-topicindex">topicIndex</a></li>
                     <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li>
+                    <li><a class="label label-default" href="#prop-txgasused">txGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a></li>
                     <li><a class="label label-default" href="#prop-txnonce">txNonce</a></li>
                     <li><a class="label label-default" href="#prop-txr">txR</a></li>
@@ -840,6 +841,7 @@
                         
                             <a class="label label-default" href="#prop-msgerror">msgError</a> 
                             <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
+                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                     </td>
                 </tr>
@@ -1403,7 +1405,6 @@
                         
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
                             <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
-                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
@@ -1995,6 +1996,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
+                            <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txnonce">txNonce</a> 
                             <a class="label label-default" href="#prop-txr">txR</a> 
                             <a class="label label-default" href="#prop-txs">txS</a> 
@@ -4088,7 +4090,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">51</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">52</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4271,6 +4273,7 @@
                             <a class="label label-default" href="#prop-topicdata">topicData</a> 
                             <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
                             <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
+                            <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
                             <a class="label label-default" href="#prop-txnonce">txNonce</a> 
                             <a class="label label-default" href="#prop-txr">txR</a> 
@@ -5602,7 +5605,7 @@
         </table>
     
         <h3 id="prop-msggasused">msgGasUsed</h3>
-        <p>A scalar value equal to the total amount of gas that was used when processing this Msg and all Messages resulting from it.</p>
+        <p>The amount of gas that was used for processing this ContractMsg.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5635,7 +5638,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-msg">Msg</a> 
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
                     </td>
                 </tr>
             
@@ -6177,6 +6180,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-txgasused">txGasUsed</h3>
+        <p>The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/txGasUsed">http://ethon.consensys.net/txGasUsed</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txGasUsed</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
                     </td>
                 </tr>
             
