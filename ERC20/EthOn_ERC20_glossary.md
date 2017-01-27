@@ -13,8 +13,8 @@ A value equal to the base units of a Token that may be spent by an Allowance's d
 ### balance
 [`ethon:balance`](http://ethon.consensys.net/ERC20/balance)   
 A value equal to the base units of a Token that make up the current Balance at the time of the last Transfer Event that affects the Token Balance.
-### by Spender
-[`ethon:bySpender`](http://ethon.consensys.net/ERC20/bySpender)   
+### by Delegate
+[`ethon:byDelegate`](http://ethon.consensys.net/ERC20/byDelegate)   
 Relates a Delegate Token Transfer to the Account that initiated it.
 ## C
 ## D
@@ -40,15 +40,15 @@ Groups all EthOn ERC-20 extension Object Properties
 Relates a Token Transfer with the Account it originates from.
 ## G
 ## H
+### has Delegate
+[`ethon:hasDelegate`](http://ethon.consensys.net/ERC20/hasDelegate)   
+Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner.
 ### has Log Topic
 [`ethon:loggedBy`](http://ethon.consensys.net/ERC20/loggedBy)   
 Relates a Token Transfer or an Allowance to the Event that was emitted when it was created.
 ### has Owner
 [`ethon:hasOwner`](http://ethon.consensys.net/ERC20/hasOwner)   
 Relates a Token Balance with its owner Account.
-### has Spender
-[`ethon:hasSpender`](http://ethon.consensys.net/ERC20/hasSpender)   
-Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner.
 ### has Token Balance
 [`ethon:hasTokenBalance`](http://ethon.consensys.net/ERC20/hasTokenBalance)   
 Relates a Contract Account to one of its Balances.

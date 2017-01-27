@@ -98,10 +98,10 @@
                     <li><a class="label label-default" href="#prop-httpethonconsensysneterc20value">value</a></li>
                     <li><a class="label label-default" href="#prop-totalsupply">totalSupply</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a><ul>
-                    <li><a class="label label-default" href="#prop-byspender">bySpender</a></li>
+                    <li><a class="label label-default" href="#prop-bydelegate">byDelegate</a></li>
                     <li><a class="label label-default" href="#prop-from">from</a></li>
+                    <li><a class="label label-default" href="#prop-hasdelegate">hasDelegate</a></li>
                     <li><a class="label label-default" href="#prop-hasowner">hasOwner</a></li>
-                    <li><a class="label label-default" href="#prop-hasspender">hasSpender</a></li>
                     <li><a class="label label-default" href="#prop-lastchangedby">lastChangedBy</a></li>
                     <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li>
                     <li><a class="label label-default" href="#prop-to">to</a></li>
@@ -148,7 +148,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-allowance">allowance</a> 
-                            <a class="label label-default" href="#prop-hasspender">hasSpender</a> 
+                            <a class="label label-default" href="#prop-hasdelegate">hasDelegate</a> 
                     </td>
                 </tr>
             
@@ -224,7 +224,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-byspender">bySpender</a> 
+                            <a class="label label-default" href="#prop-bydelegate">byDelegate</a> 
                     </td>
                 </tr>
             
@@ -537,7 +537,7 @@
     <!-- Object Property list-->
     <h2>Object Property descriptions <span class="badge">12</span></h2>
     
-        <h3 id="prop-byspender">bySpender</h3>
+        <h3 id="prop-bydelegate">byDelegate</h3>
         <p>Relates a Delegate Token Transfer to the Account that initiated it.</p>
         <table class="table table-striped">
             
@@ -550,7 +550,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/bySpender">http://ethon.consensys.net/ERC20/bySpender</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/byDelegate">http://ethon.consensys.net/ERC20/byDelegate</a></td>
                 </tr>
             
             
@@ -627,6 +627,51 @@
             
         </table>
     
+        <h3 id="prop-hasdelegate">hasDelegate</h3>
+        <p>Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/hasDelegate">http://ethon.consensys.net/ERC20/hasDelegate</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-allowance">Allowance</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#"></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-hasowner">hasOwner</h3>
         <p>Relates a Token Balance with its owner Account.</p>
         <table class="table table-striped">
@@ -658,51 +703,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-tokenbalance">TokenBalance</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#"></a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-hasspender">hasSpender</h3>
-        <p>Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/ERC20/hasSpender">http://ethon.consensys.net/ERC20/hasSpender</a></td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-ethonerc20objectproperty">EthOnERC20ObjectProperty</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-allowance">Allowance</a> 
                     </td>
                 </tr>
             
@@ -1047,10 +1047,10 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-byspender">bySpender</a> 
+                            <a class="label label-default" href="#prop-bydelegate">byDelegate</a> 
                             <a class="label label-default" href="#prop-from">from</a> 
+                            <a class="label label-default" href="#prop-hasdelegate">hasDelegate</a> 
                             <a class="label label-default" href="#prop-hasowner">hasOwner</a> 
-                            <a class="label label-default" href="#prop-hasspender">hasSpender</a> 
                             <a class="label label-default" href="#prop-lastchangedby">lastChangedBy</a> 
                             <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
                             <a class="label label-default" href="#prop-to">to</a> 

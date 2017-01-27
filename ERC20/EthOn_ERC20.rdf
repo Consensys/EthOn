@@ -15,15 +15,15 @@
     <owl:Ontology rdf:about="http://ethon.consensys.net/ERC20/">
         <owl:versionIRI rdf:resource="http://ethon.consensys.net/ERC20/0/"/>
         <owl:imports rdf:resource="http://ethon.consensys.net/0/"/>
-        <ns:term_status>unstable</ns:term_status>
         <dc:creator>Johannes Pfeffer</dc:creator>
-        <rdfs:seeAlso rdf:resource="http://ethon.consensys.net/ERC20"/>
-        <rdfs:seeAlso rdf:resource="https://github.com/ConsenSys/EthOn"/>
-        <owl:versionInfo>0.0.1</owl:versionInfo>
-        <dc:title>EthOn ERC-20 - An ERC-20 Extension to EthOn</dc:title>
         <rdfs:comment>This ontology extends EthOn with concepts that can be used to describe ERC-20 compliant Tokens.</rdfs:comment>
+        <ns:term_status>unstable</ns:term_status>
+        <rdfs:seeAlso rdf:resource="http://ethon.consensys.net/ERC20"/>
+        <owl:versionInfo>0.0.1</owl:versionInfo>
+        <rdfs:seeAlso rdf:resource="https://github.com/ConsenSys/EthOn"/>
         <vann:preferredNamespacePrefix>erc20</vann:preferredNamespacePrefix>
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/20"/>
+        <dc:title>EthOn ERC-20 - An ERC-20 Extension to EthOn</dc:title>
         <dc:contributor>Marian Oancea</dc:contributor>
     </owl:Ontology>
     
@@ -104,16 +104,16 @@
     
 
 
-    <!-- http://ethon.consensys.net/ERC20/bySpender -->
+    <!-- http://ethon.consensys.net/ERC20/byDelegate -->
 
-    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/ERC20/bySpender">
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/ERC20/byDelegate">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/DelegateTokenTransfer"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
-        <ethon:suggestedStringRepresentation>bySpender</ethon:suggestedStringRepresentation>
+        <ethon:suggestedStringRepresentation>byDelegate</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Delegate Token Transfer to the Account that initiated it.</rdfs:comment>
-        <rdfs:label xml:lang="en">by Spender</rdfs:label>
+        <rdfs:label xml:lang="en">by Delegate</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -134,6 +134,21 @@
     
 
 
+    <!-- http://ethon.consensys.net/ERC20/hasDelegate -->
+
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/ERC20/hasDelegate">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+        <ethon:suggestedStringRepresentation>hasDelegate</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens&apos; owner.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Delegate</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ethon.consensys.net/ERC20/hasOwner -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/ERC20/hasOwner">
@@ -144,21 +159,6 @@
         <ethon:suggestedStringRepresentation>hasOwner</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Token Balance with its owner Account.</rdfs:comment>
         <rdfs:label xml:lang="en">has Owner</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://ethon.consensys.net/ERC20/hasSpender -->
-
-    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/ERC20/hasSpender">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
-        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
-        <ethon:suggestedStringRepresentation>hasSpender</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens&apos; owner.</rdfs:comment>
-        <rdfs:label xml:lang="en">has Spender</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
     
@@ -507,7 +507,7 @@
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/TokenTransfer"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://ethon.consensys.net/ERC20/bySpender"/>
+                        <owl:onProperty rdf:resource="http://ethon.consensys.net/ERC20/byDelegate"/>
                         <owl:someValuesFrom rdf:resource="http://ethon.consensys.net/Account"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
