@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://ethon.consensys.net/"
      xml:base="http://ethon.consensys.net/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:ethon="http://ethon.consensys.net/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://ethon.consensys.net/">
         <owl:versionIRI rdf:resource="http://ethon.consensys.net/0/"/>
         <owl:imports rdf:resource="http://www.w3.org/2003/06/sw-vocab-status/ns"/>
@@ -1044,8 +1044,9 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>blockSize</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The size of the the Block header in bytes.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The size of the the Block header in RLP format in bytes.</rdfs:comment>
         <rdfs:label xml:lang="en">Block size</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/RLP"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     

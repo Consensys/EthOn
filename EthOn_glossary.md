@@ -60,7 +60,7 @@ A 64 bit hash which proves combined with the mix-hash that a sufficient amount o
 A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.
 ### Block size
 [`ethon:blockSize`](http://ethon.consensys.net/blockSize)   
-The size of the the Block header in bytes.
+The size of the the Block header in RLP format in bytes.
 ## C
 ### Call Contract Message
 [`ethon:CallContractMsg`](http://ethon.consensys.net/CallContractMsg)   
