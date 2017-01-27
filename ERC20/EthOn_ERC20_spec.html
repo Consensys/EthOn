@@ -66,9 +66,13 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">10</span></h3>
+            <h3>Classes <span class="badge">11</span></h3>
 
             <ul>
+                    <li><a class="label label-primary" href="#class-ethoncontractsevent">Event</a><ul>
+                    <li><a class="label label-primary" href="#class-tokenevent">TokenEvent</a><ul>
+                    <li><a class="label label-primary" href="#class-approvalevent">ApprovalEvent</a></li>
+                    <li><a class="label label-primary" href="#class-transferevent">TransferEvent</a></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a><ul>
                     <li><a class="label label-primary" href="#class-allowance">Allowance</a></li>
                     <li><a class="label label-primary" href="#class-erc20token">ERC20Token</a></li>
@@ -115,7 +119,32 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">10</span></h2>
+    <h2>Class descriptions <span class="badge">11</span></h2>
+    
+        <h3 id="class-ethoncontractsevent">Event</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/Event">http://ethon.consensys.net/Contracts/Event</a></td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tokenevent">TokenEvent</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
     
         <h3 id="class-allowance">Allowance</h3>
         <p>A Token Allowance Provided by a Token Balance. The Delegate Account of the Allowance can spend a fixed amount of Tokens on behalf of the token owner.</p>
@@ -414,6 +443,7 @@
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-primary" href="#class-ethoncontractsevent">Event</a> 
                             <a class="label label-primary" href="#class-ethonerc20concept">EthOnERC20Concept</a> 
                     </td>
                 </tr>

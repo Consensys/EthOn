@@ -370,6 +370,12 @@
     
 
 
+    <!-- http://ethon.consensys.net/Contracts/Event -->
+
+    <owl:Class rdf:about="http://ethon.consensys.net/Contracts/Event"/>
+    
+
+
     <!-- http://ethon.consensys.net/ERC20/Allowance -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/ERC20/Allowance">
@@ -459,7 +465,7 @@
     <!-- http://ethon.consensys.net/ERC20/TokenEvent -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/ERC20/TokenEvent">
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/LogTopic"/>
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20Concept"/>
         <ethon:suggestedStringRepresentation>TokenEvent</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Token Event is a subtype of a Log Topic that was created when an event related to the token was emitted.</rdfs:comment>
