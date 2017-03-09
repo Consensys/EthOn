@@ -7,3 +7,5 @@ Ressources:
 
 ![Illustration key](doc_resources/img/EthOn_ERC20_overview.png)
 This is an Overview of how the EthOn ERC-20 extension models a Token.
+
+[Visualize using WebVOWL](http://visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/EthOn/master/ERC20/EthOn_ERC20.rdf)
