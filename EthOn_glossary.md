@@ -60,7 +60,7 @@ A 64 bit hash which proves combined with the mix-hash that a sufficient amount o
 A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.
 ### Block size
 [`ethon:blockSize`](http://ethon.consensys.net/blockSize)   
-The size of the the Block header in bytes.
+The size of the the Block header in RLP format in bytes.
 ## C
 ### Call Contract Message
 [`ethon:CallContractMsg`](http://ethon.consensys.net/CallContractMsg)   
@@ -340,6 +340,9 @@ The Keccak 256-bit hash of the root node of the trie structure populated with ea
 ### Tx gas used
 [`ethon:txGasUsed`](http://ethon.consensys.net/txGasUsed)   
 The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.
+### Tx hash
+[`ethon:txHash`](http://ethon.consensys.net/txHash)   
+The Keccak 256-bit hash of the Transaction
 ### to
 [`ethon:to`](http://ethon.consensys.net/to)   
 Relates a Message with the Account it is sent to.
