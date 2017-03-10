@@ -13,7 +13,8 @@ EthOn is not canonical (i.e. "official"). However, it might be submitted as an E
 For information on [contributing](https://github.com/ConsenSys/EthOn/wiki/How-to-contribute-to-EthOn), [versioning](https://github.com/ConsenSys/EthOn/wiki/Versioning-system) and [usage](https://github.com/ConsenSys/EthOn/wiki/Usage), please have a look at the [wiki](https://github.com/ConsenSys/EthOn/wiki).
 
 ### Extensions
-* [ERC-20](ERC20) - Adds modeling for ERC-20 tokens
+* [ERC-20](ERC20) - Adds modeling of ERC-20 tokens
+* [Contracts](Contracts) - Adds modeling of smart contracts
 
 ### EthOn can be used
 * as a [glossary of Ethereum terms](EthOn_glossary.md)
@@ -40,7 +41,7 @@ Find more illustrations here: [EthOn illustrations](EthOn_illustrations.md)
 ### 2. Visualize the Ontology
 Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
 [It should be enough to click this link](http://visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf). 
-WebVWOL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
+WebVOWL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
 ### 3. Read the specification
 You can look at the automatically generated [EthOn specification](https://consensys.github.io/EthOn/EthOn_spec.html).
