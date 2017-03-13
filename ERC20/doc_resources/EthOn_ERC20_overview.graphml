@@ -331,7 +331,7 @@ Log
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
             <y:GroupNode>
-              <y:Geometry height="258.6609374999998" width="245.19999999999982" x="911.4000000000001" y="858.5218749999995"/>
+              <y:Geometry height="258.6609374999998" width="245.19999999999982" x="31.34282878411932" y="919.3914062499994"/>
               <y:Fill color="#F5F5F5" transparent="false"/>
               <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
               <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="245.19999999999982" x="0.0" y="0.0">TokenTransfer type hierarchy</y:NodeLabel>
@@ -357,7 +357,7 @@ Log
         <node id="n17::n0">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="64.0" width="64.0" x="1005.698313253012" y="894.9828124999995"/>
+              <y:Geometry height="64.0" width="64.0" x="125.6411420371312" y="955.8523437499994"/>
               <y:Fill color="#99CCFF" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="2.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="54.015625" x="4.9921875" y="16.03125">Token
@@ -375,7 +375,7 @@ Transfer<y:LabelModel>
         <node id="n17::n1">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="64.0" width="64.0" x="953.2983132530119" y="1033.3828124999995"/>
+              <y:Geometry height="64.0" width="64.0" x="73.24114203713111" y="1094.2523437499995"/>
               <y:Fill color="#99CCFF" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="2.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="54.015625" x="4.9921875" y="9.046875">Owner
@@ -394,7 +394,7 @@ Transfer<y:LabelModel>
         <node id="n17::n2">
           <data key="d6">
             <y:ShapeNode>
-              <y:Geometry height="64.0" width="64.0" x="1047.2983132530119" y="1038.1828124999993"/>
+              <y:Geometry height="64.0" width="64.0" x="167.2411420371311" y="1099.0523437499992"/>
               <y:Fill color="#99CCFF" transparent="false"/>
               <y:BorderStyle color="#000000" type="line" width="2.0"/>
               <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="45.90625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="58.3984375" x="2.80078125" y="9.046875">Delegate
@@ -458,24 +458,7 @@ and internal token transfers are missed<y:LabelModel>
     <node id="n20">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="32.0" width="332.0000000000001" x="-124.00000000000014" y="437.4"/>
-          <y:Fill color="#FFCC33" transparent="false"/>
-          <y:BorderStyle color="#000000" raised="false" type="dashed" width="2.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="329.119140625" x="1.4404296875000568" y="7.015625">@PREFIX c: &lt;http://ethon.consensys.net/contracts/&gt; .<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:Shape type="rectangle"/>
-        </y:ShapeNode>
-      </data>
-    </node>
-    <node id="n21">
-      <data key="d6">
-        <y:ShapeNode>
-          <y:Geometry height="32.0" width="332.0000000000001" x="-124.00000000000011" y="375.4"/>
+          <y:Geometry height="32.0" width="332.0000000000001" x="-178.72436724565773" y="456.9281389578163"/>
           <y:Fill color="#FFCC33" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="dashed" width="2.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="297.02734375" x="17.486328125000057" y="7.015625">@PREFIX ethon: &lt;http://ethon.consensys.net/&gt; .<y:LabelModel>
@@ -489,10 +472,10 @@ and internal token transfers are missed<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n22">
+    <node id="n21">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="32.0" width="332.0000000000001" x="-124.00000000000011" y="313.4"/>
+          <y:Geometry height="32.0" width="332.0000000000001" x="-168.6729528535982" y="359.4"/>
           <y:Fill color="#FFCC33" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="dashed" width="2.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="287.962890625" x="22.018554687500057" y="7.015625">@BASE &lt;http://ethon.consensys.net/ERC20/&gt; .<y:LabelModel>
@@ -506,7 +489,7 @@ and internal token transfers are missed<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n23">
+    <node id="n22">
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="32.0" width="128.0" x="-150.0" y="557.9999999999999"/>
@@ -523,7 +506,7 @@ and internal token transfers are missed<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n24">
+    <node id="n23">
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="32.0" width="128.0" x="-150.0" y="653.2"/>
@@ -540,7 +523,7 @@ and internal token transfers are missed<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n25">
+    <node id="n24">
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="32.0" width="128.0" x="-150.0" y="605.5999999999999"/>
@@ -557,7 +540,7 @@ and internal token transfers are missed<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n26">
+    <node id="n25">
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="32.0" width="128.0" x="-150.0" y="700.8000000000002"/>
@@ -574,7 +557,7 @@ and internal token transfers are missed<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n27">
+    <node id="n26">
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="64.0" width="64.0" x="247.92029776674934" y="526.7"/>
@@ -592,7 +575,7 @@ Msg<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n28">
+    <node id="n27">
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="32.0" width="128.0" x="991.8113151364767" y="768.0"/>
@@ -609,7 +592,7 @@ Msg<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n29">
+    <node id="n28">
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="64.0" width="64.0" x="-132.39503722084376" y="849.1625806451611"/>
@@ -628,7 +611,7 @@ Account<y:LabelModel>
         </y:ShapeNode>
       </data>
     </node>
-    <node id="n30">
+    <node id="n29">
       <data key="d6">
         <y:SVGNode>
           <y:Geometry height="64.0" width="64.0" x="553.0" y="752.0"/>
@@ -649,7 +632,7 @@ Account<y:LabelModel>
         </y:SVGNode>
       </data>
     </node>
-    <node id="n31">
+    <node id="n30">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
           <y:Geometry height="71.0" width="264.99999999999994" x="238.0" y="386.9"/>
@@ -834,7 +817,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e9" source="n10" target="n30">
+    <edge id="e9" source="n10" target="n29">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1022,7 +1005,7 @@ represents a Token value<y:LabelModel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="2.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="left" anchorX="0.2501728672389163" anchorY="-6.309028074541629" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" upX="-0.9352136991183473" upY="-0.3540837993771777" verticalTextPosition="bottom" visible="true" width="72.009765625" x="-16.554448288793886" y="-80.01599062740175">Subclass of<y:LabelModel>
+          <y:EdgeLabel alignment="left" anchorX="0.25014581639732114" anchorY="-6.309125730791948" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" upX="-0.9352136991183471" upY="-0.3540837993771781" verticalTextPosition="bottom" visible="true" width="72.009765625" x="-16.554475339635477" y="-80.01608828365207">Subclass of<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1040,7 +1023,7 @@ represents a Token value<y:LabelModel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="2.0"/>
           <y:Arrows source="none" target="white_delta"/>
-          <y:EdgeLabel alignment="left" anchorX="17.347238350742828" anchorY="-11.865628179032456" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" upX="-0.9602998764139603" upY="0.27896979650014525" verticalTextPosition="bottom" visible="true" width="72.009765625" x="-19.996699715999927" y="-81.0165972093182">Subclass of<y:LabelModel>
+          <y:EdgeLabel alignment="left" anchorX="17.347302852635494" anchorY="-11.865603764970047" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" upX="-0.9602998764139605" upY="0.2789697965001446" verticalTextPosition="bottom" visible="true" width="72.009765625" x="-19.99663521410722" y="-81.01657279525581">Subclass of<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1088,7 +1071,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e21" source="n5" target="n30">
+    <edge id="e21" source="n5" target="n29">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1118,7 +1101,7 @@ represents a Token value<y:LabelModel>
         </y:GenericEdge>
       </data>
     </edge>
-    <edge id="e23" source="n0" target="n26">
+    <edge id="e23" source="n0" target="n25">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="64.0" ty="0.0"/>
@@ -1136,7 +1119,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e24" source="n0" target="n24">
+    <edge id="e24" source="n0" target="n23">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="64.0" ty="0.0"/>
@@ -1154,7 +1137,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e25" source="n0" target="n25">
+    <edge id="e25" source="n0" target="n24">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="64.0" ty="0.0"/>
@@ -1172,7 +1155,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e26" source="n0" target="n23">
+    <edge id="e26" source="n0" target="n22">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="64.0" ty="0.0"/>
@@ -1190,7 +1173,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e27" source="n13" target="n27">
+    <edge id="e27" source="n13" target="n26">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1208,7 +1191,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e28" source="n10" target="n28">
+    <edge id="e28" source="n10" target="n27">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-64.0" ty="0.0"/>
@@ -1226,7 +1209,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e29" source="n1" target="n29">
+    <edge id="e29" source="n1" target="n28">
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1300,7 +1283,7 @@ represents a Token value<y:LabelModel>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e33" source="n31" target="n14">
+    <edge id="e33" source="n30" target="n14">
       <data key="d10">
         <y:GenericEdge configuration="com.yworks.bpmn.Connection">
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
