@@ -23,10 +23,10 @@
         <dc:title>EthOn Contracts - A extension to EthOn that models some aspects of smart contracts</dc:title>
         <rdfs:comment>This ontology extends EthOn with concepts that can be used to model some aspects of smart contracts, including Functions, Events, Inputs, Outputs and Opcodes.</rdfs:comment>
     </owl:Ontology>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -34,58 +34,58 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- http://ethon.consensys.net/suggestedStringRepresentation -->
 
     <owl:AnnotationProperty rdf:about="http://ethon.consensys.net/suggestedStringRepresentation"/>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/DASE_RULE -->
 
     <owl:AnnotationProperty rdf:about="http://ethon.consensys.net/Contracts/DASE_RULE"/>
-
+    
 
 
     <!-- http://purl.org/dc/elements/1.1/contributor -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
-
+    
 
 
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
-
+    
 
 
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
-
+    
 
 
     <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
-
+    
 
 
     <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
-
+    
 
 
     <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -93,7 +93,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty -->
@@ -104,20 +104,22 @@
         <rdfs:label xml:lang="en">EthOn Contracts Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/callsFunction -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/Contracts/callsFunction">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
         <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <rdfs:comment xml:lang="en">Relates a Function Call to the Function that is called by it.</rdfs:comment>
+        <rdfs:label xml:lang="en">calls Function</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/hasInput -->
@@ -134,12 +136,12 @@
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>hasInput</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates an Event or a Function to an Input of that Event or Function. An Event or Function may have 0 or more Inputs but an Input can only belong to a single Event or Function.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Input</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/hasInputValue -->
@@ -147,13 +149,21 @@
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/Contracts/hasInputValue">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ethon.consensys.net/LogEntry"/>
+                    <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/FunctionCall"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/InputValue"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>hasInputValue</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a FunctionCall or a LogEntry to an Input Value that is represented by it. For example a Function Call add(5,6) would be related to two Input Values, one for each Input to the Function.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Input Value</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/hasOutput -->
@@ -163,12 +173,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Output"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>hasOutput</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Function to an Output of that Function. A Function may have 0 or more Outputs but an Output can only belong to a single Function.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Output</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/hasOutputValue -->
@@ -176,13 +186,14 @@
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/Contracts/hasOutputValue">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/OutputValue"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>hasOutputValue</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a FunctionCall to an Output Value that is represented by it. For example a Function Call add(5,6) that returns the sum of two integers would be related to one Output Value, that contains the result of the addition.</rdfs:comment>
+        <rdfs:label xml:lang="en">has Output Value</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/implementsEvent -->
@@ -191,12 +202,12 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>implementsEvent</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Contract Account to Events it implements.</rdfs:comment>
+        <rdfs:label xml:lang="en">implements Event</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/implementsFunction -->
@@ -205,12 +216,12 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>implementsFunction</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Contract Account to Functions it implements.</rdfs:comment>
+        <rdfs:label xml:lang="en">implements Function</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/ofInput -->
@@ -220,12 +231,11 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/InputValue"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>ofInput</ethon:suggestedStringRepresentation>
+        <rdfs:label xml:lang="en">of Input</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/ofOutput -->
@@ -235,12 +245,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/OutputValue"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Output"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>ofOutput</ethon:suggestedStringRepresentation>
+        <rdfs:comment>Relates an Output Value to the Output it is a value of.</rdfs:comment>
+        <rdfs:label xml:lang="en">of Output</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/representsEvent -->
@@ -250,12 +260,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>representsEvent</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a LogEntry to the Event it represents.</rdfs:comment>
+        <rdfs:label xml:lang="en">represents Event</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/usesOpcode -->
@@ -264,15 +274,15 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>usesOpcode</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Contract Account to an Opcode used in the code of that Account.</rdfs:comment>
+        <rdfs:label xml:lang="en">uses Opcode</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -280,7 +290,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/EthOnContractsDataProperty -->
@@ -291,7 +301,7 @@
         <rdfs:label xml:lang="en">EthOn Contracts Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/cost -->
@@ -301,12 +311,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>cost</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Specifies the amount of gas that has to be paid to execute an Opcode.</rdfs:comment>
+        <rdfs:label xml:lang="en">cost</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/functionSelector -->
@@ -316,12 +326,13 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>functionSelector</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A function can be identified by its function Selector. It is generated from an abbreviated version of the signature. For example the Function bar(uint32 x, bool y) returns (bool r) has the abbreviated signature bar(uint32,bool). The first 4 bytes of the Keccac 256 hash of this forms the functionSelector of the Function, in the example that would be 0xcdcd77c0.</rdfs:comment>
+        <rdfs:label xml:lang="en">function Selector</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/hexValue -->
@@ -331,12 +342,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>hexValue</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Specifies the hexadecimal code that represents an Opcode. This is the actual value used for the Opcode in byte code.</rdfs:comment>
+        <rdfs:label xml:lang="en">hex Value</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/isAnonymous -->
@@ -346,12 +357,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>isAnonymous</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Specifies if an Event is anonymous. Anonymous Events will not store the Event signature as the LogTopic of a LogEntry.</rdfs:comment>
+        <rdfs:label xml:lang="en">is anonymous</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/isConstant -->
@@ -361,12 +372,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>isConstant</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Functions with the property isConstant set to true promise to not modify the state of the blockchain. For instance, in solidity this can be achieved by a function modifier that declares the function to be constant (solidity doesn&apos;t enforce this, yet).</rdfs:comment>
+        <rdfs:label xml:lang="en">is constant</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/isIndexed -->
@@ -376,13 +387,12 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Input"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <ethon:suggestedStringRepresentation>indexed</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">True if an Input of an Event is an indexed Input. Up to three parameters can receive the property indexed which will cause the respective arguments to be treated as LogTopics instead of data. The hash of the signature of the event is always one of the topics. All non-indexed arguments will be stored in the data part of the log that represents the Event.
-Otherwise False.</rdfs:comment>
-        <rdfs:label xml:lang="en">indexed</rdfs:label>
+        <ethon:suggestedStringRepresentation>isIndexed</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">True if the Input of an Event should be stored as a LogTopic of a LogEntry. Up to three parameters can receive this property which will cause the respective arguments to be treated as LogTopics instead of data. All non-indexed arguments will be stored in the data part of the LogEntry that represents the Event.</rdfs:comment>
+        <rdfs:label xml:lang="en">is indexed</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/isPayable -->
@@ -392,12 +402,12 @@ Otherwise False.</rdfs:comment>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>isPayable</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">True if a Function can receive Ether together with a FunctionCall.</rdfs:comment>
+        <rdfs:label xml:lang="en">is payable</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/name -->
@@ -418,11 +428,11 @@ Otherwise False.</rdfs:comment>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <ethon:suggestedStringRepresentation>name</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A property that defines the Name Functions, Events, Inputs, Outputs and Opcodes. There can be only one name for each Individual of these types.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A property that defines the name of Functions, Events, Inputs, Outputs and Opcodes as specified in code or specification. There can be only one name for each Individual of these types.</rdfs:comment>
         <rdfs:label xml:lang="en">name</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/position -->
@@ -439,12 +449,12 @@ Otherwise False.</rdfs:comment>
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>position</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Specifies the position of the Input or Output parameter in an Event&apos;s or Function&apos;s signature.</rdfs:comment>
+        <rdfs:label xml:lang="en">position</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/signature -->
@@ -454,13 +464,13 @@ Otherwise False.</rdfs:comment>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
+        <ethon:suggestedStringRepresentation>signature</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The signature of the function in the canonical form which is used to create the functionSelector. Example: &quot;bar(uint32,bool)&quot;</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <rdfs:label xml:lang="en">signature</rdfs:label>
         <rdfs:seeAlso>https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI</rdfs:seeAlso>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/stackItemsAdded -->
@@ -470,12 +480,12 @@ Otherwise False.</rdfs:comment>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>stackItemsAdded</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Specifies the number of items added to the stack by executing an Opcode.</rdfs:comment>
+        <rdfs:label xml:lang="en">stack items added</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/stackItemsRemoved -->
@@ -485,12 +495,12 @@ Otherwise False.</rdfs:comment>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Opcode"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>stackItemsRemoved</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Specifies the number of items removed from the stack when executing an Opcode.</rdfs:comment>
+        <rdfs:label xml:lang="en">stack items removed</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/topic -->
@@ -500,12 +510,13 @@ Otherwise False.</rdfs:comment>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Contracts/Event"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>topic</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An Event can be identified by its topic. It is generated from an abbreviated version of its signature. For example the Event Foo(uint32 x, bool y) has the abbreviated signature Foo(uint32,bool). The Keccac 256 hash of this forms the event topic.</rdfs:comment>
+        <rdfs:label xml:lang="en">topic</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#events"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/type -->
@@ -522,12 +533,12 @@ Otherwise False.</rdfs:comment>
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>type</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Specifies the canonical type of the Input or Output, e.g. uint32.</rdfs:comment>
+        <rdfs:label xml:lang="en">type</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/value -->
@@ -543,15 +554,15 @@ Otherwise False.</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <ethon:suggestedStringRepresentation>string</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Comment.</rdfs:comment>
-        <rdfs:label xml:lang="en">sth</rdfs:label>
+        <ethon:suggestedStringRepresentation>value</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The actual value of an InputValue or OutputValue. It is of the type defined in the Input or Output of the InputValue or OutputValue.</rdfs:comment>
+        <rdfs:label xml:lang="en">value</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -559,84 +570,152 @@ Otherwise False.</rdfs:comment>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- http://ethon.consensys.net/ContractAccount -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/ContractAccount"/>
-
+    
 
 
     <!-- http://ethon.consensys.net/LogEntry -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/LogEntry"/>
+    
 
+
+    <!-- http://ethon.consensys.net/Contracts/DynamicFunction -->
+
+    <owl:Class rdf:about="http://ethon.consensys.net/Contracts/DynamicFunction">
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+        <owl:disjointWith rdf:resource="http://ethon.consensys.net/Contracts/StaticFunction"/>
+        <ethon:suggestedStringRepresentation>DynamicFunction</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Dynamic Functions are Functions that potentially change the state of the blockchain when executed. Executing a dynamic function costs gas and is broadcast to the network. When a Dynamic Function is called, the resulting computation is carried out by every Full Node in the Network.</rdfs:comment>
+        <rdfs:label xml:lang="en">Dynamic Function</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/EthOnContractsConcept -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Event -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/Event">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+        <ethon:suggestedStringRepresentation>Event</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Events are structures implemented in smart contracts in order to create a LogEntry. Once created they cannot be accessed from the contract but can be used from the outside, e.g. by a web application that reacts to Events in a smart contract.</rdfs:comment>
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Function -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/Function">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+        <ethon:suggestedStringRepresentation>Event</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Functions are structures in smart contracts that implement functionality, just as functions or methods do in general programming. Functions can be called by Accounts (External Accounts or Contract Accounts) to execute the code stored in it. Functions can have Inputs (parameters) and Outputs (return values).</rdfs:comment>
+        <rdfs:label xml:lang="en">Function</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
+    
 
+
+    <!-- http://ethon.consensys.net/Contracts/FunctionCall -->
+
+    <owl:Class rdf:about="http://ethon.consensys.net/Contracts/FunctionCall">
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Msg"/>
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+        <ethon:suggestedStringRepresentation>FunctionCall</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Functions Calls are calls to Functions that are recorded in the blockchain. They are a subset of all Messages in a blockchain. Examples for Function Calls are Transactions (which is a sub-type of a Message) that call a Dynamic Function in a smart contract and Contract Calls that call Dynamic or Static Functions in smart contracts. Function Calls originate from either an External Account or a Contract Account and are always directed towards Contract Accounts.</rdfs:comment>
+        <rdfs:label xml:lang="en">Function Call</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Input -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/Input">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
-    </owl:Class>
+        <ethon:suggestedStringRepresentation>Input</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An Input represents a single input parameter of a Function or an Event. It&apos;s properties include a data type of the Input Value a name and a position in the signature of its Function or Event. 
 
+If it represents an Input of an Event it can have the boolean property isIndexed. If true, the values of this Input should be stored in a modified merkle patricia tree structure and be created as LogTopics to be easily queryable. Otherwise the value is stored in the data of a LogEntry.</rdfs:comment>
+        <rdfs:label xml:lang="en">Input</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/InputValue -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/InputValue">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+        <ethon:suggestedStringRepresentation>InputValue</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Represents an Input Value of a Function Call or or a Log Entry. For example, if a smart contract has the function decryptXY(string x, bytes32 y) and the function is called in a Message, the two input values are each represented by an instance of this class. The value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Input of this Input Value.</rdfs:comment>
+        <rdfs:label xml:lang="en">Input Value</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/Opcode">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+        <ethon:suggestedStringRepresentation>Opcode</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An Opcode an instruction in the instruction set of the Ethereum virtual machine. The set of existing Opcodes are defined as Individuals (instances) of this class.</rdfs:comment>
+        <rdfs:label xml:lang="en">Opcode</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Output -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/Output">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+        <ethon:suggestedStringRepresentation>Output</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An Output represents a single return value of a Function in a smart contract. It&apos;s properties include a data type of the Output Value, a name and a position in the signature of its Function.</rdfs:comment>
+        <rdfs:label xml:lang="en">Output</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/OutputValue -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Contracts/OutputValue">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/EthOnContractsConcept"/>
+        <ethon:suggestedStringRepresentation>OutputValue</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Represents an Output Value of a Function Call. For example, if a smart contract has the function decryptXY(string x, bytes32 y) returns(string) and the function is called in a Contract Message, the returned string is represented as an instance of this class. The return value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Output of this Output Value.</rdfs:comment>
+        <rdfs:label xml:lang="en">Output Value</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:Class>
+    
 
 
+    <!-- http://ethon.consensys.net/Contracts/StaticFunction -->
 
-    <!--
+    <owl:Class rdf:about="http://ethon.consensys.net/Contracts/StaticFunction">
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Contracts/Function"/>
+        <ethon:suggestedStringRepresentation>DynamicFunction</ethon:suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Static Functions are Functions don&apos;t change the state of the blockchain. They can be executed on the local copy of the blockchain and it&apos;s not necessary to broadcast the call to the network. Calling a Static Function doesn&apos;t cost any gas. They are only executed by the node calling it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Static Function</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -644,7 +723,7 @@ Otherwise False.</rdfs:comment>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_ADD -->
@@ -658,7 +737,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Addition operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_ADDMOD -->
@@ -672,7 +751,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Modulo addition operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_ADDRESS -->
@@ -686,7 +765,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get address of currently executing account.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_AND -->
@@ -700,7 +779,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Bitwise AND operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_BALANCE -->
@@ -714,7 +793,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get balance of the given account.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_BLOCKHASH -->
@@ -728,7 +807,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the hash of one of the 256 most recent complete blocks.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_BYTE -->
@@ -742,7 +821,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Retrieve single byte from word.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CALL -->
@@ -756,7 +835,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Message-call into an account.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CALLCODE -->
@@ -770,7 +849,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Message-call into this account with an alternative account&apos;s code.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CALLDATACOPY -->
@@ -784,7 +863,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get size of code running in current environment.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CALLDATALOAD -->
@@ -798,7 +877,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get input data of current environment. This pertains to the input data passed with the message call instruction or transaction.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CALLDATASIZE -->
@@ -812,7 +891,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get size of input data in current environment. This pertains to the input data passed with the message call instruction or transaction.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CALLER -->
@@ -826,7 +905,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get caller address. This is the address of the account that is directly responsible for this execution.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CALLVALUE -->
@@ -840,7 +919,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get deposited value by the instruction/transaction responsible for this execution.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CODECOPY -->
@@ -854,7 +933,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get price of gas in current environment. This is the gas price specified by the originating transaction.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CODESIZE -->
@@ -868,7 +947,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Copy code running in current environment to memory.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_COINBASE -->
@@ -882,7 +961,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the block&apos;s beneficiary address.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_CREATE -->
@@ -896,7 +975,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Create a new account with associated code.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DELEGATECALL -->
@@ -910,7 +989,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Message-call into this account with an alternative account&apos;s code, but persisting the current values for sender and value.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DIFFICULTY -->
@@ -924,7 +1003,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the block&apos;s difficulty.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DIV -->
@@ -938,7 +1017,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Integer division operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP1 -->
@@ -952,7 +1031,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 1st stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP10 -->
@@ -966,7 +1045,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 10th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP11 -->
@@ -980,7 +1059,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 11th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP12 -->
@@ -994,7 +1073,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 12th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP13 -->
@@ -1008,7 +1087,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 13th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP14 -->
@@ -1022,7 +1101,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 14th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP15 -->
@@ -1036,7 +1115,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 15th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP16 -->
@@ -1050,7 +1129,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 16th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP2 -->
@@ -1064,7 +1143,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 2nd stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP3 -->
@@ -1078,7 +1157,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 3rd stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP4 -->
@@ -1092,7 +1171,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 4th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP5 -->
@@ -1106,7 +1185,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 5th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP6 -->
@@ -1120,7 +1199,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 6th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP7 -->
@@ -1134,7 +1213,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 7th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP8 -->
@@ -1148,7 +1227,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 8th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_DUP9 -->
@@ -1162,7 +1241,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Duplicate 9th stack item.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_EQ -->
@@ -1176,7 +1255,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Equality comparison.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_EXP -->
@@ -1190,7 +1269,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exponential operation</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_EXTCODECOPY -->
@@ -1204,7 +1283,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Copy an account&apos;s code to memory.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_EXTCODESIZE -->
@@ -1218,7 +1297,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get size of an account&apos;s code.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_GAS -->
@@ -1232,7 +1311,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the amount of available gas, including the corresponding reduction for the cost of this instruction.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_GASLIMIT -->
@@ -1246,7 +1325,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the block&apos;s gas limit.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_GASPRICE -->
@@ -1260,7 +1339,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get price of gas in current environment.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_GT -->
@@ -1274,7 +1353,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Greater-than comparison.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_ISZERO -->
@@ -1288,7 +1367,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Simple not operator.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_JUMP -->
@@ -1302,7 +1381,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Alter the program counter.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_JUMPDEST -->
@@ -1316,7 +1395,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Mark a valid destination for jumps. This operation has no effect on machine state during execution.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_JUMPI -->
@@ -1330,7 +1409,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Conditionally alter the program counter.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_LOG0 -->
@@ -1344,7 +1423,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Append log record with no topics.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_LOG1 -->
@@ -1358,7 +1437,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Append log record with one topic.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_LOG2 -->
@@ -1372,7 +1451,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Append log record with two topics.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_LOG3 -->
@@ -1386,7 +1465,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Append log record with three topics.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_LOG4 -->
@@ -1400,7 +1479,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Append log record with four topics.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_LT -->
@@ -1414,7 +1493,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Less-than comparison.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_MLOAD -->
@@ -1428,7 +1507,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Load word from memory.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_MOD -->
@@ -1442,7 +1521,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Modulo remainder operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_MSIZE -->
@@ -1456,7 +1535,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the size of active memory in bytes.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_MSTORE -->
@@ -1470,7 +1549,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Save word to memory.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_MSTORES -->
@@ -1484,7 +1563,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Save byte to memory.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_MUL -->
@@ -1498,7 +1577,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Multiplication operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_MULMOD -->
@@ -1512,7 +1591,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Modulo multiplication operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_NOT -->
@@ -1526,7 +1605,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Bitwise NOT operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_NUMBER -->
@@ -1540,7 +1619,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the block&apos;s number.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_OR -->
@@ -1554,7 +1633,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Bitwise OR operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_ORIGIN -->
@@ -1568,7 +1647,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get execution origination address. This is the sender of the original transaction; iti is never an account with non-empty associated code.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PC -->
@@ -1582,7 +1661,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the value of the program counter prior to the increment.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_POP -->
@@ -1596,7 +1675,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Remove item from stack</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH1 -->
@@ -1610,7 +1689,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 1 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH10 -->
@@ -1624,7 +1703,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 10 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH11 -->
@@ -1638,7 +1717,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 11 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH12 -->
@@ -1652,7 +1731,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 12 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH13 -->
@@ -1666,7 +1745,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 13 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH14 -->
@@ -1680,7 +1759,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 14 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH15 -->
@@ -1694,7 +1773,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 15 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH16 -->
@@ -1708,7 +1787,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 16 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH17 -->
@@ -1722,7 +1801,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 17 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH18 -->
@@ -1736,7 +1815,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 18 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH19 -->
@@ -1750,7 +1829,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 19 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH2 -->
@@ -1764,7 +1843,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 2 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH20 -->
@@ -1778,7 +1857,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 20 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH21 -->
@@ -1792,7 +1871,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 21 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH22 -->
@@ -1806,7 +1885,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 22 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH23 -->
@@ -1820,7 +1899,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 23 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH24 -->
@@ -1834,7 +1913,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 24 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH25 -->
@@ -1848,7 +1927,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 25 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH26 -->
@@ -1862,7 +1941,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 26 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH27 -->
@@ -1876,7 +1955,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 27 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH28 -->
@@ -1890,7 +1969,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 28 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH29 -->
@@ -1904,7 +1983,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 29 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH3 -->
@@ -1918,7 +1997,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 3 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH30 -->
@@ -1932,7 +2011,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 30 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH31 -->
@@ -1946,7 +2025,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 31 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH32 -->
@@ -1960,7 +2039,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 32 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH4 -->
@@ -1974,7 +2053,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 4 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH5 -->
@@ -1988,7 +2067,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 5 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH6 -->
@@ -2002,7 +2081,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 6 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH7 -->
@@ -2016,7 +2095,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 7 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH8 -->
@@ -2030,7 +2109,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 8 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_PUSH9 -->
@@ -2044,7 +2123,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Place 9 byte item on the stack.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_RETURN -->
@@ -2058,7 +2137,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Halt execution returning output data.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SDIV -->
@@ -2072,7 +2151,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Signed integer division operstion (truncated).</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SGT -->
@@ -2086,7 +2165,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Signed greater-than comparison.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SHA3 -->
@@ -2100,7 +2179,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Compute Keccak-256 hash</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SIGNEXTEND -->
@@ -2114,7 +2193,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Extend length of two&apos;s complement signed integer.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SLOAD -->
@@ -2128,7 +2207,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Load word from storage.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SLT -->
@@ -2142,7 +2221,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Signed less-than comparison.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SMOD -->
@@ -2156,7 +2235,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Signed modulo remainder operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SSTORE -->
@@ -2170,7 +2249,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Save word to storage.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_STOP -->
@@ -2184,7 +2263,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Halts execution.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SUB -->
@@ -2198,7 +2277,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Substraction operation.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SUICIDE -->
@@ -2212,7 +2291,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Halt execution and register account for later deletion.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP1 -->
@@ -2226,7 +2305,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 2nd stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP10 -->
@@ -2240,7 +2319,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 11th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP11 -->
@@ -2254,7 +2333,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 12th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP12 -->
@@ -2268,7 +2347,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 13th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP13 -->
@@ -2282,7 +2361,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 14th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP14 -->
@@ -2296,7 +2375,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 15th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP15 -->
@@ -2310,7 +2389,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 16th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP16 -->
@@ -2324,7 +2403,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 17th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP2 -->
@@ -2338,7 +2417,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 3rd stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP3 -->
@@ -2352,7 +2431,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 4th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP4 -->
@@ -2366,7 +2445,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 5th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP5 -->
@@ -2380,7 +2459,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 6th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP6 -->
@@ -2394,7 +2473,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 7th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP7 -->
@@ -2408,7 +2487,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 8th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP8 -->
@@ -2422,7 +2501,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 9th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_SWAP9 -->
@@ -2436,7 +2515,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Exchange 1st and 10th stack items.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_TIMESTAMP -->
@@ -2450,7 +2529,7 @@ Otherwise False.</rdfs:comment>
         <stackItemsRemoved rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</stackItemsRemoved>
         <rdfs:comment xml:lang="en">Get the block&apos;s timestamp.</rdfs:comment>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- http://ethon.consensys.net/Contracts/Opcode_XOR -->
