@@ -5,7 +5,7 @@ It is more detailed and includes class/property hierarchy information and restri
 ## A
 ### Account
 [`ethon:Account`](http://ethon.consensys.net/Account)   
-Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of Account: those with empty associated EVM Code (thus the Account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the Account represents an Autonomous Object). Each Account has a single Address that identifies it.
+Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.
 ### Account State
 [`ethon:AccountState`](http://ethon.consensys.net/AccountState)   
 State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.
@@ -196,7 +196,7 @@ Relates a Block to a known Uncle.
 ## L
 ### Log Entry
 [`ethon:LogEntry`](http://ethon.consensys.net/LogEntry)   
-A Log Entry is a tuple of a logger's address (i.e. the Account with that address), a series of 32-bytes Log Topics and some number of bytes of data.
+A LogEntry is the result of an Event in a smart contract, emitted during creation or execution of a ContracAccount's code. It is related to the TxReceipt it was created in, the ContractAccount that had the Event, a series of 32-bytes Log Topics and a number of bytes of data.
 ### Log Topic
 [`ethon:LogTopic`](http://ethon.consensys.net/LogTopic)   
 A 32-bytes long topic of a LogEntry. The LogTopics of a LogEntry have an order given by a topicIndex value.
