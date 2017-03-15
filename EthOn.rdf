@@ -1550,7 +1550,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/address"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1696,7 +1696,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1711,7 +1711,7 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
@@ -1727,7 +1727,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1742,7 +1742,7 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
@@ -1771,7 +1771,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/from"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1786,7 +1786,7 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/from"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
@@ -1802,7 +1802,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1817,7 +1817,7 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
@@ -1833,7 +1833,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1848,7 +1848,7 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
@@ -2141,7 +2141,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/from"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2162,7 +2162,7 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/from"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
@@ -2204,7 +2204,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/containsTx"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/Tx"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2223,7 +2223,7 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2238,7 +2238,7 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:qualifiedCardinality>
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>

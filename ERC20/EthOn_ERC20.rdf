@@ -342,7 +342,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <ethon:suggestedStringRepresentation>initialAllowance</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A value equal to the initial base units of a Token that may be spent by an Allowance&apos;s delegate on behalf of the Tokens&apos; owner.</rdfs:comment>
         <rdfs:label xml:lang="en">initial Allowance</rdfs:label>
@@ -370,7 +370,7 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/ERC20/remainingAllowance">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <ethon:suggestedStringRepresentation>remainingAllowance</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A value equal to the remaining base units of a Token that may be spent by an Allowance&apos;s delegate on behalf of the Tokens&apos; owner. Remaining refers to the most recent known Allowance.</rdfs:comment>
         <rdfs:label xml:lang="en">remaining Allowance</rdfs:label>
@@ -428,7 +428,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <ethon:suggestedStringRepresentation>transferBalance</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A value equal to the base units of a Token that make up the current balance at the time of the last Transfer Event that affects the Token Balance. This doesn&apos;t represent the actual Token balance because it cannot be known what initial balances are defined in the Token Contract. It represents the Token balance of an account minus its initial balance defined in the Token Contract.</rdfs:comment>
         <rdfs:label xml:lang="en">transfer balance</rdfs:label>
@@ -443,7 +443,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <ethon:suggestedStringRepresentation>value</ethon:suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Value of the Token Transfer given in the Token&apos;s base unit.</rdfs:comment>
         <rdfs:label xml:lang="en">value</rdfs:label>
