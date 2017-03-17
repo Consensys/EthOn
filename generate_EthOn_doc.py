@@ -18,7 +18,7 @@ class SpecGenerator():
         ontospy.BOOTSTRAP_ONTOLOGIES.append(namespace)
         VOCAB = Namespace('http://www.w3.org/2003/06/sw-vocab-status/ns#')
 
-        onto = ontospy.Ontospy(ontology_file)
+        onto = ontospy.Ontospy(ontology_file, rdf_format='xml')
         onto.ontologyURI = onto.ontologies[0].uri
         onto.namespaces.append((prefix, URIRef(namespace)))
 
@@ -174,6 +174,17 @@ def main():
                   glossary_template_file='EthOn_ERC20_glossary_template.md',
                   spec_target_file=erc20path+'EthOn_ERC20_spec.html',
                   glossary_target_file=erc20path+'EthOn_ERC20_glossary.md')
+
+    # Generate EthOn Contracts extension spec
+    contractspath = 'Contracts/'
+    SpecGenerator(namespace='http://ethon.consensys.net/Contracts/',
+                  prefix='contracts',
+                  ontology_file=contractspath+'EthOn_Contracts.rdf',
+                  template_folder=contractspath+'doc_resources/templates',
+                  spec_template_file='EthOn_Contracts_spec_template.html',
+                  glossary_template_file='EthOn_Contracts_glossary_template.md',
+                  spec_target_file=contractspath+'EthOn_Contracts_spec.html',
+                  glossary_target_file=contractspath+'EthOn_Contracts_glossary.md')
 
 
 main()

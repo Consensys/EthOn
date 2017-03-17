@@ -598,6 +598,20 @@
     
 
 
+    <!-- http://ethon.consensys.net/spawnsBlock -->
+
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/spawnsBlock">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
+        <suggestedStringRepresentation>spawnsBlock</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates an Ethereum Node to a valid Block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</rdfs:comment>
+        <rdfs:label>spawns Block</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ethon.consensys.net/to -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/to">
@@ -1080,6 +1094,20 @@
     
 
 
+    <!-- http://ethon.consensys.net/logData -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logData">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        <suggestedStringRepresentation>logData</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Log Entry to its data.</rdfs:comment>
+        <rdfs:label xml:lang="en">Log data</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ethon.consensys.net/logIndex -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logIndex">
@@ -1090,6 +1118,36 @@
         <suggestedStringRepresentation>logIndex</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.</rdfs:comment>
         <rdfs:label xml:lang="en">log index</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ethon.consensys.net/logTopicData -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logTopicData">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        <suggestedStringRepresentation>logTopicData</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Log Topic to the 32 bytes of data it contains.</rdfs:comment>
+        <rdfs:label xml:lang="en">Log Topic data</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ethon.consensys.net/logTopicIndex -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logTopicIndex">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>logTopicIndex</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Log Topic to its index in the Log Entry. The Log Topic index defines the order of the Log Topics of in Log Entry.</rdfs:comment>
+        <rdfs:label xml:lang="en">Log Topic index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1351,36 +1409,6 @@
     
 
 
-    <!-- http://ethon.consensys.net/topicData -->
-
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/topicData">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
-        <suggestedStringRepresentation>topicData</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Topic to the 32 bytes of data it contains.</rdfs:comment>
-        <rdfs:label xml:lang="en">Log Topic data</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ethon.consensys.net/topicIndex -->
-
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/topicIndex">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <suggestedStringRepresentation>topicIndex</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Topic to its index in the Log Entry. The topic index defines the order of the Log Topics of a Log Entry.</rdfs:comment>
-        <rdfs:label xml:lang="en">topic index</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://ethon.consensys.net/transactionsRoot -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/transactionsRoot">
@@ -1558,7 +1586,7 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/address"/>
         </owl:hasKey>
         <suggestedStringRepresentation xml:lang="en">Account</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Accounts have an intrinsic balance and transaction count maintained as part of the Ethereum state. They also have some (possibly empty) EVM Code and a (possibly empty) Storage State associated with them. Though homogenous, it makes sense to distinguish between two practical types of Account: those with empty associated EVM Code (thus the Account balance is controlled, if at all, by some external entity) and those with non-empty associated EVM Code (thus the Account represents an Autonomous Object). Each Account has a single Address that identifies it.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</rdfs:comment>
         <rdfs:label xml:lang="en">Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1617,19 +1645,6 @@
         <suggestedStringRepresentation xml:lang="en">AccountStorage</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account&apos;s code, but the execution state of the code. The Account&apos;s code is stored in the</rdfs:comment>
         <rdfs:label xml:lang="en">Storage</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    
-
-
-    <!-- http://ethon.consensys.net/AutonomousObject -->
-
-    <owl:Class rdf:about="http://ethon.consensys.net/AutonomousObject">
-        <owl:equivalentClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
-        <suggestedStringRepresentation xml:lang="en">ContractAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">This is a more abstract term for a Contract Account.</rdfs:comment>
-        <rdfs:label xml:lang="en">Autonomous Object</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
@@ -1807,7 +1822,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>CreateContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A create Contract Message is a special type of Contract Message that results in creation of a new Contract.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Create Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1935,7 +1950,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/LogEntry">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <suggestedStringRepresentation>LogEntry</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Log Entry is a tuple of a logger&apos;s address (i.e. the Account with that address), a series of 32-bytes Log Topics and some number of bytes of data.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A LogEntry is the result of an Event in a smart contract, emitted during creation or execution of a ContracAccount&apos;s code. It is related to the TxReceipt it was created in, the ContractAccount that had the Event, a series of 32-bytes Log Topics and a number of bytes of data.</rdfs:comment>
         <rdfs:label xml:lang="en">Log Entry</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2146,7 +2161,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>Tx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Transactions represent a valid arc between two states. A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. While is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2224,11 +2239,11 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>ValueContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Value Contract Messages go from a Contract to an External Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn&apos;t create a new smart contract. Even though it is called &quot;value&quot; Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn&apos;t trigger the execution of a function in a smart contract.</rdfs:comment>
         <rdfs:label xml:lang="en">Value Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2239,7 +2254,7 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </owl:annotatedTarget>
         <rdfs:comment>Value Contract Messages are always directed to an External Account.</rdfs:comment>
@@ -2254,11 +2269,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:someValuesFrom rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>ValueTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A type of Transaction that transfers only value.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Value Transaction is a Transaction that does not call a function in a smart contract and doesn&apos;t create a new smart contract. Even though it is called &quot;value&quot; Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn&apos;t trigger the execution of a function in a smart contract.</rdfs:comment>
         <rdfs:label xml:lang="en">Value Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2268,7 +2284,8 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:someValuesFrom rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </owl:annotatedTarget>
         <rdfs:comment>Value transactions are directed to External Accounts.</rdfs:comment>
@@ -2294,98 +2311,6 @@
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://ethon.consensys.net/AccountState1 -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/AccountState1">
-        <rdf:type rdf:resource="http://ethon.consensys.net/AccountState"/>
-        <accountBalance rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</accountBalance>
-        <accountNonce rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</accountNonce>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ethon.consensys.net/AccountStorage1 -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/AccountStorage1">
-        <rdf:type rdf:resource="http://ethon.consensys.net/AccountStorage"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ethon.consensys.net/Block0 -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/Block0">
-        <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
-        <blockBeneficiaryReward rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5000000000000000000</blockBeneficiaryReward>
-        <blockCreationTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-07-30T03:26:13</blockCreationTime>
-        <blockDifficulty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17179869184</blockDifficulty>
-        <blockExtraData rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">11bbe8db4e347b4e8c937c1c8370e4b5ed33adb3db69cbdb7a38e1e50b1b82fa</blockExtraData>
-        <blockGasLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5000</blockGasLimit>
-        <blockGasUsed rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</blockGasUsed>
-        <blockHash rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">d4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3</blockHash>
-        <blockLogsBloom rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</blockLogsBloom>
-        <blockNonce rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">0000000000000042</blockNonce>
-        <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</number>
-        <rdfs:comment xml:lang="en">This is the Block with Block number 0. It is the Genesis Block of the Ethereum Blockchain.</rdfs:comment>
-        <rdfs:label>Genesis Block</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ethon.consensys.net/ProtocolVariantFrontier -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/ProtocolVariantFrontier">
-        <rdf:type rdf:resource="http://ethon.consensys.net/ProtocollVariant"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ethon.consensys.net/ProtocolVariantHomestead -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/ProtocolVariantHomestead">
-        <rdf:type rdf:resource="http://ethon.consensys.net/ProtocollVariant"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ethon.consensys.net/TestBlock -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/TestBlock">
-        <blockHash rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">00</blockHash>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ethon.consensys.net/TestBlock2 -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/TestBlock2">
-        <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://ethon.consensys.net/addresses/0x0000000000000000000000000000000000000000 -->
-
-    <owl:NamedIndividual rdf:about="http://ethon.consensys.net/addresses/0x0000000000000000000000000000000000000000">
-        <rdf:type rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
-        <hasState rdf:resource="http://ethon.consensys.net/AccountState1"/>
-        <address rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">0000000000000000000000000000000000000000</address>
-        <rdfs:label>Genesis Address</rdfs:label>
-    </owl:NamedIndividual>
     
 
 
@@ -2566,76 +2491,6 @@
                         <swrl:propertyPredicate rdf:resource="http://ethon.consensys.net/partOf"/>
                         <swrl:argument1 rdf:resource="http://ethon.consensys.net/y"/>
                         <swrl:argument2 rdf:resource="http://ethon.consensys.net/x"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-    <rdf:Description>
-        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Blocks with a number &lt; 1,150,000 conform to the Frontier protocol variant.</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-13</rdfs:label>
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
-                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#lessThan"/>
-                        <swrl:arguments>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                <rdf:first rdf:resource="http://ethon.consensys.net/y"/>
-                                <rdf:rest>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1150000</rdf:first>
-                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    </rdf:Description>
-                                </rdf:rest>
-                            </rdf:Description>
-                        </swrl:arguments>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                        <rdf:first>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                <swrl:classPredicate rdf:resource="http://ethon.consensys.net/Block"/>
-                                <swrl:argument1 rdf:resource="http://ethon.consensys.net/x"/>
-                            </rdf:Description>
-                        </rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                <rdf:first>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
-                                        <swrl:propertyPredicate rdf:resource="http://ethon.consensys.net/number"/>
-                                        <swrl:argument1 rdf:resource="http://ethon.consensys.net/x"/>
-                                        <swrl:argument2 rdf:resource="http://ethon.consensys.net/y"/>
-                                    </rdf:Description>
-                                </rdf:first>
-                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </rdf:rest>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://ethon.consensys.net/conformsTo"/>
-                        <swrl:argument1 rdf:resource="http://ethon.consensys.net/x"/>
-                        <swrl:argument2 rdf:resource="http://ethon.consensys.net/ProtocolVariantFrontier"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
