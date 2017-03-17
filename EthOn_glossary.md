@@ -27,9 +27,6 @@ The public key of an ExternalAccount.
 ### Address
 [`ethon:address`](http://ethon.consensys.net/address)   
 A 160-bit identifier for Accounts.
-### Autonomous Object
-[`ethon:AutonomousObject`](http://ethon.consensys.net/AutonomousObject)   
-This is a more abstract term for a Contract Account.
 ## B
 ### Block
 [`ethon:Block`](http://ethon.consensys.net/Block)   
@@ -76,7 +73,7 @@ A notional object existent only within the hypothetical state of Ethereum. Has a
 A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.
 ### Create Contract Message
 [`ethon:CreateContractMsg`](http://ethon.consensys.net/CreateContractMsg)   
-A create Contract Message is a special type of Contract Message that results in creation of a new Contract.
+A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.
 ### Create Transaction
 [`ethon:CreateTx`](http://ethon.consensys.net/CreateTx)   
 A type of Transaction that results in creation of a new Contract Account.
@@ -201,8 +198,14 @@ A LogEntry is the result of an Event in a smart contract, emitted during creatio
 [`ethon:LogTopic`](http://ethon.consensys.net/LogTopic)   
 A 32-bytes long topic of a LogEntry. The LogTopics of a LogEntry have an order given by a topicIndex value.
 ### Log Topic data
-[`ethon:topicData`](http://ethon.consensys.net/topicData)   
+[`ethon:logTopicData`](http://ethon.consensys.net/logTopicData)   
 Relates a Log Topic to the 32 bytes of data it contains.
+### Log Topic index
+[`ethon:logTopicIndex`](http://ethon.consensys.net/logTopicIndex)   
+Relates a Log Topic to its index in the Log Entry. The Log Topic index defines the order of the Log Topics of in Log Entry.
+### Log data
+[`ethon:logData`](http://ethon.consensys.net/logData)   
+Relates a Log Entry to its data.
 ### Logs bloom filter
 [`ethon:blockLogsBloom`](http://ethon.consensys.net/blockLogsBloom)   
 The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.
@@ -306,13 +309,16 @@ A Merkle Patricia tree that encodes the storage contents of an Account. It is no
 ### Storage root
 [`ethon:storageRoot`](http://ethon.consensys.net/storageRoot)   
 A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.
+### spawns Block
+[`ethon:spawnsBlock`](http://ethon.consensys.net/spawnsBlock)   
+Relates an Ethereum Node to a valid Block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).
 ### start Block number
 [`ethon:startBlockNumber`](http://ethon.consensys.net/startBlockNumber)   
 The Block number of the first block in a new Blockchain after a hard fork.
 ## T
 ### Transaction
 [`ethon:Tx`](http://ethon.consensys.net/Tx)   
-Transactions represent a valid arc between two states. A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. While is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.
+Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.
 ### Transaction Logs Bloom filter
 [`ethon:txLogsBloom`](http://ethon.consensys.net/txLogsBloom)   
 Relates a Transaction Receipt to the Bloom filter of its Log Entries.
@@ -346,9 +352,6 @@ The Keccak 256-bit hash of the Transaction
 ### to
 [`ethon:to`](http://ethon.consensys.net/to)   
 Relates a Message with the Account it is sent to.
-### topic index
-[`ethon:topicIndex`](http://ethon.consensys.net/topicIndex)   
-Relates a Log Topic to its index in the Log Entry. The topic index defines the order of the Log Topics of a Log Entry.
 ### triggers Contract Message
 [`ethon:triggersMsg`](http://ethon.consensys.net/triggersMsg)   
 Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.
@@ -362,10 +365,10 @@ The reward the beneficiary of an uncle receives if a Block includes it. The rewa
 ## V
 ### Value Contract Message
 [`ethon:ValueContractMsg`](http://ethon.consensys.net/ValueContractMsg)   
-Value Contract Messages go from a Contract to an External Account.
+A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.
 ### Value Transaction
 [`ethon:ValueTx`](http://ethon.consensys.net/ValueTx)   
-A type of Transaction that transfers only value.
+A Value Transaction is a Transaction that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.
 ### value in Wei
 [`ethon:value`](http://ethon.consensys.net/value)   
 A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.
