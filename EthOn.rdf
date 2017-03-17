@@ -598,6 +598,20 @@
     
 
 
+    <!-- http://ethon.consensys.net/spawnsBlock -->
+
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/spawnsBlock">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
+        <suggestedStringRepresentation>spawnsBlock</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates an Ethereum Node to a valid Block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</rdfs:comment>
+        <rdfs:label>spawns Block</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://ethon.consensys.net/to -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/to">
