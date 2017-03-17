@@ -1636,19 +1636,6 @@
     
 
 
-    <!-- http://ethon.consensys.net/AutonomousObject -->
-
-    <owl:Class rdf:about="http://ethon.consensys.net/AutonomousObject">
-        <owl:equivalentClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
-        <suggestedStringRepresentation xml:lang="en">ContractAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">This is a more abstract term for a Contract Account.</rdfs:comment>
-        <rdfs:label xml:lang="en">Autonomous Object</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    
-
-
     <!-- http://ethon.consensys.net/Block -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/Block">
