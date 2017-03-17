@@ -1124,6 +1124,21 @@
     
 
 
+    <!-- http://ethon.consensys.net/logTopicIndex -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logTopicIndex">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>logTopicIndex</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Log Topic to its index in the Log Entry. The Log Topic index defines the order of the Log Topics of in Log Entry.</rdfs:comment>
+        <rdfs:label xml:lang="en">Log Topic index</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ethon.consensys.net/msgCallDepth -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgCallDepth">
@@ -1375,21 +1390,6 @@
         <suggestedStringRepresentation>storageRoot</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</rdfs:comment>
         <rdfs:label xml:lang="en">Storage root</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://ethon.consensys.net/topicIndex -->
-
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/topicIndex">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <suggestedStringRepresentation>topicIndex</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Topic to its index in the Log Entry. The topic index defines the order of the Log Topics of a Log Entry.</rdfs:comment>
-        <rdfs:label xml:lang="en">topic index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
