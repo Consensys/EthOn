@@ -673,23 +673,6 @@ PUSH<y:LabelModel>
         </node>
         <node id="n0::n36">
           <data key="d6">
-            <y:ShapeNode>
-              <y:Geometry height="32.0" width="128.0" x="-784.5578657460354" y="538.3203124563536"/>
-              <y:Fill color="#FFCC33" transparent="false"/>
-              <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="38.447265625" x="44.7763671875" y="7.015625">string<y:LabelModel>
-                  <y:SmartNodeLabelModel distance="4.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:Shape type="rectangle"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n0::n37">
-          <data key="d6">
             <y:GenericNode configuration="com.yworks.bpmn.Artifact.withShadow">
               <y:Geometry height="47.0" width="116.69453734671129" x="-741.7210826626392" y="698.1703124563539"/>
               <y:Fill color="#FFFFFFE6" transparent="false"/>
@@ -712,7 +695,7 @@ this one<y:LabelModel>
             </y:GenericNode>
           </data>
         </node>
-        <node id="n0::n38">
+        <node id="n0::n37">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="64.0" width="64.0" x="-146.0" y="-189.17968754364688"/>
@@ -730,7 +713,7 @@ Function<y:LabelModel>
             </y:ShapeNode>
           </data>
         </node>
-        <node id="n0::n39">
+        <node id="n0::n38">
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="64.0" width="64.0" x="-210.0" y="-134.17968754364688"/>
@@ -745,23 +728,6 @@ Function<y:LabelModel>
                 </y:ModelParameter>
               </y:NodeLabel>
               <y:Shape type="ellipse"/>
-            </y:ShapeNode>
-          </data>
-        </node>
-        <node id="n0::n40">
-          <data key="d6">
-            <y:ShapeNode>
-              <y:Geometry height="32.0" width="128.0" x="885.0499999999998" y="-160.48750000000007"/>
-              <y:Fill color="#FFCC33" transparent="false"/>
-              <y:BorderStyle color="#000000" raised="false" type="line" width="2.0"/>
-              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="59.458984375" x="34.2705078125" y="7.015625">Datatype<y:LabelModel>
-                  <y:SmartNodeLabelModel distance="4.0"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-                </y:ModelParameter>
-              </y:NodeLabel>
-              <y:Shape type="rectangle"/>
             </y:ShapeNode>
           </data>
         </node>
@@ -1468,25 +1434,7 @@ Function<y:LabelModel>
             </y:PolyLineEdge>
           </data>
         </edge>
-        <edge id="n0::e39" source="n0::n20" target="n0::n36">
-          <data key="d10">
-            <y:PolyLineEdge>
-              <y:Path sx="0.0" sy="-0.0" tx="0.0" ty="-0.0"/>
-              <y:LineStyle color="#000000" type="line" width="2.0"/>
-              <y:Arrows source="none" target="delta"/>
-              <y:EdgeLabel alignment="center" anchorX="-5.715092308535418" anchorY="1.9999999563535766" backgroundColor="#99CC66" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="left" ratio="0.5" textColor="#000000" upX="-1.2246467991473532E-16" upY="1.0" verticalTextPosition="bottom" visible="true" width="81.830078125" x="-87.54517043353542" y="1.9999999563535666">rdf:comment<y:LabelModel>
-                  <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
-                </y:LabelModel>
-                <y:ModelParameter>
-                  <y:RotatedDiscreteEdgeLabelModelParameter position="ttail"/>
-                </y:ModelParameter>
-                <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="relative_to_edge_flow" angleRotationOnRightSide="co" distance="-1.0" placement="anywhere" side="left" sideReference="relative_to_edge_flow"/>
-              </y:EdgeLabel>
-              <y:BendStyle smoothed="false"/>
-            </y:PolyLineEdge>
-          </data>
-        </edge>
-        <edge id="n0::e40" source="n0::n25" target="n0::n24">
+        <edge id="n0::e39" source="n0::n25" target="n0::n24">
           <data key="d10">
             <y:PolyLineEdge>
               <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1504,7 +1452,7 @@ Function<y:LabelModel>
             </y:PolyLineEdge>
           </data>
         </edge>
-        <edge id="n0::e41" source="n0::n25" target="n0::n12">
+        <edge id="n0::e40" source="n0::n25" target="n0::n12">
           <data key="d10">
             <y:PolyLineEdge>
               <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1522,7 +1470,7 @@ Function<y:LabelModel>
             </y:PolyLineEdge>
           </data>
         </edge>
-        <edge id="n0::e42" source="n0::n35" target="n0::n20">
+        <edge id="n0::e41" source="n0::n35" target="n0::n20">
           <data key="d10">
             <y:PolyLineEdge>
               <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1540,7 +1488,7 @@ Function<y:LabelModel>
             </y:PolyLineEdge>
           </data>
         </edge>
-        <edge id="n0::e43" source="n0::n37" target="n0::n35">
+        <edge id="n0::e42" source="n0::n36" target="n0::n35">
           <data key="d10">
             <y:GenericEdge configuration="com.yworks.bpmn.Connection">
               <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1552,7 +1500,7 @@ Function<y:LabelModel>
             </y:GenericEdge>
           </data>
         </edge>
-        <edge id="n0::e44" source="n0::n38" target="n0::n0">
+        <edge id="n0::e43" source="n0::n37" target="n0::n0">
           <data key="d10">
             <y:PolyLineEdge>
               <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -1570,7 +1518,7 @@ Function<y:LabelModel>
             </y:PolyLineEdge>
           </data>
         </edge>
-        <edge id="n0::e45" source="n0::n39" target="n0::n0">
+        <edge id="n0::e44" source="n0::n38" target="n0::n0">
           <data key="d10">
             <y:PolyLineEdge>
               <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
