@@ -1080,6 +1080,20 @@
     
 
 
+    <!-- http://ethon.consensys.net/logData -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logData">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+        <suggestedStringRepresentation>logData</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Log Entry to its data.</rdfs:comment>
+        <rdfs:label xml:lang="en">Log data</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://ethon.consensys.net/logIndex -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logIndex">
