@@ -1,4 +1,4 @@
-# EthOn - An Ethereum Ontology
+# EthOn - The Ethereum Ontology
 _An Ethereum ontology that is closely aligned with the [Ethereum yellow paper](https://github.com/ethereum/yellowpaper)._
 
 An ontology is a formalization of concepts and relations within a domain.
