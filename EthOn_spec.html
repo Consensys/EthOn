@@ -32,7 +32,7 @@
         <dt>Version IRI</dt>
         <dd><a href="http://ethon.consensys.net/0/">http://ethon.consensys.net/0/</a></dd>
         <dt>Version Info</dt>
-        <dd>0.1.1</dd>
+        <dd>0.2</dd>
         <dt>Creators</dt>
         <dd>Johannes Pfeffer</dd>
         <dt>Contributors</dt>
@@ -68,13 +68,12 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">45</span></h3>
+            <h3>Classes <span class="badge">44</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
                     <li><a class="label label-primary" href="#class-accountconcept">AccountConcept</a><ul>
                     <li><a class="label label-primary" href="#class-account">Account</a><ul>
-                    <li><a class="label label-primary" href="#class-autonomousobject">AutonomousObject</a></li>
                     <li><a class="label label-primary" href="#class-contractaccount">ContractAccount</a></li>
                     <li><a class="label label-primary" href="#class-externalaccount">ExternalAccount</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li>
@@ -143,7 +142,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">98</span></h3>
+            <h3>Properties <span class="badge">100</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -175,7 +174,10 @@
                     <li><a class="label label-default" href="#prop-unclebeneficiaryreward">uncleBeneficiaryReward</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a></li>
+                    <li><a class="label label-default" href="#prop-logdata">logData</a></li>
                     <li><a class="label label-default" href="#prop-logindex">logIndex</a></li>
+                    <li><a class="label label-default" href="#prop-logtopicdata">logTopicData</a></li>
+                    <li><a class="label label-default" href="#prop-logtopicindex">logTopicIndex</a></li>
                     <li><a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a></li>
                     <li><a class="label label-default" href="#prop-msgerror">msgError</a></li>
                     <li><a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a></li>
@@ -188,8 +190,6 @@
                     <li><a class="label label-default" href="#prop-msginit">msgInit</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a></li>
                     <li><a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a></li>
-                    <li><a class="label label-default" href="#prop-topicdata">topicData</a></li>
-                    <li><a class="label label-default" href="#prop-topicindex">topicIndex</a></li>
                     <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li>
                     <li><a class="label label-default" href="#prop-txgasused">txGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-txhash">txHash</a></li>
@@ -233,7 +233,8 @@
                     <li><a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-conformsto">conformsTo</a></li>
                     <li><a class="label label-default" href="#prop-hasfork">hasFork</a></li>
-                    <li><a class="label label-default" href="#prop-minesfor">minesFor</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-minesfor">minesFor</a></li>
+                    <li><a class="label label-default" href="#prop-spawnsblock">spawnsBlock</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-stateobjectproperty">StateObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasstate">hasState</a><ul>
                     <li><a class="label label-default" href="#prop-hascurrentstate">hasCurrentState</a></li></ul></li>
@@ -253,7 +254,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">45</span></h2>
+    <h2>Class descriptions <span class="badge">44</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</p>
@@ -288,7 +289,6 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-autonomousobject">AutonomousObject</a> 
                             <a class="label label-primary" href="#class-contractaccount">ContractAccount</a> 
                             <a class="label label-primary" href="#class-externalaccount">ExternalAccount</a> 
                     </td>
@@ -472,41 +472,6 @@
             
         </table>
     
-        <h3 id="class-autonomousobject">AutonomousObject</h3>
-        <p>This is a more abstract term for a Contract Account.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/AutonomousObject">http://ethon.consensys.net/AutonomousObject</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">ContractAccount</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-account">Account</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
         <h3 id="class-block">Block</h3>
         <p>A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.</p>
         <table class="table table-striped">
@@ -563,6 +528,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
+                            <a class="label label-default" href="#prop-spawnsblock">spawnsBlock</a> 
                     </td>
                 </tr>
             
@@ -863,7 +829,7 @@
         </table>
     
         <h3 id="class-createcontractmsg">CreateContractMsg</h3>
-        <p>A create Contract Message is a special type of Contract Message that results in creation of a new Contract.</p>
+        <p>A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1204,6 +1170,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-logdata">logData</a> 
                             <a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a> 
                             <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
                     </td>
@@ -1254,8 +1221,8 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-topicdata">topicData</a> 
-                            <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
+                            <a class="label label-default" href="#prop-logtopicdata">logTopicData</a> 
+                            <a class="label label-default" href="#prop-logtopicindex">logTopicIndex</a> 
                     </td>
                 </tr>
             
@@ -1545,6 +1512,7 @@
                         
                             <a class="label label-default" href="#prop-clientversion">clientVersion</a> 
                             <a class="label label-default" href="#prop-minesfor">minesFor</a> 
+                            <a class="label label-default" href="#prop-spawnsblock">spawnsBlock</a> 
                     </td>
                 </tr>
             
@@ -1958,7 +1926,7 @@
         </table>
     
         <h3 id="class-tx">Tx</h3>
-        <p>Transactions represent a valid arc between two states. A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. While is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</p>
+        <p>Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2163,7 +2131,7 @@
         </table>
     
         <h3 id="class-valuecontractmsg">ValueContractMsg</h3>
-        <p>Value Contract Messages go from a Contract to an External Account.</p>
+        <p>A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2198,7 +2166,7 @@
         </table>
     
         <h3 id="class-valuetx">ValueTx</h3>
-        <p>A type of Transaction that transfers only value.</p>
+        <p>A Value Transaction is a Transaction that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2326,7 +2294,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">39</span></h2>
+    <h2>Object Property descriptions <span class="badge">40</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -3035,6 +3003,7 @@
                             <a class="label label-default" href="#prop-conformsto">conformsTo</a> 
                             <a class="label label-default" href="#prop-hasfork">hasFork</a> 
                             <a class="label label-default" href="#prop-minesfor">minesFor</a> 
+                            <a class="label label-default" href="#prop-spawnsblock">spawnsBlock</a> 
                     </td>
                 </tr>
             
@@ -4001,6 +3970,55 @@
             
         </table>
     
+        <h3 id="prop-spawnsblock">spawnsBlock</h3>
+        <p>Relates an Ethereum Node to a valid Block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/spawnsBlock">http://ethon.consensys.net/spawnsBlock</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">spawnsBlock</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-node">Node</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-to">to</h3>
         <p>Relates a Message with the Account it is sent to.</p>
         <table class="table table-striped">
@@ -4103,7 +4121,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">55</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">56</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4273,7 +4291,10 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
+                            <a class="label label-default" href="#prop-logdata">logData</a> 
                             <a class="label label-default" href="#prop-logindex">logIndex</a> 
+                            <a class="label label-default" href="#prop-logtopicdata">logTopicData</a> 
+                            <a class="label label-default" href="#prop-logtopicindex">logTopicIndex</a> 
                             <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
                             <a class="label label-default" href="#prop-msgerror">msgError</a> 
                             <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
@@ -4284,8 +4305,6 @@
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a> 
                             <a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a> 
-                            <a class="label label-default" href="#prop-topicdata">topicData</a> 
-                            <a class="label label-default" href="#prop-topicindex">topicIndex</a> 
                             <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
                             <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txhash">txHash</a> 
@@ -5298,6 +5317,55 @@
             
         </table>
     
+        <h3 id="prop-logdata">logData</h3>
+        <p>Relates a Log Entry to its data.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/logData">http://ethon.consensys.net/logData</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">logData</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logentry">LogEntry</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-logindex">logIndex</h3>
         <p>Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.</p>
         <table class="table table-striped">
@@ -5333,6 +5401,104 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-logtopicdata">logTopicData</h3>
+        <p>Relates a Log Topic to the 32 bytes of data it contains.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/logTopicData">http://ethon.consensys.net/logTopicData</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">logTopicData</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-logtopicindex">logTopicIndex</h3>
+        <p>Relates a Log Topic to its index in the Log Entry. The Log Topic index defines the order of the Log Topics of in Log Entry.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/logTopicIndex">http://ethon.consensys.net/logTopicIndex</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">logTopicIndex</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
                     </td>
                 </tr>
             
@@ -6112,104 +6278,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#base64Binary">http://www.w3.org/2001/XMLSchema#base64Binary</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-topicdata">topicData</h3>
-        <p>Relates a Log Topic to the 32 bytes of data it contains.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/topicData">http://ethon.consensys.net/topicData</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">topicData</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-topicindex">topicIndex</h3>
-        <p>Relates a Log Topic to its index in the Log Entry. The topic index defines the order of the Log Topics of a Log Entry.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/topicIndex">http://ethon.consensys.net/topicIndex</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">topicIndex</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-logtopic">LogTopic</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
                     </td>
                 </tr>
             
