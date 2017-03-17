@@ -1808,7 +1808,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>CreateContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A create Contract Message is a special type of Contract Message that results in creation of a new Contract.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Create Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2147,7 +2147,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>Tx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Transactions represent a valid arc between two states. A transaction is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. While is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2225,11 +2225,11 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>ValueContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Value Contract Messages go from a Contract to an External Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn&apos;t create a new smart contract. Even though it is called &quot;value&quot; Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn&apos;t trigger the execution of a function in a smart contract.</rdfs:comment>
         <rdfs:label xml:lang="en">Value Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2240,7 +2240,7 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </owl:annotatedTarget>
         <rdfs:comment>Value Contract Messages are always directed to an External Account.</rdfs:comment>
@@ -2255,11 +2255,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:someValuesFrom rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>ValueTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A type of Transaction that transfers only value.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Value Transaction is a Transaction that does not call a function in a smart contract and doesn&apos;t create a new smart contract. Even though it is called &quot;value&quot; Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn&apos;t trigger the execution of a function in a smart contract.</rdfs:comment>
         <rdfs:label xml:lang="en">Value Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2269,7 +2270,8 @@
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:someValuesFrom rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
             </owl:Restriction>
         </owl:annotatedTarget>
         <rdfs:comment>Value transactions are directed to External Accounts.</rdfs:comment>
