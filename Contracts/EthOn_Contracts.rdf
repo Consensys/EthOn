@@ -20,7 +20,7 @@
         <owl:versionInfo>0.0.1</owl:versionInfo>
         <vann:preferredNamespacePrefix>contracts</vann:preferredNamespacePrefix>
         <rdfs:seeAlso rdf:resource="https://github.com/ConsenSys/EthOn"/>
-        <dc:title>EthOn Contracts - A extension to EthOn that models some aspects of smart contracts</dc:title>
+        <dc:title>EthOn Contracts - An extension to EthOn that models some aspects of smart contracts</dc:title>
         <rdfs:comment>This ontology extends EthOn with concepts that can be used to model some aspects of smart contracts, including Functions, Events, Inputs, Outputs and Opcodes.</rdfs:comment>
     </owl:Ontology>
     
