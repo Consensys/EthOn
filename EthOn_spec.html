@@ -68,14 +68,15 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">44</span></h3>
+            <h3>Classes <span class="badge">45</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
                     <li><a class="label label-primary" href="#class-accountconcept">AccountConcept</a><ul>
                     <li><a class="label label-primary" href="#class-account">Account</a><ul>
                     <li><a class="label label-primary" href="#class-contractaccount">ContractAccount</a></li>
-                    <li><a class="label label-primary" href="#class-externalaccount">ExternalAccount</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-externalaccount">ExternalAccount</a></li>
+                    <li><a class="label label-primary" href="#class-prefundedaccount">PrefundedAccount</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li>
                     <li><a class="label label-primary" href="#class-accountstorage">AccountStorage</a></li>
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
@@ -142,7 +143,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">100</span></h3>
+            <h3>Properties <span class="badge">101</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -151,6 +152,7 @@
                     <li><a class="label label-default" href="#prop-ethondataproperty">EthOnDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a><ul>
                     <li><a class="label label-default" href="#prop-accountbalance">accountBalance</a></li>
+                    <li><a class="label label-default" href="#prop-accountbalanceprefunded">accountBalancePrefunded</a></li>
                     <li><a class="label label-default" href="#prop-accountcode">accountCode</a></li>
                     <li><a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a></li>
                     <li><a class="label label-default" href="#prop-accountnonce">accountNonce</a></li>
@@ -254,7 +256,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">44</span></h2>
+    <h2>Class descriptions <span class="badge">45</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</p>
@@ -291,6 +293,7 @@
                         
                             <a class="label label-primary" href="#class-contractaccount">ContractAccount</a> 
                             <a class="label label-primary" href="#class-externalaccount">ExternalAccount</a> 
+                            <a class="label label-primary" href="#class-prefundedaccount">PrefundedAccount</a> 
                     </td>
                 </tr>
             
@@ -298,6 +301,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-accountbalanceprefunded">accountBalancePrefunded</a> 
                             <a class="label label-default" href="#prop-address">address</a> 
                             <a class="label label-default" href="#prop-hascurrentstate">hasCurrentState</a> 
                             <a class="label label-default" href="#prop-hasstate">hasState</a> 
@@ -1647,6 +1651,41 @@
                             <a class="label label-default" href="#prop-nexttxstate">nextTxState</a> 
                     </td>
                 </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-prefundedaccount">PrefundedAccount</h3>
+        <p>A Prefunded Account is an Account whose initial balance is defined in the protocol of the Blockchain. In the initial Ethereum Blockchain those that participated in the crowd funding received Prefunded Accounts. However, Prefunded Accounts could be added with any hard fork.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/PrefundedAccount">http://ethon.consensys.net/PrefundedAccount</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">PrefundedAccount</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
+            
+            
+            
             
             
         </table>
@@ -4121,7 +4160,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">56</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">57</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4153,6 +4192,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-accountbalance">accountBalance</a> 
+                            <a class="label label-default" href="#prop-accountbalanceprefunded">accountBalancePrefunded</a> 
                             <a class="label label-default" href="#prop-accountcode">accountCode</a> 
                             <a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a> 
                             <a class="label label-default" href="#prop-accountnonce">accountNonce</a> 
@@ -4442,6 +4482,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-accountstate">AccountState</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-accountbalanceprefunded">accountBalancePrefunded</h3>
+        <p>The amount of Wei an Account was prefunded with in a Protocol Variant. In the case that an Account receives multiple prefunds in multiple Protocol Variants, the amounts are summed. In contrast to the regular Account balance it is a property of the Account itself and not of its state.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/accountBalancePrefunded">http://ethon.consensys.net/accountBalancePrefunded</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">accountBalancePrefunded</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-accountdataproperty">AccountDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
                     </td>
                 </tr>
             
