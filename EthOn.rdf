@@ -744,7 +744,7 @@
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/accountBalancePrefunded">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/Account"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/PrefundedAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>accountBalancePrefunded</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The amount of Wei an Account was prefunded with in a Protocol Variant. In the case that an Account receives multiple prefunds in multiple Protocol Variants, the amounts are summed. In contrast to the regular Account balance it is a property of the Account itself and not of its state.</rdfs:comment>
