@@ -1,5 +1,6 @@
 ## EthOn icon set
 ![Some of the icons](overview.jpg)
+
 The above is an excerpt of the icon set. There are some more icons in this folder. 
 
 The icons were designed by @VladTod. Thank you!
