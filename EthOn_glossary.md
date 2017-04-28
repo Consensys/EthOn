@@ -12,6 +12,9 @@ State of an Ethereum Account. It is comprised on four pieces of information: non
 ### Account balance
 [`ethon:accountBalance`](http://ethon.consensys.net/accountBalance)   
 A scalar value equal to the number of Wei owned by an Account at a given Account state.
+### Account balance prefunded
+[`ethon:accountBalancePrefunded`](http://ethon.consensys.net/accountBalancePrefunded)   
+The amount of Wei an Account was prefunded with in a Protocol Variant. In the case that an Account receives multiple prefunds in multiple Protocol Variants, the amounts are summed. In contrast to the regular Account balance it is a property of the Account itself and not of its state.
 ### Account code
 [`ethon:accountCode`](http://ethon.consensys.net/accountCode)   
 The immutable EVM bytecode of the Contract Account.
@@ -273,6 +276,9 @@ Relates a Post Transaction State to the following Post Transaction State.
 Relates a State to the following State. In EthOn the state transition system has no branches.
 ## O
 ## P
+### Prefunded Account
+[`ethon:PrefundedAccount`](http://ethon.consensys.net/PrefundedAccount)   
+A Prefunded Account is an Account whose initial balance is defined in the protocol of the Blockchain. In the initial Ethereum Blockchain those that participated in the crowd funding received Prefunded Accounts. However, Prefunded Accounts could be added with any hard fork.
 ### part of
 [`ethon:partOf`](http://ethon.consensys.net/partOf)   
 This is a general relation to express part of relationships. The classic study of parts and wholes, mereology, has three axioms: 1. the part-of relation is Transitive - "parts of parts are parts of the whole" - If A is part of B and B is part of C, then A is part of C Reflexive - "Everything is part of itself" - A is part of A Antisymmetric - "Nothing is a part of its parts" - if A is part of B and A != B then B is not part of A.
