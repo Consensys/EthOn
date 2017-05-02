@@ -180,7 +180,7 @@ Relates a Block to its parent in the chain. It always points to the Block with a
 Relates a Block to the Trie that contains the Block's receipt data.
 ### has state
 [`ethon:hasState`](http://ethon.consensys.net/hasState)   
-This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept. Only some EthOn concepts have associated states. This is defined in the domain restriction.
+This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept.
 ### has transaction receipt
 [`ethon:hasReceipt`](http://ethon.consensys.net/hasReceipt)   
 Relates a transaction to its receipt.
@@ -276,9 +276,12 @@ Relates a Post Transaction State to the following Post Transaction State.
 Relates a State to the following State. In EthOn the state transition system has no branches.
 ## O
 ## P
-### Prefunded Account
-[`ethon:PrefundedAccount`](http://ethon.consensys.net/PrefundedAccount)   
-A Prefunded Account is an Account whose initial balance is defined in the protocol of the Blockchain. In the initial Ethereum Blockchain those that participated in the crowd funding received Prefunded Accounts. However, Prefunded Accounts could be added with any hard fork.
+### Protocol Account
+[`ethon:ProtocolAccount`](http://ethon.consensys.net/ProtocolAccount)   
+A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.
+### ProtocolState
+[`ethon:ProtocolState`](http://ethon.consensys.net/ProtocolState)   
+This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of Accounts, e.g. for prefunded Accounts, creating predefined Contract Accounts with storage or setting any other state property as part of the protocol specification.
 ### part of
 [`ethon:partOf`](http://ethon.consensys.net/partOf)   
 This is a general relation to express part of relationships. The classic study of parts and wholes, mereology, has three axioms: 1. the part-of relation is Transitive - "parts of parts are parts of the whole" - If A is part of B and B is part of C, then A is part of C Reflexive - "Everything is part of itself" - A is part of A Antisymmetric - "Nothing is a part of its parts" - if A is part of B and A != B then B is not part of A.

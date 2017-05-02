@@ -68,7 +68,7 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">45</span></h3>
+            <h3>Classes <span class="badge">46</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
@@ -76,8 +76,9 @@
                     <li><a class="label label-primary" href="#class-account">Account</a><ul>
                     <li><a class="label label-primary" href="#class-contractaccount">ContractAccount</a></li>
                     <li><a class="label label-primary" href="#class-externalaccount">ExternalAccount</a></li>
-                    <li><a class="label label-primary" href="#class-prefundedaccount">PrefundedAccount</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li>
+                    <li><a class="label label-primary" href="#class-protocolaccount">ProtocolAccount</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a><ul>
+                    <li><a class="label label-primary" href="#class-protocolstate">ProtocolState</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-accountstorage">AccountStorage</a></li>
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-blockconcept">BlockConcept</a><ul>
@@ -119,7 +120,8 @@
                     <li><a class="label label-primary" href="#class-protocollvariant">ProtocollVariant</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-stateconcept">StateConcept</a><ul>
                     <li><a class="label label-primary" href="#class-state">State</a><ul>
-                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a></li>
+                    <li><a class="label label-primary" href="#class-accountstate">AccountState</a><ul>
+                    <li><a class="label label-primary" href="#class-protocolstate">ProtocolState</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-worldstate">WorldState</a><ul>
                     <li><a class="label label-primary" href="#class-postmsgstate">PostMsgState</a><ul>
                     <li><a class="label label-primary" href="#class-posttxstate">PostTxState</a><ul>
@@ -256,7 +258,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">45</span></h2>
+    <h2>Class descriptions <span class="badge">46</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</p>
@@ -293,7 +295,7 @@
                         
                             <a class="label label-primary" href="#class-contractaccount">ContractAccount</a> 
                             <a class="label label-primary" href="#class-externalaccount">ExternalAccount</a> 
-                            <a class="label label-primary" href="#class-prefundedaccount">PrefundedAccount</a> 
+                            <a class="label label-primary" href="#class-protocolaccount">ProtocolAccount</a> 
                     </td>
                 </tr>
             
@@ -403,6 +405,13 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-protocolstate">ProtocolState</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Properties include</td>
@@ -1654,8 +1663,8 @@
             
         </table>
     
-        <h3 id="class-prefundedaccount">PrefundedAccount</h3>
-        <p>A Prefunded Account is an Account whose initial balance is defined in the protocol of the Blockchain. In the initial Ethereum Blockchain those that participated in the crowd funding received Prefunded Accounts. However, Prefunded Accounts could be added with any hard fork.</p>
+        <h3 id="class-protocolaccount">ProtocolAccount</h3>
+        <p>A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1667,7 +1676,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/PrefundedAccount">http://ethon.consensys.net/PrefundedAccount</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ProtocolAccount">http://ethon.consensys.net/ProtocolAccount</a></td>
                 </tr>
             
                 <tr>
@@ -1691,6 +1700,41 @@
                             <a class="label label-default" href="#prop-accountbalanceprefunded">accountBalancePrefunded</a> 
                     </td>
                 </tr>
+            
+            
+            
+        </table>
+    
+        <h3 id="class-protocolstate">ProtocolState</h3>
+        <p>This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of Accounts, e.g. for prefunded Accounts, creating predefined Contract Accounts with storage or setting any other state property as part of the protocol specification.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ProtocolState">http://ethon.consensys.net/ProtocolState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">ProtocolState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-accountstate">AccountState</a> 
+                    </td>
+                </tr>
+            
+            
             
             
             
@@ -2797,7 +2841,7 @@
         </table>
     
         <h3 id="prop-hasstate">hasState</h3>
-        <p>This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept. Only some EthOn concepts have associated states. This is defined in the domain restriction.</p>
+        <p>This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4536,7 +4580,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-prefundedaccount">PrefundedAccount</a> 
+                            <a class="label label-primary" href="#class-protocolaccount">ProtocolAccount</a> 
                     </td>
                 </tr>
             

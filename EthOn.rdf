@@ -440,7 +440,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Account"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/AccountState"/>
         <suggestedStringRepresentation>hasState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept. Only some EthOn concepts have associated states. This is defined in the domain restriction.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept.</rdfs:comment>
         <rdfs:label xml:lang="en">has state</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -744,7 +744,7 @@
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/accountBalancePrefunded">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/PrefundedAccount"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>accountBalancePrefunded</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The amount of Wei an Account was prefunded with in a Protocol Variant. In the case that an Account receives multiple prefunds in multiple Protocol Variants, the amounts are summed. In contrast to the regular Account balance it is a property of the Account itself and not of its state.</rdfs:comment>
@@ -2085,13 +2085,25 @@
     
 
 
-    <!-- http://ethon.consensys.net/PrefundedAccount -->
+    <!-- http://ethon.consensys.net/ProtocolAccount -->
 
-    <owl:Class rdf:about="http://ethon.consensys.net/PrefundedAccount">
+    <owl:Class rdf:about="http://ethon.consensys.net/ProtocolAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation xml:lang="en">PrefundedAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Prefunded Account is an Account whose initial balance is defined in the protocol of the Blockchain. In the initial Ethereum Blockchain those that participated in the crowd funding received Prefunded Accounts. However, Prefunded Accounts could be added with any hard fork.</rdfs:comment>
-        <rdfs:label xml:lang="en">Prefunded Account</rdfs:label>
+        <rdfs:comment xml:lang="en">A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.</rdfs:comment>
+        <rdfs:label xml:lang="en">Protocol Account</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://ethon.consensys.net/ProtocolState -->
+
+    <owl:Class rdf:about="http://ethon.consensys.net/ProtocolState">
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountState"/>
+        <suggestedStringRepresentation xml:lang="en">ProtocolState</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of Accounts, e.g. for prefunded Accounts, creating predefined Contract Accounts with storage or setting any other state property as part of the protocol specification.</rdfs:comment>
+        <rdfs:label xml:lang="en">ProtocolState</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
