@@ -2178,7 +2178,7 @@
         </table>
     
         <h3 id="class-uncle">Uncle</h3>
-        <p>An Uncle is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</p>
+        <p>An Uncle is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks." The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3185,7 +3185,7 @@
         </table>
     
         <h3 id="prop-controlsaccount">controlsAccount</h3>
-        <p>This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate.</p>
+        <p>This property connects an External Actor to an Account that is controlled by the same Actor; it represents their access (whether legitimate or illegitimate) to the Private Key for that Account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5142,7 +5142,26 @@
         </table>
     
         <h3 id="prop-blockheader">blockHeader</h3>
-        <p>Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</p>
+        <p> Relates a Block to its Block header data. The Block header data contains 15 pieces of information:
+	   <ol>
+	    <li>the parent hash</li> 
+	    <li>the Uncle hash</li> 
+	    <li>a beneficiary address</li>
+	    <li>a state root hash</li>
+	    <li>a transactions root hash</li>
+	    <li>a receipts root hash</li>
+	    <li>a log bloom filter</li>
+	    <li>the difficulty value</li>
+	    <li>the Block number</li>
+	    <li>the gas limit of the Block</li> 
+	    <li>the gas used by all transactions in the Block</li>
+	    <li>a scalar timestamp in Unix time() format</li>
+	    <li>a byte array containing extra data</li>
+	    <li>a mix hash</li>
+	    <li>the Block nonce</li>
+	   </ol>
+	   The property is functional because a Block can have only exactly one Block header. 
+	</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5989,7 +6008,7 @@
         </table>
     
         <h3 id="prop-msginit">msgInit</h3>
-        <p>An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.</p>
+        <p>An unlimited size byte array specifying the EVM-code for the <b>Contract Account</b> initialization procedure.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6031,7 +6050,7 @@
         </table>
     
         <h3 id="prop-msgoutput">msgOutput</h3>
-        <p>The reulting output data from a CallContractMsg.</p>
+        <p>The resulting output data from a <b>CallContractMsg</b>.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6137,7 +6156,7 @@
         </table>
     
         <h3 id="prop-msgrefundbalance">msgRefundBalance</h3>
-        <p>A scalar value equal to the number of Wei that will be refunded in result of the SelfdestructContractMsg.</p>
+        <p>A scalar (i.e. quantifiable)  value equal to the number of Wei that will be refunded in result of the <b>SelfdestructContractMsg</b>.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6186,7 +6205,7 @@
         </table>
     
         <h3 id="prop-number">number</h3>
-        <p>A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.</p>
+        <p>A scalar (i.e. quantifiable) value equal to the number of ancestor Blocks. The genesis Block has a number of zero, because it has no ancestor blocks.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6473,7 +6492,7 @@
         </table>
     
         <h3 id="prop-txgasused">txGasUsed</h3>
-        <p>The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.</p>
+        <p>The total amount of gas that was used for processing this <b>Tx</b> and all <b>ContractMessages</b> resulting from it.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6481,6 +6500,7 @@
                     <td class="col-md-10 
         text-danger
     ">unstable</td>
+
                 </tr>
             
                 <tr>
@@ -6620,7 +6640,7 @@
         </table>
     
         <h3 id="prop-txnonce">txNonce</h3>
-        <p>A scalar value equal to the number of transactions sent by the sender.</p>
+        <p>A scalar (i.e. quantifiable) value equal to the number of transactions sent by the sender.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6669,7 +6689,7 @@
         </table>
     
         <h3 id="prop-txr">txR</h3>
-        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The txR value is a Byte array of length 32.</p>
+        <p>The values <b>txV</b>, <b>txR</b> and <b>txS</b> correspond to the signature of the transaction and are used to determine the sender of the transaction. The <b>txR</b> value is a Byte array of length 32.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6718,7 +6738,7 @@
         </table>
     
         <h3 id="prop-txs">txS</h3>
-        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txS is a byte array of length 32.</p>
+        <p>The values <b>txV</b>, <b>txR</b> and <b>txS</b> correspond to the signature of the transaction and are used to determine the sender of the transaction. The value <b>txS</b> is a byte array of length 32.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6767,7 +6787,7 @@
         </table>
     
         <h3 id="prop-txv">txV</h3>
-        <p>The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: txV = CHAIN_ID * 2 + 36</p>
+        <p>The values <b>txV</b>, <b>txR</b> and <b>txS</b> correspond to the signature of the transaction and are used to determine the sender of the transaction. The value <b>txV</b> specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: <code>txV = CHAIN_ID * 2 + 36</code></p>
         <table class="table table-striped">
             
                 <tr>
@@ -6865,7 +6885,7 @@
         </table>
     
         <h3 id="prop-value">value</h3>
-        <p>A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.</p>
+        <p>A scalar (i.e. quantifiable)  value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.</p>
         <table class="table table-striped">
             
                 <tr>
