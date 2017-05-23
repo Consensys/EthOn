@@ -209,12 +209,12 @@ Relates a Log Topic to its index in the Log Entry. The Log Topic index defines t
 ### Log data
 [`ethon:logData`](http://ethon.consensys.net/logData)   
 Relates a Log Entry to its data.
+### Log index
+[`ethon:logIndex`](http://ethon.consensys.net/logIndex)   
+Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.
 ### Logs bloom filter
 [`ethon:blockLogsBloom`](http://ethon.consensys.net/blockLogsBloom)   
 The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.
-### log index
-[`ethon:logIndex`](http://ethon.consensys.net/logIndex)   
-Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.
 ### logged by
 [`ethon:loggedBy`](http://ethon.consensys.net/loggedBy)   
 Relates a Log Entry to its logger's Account.
@@ -331,6 +331,9 @@ Transactions are Messages between two Accounts that may transfer Ether and may c
 ### Transaction Logs Bloom filter
 [`ethon:txLogsBloom`](http://ethon.consensys.net/txLogsBloom)   
 Relates a Transaction Receipt to the Bloom filter of its Log Entries.
+### Transaction index
+[`ethon:txIndex`](http://ethon.consensys.net/txIndex)   
+The position of a Transaction in a Block.
 ### Transaction nonce
 [`ethon:txNonce`](http://ethon.consensys.net/txNonce)   
 A scalar value equal to the number of transactions sent by the sender.
