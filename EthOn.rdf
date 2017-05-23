@@ -1131,7 +1131,7 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>logIndex</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.</rdfs:comment>
-        <rdfs:label xml:lang="en">log index</rdfs:label>
+        <rdfs:label xml:lang="en">Log index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     
@@ -1462,6 +1462,20 @@
         <suggestedStringRepresentation>txHash</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the Transaction</rdfs:comment>
         <rdfs:label xml:lang="en">Tx hash</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ethon.consensys.net/txIndex -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txIndex">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>txIndex</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">The position of a Transaction in a Block.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
     

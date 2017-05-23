@@ -145,7 +145,7 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">101</span></h3>
+            <h3>Properties <span class="badge">102</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -197,6 +197,7 @@
                     <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li>
                     <li><a class="label label-default" href="#prop-txgasused">txGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-txhash">txHash</a></li>
+                    <li><a class="label label-default" href="#prop-txindex">txIndex</a></li>
                     <li><a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a></li>
                     <li><a class="label label-default" href="#prop-txnonce">txNonce</a></li>
                     <li><a class="label label-default" href="#prop-txr">txR</a></li>
@@ -2060,6 +2061,7 @@
                             <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
                             <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txhash">txHash</a> 
+                            <a class="label label-default" href="#prop-txindex">txIndex</a> 
                             <a class="label label-default" href="#prop-txnonce">txNonce</a> 
                             <a class="label label-default" href="#prop-txr">txR</a> 
                             <a class="label label-default" href="#prop-txs">txS</a> 
@@ -4210,7 +4212,7 @@
 
 
     <!-- Datatype Property list-->
-    <h2>Datatype Property descriptions <span class="badge">57</span></h2>
+    <h2>Datatype Property descriptions <span class="badge">58</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
         <p>Groups all Data Properties that are specific to an Account.</p>
@@ -4398,6 +4400,7 @@
                             <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
                             <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txhash">txHash</a> 
+                            <a class="label label-default" href="#prop-txindex">txIndex</a> 
                             <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
                             <a class="label label-default" href="#prop-txnonce">txNonce</a> 
                             <a class="label label-default" href="#prop-txr">txR</a> 
@@ -6564,6 +6567,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#hexBinary">http://www.w3.org/2001/XMLSchema#hexBinary</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-txindex">txIndex</h3>
+        <p>The position of a Transaction in a Block.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/txIndex">http://ethon.consensys.net/txIndex</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txIndex</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
                     </td>
                 </tr>
             
