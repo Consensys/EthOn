@@ -1877,11 +1877,11 @@ Account</y:NodeLabel>
         <y:PolyLineEdge>
           <y:Path sx="-17.231277186134776" sy="16.703228503303137" tx="-16.234602182554568" ty="-15.857778312512664">
             <y:Point x="433.3761458863151" y="412.3852421423732"/>
-            <y:Point x="583.3153467311389" y="415.6620421423732"/>
+            <y:Point x="583.3153467311389" y="412.3852421423732"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="left" anchorX="34.357336043528505" anchorY="67.01949385971358" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" upX="0.021848974468153582" upY="-0.9997612826643618" verticalTextPosition="bottom" visible="true" width="80.37109375" x="34.357336043528505" y="49.05503331183833">createsState<y:LabelModel>
+          <y:EdgeLabel alignment="left" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="80.37109375" x="34.78403976575828" y="48.29512373417009">createsState<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -2029,11 +2029,11 @@ Account</y:NodeLabel>
           <y:Path sx="-24.744676304054238" sy="0.0" tx="24.753510049221152" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="2.0"/>
           <y:Arrows source="none" target="delta"/>
-          <y:EdgeLabel alignment="left" anchorX="-4.962661923043157" anchorY="-19.968758093642066" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" upX="-1.2246467991473532E-16" upY="1.0" verticalTextPosition="bottom" visible="true" width="74.998046875" x="-79.96070879804316" y="-19.968758093642077">triggersMsg<y:LabelModel>
+          <y:EdgeLabel alignment="left" anchorX="-4.962661923043157" anchorY="1.9999919063579341" backgroundColor="#AACCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="center_right" ratio="0.5" textColor="#000000" upX="-1.2246467991473532E-16" upY="1.0" verticalTextPosition="bottom" visible="true" width="74.998046875" x="-79.96070879804316" y="1.999991906357925">triggersMsg<y:LabelModel>
               <y:RotatedDiscreteEdgeLabelModel angle="0.0" autoRotationEnabled="true" candidateMask="63" distance="2.0" positionRelativeToSegment="false"/>
             </y:LabelModel>
             <y:ModelParameter>
-              <y:RotatedDiscreteEdgeLabelModelParameter position="shead"/>
+              <y:RotatedDiscreteEdgeLabelModelParameter position="stail"/>
             </y:ModelParameter>
             <y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="relative_to_edge_flow" angleRotationOnRightSide="co" distance="-1.0" placement="center" side="right" sideReference="relative_to_edge_flow"/>
           </y:EdgeLabel>
