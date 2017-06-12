@@ -354,7 +354,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
         <suggestedStringRepresentation>hasFork</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Protocol variant to a forked version of it. It is Transitive because if an &apos;Ethereum Protocol Variant&apos; A was forked from &apos;Ethereum Protocol Variant&apos; B that in turn was forked from &apos;Ethereum Protocol Variant&apos; C, &apos;Ethereum Protocol Variant&apos; a was also forked from &apos;Ethereum Protocol Variant&apos; C. It is irreflexive because an &apos;Ethereum Protocol Variant&apos; cannot be a fork of itself.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Protocol variant to a forked version of it. It is Transitive because if an &apos;Ethereum Protocol Variant&apos; A was forked from &apos;Ethereum Protocol Variant&apos; B that in turn was forked from &apos;Ethereum Protocol Variant&apos; C, &apos;Ethereum Protocol Variant&apos; A was also forked from &apos;Ethereum Protocol Variant&apos; C. It is irreflexive because an &apos;Ethereum Protocol Variant&apos; cannot be a fork of itself.</rdfs:comment>
         <rdfs:label xml:lang="en">has Fork</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
