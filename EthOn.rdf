@@ -1903,7 +1903,7 @@
     <!-- http://ethon.consensys.net/EthOnConcept -->
 
     <owl:Class rdf:about="http://ethon.consensys.net/EthOnConcept">
-        <suggestedStringRepresentation xml:lang="en">EthonConcept</suggestedStringRepresentation>
+        <suggestedStringRepresentation xml:lang="en">EthOnConcept</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Groups all EthOn concepts.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
