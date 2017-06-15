@@ -1614,7 +1614,7 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/address"/>
         </owl:hasKey>
         <suggestedStringRepresentation xml:lang="en">Account</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</rdfs:comment>
+        <rdfs:comment xml:lang="en">&apos;Accounts&apos; are identified by their public address, but are not themselves their address. Actually, accounts consist of a public and private keypair, an Ether balance, any ERC20 tokens which are on the account, and any assets represented on-chain (in contracts or otherwise) that the account can directly control. If it is a Contract Account it will also have EVM Code and a Storage State associated with it, though the code-space and storage state might be empty. We do not attempt to conceptualize potential accounts, only actual ones, because the relationship between an external actor and the account has not been established in the case of potential accounts, but it has in actual ones. The space of potential accounts is too large to be useful for study.</rdfs:comment>
         <rdfs:label xml:lang="en">Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
