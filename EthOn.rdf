@@ -1645,7 +1645,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/AccountConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation xml:lang="en">AccountConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Accounts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The category of EthOn concepts related specifically to Accounts.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Account concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
