@@ -1911,7 +1911,7 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/EthOnConcept">
         <suggestedStringRepresentation xml:lang="en">EthonConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Groups al EthOn concepts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The purpose of concepts in EthOn is to group a finite number of concrete instances of states and/or relationships between states under a single indefinitely bounded term which substitutes for a value before it is known. In other words, concepts in EthOn allow us to ignore all data that is irrelevant to an inquiry and focus only on the particular aspect or relationship which is relevant to our inquiry in a given case. This allows us to create a reliable web of interconnected relationships (actual and potential relationships) that is always true in concrete form because the objects between which the relationships are formed as well as the relationships themselves substitute words and definitions for actions that Ethereum really takes.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
