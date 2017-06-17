@@ -2113,7 +2113,7 @@ It would be easy to suppose that the external actor will always be human, but th
     <owl:Class rdf:about="http://ethon.consensys.net/ProtocolAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation xml:lang="en">PrefundedAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A |Protocol Account| is the third type of |Account| in Ethereum. |Protocol Account|s are written into the Ethereum protocol, and are primarily used to fund |Account|s which participated in the Ethereum Crowdsale.</rdfs:comment>
         <rdfs:label xml:lang="en">Protocol Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
