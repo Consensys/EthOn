@@ -1621,7 +1621,7 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/address"/>
         </owl:hasKey>
         <suggestedStringRepresentation xml:lang="en">Account</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</rdfs:comment>
+        <rdfs:comment xml:lang="en">&apos;Accounts&apos; are identified by their public address, but are not themselves their address. Actually, accounts consist of a public and private keypair, and are intrinsically related to an AccountState. Additionally, a ContractAccounts will have EVM Code and a Storage State associated with them.</rdfs:comment>
         <rdfs:label xml:lang="en">Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1923,7 +1923,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/ExternalAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation xml:lang="en">ExternalAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An Account owned by an External Actor.</rdfs:comment>
+        <rdfs:comment xml:lang="en">One of three types of accounts on Ethereum, an &apos;External Account&apos; is an account owned by an &apos;External Actor.&apos;</rdfs:comment>
         <rdfs:label xml:lang="en">Externally controlled Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1936,7 +1936,9 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <suggestedStringRepresentation xml:lang="en">ExternalActor</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but not existing within Ethereum per se. This person or entity should be able to interact with the Ethereum blockchain using signed transactions, which are the language of the blockchain. Even if the external actor only uses Ethereum once and never again, such an actor will necessarily be attached (as far as EthOn is concerned) to that one account they used at least one time. For this reason we consider the account(s) of External Actors to be intrinsic.
+
+It would be easy to suppose that the external actor will always be human, but this will not be the case. In time, various off-chain software tools will initiate on-chain processes. Examples of these off-chain software tools include private Ethereum blockchains, (which are detached by nature from the main chain, and therefore external to it) and off-chain state channels.</rdfs:comment>
         <rdfs:label xml:lang="en">External Actor</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2111,7 +2113,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/ProtocolAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation xml:lang="en">PrefundedAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A |Protocol Account| is the third type of |Account| in Ethereum. |Protocol Account|s are written into the Ethereum protocol, and are primarily used to fund |Account|s which participated in the Ethereum Crowdsale.</rdfs:comment>
         <rdfs:label xml:lang="en">Protocol Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
