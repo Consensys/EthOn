@@ -1694,7 +1694,7 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/blockHash"/>
         </owl:hasKey>
         <suggestedStringRepresentation xml:lang="en">Block</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks (&quot;mine Blocks&quot;) that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated.</rdfs:comment>
         <rdfs:label xml:lang="en">Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
