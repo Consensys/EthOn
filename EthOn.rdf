@@ -1720,7 +1720,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/BlockConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation xml:lang="en">BlockConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Blocks.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Blocks. Validated relationships between blocks are the basis for every significant thing that the Ethereum Virtual Machine can do. Block concepts endeavor to trace the outlines of those relationships in clear relief.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Block concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
