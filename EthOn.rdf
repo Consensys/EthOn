@@ -2266,8 +2266,8 @@ It would be easy to suppose that the external actor will always be human, but th
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <suggestedStringRepresentation>TxTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block.</rdfs:comment>
-        <rdfs:label xml:lang="en">Transactions Trie</rdfs:label>
+        <rdfs:comment xml:lang="en">Like the Receipts Tree, the Transaction Tree contains a tree of all transactions. This allows for speedy information identification and retrieval because it avoids searching and indexing the content of every block, instead searching only what is necessary to resolve the query, which is primarily about transactions and transaction information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transactions Tree</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
