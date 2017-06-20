@@ -1694,7 +1694,7 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/blockHash"/>
         </owl:hasKey>
         <suggestedStringRepresentation xml:lang="en">Block</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks (&quot;mine Blocks&quot;) that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated.</rdfs:comment>
         <rdfs:label xml:lang="en">Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1720,7 +1720,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/BlockConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation xml:lang="en">BlockConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Blocks.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Blocks. Validated relationships between blocks are the basis for every significant thing that the Ethereum Virtual Machine can do. Block concepts endeavor to trace the outlines of those relationships in clear relief.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Block concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1936,7 +1936,9 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <suggestedStringRepresentation xml:lang="en">ExternalActor</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but not existing within Ethereum per se. This person or entity should be able to interact with the Ethereum blockchain using signed transactions, which are the language of the blockchain. Even if the external actor only uses Ethereum once and never again, such an actor will necessarily be attached (as far as EthOn is concerned) to that one account they used at least one time. For this reason we consider the account(s) of External Actors to be intrinsic.
+
+It would be easy to suppose that the external actor will always be human, but this will not be the case. In time, various off-chain software tools will initiate on-chain processes. Examples of these off-chain software tools include private Ethereum blockchains, (which are detached by nature from the main chain, and therefore external to it) and off-chain state channels.</rdfs:comment>
         <rdfs:label xml:lang="en">External Actor</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2149,8 +2151,8 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <suggestedStringRepresentation>ReceiptsTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A trie structure that stores transaction receipts. Each Block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the Block.</rdfs:comment>
-        <rdfs:label xml:lang="en">Receipts Trie</rdfs:label>
+        <rdfs:comment xml:lang="en">A tree structure (designated &apos;trie&apos; in the official Ethereum protocol document) that stores only transaction receipts from blocks and not the blocks themselves. As a result it can be used to process queries more quickly, allowing for speedy information identification and retrieval, without needing to index and search entire blocks.</rdfs:comment>
+        <rdfs:label xml:lang="en">Receipts Tree</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
@@ -2264,8 +2266,8 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <suggestedStringRepresentation>TxTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block.</rdfs:comment>
-        <rdfs:label xml:lang="en">Transactions Trie</rdfs:label>
+        <rdfs:comment xml:lang="en">Like the Receipts Tree, the Transaction Tree contains a tree of all transactions. This allows for speedy information identification and retrieval because it avoids searching and indexing the content of every block, instead searching only what is necessary to resolve the query, which is primarily about transactions and transaction information.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transactions Tree</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
