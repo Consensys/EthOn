@@ -2151,8 +2151,8 @@ It would be easy to suppose that the external actor will always be human, but th
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <suggestedStringRepresentation>ReceiptsTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A trie structure that stores transaction receipts. Each Block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the Block.</rdfs:comment>
-        <rdfs:label xml:lang="en">Receipts Trie</rdfs:label>
+        <rdfs:comment xml:lang="en">A tree structure (designated &apos;trie&apos; in the official Ethereum protocol document) that stores only transaction receipts from blocks and not the blocks themselves. As a result it can be used to process queries more quickly, allowing for speedy information identification and retrieval, without needing to index and search entire blocks.</rdfs:comment>
+        <rdfs:label xml:lang="en">Receipts Tree</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     
