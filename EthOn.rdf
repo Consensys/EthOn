@@ -2010,7 +2010,7 @@ It would be easy to suppose that the external actor will always be human, but th
 
     <owl:Class rdf:about="http://ethon.consensys.net/MessageConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
-        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Messages.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Messages. The class &quot;Messages&quot; refers to entries on the Ethereum Blockchain which are recorded to communicate some specific piece of information. For example, a Log Entry message is made whenever a smart contract executes some event. This is part of the Receipts Tree, which keeps a record of all the operations which the EVM performs outside of transactions. Gas is required to make Smart Contracts execute, therefore a log entry represents the historical use of a specific amount of gas to accomplish some specific action within a contract.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Message concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
