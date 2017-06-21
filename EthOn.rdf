@@ -1276,7 +1276,7 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <owl:propertyDisjointWith rdf:resource="http://ethon.consensys.net/txGasUsed"/>
         <suggestedStringRepresentation>msgGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The amount of gas that was used for processing this ContractMsg.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The amount of gas that was used for processing a single Message, regardless of which type of Message it may be.</rdfs:comment>
         <rdfs:label xml:lang="en">Msg gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1453,7 +1453,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>txGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting ContractMessages.</rdfs:comment>
         <rdfs:label xml:lang="en">Tx gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
