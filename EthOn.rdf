@@ -1246,7 +1246,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>msgGasLimit</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message. After all resulting computations are done, excess gas is returned to the sender of the original Transaction.</rdfs:comment>
         <rdfs:label xml:lang="en">Message gas limit</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
