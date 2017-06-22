@@ -186,7 +186,6 @@
                     <li><a class="label label-default" href="#prop-msgerror">msgError</a></li>
                     <li><a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a></li>
                     <li><a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a></li>
-                    <li><a class="label label-default" href="#prop-msggasprice">msgGasPrice</a></li>
                     <li><a class="label label-default" href="#prop-msggasused">msgGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-msgoutput">msgOutput</a></li>
                     <li><a class="label label-default" href="#prop-msgpayload">msgPayload</a><ul>
@@ -195,6 +194,7 @@
                     <li><a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a></li>
                     <li><a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a></li>
                     <li><a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a></li>
+                    <li><a class="label label-default" href="#prop-txgasprice">txGasPrice</a></li>
                     <li><a class="label label-default" href="#prop-txgasused">txGasUsed</a></li>
                     <li><a class="label label-default" href="#prop-txhash">txHash</a></li>
                     <li><a class="label label-default" href="#prop-txindex">txIndex</a></li>
@@ -532,6 +532,7 @@
                             <a class="label label-default" href="#prop-blocksize">blockSize</a> 
                             <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
                             <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                            <a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
                     </td>
                 </tr>
@@ -1389,7 +1390,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
-                            <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
@@ -2016,7 +2016,7 @@
         </table>
     
         <h3 id="class-tx">Tx</h3>
-        <p>Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.</p>
+        <p>Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a 'Transaction Receipt'.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2058,14 +2058,19 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
+                            <a class="label label-default" href="#prop-logindex">logIndex</a> 
                             <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
+                            <a class="label label-default" href="#prop-txgasprice">txGasPrice</a> 
                             <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txhash">txHash</a> 
                             <a class="label label-default" href="#prop-txindex">txIndex</a> 
+                            <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
                             <a class="label label-default" href="#prop-txnonce">txNonce</a> 
                             <a class="label label-default" href="#prop-txr">txR</a> 
                             <a class="label label-default" href="#prop-txs">txS</a> 
                             <a class="label label-default" href="#prop-txv">txV</a> 
+                            <a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a> 
                             <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
                             <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
                     </td>
@@ -2113,16 +2118,6 @@
                 </tr>
             
             
-                <tr>
-                    <td class="col-md-2">Properties include</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
-                            <a class="label label-default" href="#prop-logindex">logIndex</a> 
-                            <a class="label label-default" href="#prop-txlogsbloom">txLogsBloom</a> 
-                            <a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Used with</td>
@@ -2175,6 +2170,13 @@
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -2485,6 +2487,86 @@
             
         </table>
     
+        <h3 id="prop-createspostmsgstate">createsPostMsgState</h3>
+        <p>Relates a Message to the global state of the system after all the Message has been executed.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/createsPostMsgState">http://ethon.consensys.net/createsPostMsgState</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-createsposttxstate">createsPostTxState</h3>
+        <p>Relates a Transaction to the global state of the system after the Transaction has been executed.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/createsPostTxState">http://ethon.consensys.net/createsPostTxState</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">createsPostTxState</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-hasaccountstorage">hasAccountStorage</h3>
         <p>Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.</p>
         <table class="table table-striped">
@@ -2641,7 +2723,21 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-txtrie">TxTrie</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -3277,80 +3373,6 @@
             
         </table>
     
-        <h3 id="prop-createspostmsgstate">createsPostMsgState</h3>
-        <p></p>
-        <table class="table table-striped">
-            
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/createsPostMsgState">http://ethon.consensys.net/createsPostMsgState</a></td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
-        <h3 id="prop-createsposttxstate">createsPostTxState</h3>
-        <p>Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/createsPostTxState">http://ethon.consensys.net/createsPostTxState</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">createsPostTxState</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-worldstate">WorldState</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
         <h3 id="prop-createsstate">createsState</h3>
         <p>Relates a Transition to the State it creates.</p>
         <table class="table table-striped">
@@ -3495,7 +3517,7 @@
         </table>
     
         <h3 id="prop-haslogentry">hasLogEntry</h3>
-        <p>Relates a Transaction Receipt to a Log Entry created by the Transaction of the Receipt.</p>
+        <p>Relates a Transaction to a Log Entry it creates.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4391,13 +4413,13 @@
                             <a class="label label-default" href="#prop-msgerror">msgError</a> 
                             <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
-                            <a class="label label-default" href="#prop-msggasprice">msgGasPrice</a> 
                             <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-msgoutput">msgOutput</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a> 
                             <a class="label label-default" href="#prop-receiptsroot">receiptsRoot</a> 
                             <a class="label label-default" href="#prop-transactionsroot">transactionsRoot</a> 
+                            <a class="label label-default" href="#prop-txgasprice">txGasPrice</a> 
                             <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txhash">txHash</a> 
                             <a class="label label-default" href="#prop-txindex">txIndex</a> 
@@ -5411,7 +5433,7 @@
         </table>
     
         <h3 id="prop-cumulativegasused">cumulativeGasUsed</h3>
-        <p>The cumulative gas used in the block containing the Transaction Receipt as of immediately after the Transaction has happened.</p>
+        <p>The cumulative gas used in the block containing the Transaction as of immediately after the Transaction has happened.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5444,7 +5466,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             
@@ -5509,7 +5531,7 @@
         </table>
     
         <h3 id="prop-logindex">logIndex</h3>
-        <p>Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.</p>
+        <p>Relates a Log Entry to its index in the transaction reciept of a Transaction. The log index defines the order of the Log Entries of a Transaction.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5542,7 +5564,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             
@@ -5845,7 +5867,7 @@
         </table>
     
         <h3 id="prop-msggaslimit">msgGasLimit</h3>
-        <p>A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.</p>
+        <p>A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message. After all resulting computations are done, excess gas is returned to the sender of the original Transaction.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5893,57 +5915,8 @@
             
         </table>
     
-        <h3 id="prop-msggasprice">msgGasPrice</h3>
-        <p>A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/msgGasPrice">http://ethon.consensys.net/msgGasPrice</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">msgGasPrice</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-msg">Msg</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
         <h3 id="prop-msggasused">msgGasUsed</h3>
-        <p>The amount of gas that was used for processing this ContractMsg.</p>
+        <p>The amount of gas that was used for processing a single Message, regardless of which type of Message it may be.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6475,8 +6448,57 @@
             
         </table>
     
+        <h3 id="prop-txgasprice">txGasPrice</h3>
+        <p>A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/txGasPrice">http://ethon.consensys.net/txGasPrice</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">txGasPrice</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messagedataproperty">MessageDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="http://www.w3.org/2001/XMLSchema#integer">http://www.w3.org/2001/XMLSchema#integer</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-txgasused">txGasUsed</h3>
-        <p>The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.</p>
+        <p>The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting ContractMessages.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6623,7 +6645,7 @@
         </table>
     
         <h3 id="prop-txlogsbloom">txLogsBloom</h3>
-        <p>Relates a Transaction Receipt to the Bloom filter of its Log Entries.</p>
+        <p>Relates a Transaction to the Bloom filter of its Log Entries.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6656,7 +6678,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-txreceipt">TxReceipt</a> 
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             
