@@ -308,11 +308,10 @@
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/hasBeneficiary">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>hasBeneficiary</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to the Account to which all fees collected from the successful mining of this Block are transferred.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Block to an Account to which fees or mining rewards from the successful mining of this Block are transferred.</rdfs:comment>
         <rdfs:label xml:lang="en">has beneficiary</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -372,6 +371,21 @@
         <suggestedStringRepresentation>hasLogTopic</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Log Entry to a Log Topic.</rdfs:comment>
         <rdfs:label xml:lang="en">has Log Topic</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://ethon.consensys.net/hasAuthorBeneficiary -->
+
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/hasAuthorBeneficiary">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasBeneficiary"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+        <suggestedStringRepresentation>hasAuthorBeneficiary</suggestedStringRepresentation>
+        <rdfs:comment>Relates a Block to an Account to which the fees from gas costs, the static mining reward, and the reward for including uncles are transferred.</rdfs:comment>
+        <rdfs:label>has author beneficiary</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
 
@@ -480,13 +494,36 @@
 
 
 
-    <!-- http://ethon.consensys.net/knowsOfUncle -->
+    <!-- http://ethon.consensys.net/hasUncleBeneficiary -->
 
-    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/knowsOfUncle">
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/hasUncleBeneficiary">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasBeneficiary"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+        <suggestedStringRepresentation>hasUncleBeneficiary</suggestedStringRepresentation>
+        <rdfs:comment>Relates a Block to an Account to which the reward for mining an uncle is transferred.</rdfs:comment>
+        <rdfs:label>has uncle beneficiary</rdfs:label>
+         <ns:term_status>unstable</ns:term_status>
+     </owl:ObjectProperty>
+
+
+
+    <!-- http://ethon.consensys.net/includesUncle -->
+
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/includesUncle">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
-        <suggestedStringRepresentation>knowsOfUncle</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to a known Uncle.</rdfs:comment>
-        <rdfs:label xml:lang="en">knows of Uncle</rdfs:label>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ethon.consensys.net/Block"/>
+                    <rdf:Description rdf:about="http://ethon.consensys.net/Uncle"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+        <suggestedStringRepresentation>includesUncle</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">Relates a Block to another Block by including it as an Uncle.  Block B can be an uncle of of Block A if it the the direct child of the k&apos;th generation ancestor of a Block B, where 2&lt;=k&lt;=7 but not a direct ancestor of A. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.  Block A must include Block B as an Uncle.</rdfs:comment>
+        <rdfs:label xml:lang="en">includes Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
 
@@ -1253,20 +1290,6 @@
 
 
 
-    <!-- http://ethon.consensys.net/txGasPrice -->
-
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txGasPrice">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <suggestedStringRepresentation>txGasPrice</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</rdfs:comment>
-        <rdfs:label xml:lang="en">Transaction gas price</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:DatatypeProperty>
-
-
-
     <!-- http://ethon.consensys.net/msgGasUsed -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgGasUsed">
@@ -1440,6 +1463,20 @@
         <suggestedStringRepresentation>blockTransactionsRoot</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.</rdfs:comment>
         <rdfs:label xml:lang="en">Transactions root</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://ethon.consensys.net/txGasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txGasPrice">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <suggestedStringRepresentation>txGasPrice</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction gas price</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
 
