@@ -104,12 +104,15 @@ Relates a Transition to the State it creates.
 ### creates post Block execution State
 [`ethon:createsPostBlockState`](http://ethon.consensys.net/createsPostBlockState)   
 Relates a Block to the global state of the system after all Transactions in the Block have been executed.
+### creates post Message execution State
+[`ethon:createsPostMsgState`](http://ethon.consensys.net/createsPostMsgState)   
+Relates a Message to the global state of the system after all the Message has been executed.
 ### creates post Transaction execution State
 [`ethon:createsPostTxState`](http://ethon.consensys.net/createsPostTxState)   
-Relates a Transaction Receipt to the global state of the system after the Receipt's Transaction has been executed.
+Relates a Transaction to the global state of the system after the Transaction has been executed.
 ### cumulative gas used
 [`ethon:cumulativeGasUsed`](http://ethon.consensys.net/cumulativeGasUsed)   
-The cumulative gas used in the block containing the Transaction Receipt as of immediately after the Transaction has happened.
+The cumulative gas used in the block containing the Transaction as of immediately after the Transaction has happened.
 ## D
 ## E
 ### Ethereum Blockchain
@@ -156,7 +159,7 @@ Relates an Account to the Merkle Patricia tree that encodes its storage contents
 Relates a Protocol variant to a forked version of it. It is inverse functional because a forked Blockchain can have only one Blockchain it forked from. It is Transitive because if a Blockchain C that was forked from Blockchain B that in turn was forked from Blockchain A, Blockchain C was also forked from Blockchain A. It is assymetric because if Blockchain A is forked from Blockchain B, B cannot be also forked from A. It is irreflexive because a Blockchain cannot be a fork of itself.
 ### has Log Entry
 [`ethon:hasLogEntry`](http://ethon.consensys.net/hasLogEntry)   
-Relates a Transaction Receipt to a Log Entry created by the Transaction of the Receipt.
+Relates a Transaction to a Log Entry it creates.
 ### has Log Topic
 [`ethon:hasLogTopic`](http://ethon.consensys.net/hasLogTopic)   
 Relates a Log Entry to a Log Topic.
@@ -175,7 +178,7 @@ This property relates an EthOn concept to its most current state.
 ### has parent Block
 [`ethon:hasParentBlock`](http://ethon.consensys.net/hasParentBlock)   
 Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.
-### has receipts tree
+### has receipts trie
 [`ethon:hasReceiptsTrie`](http://ethon.consensys.net/hasReceiptsTrie)   
 Relates a Block to the Trie that contains the Block's receipt data.
 ### has state
@@ -211,7 +214,7 @@ Relates a Log Topic to its index in the Log Entry. The Log Topic index defines t
 Relates a Log Entry to its data.
 ### Log index
 [`ethon:logIndex`](http://ethon.consensys.net/logIndex)   
-Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.
+Relates a Log Entry to its index in the transaction reciept of a Transaction. The log index defines the order of the Log Entries of a Transaction.
 ### Logs bloom filter
 [`ethon:blockLogsBloom`](http://ethon.consensys.net/blockLogsBloom)   
 The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.
@@ -236,10 +239,7 @@ A boolean value indicating whether the ContractMessage execution resulted in an 
 A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.
 ### Message gas limit
 [`ethon:msgGasLimit`](http://ethon.consensys.net/msgGasLimit)   
-A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.
-### Message gas price
-[`ethon:msgGasPrice`](http://ethon.consensys.net/msgGasPrice)   
-A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.
+A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message. After all resulting computations are done, excess gas is returned to the sender of the original Transaction.
 ### Message init code
 [`ethon:msgInit`](http://ethon.consensys.net/msgInit)   
 An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
@@ -254,7 +254,7 @@ An unlimited size byte array specifying the data payload of the Message.
 A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.
 ### Msg gas used
 [`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
-The amount of gas that was used for processing this ContractMsg.
+The amount of gas that was used for processing a single Message, regardless of which type of Message it may be.
 ### mines for
 [`ethon:minesFor`](http://ethon.consensys.net/minesFor)   
 Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.
@@ -327,10 +327,16 @@ The Block number of the first block in a new Blockchain after a hard fork.
 ## T
 ### Transaction
 [`ethon:Tx`](http://ethon.consensys.net/Tx)   
-Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.
+Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a 'Transaction Receipt'.
 ### Transaction Logs Bloom filter
 [`ethon:txLogsBloom`](http://ethon.consensys.net/txLogsBloom)   
-Relates a Transaction Receipt to the Bloom filter of its Log Entries.
+Relates a Transaction to the Bloom filter of its Log Entries.
+### Transaction Receipt
+[`ethon:TxReceipt`](http://ethon.consensys.net/TxReceipt)   
+The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs.
+### Transaction gas price
+[`ethon:txGasPrice`](http://ethon.consensys.net/txGasPrice)   
+A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.
 ### Transaction index
 [`ethon:txIndex`](http://ethon.consensys.net/txIndex)   
 The position of a Transaction in a Block.
@@ -346,9 +352,6 @@ The values txV, txR and txS correspond to the signature of the transaction and a
 ### Transaction v-value
 [`ethon:txV`](http://ethon.consensys.net/txV)   
 The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: txV = CHAIN_ID * 2 + 36
-### TransactionReceipt
-[`ethon:TxReceipt`](http://ethon.consensys.net/TxReceipt)   
-The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs.
 ### Transactions Trie
 [`ethon:TxTrie`](http://ethon.consensys.net/TxTrie)   
 A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block.
@@ -357,7 +360,7 @@ A trie structure that stores transactions. The header of a Block contains a refe
 The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.
 ### Tx gas used
 [`ethon:txGasUsed`](http://ethon.consensys.net/txGasUsed)   
-The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.
+The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting ContractMessages.
 ### Tx hash
 [`ethon:txHash`](http://ethon.consensys.net/txHash)   
 The Keccak 256-bit hash of the Transaction

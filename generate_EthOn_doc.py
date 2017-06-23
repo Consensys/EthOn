@@ -2,7 +2,7 @@
 # Command line tool for using alethio-scraper
 
 import argparse
-import ontospy
+from ontospy import core as ontospy
 from jinja2 import Environment, FileSystemLoader
 from rdflib import *
 import collections
