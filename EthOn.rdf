@@ -63,6 +63,17 @@
 
 
 
+    <!-- http://ethon.consensys.net/simpleDefinition -->
+
+    <owl:AnnotationProperty rdf:about="http://ethon.consensys.net/simpleDefinition">
+        <rdfs:comment>This property relates an EthOn concept to a definition in Simple English, intended especially for non-technical users.</rdfs:comment>
+        <ns:term_status>unstable</ns:term_status>
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
+    </owl:AnnotationProperty>
+
+
+
     <!-- http://ethon.consensys.net/suggestedStringRepresentation -->
 
     <owl:AnnotationProperty rdf:about="http://ethon.consensys.net/suggestedStringRepresentation">
