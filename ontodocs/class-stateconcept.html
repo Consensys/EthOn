@@ -1,0 +1,1850 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/libs/img/favicon.ico">
+
+	
+		<title>EthOn: An Ethereum Ontology</title>
+	
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="static/libs/bootstrap-3_3_7-dist/css/bootstrap.min.css" rel="stylesheet">  -->
+    <!-- Bootswatch:  -->
+    <!-- cerulean  | cyborg |  flatly |  lumen |  sandstone |   spacelab  |  yeti | cosmo |  darkly |  paper | simplex | superhero |  journal | readable  |   slate |  united -->
+    <link href="static/libs/bootswatch3_2/paper/bootstrap.min.css" rel="stylesheet">
+    <link href="static/custom/css/simple-sidebar.css" rel="stylesheet">
+    <link href="static/custom/css/familytree.css" rel="stylesheet">
+    <link href="static/custom/css/tabletree.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="static/libs/bootstrap-3_3_7-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/custom/css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style type="text/css">
+
+  .lead-plus {font-size: 26.5px;}
+  .label-xs {font-size: 10px;}
+  .label-dark {background: #2c3e50; color: white; padding: 1px;}
+  .margin50 {margin-top: 50px; margin-bottom: 50px;}
+
+  .namespaces {background: #ced2d6; width: 100%;}
+
+
+  /*so that the d3plus tooltip panel doesnt cover the top banner*/
+  .navbar {z-index: 3000;}
+
+
+  .panel-body dt {margin-top: 5px;}
+  .page-header  {margin-top: 30px;}
+  #wrapper {margin-top: 50px;}
+
+  .implementation-panel {
+    overflow: auto;
+    /*max-height: 500px;*/
+  }
+
+  tr.table-classproperties {
+      /*background: #f5f5f5;*/
+  }
+  tr.table-classproperties th {
+      font-size: 80%;
+      font-weight: normal;
+  }
+
+
+  tr.table-inheritanceinfo {
+      /*background: #f5f5f5;*/
+      text-align: left;
+  }
+
+  tr.table-inheritanceinfo th {
+      font-size: 90%;
+      font-weight: normal;
+  }
+
+
+  .breadcrumb {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .breadcrumb a {
+      text-transform: capitalize;
+  }
+  .breadcrumb li {
+      text-transform: none;
+      /*so to catch the uri @todo improve*/
+  }
+
+
+  .fromclass_link {
+    /*color: white;
+    text-decoration: underline;*/
+    /*background: #1c1e52;*/
+    color: inherit;
+    /*padding: 1px;*/
+  }
+
+		.mythumbnail {
+			display: block;
+			padding: 13px;
+			margin-bottom: 30px;
+			line-height: 13.428571;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 30px;
+		}
+
+		.mythumbnail:hover {
+			background: lightyellow;
+			text-decoration: none;
+		}
+
+
+		.img-container{
+		    height:100%;
+			overflow: hidden;
+		    max-height:200px;
+			padding: 10px;
+/*			margin: 20px 0px 20px 0px;*/
+			border: 1em #EAE5E5 solid;
+		}
+
+		.img-container:hover {
+			border: 1px grey solid;
+		}
+
+		img{
+/*		    height:100% !important;*/
+		}
+
+
+		.icon-xxs {
+			font-size: 15px;
+		}
+
+
+    /* dropdown open on hover */
+
+    @media (min-width: 979px) {
+      ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+      }
+    }
+
+
+
+/*pygments css*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+/*overloading this class from pygments*/
+.highlight {
+  overflow: auto;
+}
+
+
+
+
+
+
+
+
+</style>
+
+<style type="text/css" media="screen">
+
+
+
+	body {
+	    margin-left: 6em;
+	    margin-right: 12em;
+	    font-size: 14px;
+	    font-family: "Helvetica Neue", Helvetica;
+	}
+
+	h1, h2, h3, h4, h5, h6 { text-align: left }
+
+	h1, h2, h3, h4, h5 { color: #000000;}
+	h2 { font: 140% sans-serif }
+	h3 { font: 120% sans-serif }
+	h4 { font: bold 100% sans-serif }
+	h5 { font: italic 100% sans-serif }
+	h6 { font: small-caps 100% sans-serif }
+
+	.margintop {
+		 margin-top: 40px;
+	}
+
+
+
+	/* rect {
+	   fill: none;
+	   pointer-events: all;
+	 }*/
+
+	 rect {
+	   fill:black;
+	   stroke:none;
+	 }
+
+	 line {
+	   stroke: #000;
+	   stroke-width: 1.5px;
+	 }
+
+	 .string, .regexp {
+	   color: #f39;
+	 }
+
+
+	 a:link, a:visited {
+	   color: #666;
+	   text-decoration: none;
+	 }
+
+	 a:hover {
+	   color: #000
+	 }
+
+
+	/*extra css*/
+
+	.node circle {
+	  cursor: pointer;
+	  fill: #fff;
+	  stroke: steelblue;
+	  stroke-width: 1.5px;
+	}
+
+	.node text {
+	  font-size: 11px;
+	}
+
+	path.link {
+	  fill: none;
+	  stroke: #ccc;
+	  stroke-width: 1.5px;
+	}
+
+
+	.infoentity {
+	    stroke: white;
+	    stroke-width: 2.5px;
+	    opacity: 0.7;
+		background: linen;
+		line-height: 0.7em;
+	}
+
+
+	.smalldesc {
+		font-size: 20px;
+		margin-top: 0px;
+		color: black;
+	}
+
+
+	.hidden {
+		display: none;
+	}
+
+	kbd {
+		padding: 2px 4px;
+	    font-size: 90%;
+	    color: #fff;
+	    background-color: #333;
+	    border-radius: 3px;
+	    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);border-image-outset:
+	}
+
+	/*slider*/
+
+	.side-panel{
+		background-color: #E6E6E6;
+		padding: 10px;
+		/*word-wrap: break-word;*/
+	    overflow: auto;
+	}
+
+	.side-panel-left{
+		box-shadow: -5px 0 15px -6px #585858 inset;
+	}
+
+	.side-panel-right{
+		box-shadow: 5px 0 15px -6px #585858 inset;
+	}
+
+	a.class {
+		color: darkred;
+	}
+	a.prop {
+		color: darkblue;
+	}
+
+	.turtlesource {
+		font-size: 12px;
+	}
+
+	dt {
+		color: darkslategrey;
+	}
+
+	.text-muted {
+		color: grey;
+	}
+
+	hr {
+		margin-top: 20px;
+	    margin-bottom: 20px;
+	}
+
+    .credits {
+        color: gray;
+    }
+
+    a.greylink {
+        color: #666;
+        text-decoration: underline;
+    }
+
+    .section-title {
+
+        font-size: smaller;
+    }
+
+</style>
+
+
+
+  </head>
+
+  <body>
+
+
+
+    
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" id="menu-toggle" title="Toggle sidebar">
+        
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html"><code style="font-size: 115%;">EthOn: An Ethereum Ontology</code></a></li>
+        
+
+       
+
+
+        <li  ><a href="entities-az.html">Entities A-Z</a></li>
+        <li ><a href="entities-tree-view.html">Tree View</a></li>
+        <li  ><a href="statistics.html">Statistics</a></li>
+
+
+
+
+
+      </ul>
+      
+    </div><!--/.nav-collapse -->
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+<div id="wrapper" class="toggled">
+
+
+    
+
+    
+        
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+
+
+        <li>
+          <input style="margin-top: 30px;  margin-bottom: 20px;" type="text" id="search-input-sidebar" name="" value="" placeholder="Type to search">
+        </li>
+
+        
+          <li class="-second-level" id="sd_classes"><a href="entities-tree-classes.html">Classes (46)</a>
+          </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_2"><a  href="class-account.html">:Account</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_3"><a  href="class-accountconcept.html">:AccountConcept</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_4"><a  href="class-accountstate.html">:AccountState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_5"><a  href="class-accountstorage.html">:AccountStorage</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_6"><a  href="class-block.html">:Block</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_7"><a  href="class-blockconcept.html">:BlockConcept</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_8"><a  href="class-blockchain.html">:Blockchain</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_9"><a  href="class-callcontractmsg.html">:CallContractMsg</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_10"><a  href="class-calltx.html">:CallTx</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_11"><a  href="class-contractaccount.html">:ContractAccount</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_12"><a  href="class-contractmsg.html">:ContractMsg</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_13"><a  href="class-createcontractmsg.html">:CreateContractMsg</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_14"><a  href="class-createtx.html">:CreateTx</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_15"><a  href="class-ethonconcept.html">:EthOnConcept</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_16"><a  href="class-externalaccount.html">:ExternalAccount</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_17"><a  href="class-externalactor.html">:ExternalActor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_18"><a  href="class-fullnode.html">:FullNode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_19"><a  href="class-genesisblock.html">:GenesisBlock</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_20"><a  href="class-lightnode.html">:LightNode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_21"><a  href="class-logentry.html">:LogEntry</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_22"><a  href="class-logtopic.html">:LogTopic</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_23"><a  href="class-messageconcept.html">:MessageConcept</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_24"><a  href="class-modifiedmerklepatriciatree.html">:ModifiedMerklePatriciaTree</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_25"><a  href="class-msg.html">:Msg</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_26"><a  href="class-network.html">:Network</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_27"><a  href="class-networkconcept.html">:NetworkConcept</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_28"><a  href="class-node.html">:Node</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_29"><a  href="class-postblockstate.html">:PostBlockState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_30"><a  href="class-postmsgstate.html">:PostMsgState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_31"><a  href="class-posttxstate.html">:PostTxState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_32"><a  href="class-protocolaccount.html">:ProtocolAccount</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_33"><a  href="class-protocolstate.html">:ProtocolState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_34"><a  href="class-protocollvariant.html">:ProtocollVariant</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_35"><a  href="class-receiptstrie.html">:ReceiptsTrie</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_36"><a  href="class-selfdestructcontractmsg.html">:SelfdestructContractMsg</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_37"><a  href="class-state.html">:State</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_38"><a class="active" href="class-stateconcept.html">:StateConcept</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_39"><a  href="class-statetransition.html">:StateTransition</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_40"><a  href="class-tx.html">:Tx</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_41"><a  href="class-txreceipt.html">:TxReceipt</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_42"><a  href="class-txtrie.html">:TxTrie</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_43"><a  href="class-uncle.html">:Uncle</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_44"><a  href="class-valuecontractmsg.html">:ValueContractMsg</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_45"><a  href="class-valuetx.html">:ValueTx</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_46"><a  href="class-worldstate.html">:WorldState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_47"><a  href="class-httpxmlnscomfoaf01agent.html">http://xmlns.com/foaf/0.1/Agent</a></li>
+          
+        
+
+        
+            <li class="-second-level" id="sd_properties"><a  href="entities-tree-properties.html">Properties (102)</a>
+            </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_48"><a   href="prop-dase_rule.html">:DASE_RULE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_49"><a   href="prop-ethonannotationproperty.html">:EthOnAnnotationProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_50"><a   href="prop-suggestedstringrepresentation.html">:suggestedStringRepresentation</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_51"><a   href="prop-swrlaisruleenabled.html">swrla:isRuleEnabled</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_52"><a   href="prop-hasparentblock.html">:hasParentBlock</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_53"><a   href="prop-accountdataproperty.html">:AccountDataProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_54"><a   href="prop-blockdataproperty.html">:BlockDataProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_55"><a   href="prop-ethondataproperty.html">:EthOnDataProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_56"><a   href="prop-messagedataproperty.html">:MessageDataProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_57"><a   href="prop-networkdataproperty.html">:NetworkDataProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_58"><a   href="prop-statedataproperty.html">:StateDataProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_59"><a   href="prop-accountbalance.html">:accountBalance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_60"><a   href="prop-accountbalanceprefunded.html">:accountBalancePrefunded</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_61"><a   href="prop-accountcode.html">:accountCode</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_62"><a   href="prop-accountcodehash.html">:accountCodeHash</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_63"><a   href="prop-accountnonce.html">:accountNonce</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_64"><a   href="prop-accountpublickey.html">:accountPublicKey</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_65"><a   href="prop-address.html">:address</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_66"><a   href="prop-blockbeneficiaryreward.html">:blockBeneficiaryReward</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_67"><a   href="prop-blockcreationtime.html">:blockCreationTime</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_68"><a   href="prop-blockdifficulty.html">:blockDifficulty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_69"><a   href="prop-blockextradata.html">:blockExtraData</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_70"><a   href="prop-blockgaslimit.html">:blockGasLimit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_71"><a   href="prop-blockgasused.html">:blockGasUsed</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_72"><a   href="prop-blockhash.html">:blockHash</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_73"><a   href="prop-blockheader.html">:blockHeader</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_74"><a   href="prop-blocklogsbloom.html">:blockLogsBloom</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_75"><a   href="prop-blockmixhash.html">:blockMixHash</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_76"><a   href="prop-blocknonce.html">:blockNonce</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_77"><a   href="prop-blocksize.html">:blockSize</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_78"><a   href="prop-clientversion.html">:clientVersion</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_79"><a   href="prop-cumulativegasused.html">:cumulativeGasUsed</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_80"><a   href="prop-logdata.html">:logData</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_81"><a   href="prop-logindex.html">:logIndex</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_82"><a   href="prop-logtopicdata.html">:logTopicData</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_83"><a   href="prop-logtopicindex.html">:logTopicIndex</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_84"><a   href="prop-msgcalldepth.html">:msgCallDepth</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_85"><a   href="prop-msgdata.html">:msgData</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_86"><a   href="prop-msgerror.html">:msgError</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_87"><a   href="prop-msgerrorstring.html">:msgErrorString</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_88"><a   href="prop-msggaslimit.html">:msgGasLimit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_89"><a   href="prop-msggasused.html">:msgGasUsed</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_90"><a   href="prop-msginit.html">:msgInit</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_91"><a   href="prop-msgoutput.html">:msgOutput</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_92"><a   href="prop-msgpayload.html">:msgPayload</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_93"><a   href="prop-msgrefundbalance.html">:msgRefundBalance</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_94"><a   href="prop-number.html">:number</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_95"><a   href="prop-receiptsroot.html">:receiptsRoot</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_96"><a   href="prop-startblocknumber.html">:startBlockNumber</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_97"><a   href="prop-stateroot.html">:stateRoot</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_98"><a   href="prop-storageroot.html">:storageRoot</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_99"><a   href="prop-transactionsroot.html">:transactionsRoot</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_100"><a   href="prop-txgasprice.html">:txGasPrice</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_101"><a   href="prop-txgasused.html">:txGasUsed</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_102"><a   href="prop-txhash.html">:txHash</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_103"><a   href="prop-txindex.html">:txIndex</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_104"><a   href="prop-txlogsbloom.html">:txLogsBloom</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_105"><a   href="prop-txnonce.html">:txNonce</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_106"><a   href="prop-txr.html">:txR</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_107"><a   href="prop-txs.html">:txS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_108"><a   href="prop-txv.html">:txV</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_109"><a   href="prop-unclebeneficiaryreward.html">:uncleBeneficiaryReward</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_110"><a   href="prop-value.html">:value</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_111"><a   href="prop-createspostblockstate.html">:createsPostBlockState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_112"><a   href="prop-createspostmsgstate.html">:createsPostMsgState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_113"><a   href="prop-createsposttxstate.html">:createsPostTxState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_114"><a   href="prop-hasaccountstorage.html">:hasAccountStorage</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_115"><a   href="prop-hasbeneficiary.html">:hasBeneficiary</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_116"><a   href="prop-hasreceiptstrie.html">:hasReceiptsTrie</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_117"><a   href="prop-hastxtrie.html">:hasTxTrie</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_118"><a   href="prop-refunds.html">:refunds</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_119"><a   href="prop-containstx.html">:containsTx</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_120"><a   href="prop-hascurrentstate.html">:hasCurrentState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_121"><a   href="prop-hasoriginatortx.html">:hasOriginatorTx</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_122"><a   href="prop-hasstate.html">:hasState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_123"><a   href="prop-accountobjectproperty.html">:AccountObjectProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_124"><a   href="prop-blockobjectproperty.html">:BlockObjectProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_125"><a   href="prop-ethonobjectproperty.html">:EthOnObjectProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_126"><a   href="prop-messageobjectproperty.html">:MessageObjectProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_127"><a   href="prop-networkobjectproperty.html">:NetworkObjectProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_128"><a   href="prop-stateobjectproperty.html">:StateObjectProperty</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_129"><a   href="prop-conformsto.html">:conformsTo</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_130"><a   href="prop-controlsaccount.html">:controlsAccount</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_131"><a   href="prop-creates.html">:creates</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_132"><a   href="prop-createsstate.html">:createsState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_133"><a   href="prop-from.html">:from</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_134"><a   href="prop-hasfork.html">:hasFork</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_135"><a   href="prop-haslogentry.html">:hasLogEntry</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_136"><a   href="prop-haslogtopic.html">:hasLogTopic</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_137"><a   href="prop-hasreceipt.html">:hasReceipt</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_138"><a   href="prop-hastransition.html">:hasTransition</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_139"><a   href="prop-knowsofuncle.html">:knowsOfUncle</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_140"><a   href="prop-loggedby.html">:loggedBy</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_141"><a   href="prop-minesfor.html">:minesFor</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_142"><a   href="prop-nextblockstate.html">:nextBlockState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_143"><a   href="prop-nextmsgstate.html">:nextMsgState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_144"><a   href="prop-nextstate.html">:nextState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_145"><a   href="prop-nexttxstate.html">:nextTxState</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_146"><a   href="prop-partof.html">:partOf</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_147"><a   href="prop-spawnsblock.html">:spawnsBlock</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_148"><a   href="prop-to.html">:to</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_149"><a   href="prop-triggersmsg.html">:triggersMsg</a></li>
+          
+
+        
+
+        
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </ul>
+
+</div>
+
+
+<!-- /#sidebar-wrapper -->
+
+    
+
+
+
+
+    <!-- Begin page content -->
+    <div class="container" id="page-content-wrapper">
+
+      
+
+	
+
+
+
+
+
+
+        
+
+
+
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ol class="breadcrumb">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+          <a href="entities-az.html">Entities</a>
+    </li>
+    <li>
+          <a href="entities-tree-classes.html">Classes</a>
+    </li>
+      <li class="active">
+            http://ethon.consensys.net/StateConcept
+        </li>
+  </ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+            <h1>
+
+                :StateConcept
+                
+
+            </h1>
+            <hr>
+
+
+
+            <div class="tree-container">
+            <div class="tree">
+                <ul>
+                    
+
+                        
+
+                        <li>
+
+                          <a href="class-ethonconcept.html" title="'EthOn Concept' - Groups al EthOn concepts.">:EthOnConcept</a>
+
+                          <ul>
+
+                            <li><a style="font-weight: bold;" title="'EthOn State Concept' - Groups EthOn concepts related to state.">:StateConcept</a>
+                            
+                                <ul>
+                                  <li><a href="class-state.html" title="'State' - The concept of a state in a generic state transition system.">:State</a></li><li><a href="class-statetransition.html" title="'State Transition' - The concept of a transition in a state transition system.">:StateTransition</a></li>
+                                </ul>
+                            
+                              </li>
+
+                          </ul>
+
+                          </li>
+                        
+
+                    
+
+                </ul>
+            </div>
+            </div>
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">URI</h3>
+            </div>
+            <div class="panel-body">
+
+                <code>http://ethon.consensys.net/StateConcept</code>
+            </div>
+          </div>
+           </div></div>
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Label</h3>
+            </div>
+            <div class="panel-body">
+
+                EthOn State Concept
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Description</h3>
+            </div>
+            <div class="panel-body">
+
+                Groups EthOn concepts related to state.
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Superclasses (1)</h3>
+            </div>
+            <div class="panel-body">
+
+            
+                    <li><a href="class-ethonconcept.html">:EthOnConcept</a></li>
+            
+
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+         
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Usage</h3>
+            </div>
+            <div class="panel-body" style="overflow: auto;">
+
+                <p>Instances of :StateConcept can have the following properties:</p>
+            </div>
+             <table class="table table-bordered" style="overflow: auto;">
+
+                <tr class="table-classproperties">
+                    <th>PROPERTY</th><th>DESCRIPTION</th><th>RANGE</th>
+                </tr>
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title=":StateConcept" href="class-stateconcept.html" class="fromclass_link">:StateConcept</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":StateDataProperty" href="prop-statedataproperty.html">:StateDataProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title=":EthOnConcept" href="class-ethonconcept.html" class="fromclass_link">:EthOnConcept</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":suggestedStringRepresentation" href="prop-suggestedstringrepresentation.html">:suggestedStringRepresentation</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>This property relates an EthOn concept with a suggested string representation. It can be used to give the term a name, e.g. in program code.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":conformsTo" href="prop-conformsto.html">:conformsTo</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title="owl:Thing" href="class-owlthing.html" class="fromclass_link">owl:Thing</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":DASE_RULE" href="prop-dase_rule.html">:DASE_RULE</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":EthOnAnnotationProperty" href="prop-ethonannotationproperty.html">:EthOnAnnotationProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Superclass of all EthOn specific annotation properties.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="swrla:isRuleEnabled" href="prop-swrlaisruleenabled.html">swrla:isRuleEnabled</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":EthOnDataProperty" href="prop-ethondataproperty.html">:EthOnDataProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all Data Properties specific to EthOn.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":NetworkDataProperty" href="prop-networkdataproperty.html">:NetworkDataProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all EthOn Network Data Properties.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockCreationTime" href="prop-blockcreationtime.html">:blockCreationTime</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>This Block&#39;s inception date and time.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockDifficulty" href="prop-blockdifficulty.html">:blockDifficulty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>A scalar value corresponding to the difficulty level of this Block. This can be calculated from the previous Block&#39;s difficulty level and the timestamp.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockExtraData" href="prop-blockextradata.html">:blockExtraData</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>An arbitrary byte array containing data relevant to this Block. This must be 32 bytes or fewer.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockGasLimit" href="prop-blockgaslimit.html">:blockGasLimit</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>A scalar value equal to the current limit of gas expenditure per Block.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockGasUsed" href="prop-blockgasused.html">:blockGasUsed</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>A scalar value equal to the total gas used in transactions in this Block.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockHash" href="prop-blockhash.html">:blockHash</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>The Keccak 256-bit hash of the Block&#39;s header, in its entierty.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockHeader" href="prop-blockheader.html">:blockHeader</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockLogsBloom" href="prop-blocklogsbloom.html">:blockLogsBloom</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockMixHash" href="prop-blockmixhash.html">:blockMixHash</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":blockNonce" href="prop-blocknonce.html">:blockNonce</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this Block.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":msgData" href="prop-msgdata.html">:msgData</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>An unlimited size byte array specifying the input data of the call.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":msgInit" href="prop-msginit.html">:msgInit</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":number" href="prop-number.html">:number</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title="" href=".html" class="rdfclass"></a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":createsPostMsgState" href="prop-createspostmsgstate.html">:createsPostMsgState</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a Message to the global state of the system after all the Message has been executed.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":hasAccountStorage" href="prop-hasaccountstorage.html">:hasAccountStorage</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title=":AccountStorage" href="class-accountstorage.html" class="rdfclass">:AccountStorage</a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":hasReceiptsTrie" href="prop-hasreceiptstrie.html">:hasReceiptsTrie</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a Block to the Trie that contains the Block&#39;s receipt data.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":AccountObjectProperty" href="prop-accountobjectproperty.html">:AccountObjectProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all EthOn Account Object Properties</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":BlockObjectProperty" href="prop-blockobjectproperty.html">:BlockObjectProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all EthOn Block Object Properties</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":EthOnObjectProperty" href="prop-ethonobjectproperty.html">:EthOnObjectProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all EthOn Object Properties</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":MessageObjectProperty" href="prop-messageobjectproperty.html">:MessageObjectProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all EthOn Message Object Properties.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":NetworkObjectProperty" href="prop-networkobjectproperty.html">:NetworkObjectProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all EthOn Network Object Properties.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":StateObjectProperty" href="prop-stateobjectproperty.html">:StateObjectProperty</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Groups all EthOn State Object Properties.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":creates" href="prop-creates.html">:creates</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a create transaction to the ContractAccount it creates.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title=":ContractAccount" href="class-contractaccount.html" class="rdfclass">:ContractAccount</a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":from" href="prop-from.html">:from</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a Message with the Account it originates from.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":hasTransition" href="prop-hastransition.html">:hasTransition</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a State to a Transition (i.e. a Message) that creates a new State.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":knowsOfUncle" href="prop-knowsofuncle.html">:knowsOfUncle</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a Block to a known Uncle.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":partOf" href="prop-partof.html">:partOf</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>This is a general relation to express part of relationships. The classic study of parts and wholes, mereology, has three axioms: 1. the part-of relation is Transitive - &quot;parts of parts are parts of the whole&quot; - If A is part of B and B is part of C, then A is part of C Reflexive - &quot;Everything is part of itself&quot; - A is part of A Antisymmetric - &quot;Nothing is a part of its parts&quot; - if A is part of B and A != B then B is not part of A.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title=":triggersMsg" href="prop-triggersmsg.html">:triggersMsg</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                    
+
+                                        <a title=":ContractMsg" href="class-contractmsg.html" class="rdfclass">:ContractMsg</a>
+
+                                    
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+            </table>
+
+
+          </div>
+           </div></div>
+
+        
+
+
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Implementation</h3>
+            </div>
+            <div class="panel-body implementation-panel">
+
+                
+
+                    <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">:</span><span class="w"> </span><span class="nv">&lt;http://ethon.consensys.net/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">dc:</span><span class="w"> </span><span class="nv">&lt;http://purl.org/dc/elements/1.1/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">ns:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/06/sw-vocab-status/ns#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdf:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">sh:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/ns/shacl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">skos:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2004/02/skos/core#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">swrl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/11/swrl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">swrla:</span><span class="w"> </span><span class="nv">&lt;http://swrl.stanford.edu/ontologies/3.3/swrla.owl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">swrlb:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2003/11/swrlb#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">vann:</span><span class="w"> </span><span class="nv">&lt;http://purl.org/vocab/vann/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">void:</span><span class="w"> </span><span class="nv">&lt;http://rdfs.org/ns/void#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">xml:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/XML/1998/namespace&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+
+<span class="nn">:</span><span class="nt">StateConcept</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">Class</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;EthOn State Concept&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">comment</span><span class="w"> </span><span class="s">&quot;Groups EthOn concepts related to state.&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">EthOnConcept</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">ns:</span><span class="nt">term_status</span><span class="w"> </span><span class="s">&quot;unstable&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+
+
+                
+            </div>
+          </div>
+           </div></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+	</div><!-- /#page-content-wrapper -->
+
+
+  
+
+
+
+  
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+    
+      <p class="text-muted">Documentation automatically generated on 5th July 2017 with <a href="https://github.com/lambdamusic/OntoDocs">OntoDocs</a> (v1.0.3)</p>
+
+    
+    </div>
+  </footer>
+
+
+</div><!-- /#wrapper -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="static/libs/jquery/1_12_4/jquery.min.js"></script>
+<script src="static/libs/bootstrap-3_3_7-dist/js/bootstrap.min.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="static/libs/bootstrap-3_3_7-dist/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="static/libs/chartjs-2_4_0/chart.bundle.js"></script>
+
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+
+$('#search-input-sidebar').keyup(function() {
+
+  var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+  // var $rows = $(this).next(".entities-list").find("div");
+  var $rows = $(this).parent().parent().find("li.second-level");
+
+  $rows.show().filter(function() {
+      var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+      return !~text.indexOf(val);
+  }).hide();
+});
+
+</script>
+
+
+
+
+  <!-- Scroll Sidebar Script -->
+
+  
+  
+
+  <script type="text/javascript">
+
+    $(document).ready(function (){
+      $('#sidebar-wrapper').animate({
+          scrollTop: $("#sd_38").offset().top - 100
+      }, 100);
+    });
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
