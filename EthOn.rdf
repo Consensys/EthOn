@@ -1621,7 +1621,7 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/address"/>
         </owl:hasKey>
         <suggestedStringRepresentation xml:lang="en">Account</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Accounts are identified by a private and public key (known as a keypair. The public key is typically referred to as the account address. All accounts are associated with an Account State, and Contract Accounts may have an associated Storage State and EVM code.</rdfs:comment>
         <rdfs:label xml:lang="en">Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
