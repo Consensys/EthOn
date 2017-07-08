@@ -1621,7 +1621,10 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/address"/>
         </owl:hasKey>
         <suggestedStringRepresentation xml:lang="en">Account</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Accounts are identified by a private and public key (known as a keypair.) The public key is typically referred to as the account address. All accounts are associated with an Account State, and Contract Accounts may have an associated Storage State and EVM code.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Accounts are identified by an address derived from:
+
+The public key of a public and private keypair, if it's an external and protocol account, or
+A concatenation of the creator Account's address and its nonce, if it's a contract account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
