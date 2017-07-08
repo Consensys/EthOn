@@ -519,7 +519,7 @@
             </owl:Class>
         </rdfs:range>
         <suggestedStringRepresentation>includesUncle</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to another Block by including it as an Uncle.  Block B can be an uncle of of Block A if it the the direct child of the k&apos;th generation ancestor of a Block B, where 2&lt;=k&lt;=7 but not a direct ancestor of A. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.  Block A must include Block B as an Uncle.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Block to another Block by including it as an Uncle. Block B can be an uncle of of Block A if it the the direct child of the k&apos;th generation ancestor of a Block B, where 2&lt;=k&lt;=7 but not a direct ancestor of A. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.</rdfs:comment>
         <rdfs:label xml:lang="en">includes Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -1272,7 +1272,7 @@
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
 
-  
+
 
     <!-- http://ethon.consensys.net/msgGasUsed -->
 
