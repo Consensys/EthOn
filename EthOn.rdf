@@ -34,10 +34,10 @@
         <dc:contributor>Stefano Bertolo</dc:contributor>
         <dc:contributor>Marian Oancea</dc:contributor>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -45,13 +45,13 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://ethon.consensys.net/DASE_RULE -->
 
     <owl:AnnotationProperty rdf:about="http://ethon.consensys.net/DASE_RULE"/>
-    
+
 
 
     <!-- http://ethon.consensys.net/EthOnAnnotationProperty -->
@@ -60,7 +60,7 @@
         <rdfs:comment xml:lang="en">Superclass of all EthOn specific annotation properties.</rdfs:comment>
         <ns:term_status>unstable</ns:term_status>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/suggestedStringRepresentation -->
@@ -71,16 +71,16 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
 
     <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -88,7 +88,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://ethon.consensys.net/AccountObjectProperty -->
@@ -99,7 +99,7 @@
         <rdfs:label xml:lang="en">EthOn Account Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/BlockObjectProperty -->
@@ -110,7 +110,7 @@
         <rdfs:label xml:lang="en">EthOn Block Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/EthOnObjectProperty -->
@@ -120,7 +120,7 @@
         <rdfs:label xml:lang="en">EthOn Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/MessageObjectProperty -->
@@ -131,7 +131,7 @@
         <rdfs:label xml:lang="en">EthOn Message Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/NetworkObjectProperty -->
@@ -142,7 +142,7 @@
         <rdfs:label xml:lang="en">EthOn Network Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/StateObjectProperty -->
@@ -153,7 +153,7 @@
         <rdfs:label xml:lang="en">EthOn State Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/conformsTo -->
@@ -166,7 +166,7 @@
         <rdfs:label>conforms to</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/containsTx -->
@@ -181,7 +181,7 @@
         <rdfs:label xml:lang="en">contains Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/controlsAccount -->
@@ -195,28 +195,22 @@
         <rdfs:label xml:lang="en">controls Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/creates -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/creates">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/to"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CreateContractMsg"/>
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CreateTx"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/CreateMsg"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <suggestedStringRepresentation>creates</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a create transaction to the ContractAccount it creates.</rdfs:comment>
         <rdfs:label xml:lang="en">creates</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/createsPostBlockState -->
@@ -232,29 +226,34 @@
         <rdfs:label xml:lang="en">creates post Block execution State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/createsPostMsgState -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/createsPostMsgState">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/createsState"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:comment>Relates a Message to the global state of the system after all the Message has been executed.</rdfs:comment>
+        <rdfs:label>creates post Message execution State</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/createsPostTxState -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/createsPostTxState">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/createsState"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/TxReceipt"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/WorldState"/>
         <suggestedStringRepresentation>createsPostTxState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transaction Receipt to the global state of the system after the Receipt&apos;s Transaction has been executed.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Transaction to the global state of the system after the Transaction has been executed.</rdfs:comment>
         <rdfs:label xml:lang="en">creates post Transaction execution State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/createsState -->
@@ -269,19 +268,22 @@
         <rdfs:label xml:lang="en">creates State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/from -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/from">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>fromAccount</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Message with the Account it originates from.</rdfs:comment>
         <rdfs:label xml:lang="en">from</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasAccountStorage -->
@@ -297,7 +299,7 @@
         <rdfs:label xml:lang="en">has Account Storage</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasBeneficiary -->
@@ -312,7 +314,7 @@
         <rdfs:label xml:lang="en">has beneficiary</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasCurrentState -->
@@ -327,7 +329,7 @@
         <rdfs:label>has current State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasFork -->
@@ -342,7 +344,7 @@
         <rdfs:label xml:lang="en">has Fork</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasLogEntry -->
@@ -352,11 +354,11 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/LogEntry"/>
         <suggestedStringRepresentation>hasLogEntry</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transaction Receipt to a Log Entry created by the Transaction of the Receipt.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Transaction to a Log Entry it creates.</rdfs:comment>
         <rdfs:label xml:lang="en">has Log Entry</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasLogTopic -->
@@ -370,14 +372,14 @@
         <rdfs:label xml:lang="en">has Log Topic</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasOriginatorTx -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/hasOriginatorTx">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Tx"/>
         <suggestedStringRepresentation>hasOriginatorTx</suggestedStringRepresentation>
@@ -385,7 +387,7 @@
         <rdfs:label xml:lang="en">has Originator Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasParentBlock -->
@@ -402,7 +404,7 @@
         <rdfs:label xml:lang="en">has parent Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasReceipt -->
@@ -416,7 +418,7 @@
         <rdfs:label xml:lang="en">has transaction receipt</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasReceiptsTrie -->
@@ -427,10 +429,10 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <suggestedStringRepresentation>hasReceiptsTrie</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Block to the Trie that contains the Block&apos;s receipt data.</rdfs:comment>
-        <rdfs:label xml:lang="en">has receipts tree</rdfs:label>
+        <rdfs:label xml:lang="en">has receipts trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasState -->
@@ -445,7 +447,7 @@
         <rdfs:label xml:lang="en">has state</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasTransition -->
@@ -457,7 +459,7 @@
         <rdfs:label xml:lang="en">has Transition</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/hasTxTrie -->
@@ -466,12 +468,14 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/TxTrie"/>
         <suggestedStringRepresentation>hasTxTrie</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Block to the trie that contains the data of the transactions contained in the Block.</rdfs:comment>
         <rdfs:label xml:lang="en">has transactions trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/knowsOfUncle -->
@@ -483,7 +487,7 @@
         <rdfs:label xml:lang="en">knows of Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/loggedBy -->
@@ -497,7 +501,7 @@
         <rdfs:label xml:lang="en">logged by</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/minesFor -->
@@ -511,7 +515,7 @@
         <rdfs:label xml:lang="en">mines for</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/nextBlockState -->
@@ -525,7 +529,7 @@
         <rdfs:label xml:lang="en">next Post Block State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/nextMsgState -->
@@ -539,7 +543,7 @@
         <rdfs:label xml:lang="en">next Post Message State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/nextState -->
@@ -553,7 +557,7 @@
         <rdfs:label xml:lang="en">next State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/nextTxState -->
@@ -567,7 +571,7 @@
         <rdfs:label xml:lang="en">next Post Transaction State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/partOf -->
@@ -581,7 +585,7 @@
         <rdfs:seeAlso rdf:resource="https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/"/>
         <ns:term_status>testing</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/refunds -->
@@ -589,14 +593,14 @@
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/refunds">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/to"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/SelfdestructContractMsg"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>refunds</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to.</rdfs:comment>
         <rdfs:label xml:lang="en">refunds</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/spawnsBlock -->
@@ -610,47 +614,41 @@
         <rdfs:label>spawns Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/to -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/to">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
-        <rdfs:range rdf:resource="http://ethon.consensys.net/Msg"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>toAccount</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Message with the Account it is sent to.</rdfs:comment>
         <rdfs:label xml:lang="en">to</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/triggersMsg -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/triggersMsg">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CallContractMsg"/>
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CallTx"/>
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CreateContractMsg"/>
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CreateTx"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <suggestedStringRepresentation>triggersMsg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.</rdfs:comment>
         <rdfs:label xml:lang="en">triggers Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -658,7 +656,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://ethon.consensys.net/AccountDataProperty -->
@@ -670,7 +668,7 @@
         <rdfs:label xml:lang="en">EthOn Account Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/BlockDataProperty -->
@@ -682,7 +680,7 @@
         <rdfs:label xml:lang="en">EthOn Block Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/EthOnDataProperty -->
@@ -693,7 +691,7 @@
         <rdfs:label xml:lang="en">EthOn Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/MessageDataProperty -->
@@ -703,7 +701,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:comment xml:lang="en">Groups all EthOn Message Data Properties.</rdfs:comment>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/NetworkDataProperty -->
@@ -714,7 +712,7 @@
         <rdfs:label xml:lang="en">EthOn Network Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/StateDataProperty -->
@@ -723,7 +721,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/StateConcept"/>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/accountBalance -->
@@ -738,7 +736,7 @@
         <rdfs:label xml:lang="en">Account balance</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/accountBalancePrefunded -->
@@ -752,7 +750,7 @@
         <rdfs:label xml:lang="en">Account balance prefunded</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/accountCode -->
@@ -767,7 +765,7 @@
         <rdfs:label xml:lang="en">Account code</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/accountCodeHash -->
@@ -782,7 +780,7 @@
         <rdfs:label xml:lang="en">Account code hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/accountNonce -->
@@ -797,7 +795,7 @@
         <rdfs:label xml:lang="en">Account nonce</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/accountPublicKey -->
@@ -812,7 +810,7 @@
         <rdfs:label xml:lang="en">Account public key</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/address -->
@@ -827,7 +825,7 @@
         <rdfs:label xml:lang="en">Address</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockBeneficiaryReward -->
@@ -842,7 +840,7 @@
         <rdfs:label xml:lang="en">Block beneficiary reward</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockCreationTime -->
@@ -864,7 +862,7 @@
         <rdfs:label xml:lang="en">Block creation time</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockDifficulty -->
@@ -886,7 +884,7 @@
         <rdfs:label xml:lang="en">Block difficulty</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockExtraData -->
@@ -908,7 +906,7 @@
         <rdfs:label xml:lang="en">Block extra data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockGasLimit -->
@@ -930,7 +928,7 @@
         <rdfs:label xml:lang="en">Gas limit</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockGasUsed -->
@@ -952,7 +950,7 @@
         <rdfs:label xml:lang="en">Gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockHash -->
@@ -974,7 +972,7 @@
         <rdfs:label xml:lang="en">Block hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockHeader -->
@@ -996,7 +994,7 @@
         <rdfs:label xml:lang="en">Block header</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockLogsBloom -->
@@ -1018,7 +1016,7 @@
         <rdfs:label xml:lang="en">Logs bloom filter</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockMixHash -->
@@ -1040,7 +1038,7 @@
         <rdfs:label xml:lang="en">Mix hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockNonce -->
@@ -1062,7 +1060,7 @@
         <rdfs:label xml:lang="en">Block nonce</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/blockSize -->
@@ -1078,7 +1076,7 @@
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/RLP"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/clientVersion -->
@@ -1092,21 +1090,21 @@
         <rdfs:label xml:lang="en">runs client</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/cumulativeGasUsed -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/cumulativeGasUsed">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/TxReceipt"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>cumulativeGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The cumulative gas used in the block containing the Transaction Receipt as of immediately after the Transaction has happened.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The cumulative gas used in the block containing the Transaction as of immediately after the Transaction has happened.</rdfs:comment>
         <rdfs:label xml:lang="en">cumulative gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/logData -->
@@ -1120,7 +1118,7 @@
         <rdfs:label xml:lang="en">Log data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/logIndex -->
@@ -1128,14 +1126,14 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/logIndex">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/TxReceipt"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>logIndex</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Entry to its index in the Tx Receipt. The log index defines the order of the Log Entries of a Tx Receipt.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Log Entry to its index in the transaction reciept of a Transaction. The log index defines the order of the Log Entries of a Transaction.</rdfs:comment>
         <rdfs:label xml:lang="en">Log index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/logTopicData -->
@@ -1150,7 +1148,7 @@
         <rdfs:label xml:lang="en">Log Topic data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/logTopicIndex -->
@@ -1165,42 +1163,35 @@
         <rdfs:label xml:lang="en">Log Topic index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgCallDepth -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgCallDepth">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>msgCallDepth</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the depth of the Message. A Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</rdfs:comment>
         <rdfs:label xml:lang="en">Message call depth</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgData -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgData">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/msgPayload"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CallContractMsg"/>
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CallTx"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/CallMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgData</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">An unlimited size byte array specifying the input data of the call.</rdfs:comment>
-        <rdfs:label xml:lang="en">call data</rdfs:label>
+        <rdfs:label xml:lang="en">Message call data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgError -->
@@ -1208,14 +1199,14 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgError">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <suggestedStringRepresentation>msgError</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A boolean value indicating whether the ContractMessage execution resulted in an error. A &quot;true&quot; value indicates an error.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A boolean value indicating whether the Message execution resulted in an error. A &quot;true&quot; value indicates an error.</rdfs:comment>
         <rdfs:label xml:lang="en">Message error</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgErrorString -->
@@ -1223,14 +1214,14 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgErrorString">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <suggestedStringRepresentation>msgErrorString</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A string informally describing an error that occured during the execution of a Message. Only exists if msgError is true.</rdfs:comment>
         <rdfs:label xml:lang="en">Message error string</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgGasLimit -->
@@ -1240,25 +1231,25 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>msgGasLimit</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message. After all resulting computations are done, excess gas is returned to the sender of the original Transaction.</rdfs:comment>
         <rdfs:label xml:lang="en">Message gas limit</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
 
 
-    <!-- http://ethon.consensys.net/msgGasPrice -->
 
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgGasPrice">
+    <!-- http://ethon.consensys.net/txGasPrice -->
+
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txGasPrice">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <suggestedStringRepresentation>msgGasPrice</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Message.</rdfs:comment>
-        <rdfs:label xml:lang="en">Message gas price</rdfs:label>
+        <suggestedStringRepresentation>txGasPrice</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transaction gas price</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgGasUsed -->
@@ -1266,36 +1257,28 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgGasUsed">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <owl:propertyDisjointWith rdf:resource="http://ethon.consensys.net/txGasUsed"/>
         <suggestedStringRepresentation>msgGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The amount of gas that was used for processing this ContractMsg.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The amount of gas that was used for processing a single Message, regardless of which type of Message it may be.</rdfs:comment>
         <rdfs:label xml:lang="en">Msg gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgInit -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgInit">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/msgPayload"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CreateContractMsg"/>
-                    <rdf:Description rdf:about="http://ethon.consensys.net/CreateTx"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/CreateMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgInit</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.</rdfs:comment>
         <rdfs:label xml:lang="en">Message init code</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgOutput -->
@@ -1303,14 +1286,14 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgOutput">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/CallContractMsg"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/CallMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgOutput</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The reulting output data from a CallContractMsg.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The reulting output data from a CallMsg.</rdfs:comment>
         <rdfs:label xml:lang="en">Message output</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgPayload -->
@@ -1325,7 +1308,7 @@
         <rdfs:label xml:lang="en">Message payload</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/msgRefundBalance -->
@@ -1340,7 +1323,7 @@
         <rdfs:label xml:lang="en">contract balance in Wei</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/number -->
@@ -1362,7 +1345,7 @@
         <rdfs:label xml:lang="en">Block number</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/receiptsRoot -->
@@ -1377,7 +1360,7 @@
         <rdfs:label xml:lang="en">Receipts root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/startBlockNumber -->
@@ -1391,7 +1374,7 @@
         <rdfs:label xml:lang="en">start Block number</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/stateRoot -->
@@ -1406,7 +1389,7 @@
         <rdfs:label xml:lang="en">State root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/storageRoot -->
@@ -1421,7 +1404,7 @@
         <rdfs:label xml:lang="en">Storage root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/transactionsRoot -->
@@ -1436,7 +1419,7 @@
         <rdfs:label xml:lang="en">Transactions root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txGasUsed -->
@@ -1447,11 +1430,11 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>txGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting ContractMessages.</rdfs:comment>
         <rdfs:label xml:lang="en">Tx gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txHash -->
@@ -1465,7 +1448,7 @@
         <rdfs:label xml:lang="en">Tx hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txIndex -->
@@ -1479,21 +1462,21 @@
         <rdfs:label xml:lang="en">Transaction index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txLogsBloom -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txLogsBloom">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/TxReceipt"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>txLogsBloom</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transaction Receipt to the Bloom filter of its Log Entries.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a Transaction to the Bloom filter of its Log Entries.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction Logs Bloom filter</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txNonce -->
@@ -1507,7 +1490,7 @@
         <rdfs:label xml:lang="en">Transaction nonce</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txR -->
@@ -1521,7 +1504,7 @@
         <rdfs:label xml:lang="en">Transaction r-value</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txS -->
@@ -1535,7 +1518,7 @@
         <rdfs:label xml:lang="en">Transaction s-value</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/txV -->
@@ -1550,7 +1533,7 @@
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/155"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/uncleBeneficiaryReward -->
@@ -1565,7 +1548,7 @@
         <rdfs:label xml:lang="en">Uncle beneficiary reward</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/value -->
@@ -1580,10 +1563,10 @@
         <rdfs:label xml:lang="en">value in Wei</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -1591,7 +1574,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://ethon.consensys.net/Account -->
@@ -1638,7 +1621,7 @@
         </owl:annotatedTarget>
         <rdfs:comment xml:lang="en">An Address is the unique 160-bit identifier of an Account.</rdfs:comment>
     </owl:Axiom>
-    
+
 
 
     <!-- http://ethon.consensys.net/AccountConcept -->
@@ -1650,7 +1633,7 @@
         <rdfs:label xml:lang="en">EthOn Account concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/AccountState -->
@@ -1663,7 +1646,7 @@
         <rdfs:label xml:lang="en">Account State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/AccountStorage -->
@@ -1676,7 +1659,7 @@
         <rdfs:label xml:lang="en">Account Storage</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/Block -->
@@ -1706,7 +1689,7 @@
         </owl:annotatedTarget>
         <rdfs:comment xml:lang="en">The blockHash is the unique identifier of a Block. It is generated via the Keccak 256-bit hash of its Block header.</rdfs:comment>
     </owl:Axiom>
-    
+
 
 
     <!-- http://ethon.consensys.net/BlockConcept -->
@@ -1718,7 +1701,7 @@
         <rdfs:label xml:lang="en">EthOn Block concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/Blockchain -->
@@ -1730,13 +1713,13 @@
         <rdfs:label xml:lang="en">Ethereum Blockchain</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
 
 
-    <!-- http://ethon.consensys.net/CallContractMsg -->
 
-    <owl:Class rdf:about="http://ethon.consensys.net/CallContractMsg">
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+    <!-- http://ethon.consensys.net/CallMsg -->
+
+    <owl:Class rdf:about="http://ethon.consensys.net/CallMsg">
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
@@ -1744,13 +1727,14 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <suggestedStringRepresentation>CallContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Call Contract Message is a Contract Message that calls a function in another Contract.</rdfs:comment>
-        <rdfs:label xml:lang="en">Call Contract Message</rdfs:label>
+        <owl:disjointWith rdf:resource="http://ethon.consensys.net/CreateMsg"/>
+        <suggestedStringRepresentation>CallMsg</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A type of Message that is directed towards a Contract Account and calls a method in the Contract&apos;s code.</rdfs:comment>
+        <rdfs:label xml:lang="en">Call Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/CallContractMsg"/>
+        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/CallMsg"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
         <owl:annotatedTarget>
             <owl:Restriction>
@@ -1761,38 +1745,7 @@
         </owl:annotatedTarget>
         <rdfs:comment>Call Contract Accounts call functions in other Contract Accounts.</rdfs:comment>
     </owl:Axiom>
-    
 
-
-    <!-- http://ethon.consensys.net/CallTx -->
-
-    <owl:Class rdf:about="http://ethon.consensys.net/CallTx">
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Tx"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <suggestedStringRepresentation>CallTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A type of Transaction that is directed towards a Contract Account and calls a method in the Contract&apos;s code.</rdfs:comment>
-        <rdfs:label xml:lang="en">Call Transaction</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/CallTx"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <rdfs:comment>Call transactions are directed towards a Contract Account.</rdfs:comment>
-    </owl:Axiom>
-    
 
 
     <!-- http://ethon.consensys.net/ContractAccount -->
@@ -1805,7 +1758,7 @@
         <rdfs:label xml:lang="en">Contract Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ContractMsg -->
@@ -1819,6 +1772,7 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ethon.consensys.net/Tx"/>
         <suggestedStringRepresentation>ContractMsg</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.</rdfs:comment>
         <rdfs:label xml:lang="en">Contract Message</rdfs:label>
@@ -1836,13 +1790,13 @@
         </owl:annotatedTarget>
         <rdfs:comment>Contract Messages originate from Contract Accounts.</rdfs:comment>
     </owl:Axiom>
-    
 
 
-    <!-- http://ethon.consensys.net/CreateContractMsg -->
 
-    <owl:Class rdf:about="http://ethon.consensys.net/CreateContractMsg">
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+    <!-- http://ethon.consensys.net/CreateMsg -->
+
+    <owl:Class rdf:about="http://ethon.consensys.net/CreateMsg">
+        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
@@ -1850,13 +1804,13 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <suggestedStringRepresentation>CreateContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.</rdfs:comment>
-        <rdfs:label xml:lang="en">Create Contract Message</rdfs:label>
+        <suggestedStringRepresentation>CreateMsg</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">A type of Message that results in creation of a new Contract Account.</rdfs:comment>
+        <rdfs:label xml:lang="en">Create Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/CreateContractMsg"/>
+        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/CreateMsg"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
         <owl:annotatedTarget>
             <owl:Restriction>
@@ -1867,38 +1821,7 @@
         </owl:annotatedTarget>
         <rdfs:comment>Create Contract Messages create Contract Accounts.</rdfs:comment>
     </owl:Axiom>
-    
 
-
-    <!-- http://ethon.consensys.net/CreateTx -->
-
-    <owl:Class rdf:about="http://ethon.consensys.net/CreateTx">
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Tx"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <suggestedStringRepresentation>CreateTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A type of Transaction that results in creation of a new Contract Account.</rdfs:comment>
-        <rdfs:label xml:lang="en">Create Transaction</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/CreateTx"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <rdfs:comment>All create transactions are directed toward a Contract Account they create.</rdfs:comment>
-    </owl:Axiom>
-    
 
 
     <!-- http://ethon.consensys.net/EthOnConcept -->
@@ -1909,7 +1832,7 @@
         <rdfs:label xml:lang="en">EthOn Concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ExternalAccount -->
@@ -1921,7 +1844,7 @@
         <rdfs:label xml:lang="en">Externally controlled Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ExternalActor -->
@@ -1934,7 +1857,7 @@
         <rdfs:label xml:lang="en">External Actor</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/FullNode -->
@@ -1947,7 +1870,7 @@
         <rdfs:label xml:lang="en">Ethereum Full Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/GenesisBlock -->
@@ -1959,7 +1882,7 @@
         <rdfs:label xml:lang="en">Genesis Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/LightNode -->
@@ -1971,7 +1894,7 @@
         <rdfs:label xml:lang="en">Ethereum Light Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/LogEntry -->
@@ -1983,7 +1906,7 @@
         <rdfs:label xml:lang="en">Log Entry</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/LogTopic -->
@@ -1995,7 +1918,7 @@
         <rdfs:label xml:lang="en">Log Topic</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/MessageConcept -->
@@ -2006,7 +1929,7 @@
         <rdfs:label xml:lang="en">EthOn Message concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ModifiedMerklePatriciaTree -->
@@ -2019,7 +1942,7 @@
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/Patricia-Tree"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/Msg -->
@@ -2038,7 +1961,7 @@
         <owl:annotatedTarget rdf:resource="http://ethon.consensys.net/StateTransition"/>
         <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.1___Msg(?x)-&gt;StateTransition(?x)___A valid State Transition is one which comes about through a Message.</DASE_RULE>
     </owl:Axiom>
-    
+
 
 
     <!-- http://ethon.consensys.net/Network -->
@@ -2050,7 +1973,7 @@
         <rdfs:label xml:lang="en">Ethereum Network</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/NetworkConcept -->
@@ -2061,7 +1984,7 @@
         <rdfs:comment xml:lang="en">Groups all EthOn Network concepts.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Network Concept.</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/Node -->
@@ -2073,7 +1996,7 @@
         <rdfs:label xml:lang="en">Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/PostBlockState -->
@@ -2081,7 +2004,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/PostBlockState">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/PostTxState"/>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/PostMsgState -->
@@ -2089,7 +2012,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/PostMsgState">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/WorldState"/>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/PostTxState -->
@@ -2097,7 +2020,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/PostTxState">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/PostMsgState"/>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ProtocolAccount -->
@@ -2109,7 +2032,7 @@
         <rdfs:label xml:lang="en">Protocol Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ProtocolState -->
@@ -2121,7 +2044,7 @@
         <rdfs:label xml:lang="en">ProtocolState</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ProtocollVariant -->
@@ -2133,7 +2056,7 @@
         <rdfs:label xml:lang="en">Ethereum Protocol Variant</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/ReceiptsTrie -->
@@ -2147,7 +2070,7 @@
         <rdfs:label xml:lang="en">Receipts Trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/SelfdestructContractMsg -->
@@ -2160,7 +2083,7 @@
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-6.md"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/State -->
@@ -2175,7 +2098,7 @@
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/State_(computer_science)"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/StateConcept -->
@@ -2186,7 +2109,7 @@
         <rdfs:label xml:lang="en">EthOn State Concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/StateTransition -->
@@ -2199,7 +2122,7 @@
         <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Transition_system"/>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/Tx -->
@@ -2214,7 +2137,8 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>Tx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a TransactionReceipt.</rdfs:comment>
+
         <rdfs:label xml:lang="en">Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2236,7 +2160,7 @@
         </owl:annotatedTarget>
         <rdfs:comment>All transactions originate from an External Account.</rdfs:comment>
     </owl:Axiom>
-    
+
 
 
     <!-- http://ethon.consensys.net/TxReceipt -->
@@ -2245,10 +2169,10 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <suggestedStringRepresentation>TxReceipt</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs.</rdfs:comment>
-        <rdfs:label xml:lang="en">TransactionReceipt</rdfs:label>
+        <rdfs:label xml:lang="en">Transaction Receipt</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/TxTrie -->
@@ -2262,7 +2186,7 @@
         <rdfs:label xml:lang="en">Transactions Trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://ethon.consensys.net/Uncle -->
@@ -2281,69 +2205,7 @@
         <rdfs:label xml:lang="en">Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
 
-
-    <!-- http://ethon.consensys.net/ValueContractMsg -->
-
-    <owl:Class rdf:about="http://ethon.consensys.net/ValueContractMsg">
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <suggestedStringRepresentation>ValueContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn&apos;t create a new smart contract. Even though it is called &quot;value&quot; Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn&apos;t trigger the execution of a function in a smart contract.</rdfs:comment>
-        <rdfs:label xml:lang="en">Value Contract Message</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/ValueContractMsg"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <rdfs:comment>Value Contract Messages are always directed to an External Account.</rdfs:comment>
-    </owl:Axiom>
-    
-
-
-    <!-- http://ethon.consensys.net/ValueTx -->
-
-    <owl:Class rdf:about="http://ethon.consensys.net/ValueTx">
-        <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Tx"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <suggestedStringRepresentation>ValueTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Value Transaction is a Transaction that does not call a function in a smart contract and doesn&apos;t create a new smart contract. Even though it is called &quot;value&quot; Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn&apos;t trigger the execution of a function in a smart contract.</rdfs:comment>
-        <rdfs:label xml:lang="en">Value Transaction</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:Class>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://ethon.consensys.net/ValueTx"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <rdfs:comment>Value transactions are directed to External Accounts.</rdfs:comment>
-    </owl:Axiom>
-    
 
 
     <!-- http://ethon.consensys.net/WorldState -->
@@ -2356,7 +2218,7 @@
         <rdfs:label xml:lang="en">World State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
-    
+
 
 
     <!-- http://xmlns.com/foaf/0.1/Agent -->
@@ -2364,10 +2226,10 @@
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
     </owl:Class>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // General axioms
@@ -2459,26 +2321,10 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/ProtocollVariant"/>
         </owl:members>
     </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://ethon.consensys.net/CallContractMsg"/>
-            <rdf:Description rdf:about="http://ethon.consensys.net/CreateContractMsg"/>
-            <rdf:Description rdf:about="http://ethon.consensys.net/ValueContractMsg"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://ethon.consensys.net/CallTx"/>
-            <rdf:Description rdf:about="http://ethon.consensys.net/CreateTx"/>
-            <rdf:Description rdf:about="http://ethon.consensys.net/ValueTx"/>
-        </owl:members>
-    </rdf:Description>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Rules
@@ -2555,4 +2401,3 @@
 
 
 <!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
-
