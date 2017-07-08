@@ -62,27 +62,18 @@ A scalar value equal to the number of ancestor Blocks. The genesis Block has a n
 [`ethon:blockSize`](http://ethon.consensys.net/blockSize)   
 The size of the the Block header in RLP format in bytes.
 ## C
-### Call Contract Message
-[`ethon:CallContractMsg`](http://ethon.consensys.net/CallContractMsg)   
-A Call Contract Message is a Contract Message that calls a function in another Contract.
-### Call Transaction
-[`ethon:CallTx`](http://ethon.consensys.net/CallTx)   
-A type of Transaction that is directed towards a Contract Account and calls a method in the Contract's code.
+### Call Message
+[`ethon:CallMsg`](http://ethon.consensys.net/CallMsg)   
+A type of Message that is directed towards a Contract Account and calls a method in the Contract's code.
 ### Contract Account
 [`ethon:ContractAccount`](http://ethon.consensys.net/ContractAccount)   
 A notional object existent only within the hypothetical state of Ethereum. Has an intrinsic address and thus an associated Account; the Account will have non-empty associated EVM Code. Incorporated only as the Storage State of that Account.
 ### Contract Message
 [`ethon:ContractMsg`](http://ethon.consensys.net/ContractMsg)   
 A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.
-### Create Contract Message
-[`ethon:CreateContractMsg`](http://ethon.consensys.net/CreateContractMsg)   
-A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.
-### Create Transaction
-[`ethon:CreateTx`](http://ethon.consensys.net/CreateTx)   
-A type of Transaction that results in creation of a new Contract Account.
-### call data
-[`ethon:msgData`](http://ethon.consensys.net/msgData)   
-An unlimited size byte array specifying the input data of the call.
+### Create Message
+[`ethon:CreateMsg`](http://ethon.consensys.net/CreateMsg)   
+A type of Message that results in creation of a new Contract Account.
 ### conforms to
 [`ethon:conformsTo`](http://ethon.consensys.net/conformsTo)   
 Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.
@@ -169,9 +160,12 @@ Relates a Contract Message to the Transaction it originated from.
 ### has Transition
 [`ethon:hasTransition`](http://ethon.consensys.net/hasTransition)   
 Relates a State to a Transition (i.e. a Message) that creates a new State.
+### has author beneficiary
+[`ethon:hasAuthorBeneficiary`](http://ethon.consensys.net/hasAuthorBeneficiary)   
+Relates a Block to an Account to which the fees from gas costs, the static mining reward, and the reward for including uncles are transferred.
 ### has beneficiary
 [`ethon:hasBeneficiary`](http://ethon.consensys.net/hasBeneficiary)   
-Relates a Block to the Account to which all fees collected from the successful mining of this Block are transferred.
+Relates a Block to an Account to which fees or mining rewards from the successful mining of this Block are transferred.
 ### has current State
 [`ethon:hasCurrentState`](http://ethon.consensys.net/hasCurrentState)   
 This property relates an EthOn concept to its most current state.
@@ -190,12 +184,15 @@ Relates a transaction to its receipt.
 ### has transactions trie
 [`ethon:hasTxTrie`](http://ethon.consensys.net/hasTxTrie)   
 Relates a Block to the trie that contains the data of the transactions contained in the Block.
+### has uncle beneficiary
+[`ethon:hasUncleBeneficiary`](http://ethon.consensys.net/hasUncleBeneficiary)   
+Relates a Block to an Account to which the reward for mining an uncle is transferred.
 ## I
+### includes Uncle
+[`ethon:includesUncle`](http://ethon.consensys.net/includesUncle)   
+Relates a Block to another Block by including it as an Uncle.  Block B can be an uncle of of Block A if it the the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of A. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.  Block A must include Block B as an Uncle.
 ## J
 ## K
-### knows of Uncle
-[`ethon:knowsOfUncle`](http://ethon.consensys.net/knowsOfUncle)   
-Relates a Block to a known Uncle.
 ## L
 ### Log Entry
 [`ethon:LogEntry`](http://ethon.consensys.net/LogEntry)   
@@ -228,15 +225,18 @@ Merkle Patricia trees provide a cryptographically authenticated data structure t
 ### Message
 [`ethon:Msg`](http://ethon.consensys.net/Msg)   
 Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.
+### Message call data
+[`ethon:msgData`](http://ethon.consensys.net/msgData)   
+An unlimited size byte array specifying the input data of the call.
 ### Message call depth
 [`ethon:msgCallDepth`](http://ethon.consensys.net/msgCallDepth)   
-A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.
+A scalar value equal to the depth of the Message. A Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.
 ### Message error
 [`ethon:msgError`](http://ethon.consensys.net/msgError)   
-A boolean value indicating whether the ContractMessage execution resulted in an error. A "true" value indicates an error.
+A boolean value indicating whether the Message execution resulted in an error. A "true" value indicates an error.
 ### Message error string
 [`ethon:msgErrorString`](http://ethon.consensys.net/msgErrorString)   
-A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.
+A string informally describing an error that occured during the execution of a Message. Only exists if msgError is true.
 ### Message gas limit
 [`ethon:msgGasLimit`](http://ethon.consensys.net/msgGasLimit)   
 A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message. After all resulting computations are done, excess gas is returned to the sender of the original Transaction.
@@ -245,7 +245,7 @@ A scalar value equal to the maximum amount of gas that should be used in executi
 An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.
 ### Message output
 [`ethon:msgOutput`](http://ethon.consensys.net/msgOutput)   
-The reulting output data from a CallContractMsg.
+The reulting output data from a CallMsg.
 ### Message payload
 [`ethon:msgPayload`](http://ethon.consensys.net/msgPayload)   
 An unlimited size byte array specifying the data payload of the Message.
@@ -327,7 +327,7 @@ The Block number of the first block in a new Blockchain after a hard fork.
 ## T
 ### Transaction
 [`ethon:Tx`](http://ethon.consensys.net/Tx)   
-Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a 'Transaction Receipt'.
+Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a TransactionReceipt.
 ### Transaction Logs Bloom filter
 [`ethon:txLogsBloom`](http://ethon.consensys.net/txLogsBloom)   
 Relates a Transaction to the Bloom filter of its Log Entries.
@@ -378,12 +378,6 @@ An Uncle is the direct child of the k'th generation ancestor of a Block B, where
 [`ethon:uncleBeneficiaryReward`](http://ethon.consensys.net/uncleBeneficiaryReward)   
 The reward the beneficiary of an uncle receives if a Block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the Block in which it is included minus the Uncle's number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.
 ## V
-### Value Contract Message
-[`ethon:ValueContractMsg`](http://ethon.consensys.net/ValueContractMsg)   
-A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.
-### Value Transaction
-[`ethon:ValueTx`](http://ethon.consensys.net/ValueTx)   
-A Value Transaction is a Transaction that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.
 ### value in Wei
 [`ethon:value`](http://ethon.consensys.net/value)   
 A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.

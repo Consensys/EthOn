@@ -68,7 +68,7 @@
     <div class="row">
         <div class="col-sm-4">
             <!-- Class tree -->
-            <h3>Classes <span class="badge">46</span></h3>
+            <h3>Classes <span class="badge">42</span></h3>
 
             <ul>
                     <li><a class="label label-primary" href="#class-ethonconcept">EthOnConcept</a><ul>
@@ -91,15 +91,11 @@
                     <li><a class="label label-primary" href="#class-logentry">LogEntry</a></li>
                     <li><a class="label label-primary" href="#class-logtopic">LogTopic</a></li>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
+                    <li><a class="label label-primary" href="#class-callmsg">CallMsg</a></li>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
-                    <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
-                    <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
-                    <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
-                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-createmsg">CreateMsg</a></li>
+                    <li><a class="label label-primary" href="#class-tx">Tx</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-receiptstrie">ReceiptsTrie</a></li>
                     <li><a class="label label-primary" href="#class-txreceipt">TxReceipt</a></li>
                     <li><a class="label label-primary" href="#class-txtrie">TxTrie</a></li></ul></li>
@@ -130,22 +126,18 @@
                     <li><a class="label label-primary" href="#class-block">Block</a><ul>
                     <li><a class="label label-primary" href="#class-genesisblock">GenesisBlock</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-msg">Msg</a><ul>
+                    <li><a class="label label-primary" href="#class-callmsg">CallMsg</a></li>
                     <li><a class="label label-primary" href="#class-contractmsg">ContractMsg</a><ul>
-                    <li><a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a></li>
-                    <li><a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-tx">Tx</a><ul>
-                    <li><a class="label label-primary" href="#class-calltx">CallTx</a></li>
-                    <li><a class="label label-primary" href="#class-createtx">CreateTx</a></li>
-                    <li><a class="label label-primary" href="#class-valuetx">ValueTx</a></li></ul></li></ul></li></ul></li></ul></li></ul></li>
+                    <li><a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-createmsg">CreateMsg</a></li>
+                    <li><a class="label label-primary" href="#class-tx">Tx</a></li></ul></li></ul></li></ul></li></ul></li>
                     <li><a class="label label-primary" href="#class-httpxmlnscomfoaf01agent">Agent</a><ul>
                     <li><a class="label label-primary" href="#class-externalactor">ExternalActor</a></li></ul></li>
             </ul>
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">102</span></h3>
+            <h3>Properties <span class="badge">104</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
@@ -215,26 +207,28 @@
                     <li><a class="label label-default" href="#prop-controlsaccount">controlsAccount</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a></li>
-                    <li><a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a></li>
                     <li><a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a></li>
                     <li><a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a></li>
                     <li><a class="label label-default" href="#prop-containstx">containsTx</a></li>
-                    <li><a class="label label-default" href="#prop-knowsofuncle">knowsOfUncle</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a><ul>
+                    <li><a class="label label-default" href="#prop-hasauthorbeneficiary">hasAuthorBeneficiary</a></li>
+                    <li><a class="label label-default" href="#prop-hasunclebeneficiary">hasUncleBeneficiary</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-includesuncle">includesUncle</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-triggersmsg">triggersMsg</a></li>
+                    <li><a class="label label-default" href="#prop-from">from</a></li>
                     <li><a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a></li>
+                    <li><a class="label label-default" href="#prop-to">to</a><ul>
+                    <li><a class="label label-default" href="#prop-creates">creates</a></li>
+                    <li><a class="label label-default" href="#prop-refunds">refunds</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-createsstate">createsState</a><ul>
                     <li><a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a></li>
                     <li><a class="label label-default" href="#prop-createspostmsgstate">createsPostMsgState</a></li>
                     <li><a class="label label-default" href="#prop-createsposttxstate">createsPostTxState</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-from">from</a></li>
                     <li><a class="label label-default" href="#prop-haslogentry">hasLogEntry</a></li>
                     <li><a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a></li>
                     <li><a class="label label-default" href="#prop-hasreceipt">hasReceipt</a></li>
-                    <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li>
-                    <li><a class="label label-default" href="#prop-to">to</a><ul>
-                    <li><a class="label label-default" href="#prop-refunds">refunds</a></li>
-                    <li><a class="label label-default" href="#prop-creates">creates</a></li></ul></li>
-                    <li><a class="label label-default" href="#prop-triggersmsg">triggersMsg</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-loggedby">loggedBy</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-networkobjectproperty">NetworkObjectProperty</a><ul>
                     <li><a class="label label-default" href="#prop-conformsto">conformsTo</a></li>
                     <li><a class="label label-default" href="#prop-hasfork">hasFork</a></li>
@@ -259,7 +253,7 @@
 
 
     <!-- Class list-->
-    <h2>Class descriptions <span class="badge">46</span></h2>
+    <h2>Class descriptions <span class="badge">42</span></h2>
     
         <h3 id="class-account">Account</h3>
         <p>Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</p>
@@ -314,9 +308,13 @@
                     <td class="col-md-2">Used with</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                            <a class="label label-default" href="#prop-from">from</a> 
+                            <a class="label label-default" href="#prop-hasauthorbeneficiary">hasAuthorBeneficiary</a> 
                             <a class="label label-default" href="#prop-refunds">refunds</a> 
+                            <a class="label label-default" href="#prop-to">to</a> 
                             <a class="label label-default" href="#prop-controlsaccount">controlsAccount</a> 
+                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                            <a class="label label-default" href="#prop-hasunclebeneficiary">hasUncleBeneficiary</a> 
                             <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
                     </td>
                 </tr>
@@ -531,9 +529,12 @@
                             <a class="label label-default" href="#prop-blockbeneficiaryreward">blockBeneficiaryReward</a> 
                             <a class="label label-default" href="#prop-blocksize">blockSize</a> 
                             <a class="label label-default" href="#prop-createspostblockstate">createsPostBlockState</a> 
-                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                            <a class="label label-default" href="#prop-hasauthorbeneficiary">hasAuthorBeneficiary</a> 
                             <a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
+                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                            <a class="label label-default" href="#prop-hasunclebeneficiary">hasUncleBeneficiary</a> 
+                            <a class="label label-default" href="#prop-includesuncle">includesUncle</a> 
                     </td>
                 </tr>
             
@@ -652,8 +653,8 @@
             
         </table>
     
-        <h3 id="class-callcontractmsg">CallContractMsg</h3>
-        <p>A Call Contract Message is a Contract Message that calls a function in another Contract.</p>
+        <h3 id="class-callmsg">CallMsg</h3>
+        <p>A type of Message that is directed towards a Contract Account and calls a method in the Contract's code.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -665,19 +666,19 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/CallContractMsg">http://ethon.consensys.net/CallContractMsg</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/CallMsg">http://ethon.consensys.net/CallMsg</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">CallContractMsg</td>
+                    <td class="col-md-10">CallMsg</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
@@ -686,44 +687,10 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-msgdata">msgData</a> 
                             <a class="label label-default" href="#prop-msgoutput">msgOutput</a> 
                     </td>
                 </tr>
-            
-            
-            
-        </table>
-    
-        <h3 id="class-calltx">CallTx</h3>
-        <p>A type of Transaction that is directed towards a Contract Account and calls a method in the Contract's code.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/CallTx">http://ethon.consensys.net/CallTx</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">CallTx</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-tx">Tx</a> 
-                    </td>
-                </tr>
-            
-            
             
             
             
@@ -765,7 +732,6 @@
                         
                             <a class="label label-default" href="#prop-accountcode">accountCode</a> 
                             <a class="label label-default" href="#prop-accountcodehash">accountCodeHash</a> 
-                            <a class="label label-default" href="#prop-refunds">refunds</a> 
                     </td>
                 </tr>
             
@@ -813,10 +779,7 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a> 
-                            <a class="label label-primary" href="#class-createcontractmsg">CreateContractMsg</a> 
                             <a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a> 
-                            <a class="label label-primary" href="#class-valuecontractmsg">ValueContractMsg</a> 
                     </td>
                 </tr>
             
@@ -824,9 +787,6 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-msgerror">msgError</a> 
-                            <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
-                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                     </td>
                 </tr>
@@ -842,8 +802,8 @@
             
         </table>
     
-        <h3 id="class-createcontractmsg">CreateContractMsg</h3>
-        <p>A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.</p>
+        <h3 id="class-createmsg">CreateMsg</h3>
+        <p>A type of Message that results in creation of a new Contract Account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -855,58 +815,31 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/CreateContractMsg">http://ethon.consensys.net/CreateContractMsg</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/CreateMsg">http://ethon.consensys.net/CreateMsg</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">CreateContractMsg</td>
+                    <td class="col-md-10">CreateMsg</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
             
-            
-            
-            
-        </table>
-    
-        <h3 id="class-createtx">CreateTx</h3>
-        <p>A type of Transaction that results in creation of a new Contract Account.</p>
-        <table class="table table-striped">
-            
                 <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/CreateTx">http://ethon.consensys.net/CreateTx</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">CreateTx</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                            <a class="label label-default" href="#prop-msginit">msgInit</a> 
+                            <a class="label label-default" href="#prop-creates">creates</a> 
                     </td>
                 </tr>
-            
-            
             
             
             
@@ -1380,7 +1313,9 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-primary" href="#class-callmsg">CallMsg</a> 
                             <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-createmsg">CreateMsg</a> 
                             <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
@@ -1389,20 +1324,19 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-triggersmsg">triggersMsg</a> 
+                            <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
+                            <a class="label label-default" href="#prop-msgerror">msgError</a> 
+                            <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
+                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
+                            <a class="label label-default" href="#prop-from">from</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
                     </td>
                 </tr>
             
-                <tr>
-                    <td class="col-md-2">Used with</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-to">to</a> 
-                    </td>
-                </tr>
             
             
         </table>
@@ -1855,6 +1789,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-msgrefundbalance">msgRefundBalance</a> 
+                            <a class="label label-default" href="#prop-refunds">refunds</a> 
                     </td>
                 </tr>
             
@@ -2016,7 +1951,7 @@
         </table>
     
         <h3 id="class-tx">Tx</h3>
-        <p>Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a 'Transaction Receipt'.</p>
+        <p>Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a TransactionReceipt.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2044,15 +1979,6 @@
                     </td>
                 </tr>
             
-                <tr>
-                    <td class="col-md-2">Subclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-calltx">CallTx</a> 
-                            <a class="label label-primary" href="#class-createtx">CreateTx</a> 
-                            <a class="label label-primary" href="#class-valuetx">ValueTx</a> 
-                    </td>
-                </tr>
             
                 <tr>
                     <td class="col-md-2">Properties include</td>
@@ -2060,7 +1986,6 @@
                         
                             <a class="label label-default" href="#prop-cumulativegasused">cumulativeGasUsed</a> 
                             <a class="label label-default" href="#prop-logindex">logIndex</a> 
-                            <a class="label label-default" href="#prop-msgcalldepth">msgCallDepth</a> 
                             <a class="label label-default" href="#prop-txgasprice">txGasPrice</a> 
                             <a class="label label-default" href="#prop-txgasused">txGasUsed</a> 
                             <a class="label label-default" href="#prop-txhash">txHash</a> 
@@ -2080,8 +2005,8 @@
                     <td class="col-md-2">Used with</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-containstx">containsTx</a> 
                             <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
+                            <a class="label label-default" href="#prop-containstx">containsTx</a> 
                     </td>
                 </tr>
             
@@ -2223,76 +2148,6 @@
             
         </table>
     
-        <h3 id="class-valuecontractmsg">ValueContractMsg</h3>
-        <p>A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/ValueContractMsg">http://ethon.consensys.net/ValueContractMsg</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">ValueContractMsg</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
-        <h3 id="class-valuetx">ValueTx</h3>
-        <p>A Value Transaction is a Transaction that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/ValueTx">http://ethon.consensys.net/ValueTx</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">ValueTx</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-tx">Tx</a> 
-                    </td>
-                </tr>
-            
-            
-            
-            
-            
-        </table>
-    
         <h3 id="class-worldstate">WorldState</h3>
         <p>The world state, is a mapping between addresses (160-bit identifiers) of all Accounts and their States (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</p>
         <table class="table table-striped">
@@ -2387,7 +2242,7 @@
 
 
     <!-- Object Property list-->
-    <h2>Object Property descriptions <span class="badge">40</span></h2>
+    <h2>Object Property descriptions <span class="badge">42</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
         <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
@@ -2432,6 +2287,104 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-triggersmsg">triggersMsg</h3>
+        <p>Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/triggersMsg">http://ethon.consensys.net/triggersMsg</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">triggersMsg</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-creates">creates</h3>
+        <p>Relates a create transaction to the ContractAccount it creates.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/creates">http://ethon.consensys.net/creates</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">creates</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-to">to</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-createmsg">CreateMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractaccount">ContractAccount</a> 
                     </td>
                 </tr>
             
@@ -2567,6 +2520,55 @@
             
         </table>
     
+        <h3 id="prop-from">from</h3>
+        <p>Relates a Message with the Account it originates from.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/from">http://ethon.consensys.net/from</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">fromAccount</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
         <h3 id="prop-hasaccountstorage">hasAccountStorage</h3>
         <p>Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.</p>
         <table class="table table-striped">
@@ -2609,8 +2611,8 @@
             
         </table>
     
-        <h3 id="prop-hasbeneficiary">hasBeneficiary</h3>
-        <p>Relates a Block to the Account to which all fees collected from the successful mining of this Block are transferred.</p>
+        <h3 id="prop-hasauthorbeneficiary">hasAuthorBeneficiary</h3>
+        <p>Relates a Block to an Account to which the fees from gas costs, the static mining reward, and the reward for including uncles are transferred.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2622,19 +2624,19 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/hasBeneficiary">http://ethon.consensys.net/hasBeneficiary</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/hasAuthorBeneficiary">http://ethon.consensys.net/hasAuthorBeneficiary</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">hasBeneficiary</td>
+                    <td class="col-md-10">hasAuthorBeneficiary</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
+                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
                     </td>
                 </tr>
             
@@ -2652,6 +2654,55 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hasoriginatortx">hasOriginatorTx</h3>
+        <p>Relates a Contract Message to the Transaction it originated from.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/hasOriginatorTx">http://ethon.consensys.net/hasOriginatorTx</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">hasOriginatorTx</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             
@@ -2776,7 +2827,64 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractaccount">ContractAccount</a> 
+                            <a class="label label-primary" href="#class-selfdestructcontractmsg">SelfdestructContractMsg</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-to">to</h3>
+        <p>Relates a Message with the Account it is sent to.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/to">http://ethon.consensys.net/to</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">toAccount</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-creates">creates</a> 
+                            <a class="label label-default" href="#prop-refunds">refunds</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
@@ -2883,55 +2991,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-accountstate">AccountState</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-hasoriginatortx">hasOriginatorTx</h3>
-        <p>Relates a Contract Message to the Transaction it originated from.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/hasOriginatorTx">http://ethon.consensys.net/hasOriginatorTx</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">hasOriginatorTx</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
-                    </td>
-                </tr>
-            
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-tx">Tx</a> 
                     </td>
                 </tr>
             
@@ -3063,11 +3122,11 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-hasparentblock">hasParentBlock</a> 
-                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
                             <a class="label label-default" href="#prop-hasreceiptstrie">hasReceiptsTrie</a> 
                             <a class="label label-default" href="#prop-hastxtrie">hasTxTrie</a> 
                             <a class="label label-default" href="#prop-containstx">containsTx</a> 
-                            <a class="label label-default" href="#prop-knowsofuncle">knowsOfUncle</a> 
+                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                            <a class="label label-default" href="#prop-includesuncle">includesUncle</a> 
                     </td>
                 </tr>
             
@@ -3141,15 +3200,15 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
-                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
+                            <a class="label label-default" href="#prop-triggersmsg">triggersMsg</a> 
                             <a class="label label-default" href="#prop-from">from</a> 
+                            <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
+                            <a class="label label-default" href="#prop-to">to</a> 
+                            <a class="label label-default" href="#prop-createsstate">createsState</a> 
                             <a class="label label-default" href="#prop-haslogentry">hasLogEntry</a> 
                             <a class="label label-default" href="#prop-haslogtopic">hasLogTopic</a> 
                             <a class="label label-default" href="#prop-hasreceipt">hasReceipt</a> 
                             <a class="label label-default" href="#prop-loggedby">loggedBy</a> 
-                            <a class="label label-default" href="#prop-to">to</a> 
-                            <a class="label label-default" href="#prop-triggersmsg">triggersMsg</a> 
                     </td>
                 </tr>
             
@@ -3331,48 +3390,6 @@
             
         </table>
     
-        <h3 id="prop-creates">creates</h3>
-        <p>Relates a create transaction to the ContractAccount it creates.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/creates">http://ethon.consensys.net/creates</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">creates</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-to">to</a> 
-                    </td>
-                </tr>
-            
-            
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-contractaccount">ContractAccount</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
         <h3 id="prop-createsstate">createsState</h3>
         <p>Relates a Transition to the State it creates.</p>
         <table class="table table-striped">
@@ -3432,8 +3449,8 @@
             
         </table>
     
-        <h3 id="prop-from">from</h3>
-        <p>Relates a Message with the Account it originates from.</p>
+        <h3 id="prop-hasbeneficiary">hasBeneficiary</h3>
+        <p>Relates a Block to an Account to which fees or mining rewards from the successful mining of this Block are transferred.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3445,24 +3462,46 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/from">http://ethon.consensys.net/from</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/hasBeneficiary">http://ethon.consensys.net/hasBeneficiary</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">fromAccount</td>
+                    <td class="col-md-10">hasBeneficiary</td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
+                            <a class="label label-default" href="#prop-blockobjectproperty">BlockObjectProperty</a> 
                     </td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hasauthorbeneficiary">hasAuthorBeneficiary</a> 
+                            <a class="label label-default" href="#prop-hasunclebeneficiary">hasUncleBeneficiary</a> 
+                    </td>
+                </tr>
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
             
             
         </table>
@@ -3698,8 +3737,8 @@
             
         </table>
     
-        <h3 id="prop-knowsofuncle">knowsOfUncle</h3>
-        <p>Relates a Block to a known Uncle.</p>
+        <h3 id="prop-hasunclebeneficiary">hasUncleBeneficiary</h3>
+        <p>Relates a Block to an Account to which the reward for mining an uncle is transferred.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3711,12 +3750,61 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/knowsOfUncle">http://ethon.consensys.net/knowsOfUncle</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/hasUncleBeneficiary">http://ethon.consensys.net/hasUncleBeneficiary</a></td>
                 </tr>
             
                 <tr>
                     <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">knowsOfUncle</td>
+                    <td class="col-md-10">hasUncleBeneficiary</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hasbeneficiary">hasBeneficiary</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-account">Account</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-includesuncle">includesUncle</h3>
+        <p>Relates a Block to another Block by including it as an Uncle.  Block B can be an uncle of of Block A if it the the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of A. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.  Block A must include Block B as an Uncle.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/includesUncle">http://ethon.consensys.net/includesUncle</a></td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Suggested string</td>
+                    <td class="col-md-10">includesUncle</td>
                 </tr>
             
                 <tr>
@@ -3728,6 +3816,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-block">Block</a> 
+                    </td>
+                </tr>
             
             
             
@@ -4126,105 +4221,6 @@
                     <td class="col-md-10">
                         
                             <a class="label label-primary" href="#class-block">Block</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-to">to</h3>
-        <p>Relates a Message with the Account it is sent to.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/to">http://ethon.consensys.net/to</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">toAccount</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Subclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-refunds">refunds</a> 
-                            <a class="label label-default" href="#prop-creates">creates</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Implies being a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-msg">Msg</a> 
-                    </td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-msg">Msg</a> 
-                    </td>
-                </tr>
-            
-            
-        </table>
-    
-        <h3 id="prop-triggersmsg">triggersMsg</h3>
-        <p>Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.</p>
-        <table class="table table-striped">
-            
-                <tr>
-                    <td class="col-md-2">Status</td>
-                    <td class="col-md-10 
-        text-danger
-    ">unstable</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/triggersMsg">http://ethon.consensys.net/triggersMsg</a></td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Suggested string</td>
-                    <td class="col-md-10">triggersMsg</td>
-                </tr>
-            
-                <tr>
-                    <td class="col-md-2">Superclasses</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-default" href="#prop-messageobjectproperty">MessageObjectProperty</a> 
-                    </td>
-                </tr>
-            
-            
-            
-                <tr>
-                    <td class="col-md-2">Every value is a</td>
-                    <td class="col-md-10">
-                        
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
                     </td>
                 </tr>
             
@@ -5678,7 +5674,7 @@
         </table>
     
         <h3 id="prop-msgcalldepth">msgCallDepth</h3>
-        <p>A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</p>
+        <p>A scalar value equal to the depth of the Message. A Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5711,7 +5707,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-tx">Tx</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
@@ -5756,6 +5752,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-callmsg">CallMsg</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -5769,7 +5772,7 @@
         </table>
     
         <h3 id="prop-msgerror">msgError</h3>
-        <p>A boolean value indicating whether the ContractMessage execution resulted in an error. A "true" value indicates an error.</p>
+        <p>A boolean value indicating whether the Message execution resulted in an error. A "true" value indicates an error.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5802,7 +5805,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
@@ -5818,7 +5821,7 @@
         </table>
     
         <h3 id="prop-msgerrorstring">msgErrorString</h3>
-        <p>A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.</p>
+        <p>A string informally describing an error that occured during the execution of a Message. Only exists if msgError is true.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5851,7 +5854,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
@@ -5949,7 +5952,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
@@ -5994,6 +5997,13 @@
                 </tr>
             
             
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-createmsg">CreateMsg</a> 
+                    </td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Every value is a</td>
@@ -6007,7 +6017,7 @@
         </table>
     
         <h3 id="prop-msgoutput">msgOutput</h3>
-        <p>The reulting output data from a CallContractMsg.</p>
+        <p>The reulting output data from a CallMsg.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6040,7 +6050,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-callcontractmsg">CallContractMsg</a> 
+                            <a class="label label-primary" href="#class-callmsg">CallMsg</a> 
                     </td>
                 </tr>
             
