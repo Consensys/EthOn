@@ -1659,7 +1659,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/State"/>
         <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account. In EthOn the code hash is not part of the state but a property of a ContractAccount since it is static. </rdfs:comment>
         <rdfs:label xml:lang="en">Account State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
