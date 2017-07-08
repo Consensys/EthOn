@@ -923,7 +923,6 @@
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/blockGasLimit">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain>
             <owl:Class>
