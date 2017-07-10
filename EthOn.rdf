@@ -1924,7 +1924,7 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/EthOnConcept">
         <suggestedStringRepresentation xml:lang="en">EthonConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Groups all EthOn concepts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This is the foundational concept of all concepts that are original to the EthOn OWL ontology.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2495,6 +2495,7 @@
         </owl:members>
     </rdf:Description>
     
+
 
 
     <!-- 
