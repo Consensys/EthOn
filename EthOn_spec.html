@@ -145,10 +145,11 @@
         </div>
         <div class="col-sm-4">
             <!-- Properties tree-->
-            <h3>Properties <span class="badge">102</span></h3>
+            <h3>Properties <span class="badge">103</span></h3>
             <ul>
                     <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
                     <li><a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-simpledefinition">simpleDefinition</a></li>
                     <li><a class="label label-default" href="#prop-suggestedstringrepresentation">suggestedStringRepresentation</a></li></ul></li>
                     <li><a class="label label-default" href="#prop-swrlaisruleenabled">isRuleEnabled</a></li>
                     <li><a class="label label-default" href="#prop-ethondataproperty">EthOnDataProperty</a><ul>
@@ -325,7 +326,7 @@
         </table>
     
         <h3 id="class-accountconcept">AccountConcept</h3>
-        <p>Groups EthOn concepts related to Accounts.</p>
+        <p>The concept under which fall all account concepts, including External Accounts, Protocol Accounts, and Contract Accounts.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -486,7 +487,7 @@
         </table>
     
         <h3 id="class-block">Block</h3>
-        <p>A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.</p>
+        <p>A Block is the basic element of an 'Ethereum Blockchain'. It functions as a journal entry, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -913,7 +914,7 @@
         </table>
     
         <h3 id="class-ethonconcept">EthOnConcept</h3>
-        <p>Groups al EthOn concepts.</p>
+        <p>This is the foundational concept of all concepts that are original to the EthOn OWL ontology.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -951,6 +952,7 @@
                     <td class="col-md-2">Properties include</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-simpledefinition">simpleDefinition</a> 
                             <a class="label label-default" href="#prop-suggestedstringrepresentation">suggestedStringRepresentation</a> 
                             <a class="label label-default" href="#prop-conformsto">conformsTo</a> 
                     </td>
@@ -4385,6 +4387,12 @@
         <p>Groups all EthOn Message Data Properties.</p>
         <table class="table table-striped">
             
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">URI</td>
@@ -5041,7 +5049,7 @@
         </table>
     
         <h3 id="prop-blockgaslimit">blockGasLimit</h3>
-        <p>A scalar value equal to the current limit of gas expenditure per Block.</p>
+        <p>A scalar value equal to the current limit of gas expenditure per Block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5083,7 +5091,7 @@
         </table>
     
         <h3 id="prop-blockgasused">blockGasUsed</h3>
-        <p>A scalar value equal to the total gas used in transactions in this Block.</p>
+        <p>A scalar value equal to the total gas used by all Transactions in this Block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6989,7 +6997,7 @@
     
 
     <!-- Annotation Property list-->
-    <h2>Annotation Property descriptions <span class="badge">4</span></h2>
+    <h2>Annotation Property descriptions <span class="badge">5</span></h2>
     
         <h3 id="prop-dase_rule">DASE_RULE</h3>
         <p></p>
@@ -7031,10 +7039,49 @@
                     <td class="col-md-2">Subclasses</td>
                     <td class="col-md-10">
                         
+                            <a class="label label-default" href="#prop-simpledefinition">simpleDefinition</a> 
                             <a class="label label-default" href="#prop-suggestedstringrepresentation">suggestedStringRepresentation</a> 
                     </td>
                 </tr>
             
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-simpledefinition">simpleDefinition</h3>
+        <p>This property relates an EthOn concept to a definition in Simple English, intended especially for non-technical users.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10  
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/simpleDefinition">http://ethon.consensys.net/simpleDefinition</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethonannotationproperty">EthOnAnnotationProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#<Class *http://ethon.consensys.net/EthOnConcept*>"><Class *http://ethon.consensys.net/EthOnConcept*></a> 
+                    </td>
+                </tr>
             
             
             
