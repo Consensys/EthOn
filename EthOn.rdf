@@ -71,7 +71,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
     </owl:AnnotationProperty>
-
+    
 
 
     <!-- http://ethon.consensys.net/suggestedStringRepresentation -->
@@ -1935,8 +1935,9 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/ExternalAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
+        <simpleDefinition>An Ethereum Account owned by an External Actor, usually a human, with an address and a pair of public and private keys.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">ExternalAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An Account owned by an External Actor.</rdfs:comment>
+        <rdfs:comment xml:lang="en">One of three types of Accounts on Ethereum, an External Account is an Account owned by an External Actor. The majority of Accounts on the public Ethereum Blockchain fall under this class. External Accounts are identified by an address derived from the public key of a public and private keypair.</rdfs:comment>
         <rdfs:label xml:lang="en">Externally controlled Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2495,7 +2496,6 @@
         </owl:members>
     </rdf:Description>
     
-
 
 
     <!-- 
