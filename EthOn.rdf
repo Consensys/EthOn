@@ -2123,8 +2123,9 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/ProtocolAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
+	<simpleDefinition>An Account written into the protocol which stores an initial balance from the Ethereum Crowdsale.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">PrefundedAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Protocol Account is a type of Account in Ethereum. Protocol Accounts are written into the Ethereum protocol, and are currently only used to store the initial balance for users who participated in the Ethereum Crowdsale. However, Protocol Accounts could be added with any protocol change.</rdfs:comment>
         <rdfs:label xml:lang="en">Protocol Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2143,9 +2144,9 @@
     
 
 
-    <!-- http://ethon.consensys.net/ProtocollVariant -->
+    <!-- http://ethon.consensys.net/ProtocolVariant -->
 
-    <owl:Class rdf:about="http://ethon.consensys.net/ProtocollVariant">
+    <owl:Class rdf:about="http://ethon.consensys.net/ProtocolVariant">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/NetworkConcept"/>
         <suggestedStringRepresentation>EthereumProtocolVariant</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork.</rdfs:comment>
@@ -2475,7 +2476,7 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/Blockchain"/>
             <rdf:Description rdf:about="http://ethon.consensys.net/Network"/>
             <rdf:Description rdf:about="http://ethon.consensys.net/Node"/>
-            <rdf:Description rdf:about="http://ethon.consensys.net/ProtocollVariant"/>
+            <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
