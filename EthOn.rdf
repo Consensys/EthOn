@@ -1706,8 +1706,9 @@
         <owl:hasKey rdf:parseType="Collection">
             <rdf:Description rdf:about="http://ethon.consensys.net/blockHash"/>
         </owl:hasKey>
+        <simpleDefinition>A Block is an entry in a Blockchain. It contains a series of transactions as well as a cryptographic link to the previous Block in the chain.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">Block</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Block is the basic element of a &apos;Blockchain&apos;. It functions as an entry in a distributed ledger, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for Nodes adding new Blocks to the Chain (&quot;miners&quot; in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens (&apos;Ether&apos;) to an Account specified by the Block's author.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Block is the basic element of a &apos;Blockchain&apos;. It functions as an entry in a distributed ledger, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for Nodes adding new Blocks to the Chain (&quot;miners&quot; in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens (&apos;Ether&apos;) to an Account specified by the Block's author.</rdfs:comment>
         <rdfs:label xml:lang="en">Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
