@@ -1216,14 +1216,14 @@
 
 
 
-    <!-- http://ethon.consensys.net/msgData -->
+    <!-- http://ethon.consensys.net/msgCallData -->
 
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgData">
+    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/msgCallData">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/msgPayload"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/CallMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
-        <suggestedStringRepresentation>msgData</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the input data of the call.</rdfs:comment>
+        <suggestedStringRepresentation>msgCallData</suggestedStringRepresentation>
+        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the input data of the call consisting of the function selector and optional input data.</rdfs:comment>
         <rdfs:label xml:lang="en">Message call data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1326,7 +1326,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgPayload</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the data payload of the Message.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the data payload of the Message. Depending on the type of the message, it can consist of arbitrary bytes, a string or, in case of a Call Message, the function selector and input data of the call. In case of a Create Message it contains the byte code of the Contract Account that is created. The gas required to send the Message increases with each byte of the Msg Data.</rdfs:comment>
         <rdfs:label xml:lang="en">Message payload</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
