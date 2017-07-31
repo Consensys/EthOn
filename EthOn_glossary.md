@@ -33,7 +33,7 @@ A 160-bit identifier for Accounts.
 ## B
 ### Block
 [`ethon:Block`](http://ethon.consensys.net/Block)   
-A Block is the basic element of a Blockchain. It functions as a journal, recording a series of transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.
+A Block is the basic element of a 'Blockchain'. It functions as an entry in a distributed ledger, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for Nodes adding new Blocks to the Chain ("miners" in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens ('Ether') to an Account specified by the Block's author.
 ### Block beneficiary reward
 [`ethon:blockBeneficiaryReward`](http://ethon.consensys.net/blockBeneficiaryReward)   
 The reward the beneficiary receives for mining a block. It is comprised of the base reward (5ETH), rewards for including uncles (1/32 of block reward per uncle) and the fees of the Tx in the block.
@@ -46,12 +46,24 @@ A scalar value corresponding to the difficulty level of this Block. This can be 
 ### Block extra data
 [`ethon:blockExtraData`](http://ethon.consensys.net/blockExtraData)   
 An arbitrary byte array containing data relevant to this Block. This must be 32 bytes or fewer.
+### Block gas limit
+[`ethon:blockGasLimit`](http://ethon.consensys.net/blockGasLimit)   
+A scalar value equal to the current limit of gas expenditure per Block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor.
+### Block gas used
+[`ethon:blockGasUsed`](http://ethon.consensys.net/blockGasUsed)   
+A scalar value equal to the total gas used by all Transactions in this Block.
 ### Block hash
 [`ethon:blockHash`](http://ethon.consensys.net/blockHash)   
 The Keccak 256-bit hash of the Block's header, in its entierty.
 ### Block header
 [`ethon:blockHeader`](http://ethon.consensys.net/blockHeader)   
 Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.
+### Block logs bloom filter
+[`ethon:blockLogsBloom`](http://ethon.consensys.net/blockLogsBloom)   
+The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.
+### Block mix hash
+[`ethon:blockMixHash`](http://ethon.consensys.net/blockMixHash)   
+A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.
 ### Block nonce
 [`ethon:blockNonce`](http://ethon.consensys.net/blockNonce)   
 A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this Block.
@@ -115,6 +127,9 @@ Relates a Transaction to the global state of the system after the Transaction ha
 The cumulative gas used in the block containing the Transaction as of immediately after the Transaction has happened.
 ## D
 ## E
+### EthOn Message Data Property
+[`ethon:MessageDataProperty`](http://ethon.consensys.net/MessageDataProperty)   
+Groups all EthOn Message Data Properties.
 ### Ethereum Blockchain
 [`ethon:Blockchain`](http://ethon.consensys.net/Blockchain)   
 An Ethereum Blockchain is a distributed database that maintains a continuously-growing list of records called *Blocks* secured from tampering and revision. Each Block contains a timestamp and a link to a previous Block in a Merkle tree structure.
@@ -141,12 +156,6 @@ An Account owned by an External Actor.
 [`ethon:from`](http://ethon.consensys.net/from)   
 Relates a Message with the Account it originates from.
 ## G
-### Gas limit
-[`ethon:blockGasLimit`](http://ethon.consensys.net/blockGasLimit)   
-A scalar value equal to the current limit of gas expenditure per Block.
-### Gas used
-[`ethon:blockGasUsed`](http://ethon.consensys.net/blockGasUsed)   
-A scalar value equal to the total gas used in transactions in this Block.
 ### Genesis Block
 [`ethon:GenesisBlock`](http://ethon.consensys.net/GenesisBlock)   
 A Genesis Block is the unmined, deliberately created, very first Block in a Blockchain. It has no predecessors, i.e. no parent Block.
@@ -156,7 +165,7 @@ A Genesis Block is the unmined, deliberately created, very first Block in a Bloc
 Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.
 ### has Fork
 [`ethon:hasFork`](http://ethon.consensys.net/hasFork)   
-Relates a Protocol variant to a forked version of it. It is inverse functional because a forked Blockchain can have only one Blockchain it forked from. It is Transitive because if a Blockchain C that was forked from Blockchain B that in turn was forked from Blockchain A, Blockchain C was also forked from Blockchain A. It is assymetric because if Blockchain A is forked from Blockchain B, B cannot be also forked from A. It is irreflexive because a Blockchain cannot be a fork of itself.
+Relates a Blockchain to a forked version of it. It is inverse functional because a forked Blockchain can have only one Blockchain it forked from. It is Transitive because if a Blockchain C that was forked from Blockchain B that in turn was forked from Blockchain A, Blockchain C was also forked from Blockchain A. It is asymetric because if Blockchain A is forked from Blockchain B, B cannot be also forked from A. It is irreflexive because a Blockchain cannot be a fork of itself.
 ### has Log Entry
 [`ethon:hasLogEntry`](http://ethon.consensys.net/hasLogEntry)   
 Relates a Transaction to a Log Entry it creates.
@@ -215,9 +224,6 @@ Relates a Log Entry to its data.
 ### Log index
 [`ethon:logIndex`](http://ethon.consensys.net/logIndex)   
 Relates a Log Entry to its index in the transaction reciept of a Transaction. The log index defines the order of the Log Entries of a Transaction.
-### Logs bloom filter
-[`ethon:blockLogsBloom`](http://ethon.consensys.net/blockLogsBloom)   
-The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list.
 ### logged by
 [`ethon:loggedBy`](http://ethon.consensys.net/loggedBy)   
 Relates a Log Entry to its logger's Account.
@@ -249,9 +255,6 @@ The reulting output data from a CallContractMsg.
 ### Message payload
 [`ethon:msgPayload`](http://ethon.consensys.net/msgPayload)   
 An unlimited size byte array specifying the data payload of the Message.
-### Mix hash
-[`ethon:blockMixHash`](http://ethon.consensys.net/blockMixHash)   
-A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.
 ### Msg gas used
 [`ethon:msgGasUsed`](http://ethon.consensys.net/msgGasUsed)   
 The amount of gas that was used for processing a single Message, regardless of which type of Message it may be.
