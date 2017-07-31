@@ -581,7 +581,7 @@
           
               <li class="second-level" style="line-height: 20px;" id="sd_49"><a   href="prop-ethonannotationproperty.html">:EthOnAnnotationProperty</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_50"><a   href="prop-simpledefinition.html">:simpleDefinition</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_50"><a class="active"  href="prop-simpledefinition.html">:simpleDefinition</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_51"><a   href="prop-suggestedstringrepresentation.html">:suggestedStringRepresentation</a></li>
           
@@ -759,7 +759,7 @@
           
               <li class="second-level" style="line-height: 20px;" id="sd_138"><a   href="prop-hasreceipt.html">:hasReceipt</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_139"><a class="active"  href="prop-hastransition.html">:hasTransition</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_139"><a   href="prop-hastransition.html">:hasTransition</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_140"><a   href="prop-knowsofuncle.html">:knowsOfUncle</a></li>
           
@@ -882,7 +882,7 @@
           <a href="entities-tree-properties.html">Properties</a>
     </li>
       <li class="active">
-            http://ethon.consensys.net/hasTransition
+            http://ethon.consensys.net/simpleDefinition
         </li>
   </ol>
 
@@ -899,7 +899,7 @@
 
             <h1>
 
-                :hasTransition
+                :simpleDefinition
                 
                     <small class="label label-info label-xs ">leaf node</small>
                   
@@ -919,11 +919,11 @@
 
                         <li>
 
-                          <a href="prop-stateobjectproperty.html" title="'EthOn State Object Property' - Groups all EthOn State Object Properties.">:StateObjectProperty</a>
+                          <a href="prop-ethonannotationproperty.html" title="'EthOnAnnotationProperty' - Superclass of all EthOn specific annotation properties.">:EthOnAnnotationProperty</a>
 
                           <ul>
 
-                            <li><a style="font-weight: bold;" title="'has Transition' - Relates a State to a Transition (i.e. a Message) that creates a new State.">:hasTransition</a>
+                            <li><a style="font-weight: bold;" title="'simpleDefinition' - This property relates an EthOn concept to a definition in Simple English, intended especially for non-technical users.">:simpleDefinition</a>
                             
                               </li>
 
@@ -948,7 +948,7 @@
              </div>
              <div class="panel-body">
 
-                 <code>http://ethon.consensys.net/hasTransition</code>
+                 <code>http://ethon.consensys.net/simpleDefinition</code>
              </div>
            </div>
             </div></div>
@@ -963,7 +963,7 @@
              </div>
              <div class="panel-body">
 
-                 has Transition
+                 simpleDefinition
              </div>
            </div>
             </div></div>
@@ -978,7 +978,7 @@
             </div>
             <div class="panel-body">
 
-                Relates a State to a Transition (i.e. a Message) that creates a new State.
+                This property relates an EthOn concept to a definition in Simple English, intended especially for non-technical users.
             </div>
           </div>
            </div></div>
@@ -996,7 +996,7 @@
                     <div class="panel-body">
 
                     
-                            <li><a href="prop-stateobjectproperty.html">:StateObjectProperty</a></li><li><a href="prop-ethonobjectproperty.html">:EthOnObjectProperty</a></li>
+                            <li><a href="prop-ethonannotationproperty.html">:EthOnAnnotationProperty</a></li>
                     
 
                     </div>
@@ -1024,12 +1024,15 @@
                <tr>
                    <td>
                      
-                         <a>owl:Thing</a> (inferred)
+                         
+                           <a href="class-ethonconcept.html">:EthOnConcept</a>
+                           
+                         
                      
                    </td>
 
                     <td>
-                      :hasTransition
+                      :simpleDefinition
                     </td>
 
                     <td>
@@ -1069,11 +1072,10 @@
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">xml:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/XML/1998/namespace&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 
-<span class="nn">:</span><span class="nt">hasTransition</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">ObjectProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;has Transition&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">:</span><span class="nt">suggestedStringRepresentation</span><span class="w"> </span><span class="s">&quot;hasTransition&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">comment</span><span class="w"> </span><span class="s">&quot;Relates a State to a Transition (i.e. a Message) that creates a new State.&quot;</span><span class="o">@</span><span class="ge">en</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subPropertyOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">StateObjectProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="nn">:</span><span class="nt">simpleDefinition</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">AnnotationProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">comment</span><span class="w"> </span><span class="s">&quot;This property relates an EthOn concept to a definition in Simple English, intended especially for non-technical users.&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">domain</span><span class="w"> </span><span class="nn">:</span><span class="nt">EthOnConcept</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subPropertyOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">EthOnAnnotationProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="nn">ns:</span><span class="nt">term_status</span><span class="w"> </span><span class="s">&quot;unstable&quot;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 </pre></div>
 
@@ -1174,7 +1176,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_139").offset().top - 100
+          scrollTop: $("#sd_50").offset().top - 100
       }, 100);
     });
 
