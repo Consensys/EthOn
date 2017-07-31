@@ -33,7 +33,7 @@ A 160-bit identifier for Accounts.
 ## B
 ### Block
 [`ethon:Block`](http://ethon.consensys.net/Block)   
-A Block is the basic element of an 'Ethereum Blockchain'. It functions as a journal entry, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.
+A Block is the basic element of a 'Blockchain'. It functions as an entry in a distributed ledger, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for Nodes adding new Blocks to the Chain ("miners" in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens ('Ether') to an Account specified by the Block's author.
 ### Block beneficiary reward
 [`ethon:blockBeneficiaryReward`](http://ethon.consensys.net/blockBeneficiaryReward)   
 The reward the beneficiary receives for mining a block. It is comprised of the base reward (5ETH), rewards for including uncles (1/32 of block reward per uncle) and the fees of the Tx in the block.

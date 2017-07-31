@@ -491,7 +491,7 @@
         </table>
     
         <h3 id="class-block">Block</h3>
-        <p>A Block is the basic element of an 'Ethereum Blockchain'. It functions as a journal entry, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is an incentive mechanism that provides incentives to generate new Blocks ("mine Blocks") that comply to the rules of Ethereum by issuing a reward to an Account specified by the miner.</p>
+        <p>A Block is the basic element of a 'Blockchain'. It functions as an entry in a distributed ledger, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for Nodes adding new Blocks to the Chain ("miners" in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens ('Ether') to an Account specified by the Block's author.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -511,6 +511,10 @@
                     <td class="col-md-10">Block</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">A Block is an entry in a Blockchain. It contains a series of transactions as well as a cryptographic hash linking it to the previous Block in the chain.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -556,7 +560,7 @@
         </table>
     
         <h3 id="class-blockconcept">BlockConcept</h3>
-        <p>Groups EthOn concepts related to Blocks.</p>
+        <p>The concept under which fall all EthOn concepts related to Blocks.</p>
         <table class="table table-striped">
             
                 <tr>
