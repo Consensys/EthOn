@@ -27,6 +27,8 @@ class SpecGenerator():
             c.RDFSlabel = ", ".join(sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.label)]))
             c.ETHONsuggestedStringRepresentation = ", ".join(
                 sorted([x for x in c.rdfgraph.objects(c.uri, ETHON.suggestedStringRepresentation)]))
+            c.ETHONsimpleDefinition = ", ".join(
+                sorted([x for x in c.rdfgraph.objects(c.uri, ETHON.simpleDefinition)]))
             c.VOCABterm_status = ", ".join(sorted([x for x in c.rdfgraph.objects(c.uri, VOCAB.term_status)]))
             c.RDFSseeAlso = sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.seeAlso)])
             c.RDFSisDefinedBy = sorted([x for x in c.rdfgraph.objects(c.uri, RDFS.isDefinedBy)])
@@ -36,6 +38,8 @@ class SpecGenerator():
             p.RDFSlabel = ", ".join(sorted([x for x in p.rdfgraph.objects(p.uri, RDFS.label)]))
             p.ETHONsuggestedStringRepresentation = ", ".join(
                 sorted([x for x in p.rdfgraph.objects(p.uri, ETHON.suggestedStringRepresentation)]))
+            p.ETHONsimpleDefinition = ", ".join(
+                sorted([x for x in p.rdfgraph.objects(p.uri, ETHON.simpleDefinition)]))
             p.VOCABterm_status = ", ".join(sorted([x for x in p.rdfgraph.objects(p.uri, VOCAB.term_status)]))
             p.RDFSseeAlso = sorted([x for x in p.rdfgraph.objects(p.uri, RDFS.seeAlso)])
             p.RDFSisDefinedBy = sorted([x for x in p.rdfgraph.objects(p.uri, RDFS.isDefinedBy)])
@@ -134,7 +138,8 @@ class SpecGenerator():
                         "NetworkObjectProperty",
                         "EthOnObjectProperty",
                         "StateConcept",
-                        "StateObjectProperty"]
+                        "StateObjectProperty",
+                        "DASE_RULE"]
 
         glossary = collections.OrderedDict()
         az = string.uppercase[:26]
