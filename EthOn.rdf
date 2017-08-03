@@ -2090,9 +2090,9 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/Node">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/NetworkConcept"/>
-        <simpleDefinition>A piece of software participating in the Ethereum Network.</simpleDefinition>
+        <simpleDefinition>A piece of software participating in the Ethereum network.</simpleDefinition>
         <suggestedStringRepresentation>Node</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A participant in an Ethereum Network, specifically an instance of one of the client implementations, which may be either a Full Node or a Light Node.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A participant in an Ethereum network, specifically an instance of one of the client implementations, which may be either a full node or a light node.</rdfs:comment>
         <rdfs:label xml:lang="en">Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
