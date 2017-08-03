@@ -121,6 +121,11 @@
                     <td class="col-md-2">Suggested string</td>
                     <td class="col-md-10">{{ class.ETHONsuggestedStringRepresentation }}</td>
                 </tr>{% endif %}
+            {% if class.ETHONsimpleDefinition %}
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">{{ class.ETHONsimpleDefinition }}</td>
+                </tr>{% endif %}
             {% if class._parents %}
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -193,6 +198,11 @@
                 <tr>
                     <td class="col-md-2">Suggested string</td>
                     <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
+                </tr>{% endif %}
+            {% if prop.ETHONsimpleDefinition %}
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">{{ prop.ETHONsimpleDefinition }}</td>
                 </tr>{% endif %}
             {% if prop._parents %}
                 <tr>
@@ -267,6 +277,11 @@
                     <td class="col-md-2">Suggested string</td>
                     <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
                 </tr>{% endif %}
+            {% if prop.ETHONsimpleDefinition %}
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">{{ prop.ETHONsimpleDefinition }}</td>
+                </tr>{% endif %}
             {% if prop._parents %}
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -339,6 +354,11 @@
                     <td class="col-md-2">Suggested string</td>
                     <td class="col-md-10">{{ prop.ETHONsuggestedStringRepresentation }}</td>
                 </tr>{% endif %}
+            {% if prop.ETHONsimpleDefinition %}
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">{{ prop.ETHONsimpleDefinition }}</td>
+                </tr>{% endif %}
             {% if prop._parents %}
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -393,5 +413,3 @@
 
 </body>
 </html>
-
-
