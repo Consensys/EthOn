@@ -71,7 +71,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/suggestedStringRepresentation -->
@@ -1691,8 +1691,9 @@
     <owl:Class rdf:about="http://ethon.consensys.net/AccountStorage">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
+        <simpleDefinition>A data structure which contains the current state of a smart contract defined in a contract account, i.e. the total supply of an ERC20 token and the mapping of account addresses to current balances.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">AccountStorage</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account&apos;s code, but the execution state of the code. The Account&apos;s code is stored in the</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Merkle Patricia tree that encodes the storage contents of an account. It is not used to store an account&apos;s code, but the execution state of the code. The account&apos;s EVM code is stored in the account state.</rdfs:comment>
         <rdfs:label xml:lang="en">Storage</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
