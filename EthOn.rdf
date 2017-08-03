@@ -683,7 +683,7 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/AccountDataProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountConcept"/>
-        <rdfs:comment xml:lang="en">Groups all Data Properties that are specific to an Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all data properties that are specific to an account.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Account Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -695,7 +695,7 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/BlockDataProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/BlockConcept"/>
-        <rdfs:comment xml:lang="en">Groups all Data Properties that are specific to a Block. These properties are usually functional because a Block can only be associated with a single instance of them.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all data properties that are specific to a block. These properties are usually functional because a block can only be associated with a single instance of them.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Block Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -706,7 +706,7 @@
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/EthOnDataProperty">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:comment xml:lang="en">Groups all Data Properties specific to EthOn.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all data properties specific to EthOn.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -718,7 +718,7 @@
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/MessageDataProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/MessageConcept"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn Message Data Properties.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn message data properties.</rdfs:comment>
         <rdfs:label>EthOn Message Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -729,7 +729,7 @@
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/NetworkDataProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn Network Data Properties.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn network data properties.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Network Data Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -753,7 +753,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountState"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>accountBalance</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei owned by an Account at a given Account state.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei owned by an account at a given account state.</rdfs:comment>
         <rdfs:label xml:lang="en">Account balance</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -767,7 +767,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>accountBalancePrefunded</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The amount of Wei an Account was prefunded with in a Protocol Variant. In the case that an Account receives multiple prefunds in multiple Protocol Variants, the amounts are summed. In contrast to the regular Account balance it is a property of the Account itself and not of its state.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The amount of Wei an account was prefunded with in a protocol variant. In the case that an account receives multiple prefunds in multiple protocol variants, the amounts are summed. In contrast to the regular account balance it is a property of the account itself and not of its state.</rdfs:comment>
         <rdfs:label xml:lang="en">Account balance prefunded</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -782,7 +782,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
         <suggestedStringRepresentation>accountCode</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The immutable EVM bytecode of the Contract Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The immutable EVM bytecode of the contract account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account code</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -797,7 +797,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
         <suggestedStringRepresentation>accountCodeHash</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The immutable Keccak-256 hash of the EVM code of an Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The immutable Keccak-256 hash of the EVM code of an account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account code hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -812,7 +812,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountState"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>accountNonce</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of transactions sent from this Account or, in the case of Accounts with associated code, the number of Contract-creations made by this Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of transactions sent from this account or, in the case of accounts with associated code, the number of contract-creations made by this account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account nonce</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -827,7 +827,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>accountPublicKey</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The public key of an ExternalAccount.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The public key of an external account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account public key</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -842,7 +842,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Account"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>address</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A 160-bit identifier for Accounts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A 160-bit identifier for accounts.</rdfs:comment>
         <rdfs:label xml:lang="en">Address</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -879,7 +879,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <suggestedStringRepresentation>blockCreationTime</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">This Block&apos;s inception date and time.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This block&apos;s inception date and time.</rdfs:comment>
         <rdfs:label xml:lang="en">Block creation time</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -901,7 +901,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>blockDifficulty</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value corresponding to the difficulty level of this Block. This can be calculated from the previous Block&apos;s difficulty level and the timestamp.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value corresponding to the difficulty level of this block. This can be calculated from the previous block&apos;s difficulty level and the timestamp.</rdfs:comment>
         <rdfs:label xml:lang="en">Block difficulty</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -923,7 +923,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockExtraData</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An arbitrary byte array containing data relevant to this Block. This must be 32 bytes or fewer.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An arbitrary byte array containing data relevant to this block. This must be 32 bytes or fewer.</rdfs:comment>
         <rdfs:label xml:lang="en">Block extra data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -945,7 +945,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>blockGasLimit</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the current limit of gas expenditure per Block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the current limit of gas expenditure per block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor.</rdfs:comment>
         <rdfs:label xml:lang="en">Block gas limit</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -967,7 +967,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>blockGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the total gas used by all Transactions in this Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the total gas used by all transactions in this block.</rdfs:comment>
         <rdfs:label xml:lang="en">Block gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -989,7 +989,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockHash</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the Block&apos;s header, in its entierty.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the block&apos;s header, in its entierty.</rdfs:comment>
         <rdfs:label xml:lang="en">Block hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1011,7 +1011,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockHeader</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to its block header data. The block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the block number, 10. the gas limit of the block, 11. the gas used by all transactions in the block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the block nonce. The property is functional because a block can have only exactly one block header.</rdfs:comment>
         <rdfs:label xml:lang="en">Block header</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1055,7 +1055,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockMixHash</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block.</rdfs:comment>
         <rdfs:label xml:lang="en">Block mix hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1077,7 +1077,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockNonce</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this block.</rdfs:comment>
         <rdfs:label xml:lang="en">Block nonce</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1092,7 +1092,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>blockSize</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The size of the the Block header in RLP format in bytes.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The size of the block header in RLP format in bytes.</rdfs:comment>
         <rdfs:label xml:lang="en">Block size</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/RLP"/>
         <ns:term_status>unstable</ns:term_status>
@@ -1107,7 +1107,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <suggestedStringRepresentation>clientVersion</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).</rdfs:comment>
         <rdfs:label xml:lang="en">runs client</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1121,7 +1121,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>cumulativeGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The cumulative gas used in the block containing the Transaction as of immediately after the Transaction has happened.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The cumulative gas used in the block containing the transaction as of immediately after the transaction has happened.</rdfs:comment>
         <rdfs:label xml:lang="en">cumulative gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1135,7 +1135,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>logData</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Entry to its data.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a log entry to its data.</rdfs:comment>
         <rdfs:label xml:lang="en">Log data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1150,7 +1150,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>logIndex</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Entry to its index in the transaction reciept of a Transaction. The log index defines the order of the Log Entries of a Transaction.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a log entry to its index in the transaction reciept of a transaction. The log index defines the order of the log entries of a transaction.</rdfs:comment>
         <rdfs:label xml:lang="en">Log index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1165,7 +1165,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>logTopicData</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Topic to the 32 bytes of data it contains.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a log topic to the 32 bytes of data it contains.</rdfs:comment>
         <rdfs:label xml:lang="en">Log Topic data</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1180,7 +1180,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>logTopicIndex</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Topic to its index in the Log Entry. The Log Topic index defines the order of the Log Topics of in Log Entry.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a log topic to its index in the log entry. The log topic index defines the order of the log topics of in log entry.</rdfs:comment>
         <rdfs:label xml:lang="en">Log Topic index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1194,7 +1194,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>msgCallDepth</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the depth of the contract message. A contract message is represented as a call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the message execution.</rdfs:comment>
         <rdfs:label xml:lang="en">Message call depth</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1230,7 +1230,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
         <suggestedStringRepresentation>msgError</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A boolean value indicating whether the ContractMessage execution resulted in an error. A &quot;true&quot; value indicates an error.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A boolean value indicating whether the contract message execution resulted in an error. A &quot;true&quot; value indicates an error.</rdfs:comment>
         <rdfs:label xml:lang="en">Message error</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1245,7 +1245,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <suggestedStringRepresentation>msgErrorString</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A string informally describing an error that occured during the execution of a contract message. Only exists if msgError is true.</rdfs:comment>
         <rdfs:label xml:lang="en">Message error string</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1259,7 +1259,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>msgGasLimit</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message. After all resulting computations are done, excess gas is returned to the sender of the original Transaction.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with contract messages it represents the fraction of the original transaction gas limit still available for execution of the contract message. After all resulting computations are done, excess gas is returned to the sender of the original transaction.</rdfs:comment>
         <rdfs:label xml:lang="en">Message gas limit</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1275,7 +1275,7 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <owl:propertyDisjointWith rdf:resource="http://ethon.consensys.net/txGasUsed"/>
         <suggestedStringRepresentation>msgGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The amount of gas that was used for processing a single Message, regardless of which type of Message it may be.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The amount of gas that was used for processing a single message, regardless of which type of message it may be.</rdfs:comment>
         <rdfs:label xml:lang="en">Msg gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1296,7 +1296,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgInit</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the EVM-code for the contract account initialisation procedure.</rdfs:comment>
         <rdfs:label xml:lang="en">Message init code</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1311,7 +1311,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/CallContractMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgOutput</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The reulting output data from a CallContractMsg.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The reulting output data from a call contract message.</rdfs:comment>
         <rdfs:label xml:lang="en">Message output</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1326,7 +1326,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgPayload</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the data payload of the Message.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An unlimited size byte array specifying the data payload of the message.</rdfs:comment>
         <rdfs:label xml:lang="en">Message payload</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1341,7 +1341,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/SelfdestructContractMsg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>msgRefundBalance</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei that will be refunded in result of the SelfdestructContractMsg.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei that will be refunded as the result of a selfdestruct contract message.</rdfs:comment>
         <rdfs:label xml:lang="en">contract balance in Wei</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1363,7 +1363,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>number</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of ancestor blocks. The genesis block has a number of zero.</rdfs:comment>
         <rdfs:label xml:lang="en">Block number</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1378,7 +1378,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ReceiptsTrie"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockReceiptsRoot</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the block.</rdfs:comment>
         <rdfs:label xml:lang="en">Receipts root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1392,7 +1392,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Blockchain"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>startBlockNumber</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The Block number of the first block in a new Blockchain after a hard fork.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The block number of the first block in a new blockchain after a hard fork.</rdfs:comment>
         <rdfs:label xml:lang="en">start Block number</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1422,7 +1422,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountStorage"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
         <suggestedStringRepresentation>storageRoot</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</rdfs:comment>
         <rdfs:label xml:lang="en">Storage root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1437,7 +1437,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/TxTrie"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>blockTransactionsRoot</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the block.</rdfs:comment>
         <rdfs:label xml:lang="en">Transactions root</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1451,7 +1451,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>txGasPrice</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this transaction.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction gas price</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1466,7 +1466,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>txGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting ContractMessages.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all contract messages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting contract messages.</rdfs:comment>
         <rdfs:label xml:lang="en">Tx gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1480,7 +1480,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>txHash</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the Transaction</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the transaction</rdfs:comment>
         <rdfs:label xml:lang="en">Tx hash</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1494,7 +1494,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>txIndex</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The position of a Transaction in a Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The position of a transaction in a block.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction index</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1508,7 +1508,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>txLogsBloom</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transaction to the Bloom filter of its Log Entries.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a transaction to the Bloom filter of its log entries.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction Logs Bloom filter</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1580,7 +1580,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Uncle"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>uncleBenficiaryReward</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The reward the beneficiary of an uncle receives if a Block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the Block in which it is included minus the Uncle&apos;s number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The reward the beneficiary of an uncle receives if a block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the block in which it is included minus the uncle&apos;s number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.</rdfs:comment>
         <rdfs:label xml:lang="en">Uncle beneficiary reward</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -1595,7 +1595,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>value</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be transferred to the Message call&apos;s recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be transferred to the Message call&apos;s recipient. In the case of contract creation it is the initial balance of the contract account, paid by the sending account.</rdfs:comment>
         <rdfs:label xml:lang="en">value in Wei</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
