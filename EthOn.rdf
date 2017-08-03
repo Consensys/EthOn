@@ -2024,7 +2024,7 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/MessageConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
-        <rdfs:comment xml:lang="en">Groups EthOn concepts related to Messages.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups EthOn concepts related to messages.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Message concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2050,7 +2050,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/StateTransition"/>
         <suggestedStringRepresentation>Msg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Data (as a set of bytes) and value (specified as Ether) that is passed between two accounts, either through the deterministic operation of an autonomous object (contract account) or the cryptographically secure signature of an external account.</rdfs:comment>
         <rdfs:label xml:lang="en">Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2068,7 +2068,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/Network">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/NetworkConcept"/>
         <suggestedStringRepresentation>Network</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An Ethereum network is the group of all Nodes that conform to a certain Protocol Variant.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An Ethereum network is the group of all nodes that conform to a certain protocol variant.</rdfs:comment>
         <rdfs:label xml:lang="en">Ethereum Network</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2080,7 +2080,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/NetworkConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation>NetworkConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Groups all EthOn Network concepts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn network concepts.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Network Concept.</rdfs:label>
     </owl:Class>
 
@@ -2091,7 +2091,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/Node">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/NetworkConcept"/>
         <suggestedStringRepresentation>Node</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A participan in an Ethereum Network.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A participant in an Ethereum network.</rdfs:comment>
         <rdfs:label xml:lang="en">Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2126,7 +2126,7 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/ProtocolAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
-	<simpleDefinition>An account that was created together with the blockchain itself or during a protcol update and can have an initial balance, e.g. from the crowdfunding of the blockchain.</simpleDefinition>
+	      <simpleDefinition>An account that was created together with the blockchain itself or during a protcol update and can have an initial balance, e.g. from the crowdfunding of the blockchain.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">PrefundedAccount</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A protocol account is a type of account in Ethereum. Protocol accounts are specified in the Ethereum protocol, and have so far only been used to store the initial balance for users who participated in the Ethereum crowdsale. Protocol accounts could be added with any protocol change and may be either external accounts or contract accounts.</rdfs:comment>
         <rdfs:label xml:lang="en">Protocol Account</rdfs:label>
@@ -2140,7 +2140,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/ProtocolState">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountState"/>
         <suggestedStringRepresentation xml:lang="en">ProtocolState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of Accounts, e.g. for prefunded Accounts, creating predefined Contract Accounts with storage or setting any other state property as part of the protocol specification.</rdfs:comment>
+        <rdfs:comment xml:lang="en">This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of accounts, e.g. for prefunded accounts, creating predefined contract accounts with storage or setting any other state property as part of the protocol specification.</rdfs:comment>
         <rdfs:label xml:lang="en">ProtocolState</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2166,7 +2166,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <suggestedStringRepresentation>ReceiptsTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A trie structure that stores transaction receipts. Each Block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trie structure that stores transaction receipts. Each block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the block.</rdfs:comment>
         <rdfs:label xml:lang="en">Receipts Trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2178,7 +2178,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/SelfdestructContractMsg">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <suggestedStringRepresentation>SelfdestructContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Selfdestruct Contract Message is a Contract Message that deletes the originating contract and refunds its balance to the receiver of the Message.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A selfdestruct contract message is a contract message that deletes the originating contract and refunds its balance to the receiver of the message.</rdfs:comment>
         <rdfs:label xml:lang="en">Selfdestruct Contract Message</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-6.md"/>
         <ns:term_status>unstable</ns:term_status>
@@ -2237,7 +2237,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>Tx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a &apos;Transaction Receipt&apos;.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Transactions are messages between two accounts that may transfer Ether and may contain a payload. Transactions always originate from an external account that is controlled by an external actor by means of a private key.  The execution of a transaction creates a &apos;transaction receipt&apos;.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2257,7 +2257,7 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
-        <rdfs:comment>All transactions originate from an External Account.</rdfs:comment>
+        <rdfs:comment>All transactions originate from an external account.</rdfs:comment>
     </owl:Axiom>
 
 
@@ -2281,7 +2281,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <suggestedStringRepresentation>TxTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trie structure that stores transactions. The header of a block contains a reference to the root of a Tx trie with all transactions contained in the block.</rdfs:comment>
         <rdfs:label xml:lang="en">Transactions Trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2300,7 +2300,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation xml:lang="en">Uncle</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An Uncle is the direct child of the k&apos;th generation ancestor of a Block B, where 2&lt;=k&lt;=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An uncle is the direct child of the k&apos;th generation ancestor of a block B, where 2&lt;=k&lt;=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an uncle is an ancestor of the inserting block, located at the tip of the blockchain.</rdfs:comment>
         <rdfs:label xml:lang="en">Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2375,7 +2375,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/State"/>
         <suggestedStringRepresentation xml:lang="en">State</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The world state, is a mapping between addresses (160-bit identifiers) of all Accounts and their States (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The world state, is a mapping between addresses (160-bit identifiers) of all accounts and their states (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</rdfs:comment>
         <rdfs:label xml:lang="en">World State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
