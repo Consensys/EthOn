@@ -117,7 +117,7 @@
                     <li><a class="label label-primary" href="#class-node">Node</a><ul>
                     <li><a class="label label-primary" href="#class-fullnode">FullNode</a></li>
                     <li><a class="label label-primary" href="#class-lightnode">LightNode</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-protocollvariant">ProtocollVariant</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-protocolvariant">ProtocolVariant</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-stateconcept">StateConcept</a><ul>
                     <li><a class="label label-primary" href="#class-state">State</a><ul>
                     <li><a class="label label-primary" href="#class-accountstate">AccountState</a><ul>
@@ -263,7 +263,7 @@
     <h2>Class descriptions <span class="badge">46</span></h2>
     
         <h3 id="class-account">Account</h3>
-        <p>Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</p>
+        <p>*Account* is the superclass of all account types in Ethereum. All accounts are identified by an address (which, however, is derived differently for external and contract accounts) and an account state that contains the contract's balance and total message count, which is called its nonce. Contract accounts also have an associated storage state and EVM code. The address of an external account is derived from the public key of a public and private keypair, while a contract account address is a concatenation of the creator account's address and its nonce. Both contract accounts and external accounts can also be of type *protocol account* if they are specified in the Ethereum blockchain, i.e. the accounts pre-funded by the Ethereum crowdsale.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -283,6 +283,10 @@
                     <td class="col-md-10">Account</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">There are two main types of accounts: external accounts (often referred to as "wallet" or simply "account") and contract accounts (usually just called "contract" or "smart contract"). An external account is what you need to use Ethereum. It is usually protected by a password. If you have the password you can send Ether from your account to another or use a contract. It has an Ethereum address (0x...) by which it is identified.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -744,7 +748,7 @@
         </table>
     
         <h3 id="class-contractaccount">ContractAccount</h3>
-        <p>A notional object existent only within the hypothetical state of Ethereum. Has an intrinsic address and thus an associated Account; the Account will have non-empty associated EVM Code. Incorporated only as the Storage State of that Account.</p>
+        <p>One of the two main types of accounts on Ethereum, a contract account is an account controlled by a smart contract existing within the state of Ethereum. Contract accounts are identified by an address which is derived from the creator account's address and its nonce. A contract account will have non-empty associated EVM code, incorporated only as the storage state of that account, and an intrinsic balance. A contract account may not create and sign transactions, but it can receive transactions from external accounts as well as send and receive contract messages, which may involve a transfer of Ether. Contract accounts can also contain events which create log entries when triggered.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -764,6 +768,10 @@
                     <td class="col-md-10">ContractAccount</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">An Ethereum account controlled by a smart contract. It is identified by an address and stores the compiled EVM code.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -842,7 +850,6 @@
                         
                             <a class="label label-default" href="#prop-msgerror">msgError</a> 
                             <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
-                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                     </td>
                 </tr>
@@ -981,7 +988,7 @@
         </table>
     
         <h3 id="class-externalaccount">ExternalAccount</h3>
-        <p>An Account owned by an External Actor.</p>
+        <p>One of the two main types of Accounts on Ethereum, an External Account is an Account controlled by an External Actor (as opposed to a Contract Account). The unique identifier of an External Account is its address. It consists of the rightmost 160 bits of the keccak 256 hash of its public key (Example: 0x1a1138875dAB9E0AC8b0fd4a37EEAC5eb26B870B). There is only one way External Accounts can actively change the state of the blockchain. They can be used to send a valid Transaction to the Ethereum blockchain. The transaction can be directed towards other External Accounts or towards Contract Accounts. Since the private key is needed for sending, a valid Transaction can only be created by the person or entity controlling the private key of the External Account. Besides being target of Transactions, External Accounts can also be the target of Contract Messages, Block beneficiary rewards, Uncle beneficiary rewards or payouts of Contract Accounts that have self-destructed.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1001,6 +1008,10 @@
                     <td class="col-md-10">ExternalAccount</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">An Ethereum account usually controlled by a person. It is identified by an address (0x...) and a public/private key-pair.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1420,6 +1431,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
+                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
@@ -1504,7 +1516,7 @@
                             <a class="label label-primary" href="#class-blockchain">Blockchain</a> 
                             <a class="label label-primary" href="#class-network">Network</a> 
                             <a class="label label-primary" href="#class-node">Node</a> 
-                            <a class="label label-primary" href="#class-protocollvariant">ProtocollVariant</a> 
+                            <a class="label label-primary" href="#class-protocolvariant">ProtocolVariant</a> 
                     </td>
                 </tr>
             
@@ -1701,7 +1713,7 @@
         </table>
     
         <h3 id="class-protocolaccount">ProtocolAccount</h3>
-        <p>A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.</p>
+        <p>A protocol account is a type of account in Ethereum. Protocol accounts are specified in the Ethereum protocol, and have so far only been used to store the initial balance for users who participated in the Ethereum crowdsale. Protocol accounts could be added with any protocol change and may be either external accounts or contract accounts.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1721,6 +1733,10 @@
                     <td class="col-md-10">PrefundedAccount</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">An account that was created together with the blockchain itself or during a protcol update and can have an initial balance, e.g. from the crowdfunding of the blockchain.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1779,7 +1795,7 @@
             
         </table>
     
-        <h3 id="class-protocollvariant">ProtocollVariant</h3>
+        <h3 id="class-protocolvariant">ProtocolVariant</h3>
         <p>A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork.</p>
         <table class="table table-striped">
             
@@ -1792,7 +1808,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/ProtocollVariant">http://ethon.consensys.net/ProtocollVariant</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ProtocolVariant">http://ethon.consensys.net/ProtocolVariant</a></td>
                 </tr>
             
                 <tr>
@@ -6084,7 +6100,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
