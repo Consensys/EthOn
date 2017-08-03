@@ -71,7 +71,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/suggestedStringRepresentation -->
@@ -1666,7 +1666,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/AccountConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation xml:lang="en">AccountConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The concept under which fall all account concepts, including External Accounts, Protocol Accounts, and Contract Accounts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The concept under which fall all account concepts, including external accounts, protocol accounts, and contract accounts.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Account concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1679,7 +1679,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/State"/>
         <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">State of an Ethereum account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and account states. The account state is part of the world state, as it resembles the state of exactly one account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1692,7 +1692,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <suggestedStringRepresentation xml:lang="en">AccountStorage</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account&apos;s code, but the execution state of the code. The Account&apos;s code is stored in the</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Merkle Patricia tree that encodes the storage contents of an account. It is not used to store an account&apos;s code, but the execution state of the code. The account&apos;s code is stored in the</rdfs:comment>
         <rdfs:label xml:lang="en">Storage</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1707,9 +1707,9 @@
         <owl:hasKey rdf:parseType="Collection">
             <rdf:Description rdf:about="http://ethon.consensys.net/blockHash"/>
         </owl:hasKey>
-        <simpleDefinition>A Block is an entry in a Blockchain. It contains a series of transactions as well as a cryptographic hash linking it to the previous Block in the chain.</simpleDefinition>
+        <simpleDefinition>A block is an entry in a blockchain. It contains a series of transactions as well as a cryptographic hash linking it to the previous block in the chain.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">Block</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Block is the basic element of a &apos;Blockchain&apos;. It functions as an entry in a distributed ledger, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for Nodes adding new Blocks to the Chain (&quot;miners&quot; in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens (&apos;Ether&apos;) to an Account specified by the Block's author.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A block is the basic element of a &apos;blockchain&apos;. It functions as an entry in a distributed ledger, recording a series of transactions together with a reference to the previous block. A block is chained to its preceeding block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for nodes adding new blocks to the chain (&quot;miners&quot; in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens (&apos;Ether&apos;) to an account specified by the block's author.</rdfs:comment>
         <rdfs:label xml:lang="en">Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1725,7 +1725,7 @@
         <owl:annotatedTarget rdf:parseType="Collection">
             <rdf:Description rdf:about="http://ethon.consensys.net/blockHash"/>
         </owl:annotatedTarget>
-        <rdfs:comment xml:lang="en">The blockHash is the unique identifier of a Block. It is generated via the Keccak 256-bit hash of its Block header.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The blockHash is the unique identifier of a block. It is generated via the Keccak 256-bit hash of its block header.</rdfs:comment>
     </owl:Axiom>
 
 
@@ -1735,7 +1735,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/BlockConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation xml:lang="en">BlockConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The concept under which fall all EthOn concepts related to Blocks.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The concept under which fall all EthOn concepts related to blocks.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Block concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1747,7 +1747,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/Blockchain">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/NetworkConcept"/>
         <suggestedStringRepresentation>Blockchain</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">An Ethereum Blockchain is a distributed database that maintains a continuously-growing list of records called *Blocks* secured from tampering and revision. Each Block contains a timestamp and a link to a previous Block in a Merkle tree structure.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An Ethereum blockchain is a distributed database that maintains a continuously-growing list of records called *blocks* secured from tampering and revision. Each block contains a timestamp and a link to a previous block in a Merkle tree structure.</rdfs:comment>
         <rdfs:label xml:lang="en">Ethereum Blockchain</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
