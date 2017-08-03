@@ -106,7 +106,7 @@
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/AccountObjectProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn Account Object Properties</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn account object properties</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Account Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -117,7 +117,7 @@
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/BlockObjectProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn Block Object Properties</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn block object properties</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Block Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -127,7 +127,7 @@
     <!-- http://ethon.consensys.net/EthOnObjectProperty -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/EthOnObjectProperty">
-        <rdfs:comment xml:lang="en">Groups all EthOn Object Properties</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn object properties</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -138,7 +138,7 @@
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/MessageObjectProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn Message Object Properties.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn message object properties.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Message Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -149,7 +149,7 @@
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/NetworkObjectProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn Network Object Properties.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn network object properties.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Network Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -160,7 +160,7 @@
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/StateObjectProperty">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
-        <rdfs:comment xml:lang="en">Groups all EthOn State Object Properties.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all EthOn state object properties.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn State Object Property</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -173,7 +173,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation>conformsTo</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates an Ethereum concept to the Ethereum protocol variant it conforms to.</rdfs:comment>
         <rdfs:label>conforms to</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -188,7 +188,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Tx"/>
         <suggestedStringRepresentation>containsTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to a Transaction included in it. All containsTx relations of a Block comprise the Block&apos;s transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a Transaction can only be included in one Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to a transaction included in it. All containsTx relations of a block comprise the block&apos;s transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a transaction can only be included in one block.</rdfs:comment>
         <rdfs:label xml:lang="en">contains Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -223,7 +223,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <suggestedStringRepresentation>creates</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a create transaction to the ContractAccount it creates.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a create transaction to the contract account it creates.</rdfs:comment>
         <rdfs:label xml:lang="en">creates</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -239,7 +239,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/WorldState"/>
         <suggestedStringRepresentation>createsPostBlockState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to the global state of the system after all Transactions in the Block have been executed.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to the global state of the system after all transactions in the block have been executed.</rdfs:comment>
         <rdfs:label xml:lang="en">creates post Block execution State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -251,7 +251,7 @@
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/createsPostMsgState">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/createsState"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:comment>Relates a Message to the global state of the system after all the Message has been executed.</rdfs:comment>
+        <rdfs:comment>Relates a message to the global state of the system after all the message has been executed.</rdfs:comment>
         <rdfs:label>creates post Message execution State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -266,7 +266,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/WorldState"/>
         <suggestedStringRepresentation>createsPostTxState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transaction to the global state of the system after the Transaction has been executed.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a transaction to the global state of the system after the transaction has been executed.</rdfs:comment>
         <rdfs:label xml:lang="en">creates post Transaction execution State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -281,7 +281,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/StateTransition"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/State"/>
         <suggestedStringRepresentation>createsState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transition to the State it creates.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a transition to the state it creates.</rdfs:comment>
         <rdfs:label xml:lang="en">creates State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -293,7 +293,7 @@
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/from">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
         <suggestedStringRepresentation>fromAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Message with the Account it originates from.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a message to the account it originates from.</rdfs:comment>
         <rdfs:label xml:lang="en">from</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -308,7 +308,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/AccountStorage"/>
         <suggestedStringRepresentation>hasAccountStorage</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates an account to the Merkle Patricia tree that encodes its storage contents at a certain account state. This property is Functional because an account state can have only one instance of account storage and inverse functional because an account storage can have only one associated account state.</rdfs:comment>
         <rdfs:label xml:lang="en">has Account Storage</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -323,7 +323,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>hasBeneficiary</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to the Account to which all fees collected from the successful mining of this Block are transferred.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to the account to which all fees collected from the successful mining of this block are transferred.</rdfs:comment>
         <rdfs:label xml:lang="en">has beneficiary</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -353,7 +353,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Blockchain"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Blockchain"/>
         <suggestedStringRepresentation>hasFork</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Blockchain to a forked version of it. It is inverse functional because a forked Blockchain can have only one Blockchain it forked from. It is Transitive because if a Blockchain C that was forked from Blockchain B that in turn was forked from Blockchain A, Blockchain C was also forked from Blockchain A. It is asymetric because if Blockchain A is forked from Blockchain B, B cannot be also forked from A. It is irreflexive because a Blockchain cannot be a fork of itself.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a blockchain to a forked version of it. It is inverse functional because a forked blockchain can have only one blockchain it forked from. It is transitive because if a blockchain C that was forked from blockchain B that in turn was forked from blockchain A, blockchain C was also forked from blockchain A. It is asymetric because if blockchain A is forked from blockchain B, B cannot be also forked from A. It is irreflexive because a blockchain cannot be a fork of itself.</rdfs:comment>
         <rdfs:label xml:lang="en">has Fork</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -367,7 +367,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/LogEntry"/>
         <suggestedStringRepresentation>hasLogEntry</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Transaction to a Log Entry it creates.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a transaction to a log entry it creates.</rdfs:comment>
         <rdfs:label xml:lang="en">has Log Entry</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -381,7 +381,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/LogTopic"/>
         <suggestedStringRepresentation>hasLogTopic</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Entry to a Log Topic.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a log entry to a log topic.</rdfs:comment>
         <rdfs:label xml:lang="en">has Log Topic</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -396,7 +396,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Tx"/>
         <suggestedStringRepresentation>hasOriginatorTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Contract Message to the Transaction it originated from.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a contract message to the transaction it originated from.</rdfs:comment>
         <rdfs:label xml:lang="en">has Originator Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -413,7 +413,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
         <suggestedStringRepresentation>hasParentBlock</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to its parent in the chain. It always points to the block with a number that is decreased by one, compared to the block it originates from. The relation is asymmetric because if block A is parent to block B then block B can not be parent to block A. It is also irreflexive because a block cannot be parent to itself.</rdfs:comment>
         <rdfs:label xml:lang="en">has parent Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -441,7 +441,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <suggestedStringRepresentation>hasReceiptsTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to the Trie that contains the Block&apos;s receipt data.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to the trie that contains the block&apos;s receipt data.</rdfs:comment>
         <rdfs:label xml:lang="en">has receipts trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -468,7 +468,7 @@
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/hasTransition">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateObjectProperty"/>
         <suggestedStringRepresentation>hasTransition</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a State to a Transition (i.e. a Message) that creates a new State.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a state to a transition (i.e. a message) that creates a new state.</rdfs:comment>
         <rdfs:label xml:lang="en">has Transition</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -484,7 +484,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/TxTrie"/>
         <suggestedStringRepresentation>hasTxTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to the trie that contains the data of the transactions contained in the Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to the trie that contains the data of the transactions contained in the block.</rdfs:comment>
         <rdfs:label xml:lang="en">has transactions trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -496,7 +496,7 @@
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/knowsOfUncle">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
         <suggestedStringRepresentation>knowsOfUncle</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Block to a known Uncle.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to a known uncle.</rdfs:comment>
         <rdfs:label xml:lang="en">knows of Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -510,7 +510,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>loggedBy</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Log Entry to its logger&apos;s Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a log entry to its logger&apos;s account.</rdfs:comment>
         <rdfs:label xml:lang="en">logged by</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -524,7 +524,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Blockchain"/>
         <suggestedStringRepresentation>minesFor</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a mining node to the blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of transactions (a block) over any other potential competitor block. It is achieved thanks to a cryptographically secure proof.</rdfs:comment>
         <rdfs:label xml:lang="en">mines for</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -538,7 +538,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/PostBlockState"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/PostBlockState"/>
         <suggestedStringRepresentation>nextBlockState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Post Block State to the following Post Block State.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a post block state to the following post block state.</rdfs:comment>
         <rdfs:label xml:lang="en">next Post Block State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -552,7 +552,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/PostMsgState"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/PostMsgState"/>
         <suggestedStringRepresentation>nextMsgState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Post Message State to the following Post Message State.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a post message state to the following post message state.</rdfs:comment>
         <rdfs:label xml:lang="en">next Post Message State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -566,7 +566,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/WorldState"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/WorldState"/>
         <suggestedStringRepresentation>nextState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a State to the following State. In EthOn the state transition system has no branches.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a state to the following state. In EthOn the state transition system has no branches.</rdfs:comment>
         <rdfs:label xml:lang="en">next State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -580,7 +580,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/PostTxState"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/PostTxState"/>
         <suggestedStringRepresentation>nextTxState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Post Transaction State to the following Post Transaction State.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a post transaction state to the following post transaction state.</rdfs:comment>
         <rdfs:label xml:lang="en">next Post Transaction State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -609,7 +609,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>refunds</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a selfdestruct contract message to the contract account it sends its refund balance to.</rdfs:comment>
         <rdfs:label xml:lang="en">refunds</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -623,7 +623,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
         <suggestedStringRepresentation>spawnsBlock</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates an Ethereum Node to a valid Block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates an Ethereum node to a valid block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</rdfs:comment>
         <rdfs:label>spawns Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -637,7 +637,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Msg"/>
         <suggestedStringRepresentation>toAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Message with the Account it is sent to.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a message with the account it is sent to.</rdfs:comment>
         <rdfs:label xml:lang="en">to</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
@@ -660,7 +660,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <suggestedStringRepresentation>triggersMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a message that was direct to a contract account to the contract messages that result from the call to the contract account. The chain of triggersMsg relations represents a call graph.</rdfs:comment>
         <rdfs:label xml:lang="en">triggers Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
