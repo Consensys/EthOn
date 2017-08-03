@@ -1766,7 +1766,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>CallContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Call Contract Message is a Contract Message that calls a function in another Contract.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A call contract message is a contract message that calls a function in another contract.</rdfs:comment>
         <rdfs:label xml:lang="en">Call Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1780,7 +1780,7 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
-        <rdfs:comment>Call Contract Accounts call functions in other Contract Accounts.</rdfs:comment>
+        <rdfs:comment>Call contract accounts call functions in other contract accounts.</rdfs:comment>
     </owl:Axiom>
 
 
@@ -1797,7 +1797,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>CallTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A type of Transaction that is directed towards a Contract Account and calls a method in the Contract&apos;s code.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A type of transaction that is directed towards a contract account and calls a method in the contract&apos;s code.</rdfs:comment>
         <rdfs:label xml:lang="en">Call Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1811,7 +1811,7 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
-        <rdfs:comment>Call transactions are directed towards a Contract Account.</rdfs:comment>
+        <rdfs:comment>Call transactions are directed towards a contract account.</rdfs:comment>
     </owl:Axiom>
 
 
@@ -1841,7 +1841,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>ContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A contract message is passed between a contract account and any other account (external or contract). It is the result of an execution chain originally triggered by an external eccount.</rdfs:comment>
         <rdfs:label xml:lang="en">Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1855,7 +1855,7 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
-        <rdfs:comment>Contract Messages originate from Contract Accounts.</rdfs:comment>
+        <rdfs:comment>Contract messages originate from contract accounts.</rdfs:comment>
     </owl:Axiom>
 
 
@@ -1872,7 +1872,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>CreateContractMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A create contract message is a subtype of a contract message that results in creation of a new contract account.</rdfs:comment>
         <rdfs:label xml:lang="en">Create Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1886,7 +1886,7 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
-        <rdfs:comment>Create Contract Messages create Contract Accounts.</rdfs:comment>
+        <rdfs:comment>Create contract messages create contract accounts.</rdfs:comment>
     </owl:Axiom>
 
 
@@ -1903,7 +1903,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <suggestedStringRepresentation>CreateTx</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A type of Transaction that results in creation of a new Contract Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A type of transaction that results in creation of a new contract account.</rdfs:comment>
         <rdfs:label xml:lang="en">Create Transaction</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1917,7 +1917,7 @@
                 <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
             </owl:Restriction>
         </owl:annotatedTarget>
-        <rdfs:comment>All create transactions are directed toward a Contract Account they create.</rdfs:comment>
+        <rdfs:comment>All create transactions are directed toward a contract account they create.</rdfs:comment>
     </owl:Axiom>
 
 
@@ -1939,7 +1939,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
         <simpleDefinition>An Ethereum account usually controlled by a person. It is identified by an address (0x...) and a public/private key-pair.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">ExternalAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">One of the two main types of Accounts on Ethereum, an External Account is an Account controlled by an External Actor (as opposed to a Contract Account). The unique identifier of an External Account is its address. It consists of the rightmost 160 bits of the keccak 256 hash of its public key (Example: 0x1a1138875dAB9E0AC8b0fd4a37EEAC5eb26B870B). There is only one way External Accounts can actively change the state of the blockchain. They can be used to send a valid Transaction to the Ethereum blockchain. The transaction can be directed towards other External Accounts or towards Contract Accounts. Since the private key is needed for sending, a valid Transaction can only be created by the person or entity controlling the private key of the External Account. Besides being target of Transactions, External Accounts can also be the target of Contract Messages, Block beneficiary rewards, Uncle beneficiary rewards or payouts of Contract Accounts that have self-destructed.</rdfs:comment>
+        <rdfs:comment xml:lang="en">One of the two main types of accounts on Ethereum, an external account is an account controlled by an external actor (as opposed to a contract account). The unique identifier of an external account is its address. It consists of the rightmost 160 bits of the keccak 256 hash of its public key (example: 0x1a1138875dAB9E0AC8b0fd4a37EEAC5eb26B870B). There is only one way external accounts can actively change the state of the blockchain. They can be used to send a valid transaction to the Ethereum blockchain. The transaction can be directed towards other external accounts or towards contract accounts. Since the private key is needed for sending, a valid transaction can only be created by the person or entity controlling the private key of the external account. Besides being target of transactions, external accounts can also be the target of contract messages, block beneficiary rewards, uncle beneficiary rewards or payouts of contract accounts that have self-destructed.</rdfs:comment>
         <rdfs:label xml:lang="en">Externally Controlled Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1952,7 +1952,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <suggestedStringRepresentation xml:lang="en">ExternalActor</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but external to the world of Ethereum. It can interact with Ethereum through depositing signed transactions and inspecting the blockchain and associated state. Has one (or more) intrinsic accounts. While it is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
         <rdfs:label xml:lang="en">External Actor</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1965,7 +1965,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Node"/>
         <owl:disjointWith rdf:resource="http://ethon.consensys.net/LightNode"/>
         <suggestedStringRepresentation>FullNode</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A full node is a participant in an Ethereum network that keeps a record of the full blockchain, the full state and engages in mining.</rdfs:comment>
         <rdfs:label xml:lang="en">Ethereum Full Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1977,7 +1977,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/GenesisBlock">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Block"/>
         <suggestedStringRepresentation>GenesisBlock</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A Genesis Block is the unmined, deliberately created, very first Block in a Blockchain. It has no predecessors, i.e. no parent Block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A genesis block is the unmined, deliberately created, very first block in a blockchain. It has no predecessors, i.e. no parent block.</rdfs:comment>
         <rdfs:label xml:lang="en">Genesis Block</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1989,7 +1989,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/LightNode">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Node"/>
         <suggestedStringRepresentation>LightNode</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A light node is a participant in an Ethereum Network that does not completely do any of the following: store the complete Blockchain, store the complete world state, engage in mining.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A light node is a participant in an Ethereum network that does not completely do any of the following: store the complete blockchain, store the complete world state, engage in mining.</rdfs:comment>
         <rdfs:label xml:lang="en">Ethereum Light Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2001,7 +2001,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/LogEntry">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <suggestedStringRepresentation>LogEntry</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A LogEntry is the result of an Event in a smart contract, emitted during creation or execution of a ContracAccount&apos;s code. It is related to the TxReceipt it was created in, the ContractAccount that had the Event, a series of 32-bytes Log Topics and a number of bytes of data.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A log ntry is the result of an event in a smart contract, emitted during creation or execution of a contract account&apos;s code. It is related to the TxReceipt it was created in, the contract account that had the event, a series of 32-bytes log topics and a number of bytes of data.</rdfs:comment>
         <rdfs:label xml:lang="en">Log Entry</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2013,7 +2013,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/LogTopic">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <suggestedStringRepresentation>LogTopic</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A 32-bytes long topic of a LogEntry. The LogTopics of a LogEntry have an order given by a topicIndex value.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A 32-bytes long topic of a log entry. The log topics of a log entry have an order given by a topic index value.</rdfs:comment>
         <rdfs:label xml:lang="en">Log Topic</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
