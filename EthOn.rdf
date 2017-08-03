@@ -71,7 +71,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
     </owl:AnnotationProperty>
-    
+
 
 
     <!-- http://ethon.consensys.net/suggestedStringRepresentation -->
@@ -1821,8 +1821,9 @@
     <owl:Class rdf:about="http://ethon.consensys.net/ContractAccount">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
         <owl:disjointWith rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+        <simpleDefinition>An Ethereum account controlled by a smart contract. It is identified by an address and stores the compiled EVM code.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">ContractAccount</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A notional object existent only within the hypothetical state of Ethereum. Has an intrinsic address and thus an associated Account; the Account will have non-empty associated EVM Code. Incorporated only as the Storage State of that Account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">One of the two main types of accounts on Ethereum, a contract account is an account controlled by a smart contract existing within the state of Ethereum. Contract accounts are identified by an address which is derived from the creator account&apos;s address and its nonce. A contract account will have non-empty associated EVM code, incorporated only as the storage state of that account, and an intrinsic balance. A contract account may not create and sign transactions, but it can receive transactions from external accounts as well as send and receive contract messages, which may involve a transfer of Ether. Contract accounts can also contain events which create log entries when triggered.</rdfs:comment>
         <rdfs:label xml:lang="en">Contract Account</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
