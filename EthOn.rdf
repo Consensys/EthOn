@@ -1964,9 +1964,9 @@
     <owl:Class rdf:about="http://ethon.consensys.net/FullNode">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Node"/>
         <owl:disjointWith rdf:resource="http://ethon.consensys.net/LightNode"/>
-        <simpleDefinition>A piece of software which connects fully to an Ethereum network, storing its complete history and adding new blocks to the blockchain (i.e. through mining).</simpleDefinition>
+        <simpleDefinition>A piece of software which connects fully to an Ethereum network, storing its complete history and having the ability to submit new blocks to the blockchain (i.e. through mining).</simpleDefinition>
         <suggestedStringRepresentation>FullNode</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A full node is a participant in an Ethereum network that keeps a record of the full blockchain, the full state and engages in mining.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A full node is a participant in an Ethereum network that keeps a record of the full blockchain, the full state and may engage in mining.</rdfs:comment>
         <rdfs:label xml:lang="en">Ethereum Full Node</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
