@@ -5,7 +5,7 @@ It is more detailed and includes class/property hierarchy information and restri
 ## A
 ### Account
 [`ethon:Account`](http://ethon.consensys.net/Account)   
-Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.
+*Account* is the superclass of all account types in Ethereum. All accounts are identified by an address (which, however, is derived differently for external and contract accounts) and an account state that contains the contract's balance and total message count, which is called its nonce. Contract accounts also have an associated storage state and EVM code. The address of an external account is derived from the public key of a public and private keypair, while a contract account address is a concatenation of the creator account's address and its nonce. Both contract accounts and external accounts can also be of type *protocol account* if they are specified in the Ethereum blockchain, i.e. the accounts pre-funded by the Ethereum crowdsale.
 ### Account State
 [`ethon:AccountState`](http://ethon.consensys.net/AccountState)   
 State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.
@@ -82,7 +82,7 @@ A Call Contract Message is a Contract Message that calls a function in another C
 A type of Transaction that is directed towards a Contract Account and calls a method in the Contract's code.
 ### Contract Account
 [`ethon:ContractAccount`](http://ethon.consensys.net/ContractAccount)   
-A notional object existent only within the hypothetical state of Ethereum. Has an intrinsic address and thus an associated Account; the Account will have non-empty associated EVM Code. Incorporated only as the Storage State of that Account.
+One of the two main types of accounts on Ethereum, a contract account is an account controlled by a smart contract existing within the state of Ethereum. Contract accounts are identified by an address which is derived from the creator account's address and its nonce. A contract account will have non-empty associated EVM code, incorporated only as the storage state of that account, and an intrinsic balance. A contract account may not create and sign transactions, but it can receive transactions from external accounts as well as send and receive contract messages, which may involve a transfer of Ether. Contract accounts can also contain events which create log entries when triggered.
 ### Contract Message
 [`ethon:ContractMsg`](http://ethon.consensys.net/ContractMsg)   
 A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.
@@ -143,14 +143,14 @@ A light node is a participant in an Ethereum Network that does not completely do
 [`ethon:Network`](http://ethon.consensys.net/Network)   
 An Ethereum network is the group of all Nodes that conform to a certain Protocol Variant.
 ### Ethereum Protocol Variant
-[`ethon:ProtocollVariant`](http://ethon.consensys.net/ProtocollVariant)   
+[`ethon:ProtocolVariant`](http://ethon.consensys.net/ProtocolVariant)   
 A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork.
 ### External Actor
 [`ethon:ExternalActor`](http://ethon.consensys.net/ExternalActor)   
 A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination.
-### Externally controlled Account
+### Externally Controlled Account
 [`ethon:ExternalAccount`](http://ethon.consensys.net/ExternalAccount)   
-An Account owned by an External Actor.
+One of the two main types of Accounts on Ethereum, an External Account is an Account controlled by an External Actor (as opposed to a Contract Account). The unique identifier of an External Account is its address. It consists of the rightmost 160 bits of the keccak 256 hash of its public key (Example: 0x1a1138875dAB9E0AC8b0fd4a37EEAC5eb26B870B). There is only one way External Accounts can actively change the state of the blockchain. They can be used to send a valid Transaction to the Ethereum blockchain. The transaction can be directed towards other External Accounts or towards Contract Accounts. Since the private key is needed for sending, a valid Transaction can only be created by the person or entity controlling the private key of the External Account. Besides being target of Transactions, External Accounts can also be the target of Contract Messages, Block beneficiary rewards, Uncle beneficiary rewards or payouts of Contract Accounts that have self-destructed.
 ## F
 ### from
 [`ethon:from`](http://ethon.consensys.net/from)   
@@ -281,7 +281,7 @@ Relates a State to the following State. In EthOn the state transition system has
 ## P
 ### Protocol Account
 [`ethon:ProtocolAccount`](http://ethon.consensys.net/ProtocolAccount)   
-A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.
+A protocol account is a type of account in Ethereum. Protocol accounts are specified in the Ethereum protocol, and have so far only been used to store the initial balance for users who participated in the Ethereum crowdsale. Protocol accounts could be added with any protocol change and may be either external accounts or contract accounts.
 ### ProtocolState
 [`ethon:ProtocolState`](http://ethon.consensys.net/ProtocolState)   
 This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of Accounts, e.g. for prefunded Accounts, creating predefined Contract Accounts with storage or setting any other state property as part of the protocol specification.
