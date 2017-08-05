@@ -117,7 +117,7 @@
                     <li><a class="label label-primary" href="#class-node">Node</a><ul>
                     <li><a class="label label-primary" href="#class-fullnode">FullNode</a></li>
                     <li><a class="label label-primary" href="#class-lightnode">LightNode</a></li></ul></li>
-                    <li><a class="label label-primary" href="#class-protocollvariant">ProtocollVariant</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-protocolvariant">ProtocolVariant</a></li></ul></li>
                     <li><a class="label label-primary" href="#class-stateconcept">StateConcept</a><ul>
                     <li><a class="label label-primary" href="#class-state">State</a><ul>
                     <li><a class="label label-primary" href="#class-accountstate">AccountState</a><ul>
@@ -263,7 +263,7 @@
     <h2>Class descriptions <span class="badge">46</span></h2>
     
         <h3 id="class-account">Account</h3>
-        <p>Accounts are identified by their address. They have an intrinsic ethereum balance and a transaction count (accountNonce) maintained as part of the Ethereum state. Contract Accounts also have (possibly empty) EVM Code and a (possibly empty) Storage State associated with them.</p>
+        <p>*Account* is the superclass of all account types in Ethereum. All accounts are identified by an address (which, however, is derived differently for external and contract accounts) and an account state that contains the contract's balance and total message count, which is called its nonce. Contract accounts also have an associated storage state and EVM code. The address of an external account is derived from the public key of a public and private keypair, while a contract account address is a concatenation of the creator account's address and its nonce. Both contract accounts and external accounts can also be of type *protocol account* if they are specified in the Ethereum blockchain, i.e. the accounts pre-funded by the Ethereum crowdsale.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -283,6 +283,10 @@
                     <td class="col-md-10">Account</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">There are two main types of accounts: external accounts (often referred to as "wallet" or simply "account") and contract accounts (usually just called "contract" or "smart contract"). An external account is what you need to use Ethereum. It is usually protected by a password. If you have the password you can send Ether from your account to another or use a contract. It has an Ethereum address (0x...) by which it is identified.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -327,7 +331,7 @@
         </table>
     
         <h3 id="class-accountconcept">AccountConcept</h3>
-        <p>The concept under which fall all account concepts, including External Accounts, Protocol Accounts, and Contract Accounts.</p>
+        <p>The concept under which fall all account concepts, including external accounts, protocol accounts, and contract accounts.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -380,7 +384,7 @@
         </table>
     
         <h3 id="class-accountstate">AccountState</h3>
-        <p>State of an Ethereum Account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and Account states. The Account State is part of the World State, as it resembles the state of exactly one Account.</p>
+        <p>State of an Ethereum account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and account states. The account state is part of the world state, as it resembles the state of exactly one account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -440,7 +444,7 @@
         </table>
     
         <h3 id="class-accountstorage">AccountStorage</h3>
-        <p>A Merkle Patricia tree that encodes the storage contents of an Account. It is not used to store an Account's code, but the execution state of the code. The Account's code is stored in the</p>
+        <p>A Merkle Patricia tree that encodes the storage contents of an account. It is not used to store an account's code, but the execution state of the code. The account's code is stored in the</p>
         <table class="table table-striped">
             
                 <tr>
@@ -491,7 +495,7 @@
         </table>
     
         <h3 id="class-block">Block</h3>
-        <p>A Block is the basic element of a 'Blockchain'. It functions as an entry in a distributed ledger, recording a series of Transactions together with a reference to the previous Block. A Block is chained to its preceeding Block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for Nodes adding new Blocks to the Chain ("miners" in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens ('Ether') to an Account specified by the Block's author.</p>
+        <p>A block is the basic element of a 'blockchain'. It functions as an entry in a distributed ledger, recording a series of transactions together with a reference to the previous block. A block is chained to its preceeding block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for nodes adding new blocks to the chain ("miners" in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens ('Ether') to an account specified by the block's author.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -513,7 +517,7 @@
             
                 <tr>
                     <td class="col-md-2">Simple definition</td>
-                    <td class="col-md-10">A Block is an entry in a Blockchain. It contains a series of transactions as well as a cryptographic hash linking it to the previous Block in the chain.</td>
+                    <td class="col-md-10">A block is an entry in a blockchain. It contains a series of transactions as well as a cryptographic hash linking it to the previous block in the chain.</td>
                 </tr>
             
                 <tr>
@@ -560,7 +564,7 @@
         </table>
     
         <h3 id="class-blockconcept">BlockConcept</h3>
-        <p>The concept under which fall all EthOn concepts related to Blocks.</p>
+        <p>The concept under which fall all EthOn concepts related to blocks.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -613,7 +617,7 @@
         </table>
     
         <h3 id="class-blockchain">Blockchain</h3>
-        <p>An Ethereum Blockchain is a distributed database that maintains a continuously-growing list of records called *Blocks* secured from tampering and revision. Each Block contains a timestamp and a link to a previous Block in a Merkle tree structure.</p>
+        <p>An Ethereum blockchain is a distributed database that maintains a continuously-growing list of records called *blocks* secured from tampering and revision. Each block contains a timestamp and a link to a previous block in a Merkle tree structure.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -665,7 +669,7 @@
         </table>
     
         <h3 id="class-callcontractmsg">CallContractMsg</h3>
-        <p>A Call Contract Message is a Contract Message that calls a function in another Contract.</p>
+        <p>A call contract message is a contract message that calls a function in another contract.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -708,7 +712,7 @@
         </table>
     
         <h3 id="class-calltx">CallTx</h3>
-        <p>A type of Transaction that is directed towards a Contract Account and calls a method in the Contract's code.</p>
+        <p>A type of transaction that is directed towards a contract account and calls a method in the contract's code.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -796,7 +800,7 @@
         </table>
     
         <h3 id="class-contractmsg">ContractMsg</h3>
-        <p>A Contract Message is passed between a Contract Account and any other Account (External or Contract). It is the result of an execution chain originally triggered by an External Account.</p>
+        <p>A contract message is passed between a contract account and any other account (external or contract). It is the result of an execution chain originally triggered by an external eccount.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -842,7 +846,6 @@
                         
                             <a class="label label-default" href="#prop-msgerror">msgError</a> 
                             <a class="label label-default" href="#prop-msgerrorstring">msgErrorString</a> 
-                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-hasoriginatortx">hasOriginatorTx</a> 
                     </td>
                 </tr>
@@ -859,7 +862,7 @@
         </table>
     
         <h3 id="class-createcontractmsg">CreateContractMsg</h3>
-        <p>A Create Contract Message is a subtype of a Contract Message that results in creation of a new Contract Account.</p>
+        <p>A create contract message is a subtype of a contract message that results in creation of a new contract account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -895,7 +898,7 @@
         </table>
     
         <h3 id="class-createtx">CreateTx</h3>
-        <p>A type of Transaction that results in creation of a new Contract Account.</p>
+        <p>A type of transaction that results in creation of a new contract account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -981,7 +984,7 @@
         </table>
     
         <h3 id="class-externalaccount">ExternalAccount</h3>
-        <p>An Account owned by an External Actor.</p>
+        <p>One of the two main types of accounts on Ethereum, an external account is an account controlled by an external actor (as opposed to a contract account). The unique identifier of an external account is its address. It consists of the rightmost 160 bits of the keccak 256 hash of its public key (example: 0x1a1138875dAB9E0AC8b0fd4a37EEAC5eb26B870B). There is only one way external accounts can actively change the state of the blockchain. They can be used to send a valid transaction to the Ethereum blockchain. The transaction can be directed towards other external accounts or towards contract accounts. Since the private key is needed for sending, a valid transaction can only be created by the person or entity controlling the private key of the external account. Besides being target of transactions, external accounts can also be the target of contract messages, block beneficiary rewards, uncle beneficiary rewards or payouts of contract accounts that have self-destructed.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1001,6 +1004,10 @@
                     <td class="col-md-10">ExternalAccount</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">An Ethereum account usually controlled by a person. It is identified by an address (0x...) and a public/private key-pair.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1024,7 +1031,7 @@
         </table>
     
         <h3 id="class-externalactor">ExternalActor</h3>
-        <p>A person or other entity able to interface to an Ethereum node, but External to the world of Ethereum. It can interact with Ethereum through depositing signed Transactions and inspecting the Blockchain and associated state. Has one (or more) intrinsic Accounts. While it is assumed that the ultimate External actor will be human in nature, software tools will be used in its construction and dissemination.</p>
+        <p>A person or other entity able to interface to an Ethereum node, but external to the world of Ethereum. It can interact with Ethereum through depositing signed transactions and inspecting the blockchain and associated state. Has one (or more) intrinsic accounts. While it is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1068,7 +1075,7 @@
         </table>
     
         <h3 id="class-fullnode">FullNode</h3>
-        <p>A Full Node is a participant in an Ethereum Network that keeps a record of the full Blockchain, the full state and engages in mining.</p>
+        <p>A full node is a participant in an Ethereum network that keeps a record of the full blockchain, the full state and may engage in mining.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1088,6 +1095,10 @@
                     <td class="col-md-10">FullNode</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">A piece of software which connects fully to an Ethereum network, storing its complete history and having the ability to submit new blocks to the blockchain (i.e. through mining).</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1104,7 +1115,7 @@
         </table>
     
         <h3 id="class-genesisblock">GenesisBlock</h3>
-        <p>A Genesis Block is the unmined, deliberately created, very first Block in a Blockchain. It has no predecessors, i.e. no parent Block.</p>
+        <p>A genesis block is the unmined, deliberately created, very first block in a blockchain. It has no predecessors, i.e. no parent block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1140,7 +1151,7 @@
         </table>
     
         <h3 id="class-lightnode">LightNode</h3>
-        <p>A light node is a participant in an Ethereum Network that does not completely do any of the following: store the complete Blockchain, store the complete world state, engage in mining.</p>
+        <p>A light node is a participant in an Ethereum network that does not completely do any of the following: store the complete blockchain, store the complete world state, engage in mining.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1160,6 +1171,10 @@
                     <td class="col-md-10">LightNode</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">A piece of software which connects to an Ethereum network in a limited capacity, i.e. a smart phone wallet app which neither mines nor downloads the full blockchain, but can still send and receive messages.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1176,7 +1191,7 @@
         </table>
     
         <h3 id="class-logentry">LogEntry</h3>
-        <p>A LogEntry is the result of an Event in a smart contract, emitted during creation or execution of a ContracAccount's code. It is related to the TxReceipt it was created in, the ContractAccount that had the Event, a series of 32-bytes Log Topics and a number of bytes of data.</p>
+        <p>A log ntry is the result of an event in a smart contract, emitted during creation or execution of a contract account's code. It is related to the TxReceipt it was created in, the contract account that had the event, a series of 32-bytes log topics and a number of bytes of data.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1228,7 +1243,7 @@
         </table>
     
         <h3 id="class-logtopic">LogTopic</h3>
-        <p>A 32-bytes long topic of a LogEntry. The LogTopics of a LogEntry have an order given by a topicIndex value.</p>
+        <p>A 32-bytes long topic of a log entry. The log topics of a log entry have an order given by a topic index value.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1279,7 +1294,7 @@
         </table>
     
         <h3 id="class-messageconcept">MessageConcept</h3>
-        <p>Groups EthOn concepts related to Messages.</p>
+        <p>Groups EthOn concepts related to messages.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1376,7 +1391,7 @@
         </table>
     
         <h3 id="class-msg">Msg</h3>
-        <p>Data (as a set of bytes) and value (specified as Ether) that is passed between two Accounts, either through the deterministic operation of an autonomous object (Contract Account) or the cryptographically secure signature of an External Account.</p>
+        <p>Data (as a set of bytes) and value (specified as Ether) that is passed between two accounts, either through the deterministic operation of an autonomous object (contract account) or the cryptographically secure signature of an external account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1420,6 +1435,7 @@
                     <td class="col-md-10">
                         
                             <a class="label label-default" href="#prop-msggaslimit">msgGasLimit</a> 
+                            <a class="label label-default" href="#prop-msggasused">msgGasUsed</a> 
                             <a class="label label-default" href="#prop-msgpayload">msgPayload</a> 
                             <a class="label label-default" href="#prop-value">value</a> 
                             <a class="label label-default" href="#prop-to">to</a> 
@@ -1438,7 +1454,7 @@
         </table>
     
         <h3 id="class-network">Network</h3>
-        <p>An Ethereum network is the group of all Nodes that conform to a certain Protocol Variant.</p>
+        <p>An Ethereum network is the group of all nodes that conform to a certain protocol variant.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1474,7 +1490,7 @@
         </table>
     
         <h3 id="class-networkconcept">NetworkConcept</h3>
-        <p>Groups all EthOn Network concepts.</p>
+        <p>Groups all EthOn network concepts.</p>
         <table class="table table-striped">
             
             
@@ -1504,7 +1520,7 @@
                             <a class="label label-primary" href="#class-blockchain">Blockchain</a> 
                             <a class="label label-primary" href="#class-network">Network</a> 
                             <a class="label label-primary" href="#class-node">Node</a> 
-                            <a class="label label-primary" href="#class-protocollvariant">ProtocollVariant</a> 
+                            <a class="label label-primary" href="#class-protocolvariant">ProtocolVariant</a> 
                     </td>
                 </tr>
             
@@ -1514,7 +1530,7 @@
         </table>
     
         <h3 id="class-node">Node</h3>
-        <p>A participan in an Ethereum Network.</p>
+        <p>A participant in an Ethereum network, specifically an instance of one of the client implementations, which may be either a full node or a light node.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1534,6 +1550,10 @@
                     <td class="col-md-10">Node</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">A piece of software participating in the Ethereum network.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1701,7 +1721,7 @@
         </table>
     
         <h3 id="class-protocolaccount">ProtocolAccount</h3>
-        <p>A Protocol Account is an Account whose initial balance or other properties are defined in the protocol specification (ProtocolVariant) of the Blockchain. E.g. in the initial Ethereum Blockchain those that participated in the crowd funding received Accounts prefunded with their investment. However, Protocol Accounts could be added with any protocol change.</p>
+        <p>A protocol account is a type of account in Ethereum. Protocol accounts are specified in the Ethereum protocol, and have so far only been used to store the initial balance for users who participated in the Ethereum crowdsale. Protocol accounts could be added with any protocol change and may be either external accounts or contract accounts.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1721,6 +1741,10 @@
                     <td class="col-md-10">PrefundedAccount</td>
                 </tr>
             
+                <tr>
+                    <td class="col-md-2">Simple definition</td>
+                    <td class="col-md-10">An account that was created together with the blockchain itself or during a protcol update and can have an initial balance, e.g. from the crowdfunding of the blockchain.</td>
+                </tr>
             
                 <tr>
                     <td class="col-md-2">Superclasses</td>
@@ -1744,7 +1768,7 @@
         </table>
     
         <h3 id="class-protocolstate">ProtocolState</h3>
-        <p>This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of Accounts, e.g. for prefunded Accounts, creating predefined Contract Accounts with storage or setting any other state property as part of the protocol specification.</p>
+        <p>This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of accounts, e.g. for prefunded accounts, creating predefined contract accounts with storage or setting any other state property as part of the protocol specification.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1779,7 +1803,7 @@
             
         </table>
     
-        <h3 id="class-protocollvariant">ProtocollVariant</h3>
+        <h3 id="class-protocolvariant">ProtocolVariant</h3>
         <p>A variant of the Ethereum protocol. Changes in the protocol result in a hard or soft fork.</p>
         <table class="table table-striped">
             
@@ -1792,7 +1816,7 @@
             
                 <tr>
                     <td class="col-md-2">URI</td>
-                    <td class="col-md-10"><a href="http://ethon.consensys.net/ProtocollVariant">http://ethon.consensys.net/ProtocollVariant</a></td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ProtocolVariant">http://ethon.consensys.net/ProtocolVariant</a></td>
                 </tr>
             
                 <tr>
@@ -1816,7 +1840,7 @@
         </table>
     
         <h3 id="class-receiptstrie">ReceiptsTrie</h3>
-        <p>A trie structure that stores transaction receipts. Each Block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the Block.</p>
+        <p>A trie structure that stores transaction receipts. Each block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -1861,7 +1885,7 @@
         </table>
     
         <h3 id="class-selfdestructcontractmsg">SelfdestructContractMsg</h3>
-        <p>A Selfdestruct Contract Message is a Contract Message that deletes the originating contract and refunds its balance to the receiver of the Message.</p>
+        <p>A selfdestruct contract message is a contract message that deletes the originating contract and refunds its balance to the receiver of the message.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2060,7 +2084,7 @@
         </table>
     
         <h3 id="class-tx">Tx</h3>
-        <p>Transactions are Messages between two Accounts that may transfer Ether and may contain a payload. Transactions always originate from an External Account that is controlled by an External Actor by means of a private key.  The execution of a Transaction creates a 'Transaction Receipt'.</p>
+        <p>Transactions are messages between two accounts that may transfer Ether and may contain a payload. Transactions always originate from an external account that is controlled by an external actor by means of a private key.  The execution of a transaction creates a 'transaction receipt'.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2177,7 +2201,7 @@
         </table>
     
         <h3 id="class-txtrie">TxTrie</h3>
-        <p>A trie structure that stores transactions. The header of a Block contains a reference to the root of a Tx trie with all transactions contained in the Block.</p>
+        <p>A trie structure that stores transactions. The header of a block contains a reference to the root of a Tx trie with all transactions contained in the block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2229,7 +2253,7 @@
         </table>
     
         <h3 id="class-uncle">Uncle</h3>
-        <p>An Uncle is the direct child of the k'th generation ancestor of a Block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an Uncle is an ancestor of the inserting block, located at the tip of the blockchain.</p>
+        <p>An uncle is the direct child of the k'th generation ancestor of a block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an uncle is an ancestor of the inserting block, located at the tip of the blockchain.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2344,7 +2368,7 @@
         </table>
     
         <h3 id="class-worldstate">WorldState</h3>
-        <p>The world state, is a mapping between addresses (160-bit identifiers) of all Accounts and their States (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the Blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</p>
+        <p>The world state, is a mapping between addresses (160-bit identifiers) of all accounts and their states (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2442,7 +2466,7 @@
     <h2>Object Property descriptions <span class="badge">40</span></h2>
     
         <h3 id="prop-hasparentblock">hasParentBlock</h3>
-        <p>Relates a Block to its parent in the chain. It always points to the Block with a number that is decreased by one, compared to the Block it originates from. The relation is asymmetric because if Block A is parent to Block B then Block B can not be parent to Block A. It is also irreflexive because a Block cannot be parent to itself.</p>
+        <p>Relates a block to its parent in the chain. It always points to the block with a number that is decreased by one, compared to the block it originates from. The relation is asymmetric because if block A is parent to block B then block B can not be parent to block A. It is also irreflexive because a block cannot be parent to itself.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2492,7 +2516,7 @@
         </table>
     
         <h3 id="prop-createspostblockstate">createsPostBlockState</h3>
-        <p>Relates a Block to the global state of the system after all Transactions in the Block have been executed.</p>
+        <p>Relates a block to the global state of the system after all transactions in the block have been executed.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2542,7 +2566,7 @@
         </table>
     
         <h3 id="prop-createspostmsgstate">createsPostMsgState</h3>
-        <p>Relates a Message to the global state of the system after all the Message has been executed.</p>
+        <p>Relates a message to the global state of the system after all the message has been executed.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2574,7 +2598,7 @@
         </table>
     
         <h3 id="prop-createsposttxstate">createsPostTxState</h3>
-        <p>Relates a Transaction to the global state of the system after the Transaction has been executed.</p>
+        <p>Relates a transaction to the global state of the system after the transaction has been executed.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2624,7 +2648,7 @@
         </table>
     
         <h3 id="prop-hasaccountstorage">hasAccountStorage</h3>
-        <p>Relates an Account to the Merkle Patricia tree that encodes its storage contents at a certain Account State. This property is Functional because an Account State can have only one Instance of Account Storage and Inverse Functional because an Account Storage can have only one associated Account State.</p>
+        <p>Relates an account to the Merkle Patricia tree that encodes its storage contents at a certain account state. This property is Functional because an account state can have only one instance of account storage and inverse functional because an account storage can have only one associated account state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2667,7 +2691,7 @@
         </table>
     
         <h3 id="prop-hasbeneficiary">hasBeneficiary</h3>
-        <p>Relates a Block to the Account to which all fees collected from the successful mining of this Block are transferred.</p>
+        <p>Relates a block to the account to which all fees collected from the successful mining of this block are transferred.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2717,7 +2741,7 @@
         </table>
     
         <h3 id="prop-hasreceiptstrie">hasReceiptsTrie</h3>
-        <p>Relates a Block to the Trie that contains the Block's receipt data.</p>
+        <p>Relates a block to the trie that contains the block's receipt data.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2753,7 +2777,7 @@
         </table>
     
         <h3 id="prop-hastxtrie">hasTxTrie</h3>
-        <p>Relates a Block to the trie that contains the data of the transactions contained in the Block.</p>
+        <p>Relates a block to the trie that contains the data of the transactions contained in the block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2803,7 +2827,7 @@
         </table>
     
         <h3 id="prop-refunds">refunds</h3>
-        <p>Relates a SelfdestructContractMsg to the ContractAccount it sends its refund balance to.</p>
+        <p>Relates a selfdestruct contract message to the contract account it sends its refund balance to.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2853,7 +2877,7 @@
         </table>
     
         <h3 id="prop-containstx">containsTx</h3>
-        <p>Relates a Block to a Transaction included in it. All containsTx relations of a Block comprise the Block's transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a Transaction can only be included in one Block.</p>
+        <p>Relates a block to a transaction included in it. All containsTx relations of a block comprise the block's transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a transaction can only be included in one block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -2953,7 +2977,7 @@
         </table>
     
         <h3 id="prop-hasoriginatortx">hasOriginatorTx</h3>
-        <p>Relates a Contract Message to the Transaction it originated from.</p>
+        <p>Relates a contract message to the transaction it originated from.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3060,7 +3084,7 @@
         </table>
     
         <h3 id="prop-accountobjectproperty">AccountObjectProperty</h3>
-        <p>Groups all EthOn Account Object Properties</p>
+        <p>Groups all EthOn account object properties</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3100,7 +3124,7 @@
         </table>
     
         <h3 id="prop-blockobjectproperty">BlockObjectProperty</h3>
-        <p>Groups all EthOn Block Object Properties</p>
+        <p>Groups all EthOn block object properties</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3144,7 +3168,7 @@
         </table>
     
         <h3 id="prop-ethonobjectproperty">EthOnObjectProperty</h3>
-        <p>Groups all EthOn Object Properties</p>
+        <p>Groups all EthOn object properties</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3181,7 +3205,7 @@
         </table>
     
         <h3 id="prop-messageobjectproperty">MessageObjectProperty</h3>
-        <p>Groups all EthOn Message Object Properties.</p>
+        <p>Groups all EthOn message object properties.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3228,7 +3252,7 @@
         </table>
     
         <h3 id="prop-networkobjectproperty">NetworkObjectProperty</h3>
-        <p>Groups all EthOn Network Object Properties.</p>
+        <p>Groups all EthOn network object properties.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3270,7 +3294,7 @@
         </table>
     
         <h3 id="prop-stateobjectproperty">StateObjectProperty</h3>
-        <p>Groups all EthOn State Object Properties.</p>
+        <p>Groups all EthOn state object properties.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3312,7 +3336,7 @@
         </table>
     
         <h3 id="prop-conformsto">conformsTo</h3>
-        <p>Relates an Ethereum concept to the Ethereum Protocol Variant it conforms to.</p>
+        <p>Relates an Ethereum concept to the Ethereum protocol variant it conforms to.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3405,7 +3429,7 @@
         </table>
     
         <h3 id="prop-creates">creates</h3>
-        <p>Relates a create transaction to the ContractAccount it creates.</p>
+        <p>Relates a create transaction to the contract account it creates.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3448,7 +3472,7 @@
         </table>
     
         <h3 id="prop-createsstate">createsState</h3>
-        <p>Relates a Transition to the State it creates.</p>
+        <p>Relates a transition to the state it creates.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3508,7 +3532,7 @@
         </table>
     
         <h3 id="prop-from">from</h3>
-        <p>Relates a Message with the Account it originates from.</p>
+        <p>Relates a message to the account it originates from.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3544,7 +3568,7 @@
         </table>
     
         <h3 id="prop-hasfork">hasFork</h3>
-        <p>Relates a Blockchain to a forked version of it. It is inverse functional because a forked Blockchain can have only one Blockchain it forked from. It is Transitive because if a Blockchain C that was forked from Blockchain B that in turn was forked from Blockchain A, Blockchain C was also forked from Blockchain A. It is asymetric because if Blockchain A is forked from Blockchain B, B cannot be also forked from A. It is irreflexive because a Blockchain cannot be a fork of itself.</p>
+        <p>Relates a blockchain to a forked version of it. It is inverse functional because a forked blockchain can have only one blockchain it forked from. It is transitive because if a blockchain C that was forked from blockchain B that in turn was forked from blockchain A, blockchain C was also forked from blockchain A. It is asymetric because if blockchain A is forked from blockchain B, B cannot be also forked from A. It is irreflexive because a blockchain cannot be a fork of itself.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3594,7 +3618,7 @@
         </table>
     
         <h3 id="prop-haslogentry">hasLogEntry</h3>
-        <p>Relates a Transaction to a Log Entry it creates.</p>
+        <p>Relates a transaction to a log entry it creates.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3644,7 +3668,7 @@
         </table>
     
         <h3 id="prop-haslogtopic">hasLogTopic</h3>
-        <p>Relates a Log Entry to a Log Topic.</p>
+        <p>Relates a log entry to a log topic.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3744,7 +3768,7 @@
         </table>
     
         <h3 id="prop-hastransition">hasTransition</h3>
-        <p>Relates a State to a Transition (i.e. a Message) that creates a new State.</p>
+        <p>Relates a state to a transition (i.e. a message) that creates a new state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3780,7 +3804,7 @@
         </table>
     
         <h3 id="prop-knowsofuncle">knowsOfUncle</h3>
-        <p>Relates a Block to a known Uncle.</p>
+        <p>Relates a block to a known uncle.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3816,7 +3840,7 @@
         </table>
     
         <h3 id="prop-loggedby">loggedBy</h3>
-        <p>Relates a Log Entry to its logger's Account.</p>
+        <p>Relates a log entry to its logger's account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3866,7 +3890,7 @@
         </table>
     
         <h3 id="prop-minesfor">minesFor</h3>
-        <p>Relates a mining Node to the Blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of Transactions (a Block) over any other potential competitor Block. It is achieved thanks to a cryptographically secure proof.</p>
+        <p>Relates a mining node to the blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of transactions (a block) over any other potential competitor block. It is achieved thanks to a cryptographically secure proof.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3916,7 +3940,7 @@
         </table>
     
         <h3 id="prop-nextblockstate">nextBlockState</h3>
-        <p>Relates a Post Block State to the following Post Block State.</p>
+        <p>Relates a post block state to the following post block state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -3966,7 +3990,7 @@
         </table>
     
         <h3 id="prop-nextmsgstate">nextMsgState</h3>
-        <p>Relates a Post Message State to the following Post Message State.</p>
+        <p>Relates a post message state to the following post message state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4023,7 +4047,7 @@
         </table>
     
         <h3 id="prop-nextstate">nextState</h3>
-        <p>Relates a State to the following State. In EthOn the state transition system has no branches.</p>
+        <p>Relates a state to the following state. In EthOn the state transition system has no branches.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4080,7 +4104,7 @@
         </table>
     
         <h3 id="prop-nexttxstate">nextTxState</h3>
-        <p>Relates a Post Transaction State to the following Post Transaction State.</p>
+        <p>Relates a post transaction state to the following post transaction state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4173,7 +4197,7 @@
         </table>
     
         <h3 id="prop-spawnsblock">spawnsBlock</h3>
-        <p>Relates an Ethereum Node to a valid Block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</p>
+        <p>Relates an Ethereum node to a valid block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4223,7 +4247,7 @@
         </table>
     
         <h3 id="prop-to">to</h3>
-        <p>Relates a Message with the Account it is sent to.</p>
+        <p>Relates a message with the account it is sent to.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4281,7 +4305,7 @@
         </table>
     
         <h3 id="prop-triggersmsg">triggersMsg</h3>
-        <p>Relates a Message that was direct to a Contract Account to the Contract Messages that result from the call to the Contract Account. The chain of triggersMsg relations represents a call graph.</p>
+        <p>Relates a message that was direct to a contract account to the contract messages that result from the call to the contract account. The chain of triggersMsg relations represents a call graph.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4329,7 +4353,7 @@
     <h2>Datatype Property descriptions <span class="badge">58</span></h2>
     
         <h3 id="prop-accountdataproperty">AccountDataProperty</h3>
-        <p>Groups all Data Properties that are specific to an Account.</p>
+        <p>Groups all data properties that are specific to an account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4382,7 +4406,7 @@
         </table>
     
         <h3 id="prop-blockdataproperty">BlockDataProperty</h3>
-        <p>Groups all Data Properties that are specific to a Block. These properties are usually functional because a Block can only be associated with a single instance of them.</p>
+        <p>Groups all data properties that are specific to a block. These properties are usually functional because a block can only be associated with a single instance of them.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4441,7 +4465,7 @@
         </table>
     
         <h3 id="prop-ethondataproperty">EthOnDataProperty</h3>
-        <p>Groups all Data Properties specific to EthOn.</p>
+        <p>Groups all data properties specific to EthOn.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4477,7 +4501,7 @@
         </table>
     
         <h3 id="prop-messagedataproperty">MessageDataProperty</h3>
-        <p>Groups all EthOn Message Data Properties.</p>
+        <p>Groups all EthOn message data properties.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4547,7 +4571,7 @@
         </table>
     
         <h3 id="prop-networkdataproperty">NetworkDataProperty</h3>
-        <p>Groups all EthOn Network Data Properties.</p>
+        <p>Groups all EthOn network data properties.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4627,7 +4651,7 @@
         </table>
     
         <h3 id="prop-accountbalance">accountBalance</h3>
-        <p>A scalar value equal to the number of Wei owned by an Account at a given Account state.</p>
+        <p>A scalar value equal to the number of Wei owned by an account at a given account state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4677,7 +4701,7 @@
         </table>
     
         <h3 id="prop-accountbalanceprefunded">accountBalancePrefunded</h3>
-        <p>The amount of Wei an Account was prefunded with in a Protocol Variant. In the case that an Account receives multiple prefunds in multiple Protocol Variants, the amounts are summed. In contrast to the regular Account balance it is a property of the Account itself and not of its state.</p>
+        <p>The amount of Wei an account was prefunded with in a protocol variant. In the case that an account receives multiple prefunds in multiple protocol variants, the amounts are summed. In contrast to the regular account balance it is a property of the account itself and not of its state.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4727,7 +4751,7 @@
         </table>
     
         <h3 id="prop-accountcode">accountCode</h3>
-        <p>The immutable EVM bytecode of the Contract Account.</p>
+        <p>The immutable EVM bytecode of the contract account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4777,7 +4801,7 @@
         </table>
     
         <h3 id="prop-accountcodehash">accountCodeHash</h3>
-        <p>The immutable Keccak-256 hash of the EVM code of an Account.</p>
+        <p>The immutable Keccak-256 hash of the EVM code of an account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4827,7 +4851,7 @@
         </table>
     
         <h3 id="prop-accountnonce">accountNonce</h3>
-        <p>A scalar value equal to the number of transactions sent from this Account or, in the case of Accounts with associated code, the number of Contract-creations made by this Account.</p>
+        <p>A scalar value equal to the number of transactions sent from this account or, in the case of accounts with associated code, the number of contract-creations made by this account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4877,7 +4901,7 @@
         </table>
     
         <h3 id="prop-accountpublickey">accountPublicKey</h3>
-        <p>The public key of an ExternalAccount.</p>
+        <p>The public key of an external account.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -4927,7 +4951,7 @@
         </table>
     
         <h3 id="prop-address">address</h3>
-        <p>A 160-bit identifier for Accounts.</p>
+        <p>A 160-bit identifier for accounts.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5027,7 +5051,7 @@
         </table>
     
         <h3 id="prop-blockcreationtime">blockCreationTime</h3>
-        <p>This Block's inception date and time.</p>
+        <p>This block's inception date and time.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5070,7 +5094,7 @@
         </table>
     
         <h3 id="prop-blockdifficulty">blockDifficulty</h3>
-        <p>A scalar value corresponding to the difficulty level of this Block. This can be calculated from the previous Block's difficulty level and the timestamp.</p>
+        <p>A scalar value corresponding to the difficulty level of this block. This can be calculated from the previous block's difficulty level and the timestamp.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5113,7 +5137,7 @@
         </table>
     
         <h3 id="prop-blockextradata">blockExtraData</h3>
-        <p>An arbitrary byte array containing data relevant to this Block. This must be 32 bytes or fewer.</p>
+        <p>An arbitrary byte array containing data relevant to this block. This must be 32 bytes or fewer.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5156,7 +5180,7 @@
         </table>
     
         <h3 id="prop-blockgaslimit">blockGasLimit</h3>
-        <p>A scalar value equal to the current limit of gas expenditure per Block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor.</p>
+        <p>A scalar value equal to the current limit of gas expenditure per block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5199,7 +5223,7 @@
         </table>
     
         <h3 id="prop-blockgasused">blockGasUsed</h3>
-        <p>A scalar value equal to the total gas used by all Transactions in this Block.</p>
+        <p>A scalar value equal to the total gas used by all transactions in this block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5242,7 +5266,7 @@
         </table>
     
         <h3 id="prop-blockhash">blockHash</h3>
-        <p>The Keccak 256-bit hash of the Block's header, in its entierty.</p>
+        <p>The Keccak 256-bit hash of the block's header, in its entierty.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5285,7 +5309,7 @@
         </table>
     
         <h3 id="prop-blockheader">blockHeader</h3>
-        <p>Relates a Block to its Block header data. The Block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the Block number, 10. the gas limit of the Block, 11. the gas used by all transactions in the Block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the Block nonce. The property is functional because a Block can have only exactly one Block header.</p>
+        <p>Relates a block to its block header data. The block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the block number, 10. the gas limit of the block, 11. the gas used by all transactions in the block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the block nonce. The property is functional because a block can have only exactly one block header.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5371,7 +5395,7 @@
         </table>
     
         <h3 id="prop-blockmixhash">blockMixHash</h3>
-        <p>A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this Block.</p>
+        <p>A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5414,7 +5438,7 @@
         </table>
     
         <h3 id="prop-blocknonce">blockNonce</h3>
-        <p>A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this Block.</p>
+        <p>A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5457,7 +5481,7 @@
         </table>
     
         <h3 id="prop-blocksize">blockSize</h3>
-        <p>The size of the the Block header in RLP format in bytes.</p>
+        <p>The size of the block header in RLP format in bytes.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5507,7 +5531,7 @@
         </table>
     
         <h3 id="prop-clientversion">clientVersion</h3>
-        <p>Relates a Node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).</p>
+        <p>Relates a node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5557,7 +5581,7 @@
         </table>
     
         <h3 id="prop-cumulativegasused">cumulativeGasUsed</h3>
-        <p>The cumulative gas used in the block containing the Transaction as of immediately after the Transaction has happened.</p>
+        <p>The cumulative gas used in the block containing the transaction as of immediately after the transaction has happened.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5607,7 +5631,7 @@
         </table>
     
         <h3 id="prop-logdata">logData</h3>
-        <p>Relates a Log Entry to its data.</p>
+        <p>Relates a log entry to its data.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5657,7 +5681,7 @@
         </table>
     
         <h3 id="prop-logindex">logIndex</h3>
-        <p>Relates a Log Entry to its index in the transaction reciept of a Transaction. The log index defines the order of the Log Entries of a Transaction.</p>
+        <p>Relates a log entry to its index in the transaction reciept of a transaction. The log index defines the order of the log entries of a transaction.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5707,7 +5731,7 @@
         </table>
     
         <h3 id="prop-logtopicdata">logTopicData</h3>
-        <p>Relates a Log Topic to the 32 bytes of data it contains.</p>
+        <p>Relates a log topic to the 32 bytes of data it contains.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5757,7 +5781,7 @@
         </table>
     
         <h3 id="prop-logtopicindex">logTopicIndex</h3>
-        <p>Relates a Log Topic to its index in the Log Entry. The Log Topic index defines the order of the Log Topics of in Log Entry.</p>
+        <p>Relates a log topic to its index in the log entry. The log topic index defines the order of the log topics of in log entry.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5807,7 +5831,7 @@
         </table>
     
         <h3 id="prop-msgcalldepth">msgCallDepth</h3>
-        <p>A scalar value equal to the depth of the Contract Message. A Contract Message is represented as a Call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the Message execution.</p>
+        <p>A scalar value equal to the depth of the contract message. A contract message is represented as a call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the message execution.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5900,7 +5924,7 @@
         </table>
     
         <h3 id="prop-msgerror">msgError</h3>
-        <p>A boolean value indicating whether the ContractMessage execution resulted in an error. A "true" value indicates an error.</p>
+        <p>A boolean value indicating whether the contract message execution resulted in an error. A "true" value indicates an error.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -5950,7 +5974,7 @@
         </table>
     
         <h3 id="prop-msgerrorstring">msgErrorString</h3>
-        <p>A string informally describing an error that occured during the execution of a ContractMessage. Only exists if msgError is true.</p>
+        <p>A string informally describing an error that occured during the execution of a contract message. Only exists if msgError is true.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6000,7 +6024,7 @@
         </table>
     
         <h3 id="prop-msggaslimit">msgGasLimit</h3>
-        <p>A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with Contract Messages it represents the fraction of the original Transaction gas limit still available for execution of the Contract Message. After all resulting computations are done, excess gas is returned to the sender of the original Transaction.</p>
+        <p>A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with contract messages it represents the fraction of the original transaction gas limit still available for execution of the contract message. After all resulting computations are done, excess gas is returned to the sender of the original transaction.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6050,7 +6074,7 @@
         </table>
     
         <h3 id="prop-msggasused">msgGasUsed</h3>
-        <p>The amount of gas that was used for processing a single Message, regardless of which type of Message it may be.</p>
+        <p>The amount of gas that was used for processing a single message, regardless of which type of message it may be.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6084,7 +6108,7 @@
                     <td class="col-md-2">Implies being a</td>
                     <td class="col-md-10">
                         
-                            <a class="label label-primary" href="#class-contractmsg">ContractMsg</a> 
+                            <a class="label label-primary" href="#class-msg">Msg</a> 
                     </td>
                 </tr>
             
@@ -6100,7 +6124,7 @@
         </table>
     
         <h3 id="prop-msginit">msgInit</h3>
-        <p>An unlimited size byte array specifying the EVM-code for the Contract Account initialisation procedure.</p>
+        <p>An unlimited size byte array specifying the EVM-code for the contract account initialisation procedure.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6143,7 +6167,7 @@
         </table>
     
         <h3 id="prop-msgoutput">msgOutput</h3>
-        <p>The reulting output data from a CallContractMsg.</p>
+        <p>The reulting output data from a call contract message.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6193,7 +6217,7 @@
         </table>
     
         <h3 id="prop-msgpayload">msgPayload</h3>
-        <p>An unlimited size byte array specifying the data payload of the Message.</p>
+        <p>An unlimited size byte array specifying the data payload of the message.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6251,7 +6275,7 @@
         </table>
     
         <h3 id="prop-msgrefundbalance">msgRefundBalance</h3>
-        <p>A scalar value equal to the number of Wei that will be refunded in result of the SelfdestructContractMsg.</p>
+        <p>A scalar value equal to the number of Wei that will be refunded as the result of a selfdestruct contract message.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6301,7 +6325,7 @@
         </table>
     
         <h3 id="prop-number">number</h3>
-        <p>A scalar value equal to the number of ancestor Blocks. The genesis Block has a number of zero.</p>
+        <p>A scalar value equal to the number of ancestor blocks. The genesis block has a number of zero.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6344,7 +6368,7 @@
         </table>
     
         <h3 id="prop-receiptsroot">receiptsRoot</h3>
-        <p>The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the Block.</p>
+        <p>The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6394,7 +6418,7 @@
         </table>
     
         <h3 id="prop-startblocknumber">startBlockNumber</h3>
-        <p>The Block number of the first block in a new Blockchain after a hard fork.</p>
+        <p>The block number of the first block in a new blockchain after a hard fork.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6494,7 +6518,7 @@
         </table>
     
         <h3 id="prop-storageroot">storageRoot</h3>
-        <p>A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the Account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</p>
+        <p>A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6544,7 +6568,7 @@
         </table>
     
         <h3 id="prop-transactionsroot">transactionsRoot</h3>
-        <p>The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the Block.</p>
+        <p>The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6594,7 +6618,7 @@
         </table>
     
         <h3 id="prop-txgasprice">txGasPrice</h3>
-        <p>A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this Transaction.</p>
+        <p>A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this transaction.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6644,7 +6668,7 @@
         </table>
     
         <h3 id="prop-txgasused">txGasUsed</h3>
-        <p>The total amount of gas that was used for processing this Tx and all ContractMessages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting ContractMessages.</p>
+        <p>The total amount of gas that was used for processing this Tx and all contract messages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting contract messages.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6694,7 +6718,7 @@
         </table>
     
         <h3 id="prop-txhash">txHash</h3>
-        <p>The Keccak 256-bit hash of the Transaction</p>
+        <p>The Keccak 256-bit hash of the transaction</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6744,7 +6768,7 @@
         </table>
     
         <h3 id="prop-txindex">txIndex</h3>
-        <p>The position of a Transaction in a Block.</p>
+        <p>The position of a transaction in a block.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -6794,7 +6818,7 @@
         </table>
     
         <h3 id="prop-txlogsbloom">txLogsBloom</h3>
-        <p>Relates a Transaction to the Bloom filter of its Log Entries.</p>
+        <p>Relates a transaction to the Bloom filter of its log entries.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -7044,7 +7068,7 @@
         </table>
     
         <h3 id="prop-unclebeneficiaryreward">uncleBeneficiaryReward</h3>
-        <p>The reward the beneficiary of an uncle receives if a Block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the Block in which it is included minus the Uncle's number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.</p>
+        <p>The reward the beneficiary of an uncle receives if a block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the block in which it is included minus the uncle's number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.</p>
         <table class="table table-striped">
             
                 <tr>
@@ -7094,7 +7118,7 @@
         </table>
     
         <h3 id="prop-value">value</h3>
-        <p>A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of Contract creation it is the initial balance of the Contract Account, paid by the sending Account.</p>
+        <p>A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of contract creation it is the initial balance of the contract account, paid by the sending account.</p>
         <table class="table table-striped">
             
                 <tr>
