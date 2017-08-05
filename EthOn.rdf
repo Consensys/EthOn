@@ -1678,8 +1678,9 @@
     <owl:Class rdf:about="http://ethon.consensys.net/AccountState">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/State"/>
+        <simpleDefinition>The state of an Ethereum account, including its balance and the number of transactions it has sent. For contract accounts the state also includes a hash of the smart contract code and its storage state.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">State of an Ethereum account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and account states. The account state is part of the world state, as it resembles the state of exactly one account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The state of an Ethereum account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. For external accounts the nonce is the number of transactions sent, and the storage root and code hash are empty. For contract accounts the nonce is the number of create messages sent by the account. The data is stored in a Merkle Patricia tree as a mapping between addresses and account states. The account state is part of the world state, as it resembles the state of exactly one account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account State</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
