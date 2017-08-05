@@ -1666,7 +1666,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/AccountConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation xml:lang="en">AccountConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The concept under which fall all account concepts, including external accounts, protocol accounts, and contract accounts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The group of all EthOn classes related to accounts.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Account concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1735,7 +1735,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/BlockConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation xml:lang="en">BlockConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The concept under which fall all EthOn concepts related to blocks.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The group of all EthOn classes related to blocks.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Block concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -1926,7 +1926,7 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/EthOnConcept">
         <suggestedStringRepresentation xml:lang="en">EthonConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">This is the foundational concept of all concepts that are original to the EthOn OWL ontology.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Groups all classes and subclasses that are original to the EthOn OWL ontology.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2026,7 +2026,7 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/MessageConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
-        <rdfs:comment xml:lang="en">Groups EthOn concepts related to messages.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The group of all EthOn classes related to messages.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Message concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
@@ -2082,7 +2082,7 @@
     <owl:Class rdf:about="http://ethon.consensys.net/NetworkConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
         <suggestedStringRepresentation>NetworkConcept</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Groups all EthOn network concepts.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The group of all EthOn classes related to networks.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn Network Concept.</rdfs:label>
     </owl:Class>
 
@@ -2208,7 +2208,7 @@
 
     <owl:Class rdf:about="http://ethon.consensys.net/StateConcept">
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/EthOnConcept"/>
-        <rdfs:comment xml:lang="en">Groups EthOn concepts related to state.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The group of all EthOn classes related to state.</rdfs:comment>
         <rdfs:label xml:lang="en">EthOn State Concept</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
