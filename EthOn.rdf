@@ -2168,8 +2168,9 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/BlockConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/MessageConcept"/>
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
+        <simpleDefinition>A tree-like data structure that stores the receipts of all transactions included in a block.</simpleDefinition>
         <suggestedStringRepresentation>ReceiptsTrie</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A trie structure that stores transaction receipts. Each block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the block.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A trie structure that stores transaction receipts. A trie is tree-like data structure in which objects may be retrieved by following the branch paths. Each block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the block.</rdfs:comment>
         <rdfs:label xml:lang="en">Receipts Trie</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
