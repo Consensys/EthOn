@@ -1693,7 +1693,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
         <simpleDefinition>A data structure which contains the current storage state of a smart contract, i.e. the total supply of an ERC20 token and the mapping of account addresses to current balances.</simpleDefinition>
         <suggestedStringRepresentation xml:lang="en">AccountStorage</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The storage state of a contract account contains the values of all variables defined in the contract's code at a certain point in time. Usually Ethereum clients implement this structure as a Merkle Patricia Tree. Whenever any of the contract's variables are changed a new state is created.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The account storage is part of the account state and it contains contains the values of all variables defined in the contract's code at a certain point in time. Usually Ethereum clients implement this structure as a Merkle Patricia Tree. Whenever any of the contract's variables are changed a new state is created.</rdfs:comment>
         <rdfs:label xml:lang="en">Storage</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
