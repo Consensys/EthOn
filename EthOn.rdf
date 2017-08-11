@@ -780,7 +780,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>accountCode</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The immutable EVM bytecode of the contract account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account code</rdfs:label>
@@ -795,7 +795,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>accountCodeHash</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">The immutable Keccak-256 hash of the EVM code of an account.</rdfs:comment>
         <rdfs:label xml:lang="en">Account code hash</rdfs:label>
@@ -1420,7 +1420,7 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountStorage"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#base64Binary"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>storageRoot</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</rdfs:comment>
         <rdfs:label xml:lang="en">Storage root</rdfs:label>
