@@ -1953,7 +1953,7 @@
         <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountConcept"/>
         <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <suggestedStringRepresentation xml:lang="en">ExternalActor</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A person or other entity able to interface to an Ethereum node, but external to the world of Ethereum. It can interact with Ethereum through depositing signed transactions and inspecting the blockchain and associated state. Has one (or more) intrinsic accounts. While it is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A person or other entity able to interface with an Ethereum node. It can interact with Ethereum only by depositing signed transactions and inspecting the blockchain and associated state. An external actor controls the private-public keypair of one or more external accounts. While it is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination.</rdfs:comment>
         <rdfs:label xml:lang="en">External Actor</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:Class>
