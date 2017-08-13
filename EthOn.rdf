@@ -505,6 +505,20 @@
 
 
 
+    <!-- http://ethon.consensys.net/hasUncleBeneficiary -->
+
+    <owl:ObjectProperty rdf:about="http://ethon.consensys.net/hasUncleBeneficiary">
+        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasBeneficiary"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+        <suggestedStringRepresentation>hasUncleBeneficiary</suggestedStringRepresentation>
+        <rdfs:comment>Relates a block to an account to which the reward for mining an uncle is transferred.</rdfs:comment>
+        <rdfs:label>has uncle beneficiary</rdfs:label>
+        <ns:term_status>unstable</ns:term_status>
+    </owl:ObjectProperty>
+
+
+
     <!-- http://ethon.consensys.net/knowsOfUncle -->
 
     <owl:ObjectProperty rdf:about="http://ethon.consensys.net/knowsOfUncle">
