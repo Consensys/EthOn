@@ -1,6 +1,9 @@
+language: python
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  target_branch: travis_test
+  fqdn: ethon.consenys.net
   on:
     branch: master
