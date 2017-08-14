@@ -1,5 +1,5 @@
 # EthOn - The Ethereum Ontology
-_An Ethereum ontology that is closely aligned with the [Ethereum yellow paper](https://github.com/ethereum/yellowpaper)._
+_An Ethereum ontology (https://github.com/ethereum/yellowpaper)._
 
 An ontology is a formalization of concepts and relations within a domain.
 EthOn is written in [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) and [OWL](https://en.wikipedia.org/wiki/Web_Ontology_Language).
@@ -22,11 +22,12 @@ For information on [contributing](https://github.com/ConsenSys/EthOn/wiki/How-to
 * as a means to improve communication (among developers, among technical and non-technical people, ...)
 * for checking the consistency of modeled aspects of blockchain data via reasoning
 * to semantically annotate content provided by Ethereum based tools and dApps (e.g. block explorers, analysis tools, markets, ...)
+* much more
 
 ### EthOn covers the following major Ethereum concepts:
-* _Blockchain and State Transition concepts:_ Blocks, Accounts, Transactions, Contract Messages, Block-, Transaction-, Message- and World-State, 
-State Transition
-* _Network concepts:_ Blockchain, Node, Protocol Variant, Fork, Network
+* _Blockchain and State Transition concepts:_ [Blocks](http://ethon.consensys.net/Block), [Accounts](http://ethon.consensys.net/Account), [Transactions](http://ethon.consensys.net/Tx), [Contract Messages](http://ethon.consensys.net/ContractMessage), [States](http://ethon.consensys.net/WorldState), 
+[State Transitions](http://ethon.consensys.net/StateTransition)
+* _Network concepts:_ [Blockchain](http://ethon.consensys.net/Blockchain), [Node](http://ethon.consensys.net/Node), [Protocol Variant](http://ethon.consensys.net/ProtocolVariant), [forking](http://ethon.consensys.net/hasFork), [Network](http://ethon.consensys.net/Network)
 
 ### The following aspects are not covered (yet):
 * EVM states and EVM execution
@@ -43,10 +44,8 @@ Visualize the ontology using [WebVOWL](http://vowl.visualdataweb.org/webvowl/).
 [It should be enough to click this link](http://visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/ethereum-ontology/master/EthOn.rdf). 
 WebVOWL is also developed on GitHub: https://github.com/VisualDataWeb/WebVOWL
 
-### 3. Read the specification
+### 3. Check out the specification
 You can look at the automatically generated [EthOn specification](https://consensys.github.io/EthOn/EthOn_spec.html).
-
-There is another more fancy specification generator available: http://hacks.michelepasin.org/ontospy/. The GitHub project page can be found here: https://github.com/lambdamusic/OntospyWeb.
 
 ### 4. Open the ontology in Protégé
 Download [Protégé](http://protege.stanford.edu/) and open the ontology file to browse around and view all assertions.
@@ -56,13 +55,13 @@ Among other things, EthOn can be used to formally describe Ethereum artefacts.
 The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description of the Genesis Block of the current Ethereum main net.
 #### Describing an Account
     @prefix ethon: <http://ethon.consensys.net/>
-    @prefix ethereum: <http://ethereumrdf.consensys.net/>
+    @prefix ethereum: <http://ethereum.ethstats.io/>
     
-    ethereum:Account0000000000000000000000000000000000000000
+    ethereum:Account_0x0x0000000000000000000000000000000000000000
         a ethon:Account ;
         rdfs:label "Genesis Address" ;
-        ethon:address "0000000000000000000000000000000000000000"^^xsd:hexBinary ;
-        ethon:hasState ethereum:AccountState0 ;
+        rdfs:label "Coinbase" ;
+        ethon:address "0x0000000000000000000000000000000000000000"^^xsd:hexBinary ;
         [...]
         rdfs:seeAlso <https://etherscan.io/address/0x0000000000000000000000000000000000000000> .
     
@@ -74,12 +73,12 @@ The following [Turtle](https://www.w3.org/TR/turtle/) snippet is a description o
 
 #### Describing a Block
 
-    ethereum:Block0
+    ethereum:Block_0
         a ethon:Block ;
         rdfs:label "Genesis Block" ;
         rdfs:comment "This is the block with block number 0. It is the Genesis Block of the Ethereum blockchain." ;
         ethon:number 0 ;
-        ethon:blockBeneficary ethereum:Account0000000000000000000000000000000000000000 ;
+        ethon:authorBeneficary ethereum:Account_0x0x0000000000000000000000000000000000000000 ;
         ethon:blockReward 5000000000000000000 ;
         ethon:gasLimit 5000 ;
         ethon:blockNonce "0000000000000042"^^xsd:hexBinary ;
