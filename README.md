@@ -17,7 +17,6 @@ For information on [contributing](https://github.com/ConsenSys/EthOn/wiki/How-to
 * [Contracts](Contracts) - Adds modeling of smart contracts
 
 ### EthOn can be used
-* as a [glossary of Ethereum terms](EthOn_glossary.md)
 * as a learning ressource for understanding Ethereum and the yellow paper
 * as a means to improve communication (among developers, among technical and non-technical people, ...)
 * for checking the consistency of modeled aspects of blockchain data via reasoning
