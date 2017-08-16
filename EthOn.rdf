@@ -661,7 +661,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://ethon.consensys.net/ContractMsg"/>
         <suggestedStringRepresentation>triggersMsg</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a message that was direct to a contract account to the contract messages that result from the call to the contract account. The chain of triggersMsg relations represents a call graph.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a message that was directed to a contract account to the contract messages that result from it. The chain of triggersMsg relations represents a call tree. The messages related to a message via triggersMsg are the direct children of it in the call tree.</rdfs:comment>
         <rdfs:label xml:lang="en">triggers Contract Message</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
