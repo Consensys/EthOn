@@ -511,7 +511,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
         <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
         <suggestedStringRepresentation>loggedBy</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a log entry to its logger&apos;s account.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a log entry to the contract account that created the log when its code was executed.</rdfs:comment>
         <rdfs:label xml:lang="en">logged by</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
