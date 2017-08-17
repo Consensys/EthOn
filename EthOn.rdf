@@ -1452,7 +1452,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>txGasPrice</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this transaction.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Price in Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this transaction. This implies that contract messages resulting from the transaction pay the same gas price.</rdfs:comment>
         <rdfs:label xml:lang="en">Transaction gas price</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
