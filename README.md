@@ -5,6 +5,8 @@ An ontology is a formalization of concepts and relations within a domain.
 EthOn is written in [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) and [OWL](https://en.wikipedia.org/wiki/Web_Ontology_Language).
 
 ## Status and scope
+Status of the [specification](http://ethon.consensys.net/) build: [![Build Status](https://travis-ci.org/ConsenSys/EthOnDocs.svg?branch=master)](https://travis-ci.org/ConsenSys/EthOnDocs)
+
 EthOn is currently under heavy development. It is not complete, nor ever will be, probably. The goal is to model Ethereum 
 as a [State Transition System](https://en.wikipedia.org/wiki/Transition_system).
 
