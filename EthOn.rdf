@@ -1319,7 +1319,7 @@
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
         <suggestedStringRepresentation>msgOutput</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The reulting output data from a call tx or call contract message. This is the return value from the (function) call.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The resulting output data from a call tx or call contract message. This is the return value from the (function) call.</rdfs:comment>
         <rdfs:label xml:lang="en">Message output</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
