@@ -1,0 +1,2061 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title about="http://ethon.consensys.net/Contracts/" property="dc:title">EthOn Contracts - An extension to EthOn that models some aspects of smart contracts</title>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="doc_resources/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
+
+</head>
+
+
+<body data-spy="scroll" data-target="#toc">
+<div class="container">
+    <h1><span about="http://purl.org/ontology/olo/core#" property="dc:title">EthOn Contracts - An extension to EthOn that models some aspects of smart contracts</span></h1>
+    <p>This ontology extends EthOn with concepts that can be used to model some aspects of smart contracts, including Functions, Events, Inputs, Outputs and Opcodes.</p>
+    <dl class="dl-horizontal">
+        <dt>IRI</dt>
+        <dd><a href="http://ethon.consensys.net/Contracts/">http://ethon.consensys.net/Contracts/</a></dd>
+        <dt>Version IRI</dt>
+        <dd><a href="http://ethon.consensys.net/Contracts/0/">http://ethon.consensys.net/Contracts/0/</a></dd>
+        <dt>Version Info</dt>
+        <dd>0.0.1</dd>
+        <dt>Creators</dt>
+        <dd>Johannes Pfeffer</dd>
+        <dt>Contributors</dt>
+        <dd></dd>
+        <dt>Preferred prefix</dt>
+        <dd>contracts</dd>
+        <dt>Term status</dt>
+        <dd class="
+        text-danger
+    ">unstable</dd>
+        <dt>Imports</dt>
+        <dd><a href="http://ethon.consensys.net/0/">http://ethon.consensys.net/0/</a><br/></dd>
+        <dt>See also</dt>
+        <dd><a href="https://github.com/ConsenSys/EthOn">https://github.com/ConsenSys/EthOn</a><br/></dd>
+    </dl>
+    <h2 data-toc-skip>Table of contents</h2>
+    <nav id="toc" data-toggle="toc"></nav>
+
+    <h2>Illustrations</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <p><a href="doc_resources/img/EthOn_Contracts_overview.png"><img src="doc_resources/img/EthOn_Contracts_overview.png"
+                                                                class="img-thumbnail"
+                                                                alt="Overview of the EthOn Contracts extension"/></a><br/>
+                This is an Overview of how the EthOn Contracts extension models Functions, Events and Opcodes.</p>
+
+        </div>
+    </div>
+
+    <h2>Concept hierarchies</h2>
+    <div class="row">
+        <div class="col-sm-4">
+            <!-- Class tree -->
+            <h3>Classes <span class="badge">13</span></h3>
+
+            <ul>
+                    <li><a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a><ul>
+                    <li><a class="label label-primary" href="#class-event">Event</a></li>
+                    <li><a class="label label-primary" href="#class-function">Function</a><ul>
+                    <li><a class="label label-primary" href="#class-dynamicfunction">DynamicFunction</a></li>
+                    <li><a class="label label-primary" href="#class-staticfunction">StaticFunction</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-functioncall">FunctionCall</a></li>
+                    <li><a class="label label-primary" href="#class-input">Input</a></li>
+                    <li><a class="label label-primary" href="#class-inputvalue">InputValue</a></li>
+                    <li><a class="label label-primary" href="#class-opcode">Opcode</a></li>
+                    <li><a class="label label-primary" href="#class-output">Output</a></li>
+                    <li><a class="label label-primary" href="#class-outputvalue">OutputValue</a></li></ul></li>
+                    <li><a class="label label-primary" href="#class-ethoncontractaccount">ContractAccount</a></li>
+                    <li><a class="label label-primary" href="#class-ethonlogentry">LogEntry</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <!-- Properties tree-->
+            <h3>Properties <span class="badge">36</span></h3>
+            <ul>
+                    <li><a class="label label-default" href="#prop-dase_rule">DASE_RULE</a></li>
+                    <li><a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-cost">cost</a></li>
+                    <li><a class="label label-default" href="#prop-functionselector">functionSelector</a></li>
+                    <li><a class="label label-default" href="#prop-hexvalue">hexValue</a></li>
+                    <li><a class="label label-default" href="#prop-isanonymous">isAnonymous</a></li>
+                    <li><a class="label label-default" href="#prop-isconstant">isConstant</a></li>
+                    <li><a class="label label-default" href="#prop-isindexed">isIndexed</a></li>
+                    <li><a class="label label-default" href="#prop-ispayable">isPayable</a></li>
+                    <li><a class="label label-default" href="#prop-name">name</a></li>
+                    <li><a class="label label-default" href="#prop-position">position</a></li>
+                    <li><a class="label label-default" href="#prop-signature">signature</a></li>
+                    <li><a class="label label-default" href="#prop-stackitemsadded">stackItemsAdded</a></li>
+                    <li><a class="label label-default" href="#prop-stackitemsremoved">stackItemsRemoved</a></li>
+                    <li><a class="label label-default" href="#prop-topic">topic</a></li>
+                    <li><a class="label label-default" href="#prop-type">type</a></li>
+                    <li><a class="label label-default" href="#prop-value">value</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a><ul>
+                    <li><a class="label label-default" href="#prop-callsfunction">callsFunction</a></li>
+                    <li><a class="label label-default" href="#prop-ofinput">ofInput</a></li>
+                    <li><a class="label label-default" href="#prop-ofoutput">ofOutput</a></li>
+                    <li><a class="label label-default" href="#prop-representsevent">representsEvent</a></li>
+                    <li><a class="label label-default" href="#prop-hasinput">hasInput</a></li>
+                    <li><a class="label label-default" href="#prop-hasinputvalue">hasInputValue</a></li>
+                    <li><a class="label label-default" href="#prop-hasoutput">hasOutput</a></li>
+                    <li><a class="label label-default" href="#prop-hasoutputvalue">hasOutputValue</a></li>
+                    <li><a class="label label-default" href="#prop-implementsevent">implementsEvent</a></li>
+                    <li><a class="label label-default" href="#prop-implementsfunction">implementsFunction</a></li>
+                    <li><a class="label label-default" href="#prop-usesopcode">usesOpcode</a></li></ul></li>
+                    <li><a class="label label-default" href="#prop-dccontributor">contributor</a></li>
+                    <li><a class="label label-default" href="#prop-dccreator">creator</a></li>
+                    <li><a class="label label-default" href="#prop-dctitle">title</a></li>
+                    <li><a class="label label-default" href="#prop-ethonsuggestedstringrepresentation">suggestedStringRepresentation</a></li>
+                    <li><a class="label label-default" href="#prop-nsterm_status">term_status</a></li>
+                    <li><a class="label label-default" href="#prop-vannpreferrednamespaceprefix">preferredNamespacePrefix</a></li>
+                    <li><a class="label label-default" href="#prop-vannpreferrednamespaceuri">preferredNamespaceUri</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Class list-->
+    <h2>Class descriptions <span class="badge">13</span></h2>
+    
+        <h3 id="class-dynamicfunction">DynamicFunction</h3>
+        <p>Dynamic Functions are Functions that potentially change the state of the blockchain when executed. Executing a dynamic function costs gas and is broadcast to the network. When a Dynamic Function is called, the resulting computation is carried out by every Full Node in the Network.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/DynamicFunction">http://ethon.consensys.net/Contracts/DynamicFunction</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-ethoncontractsconcept">EthOnContractsConcept</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/EthOnContractsConcept">http://ethon.consensys.net/Contracts/EthOnContractsConcept</a></td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-event">Event</a> 
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                            <a class="label label-primary" href="#class-functioncall">FunctionCall</a> 
+                            <a class="label label-primary" href="#class-input">Input</a> 
+                            <a class="label label-primary" href="#class-inputvalue">InputValue</a> 
+                            <a class="label label-primary" href="#class-opcode">Opcode</a> 
+                            <a class="label label-primary" href="#class-output">Output</a> 
+                            <a class="label label-primary" href="#class-outputvalue">OutputValue</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-event">Event</h3>
+        <p>Events are structures implemented in smart contracts in order to create a LogEntry. Once created they cannot be accessed from the contract but can be used from the outside, e.g. by a web application that reacts to Events in a smart contract.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/Event">http://ethon.consensys.net/Contracts/Event</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-isanonymous">isAnonymous</a> 
+                            <a class="label label-default" href="#prop-topic">topic</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-representsevent">representsEvent</a> 
+                            <a class="label label-default" href="#prop-implementsevent">implementsEvent</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-function">Function</h3>
+        <p>Functions are structures in smart contracts that implement functionality, just as functions or methods do in general programming. Functions can be called by Accounts (External Accounts or Contract Accounts) to execute the code stored in it. Functions can have Inputs (parameters) and Outputs (return values).</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/Function">http://ethon.consensys.net/Contracts/Function</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-dynamicfunction">DynamicFunction</a> 
+                            <a class="label label-primary" href="#class-staticfunction">StaticFunction</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-functionselector">functionSelector</a> 
+                            <a class="label label-default" href="#prop-isconstant">isConstant</a> 
+                            <a class="label label-default" href="#prop-ispayable">isPayable</a> 
+                            <a class="label label-default" href="#prop-signature">signature</a> 
+                            <a class="label label-default" href="#prop-hasoutput">hasOutput</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-callsfunction">callsFunction</a> 
+                            <a class="label label-default" href="#prop-implementsfunction">implementsFunction</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-functioncall">FunctionCall</h3>
+        <p>Functions Calls are calls to Functions that are recorded in the blockchain. They are a subset of all Messages in a blockchain. Examples for Function Calls are Transactions (which is a sub-type of a Message) that call a Dynamic Function in a smart contract and Contract Calls that call Dynamic or Static Functions in smart contracts. Function Calls originate from either an External Account or a Contract Account and are always directed towards Contract Accounts.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/FunctionCall">http://ethon.consensys.net/Contracts/FunctionCall</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-callsfunction">callsFunction</a> 
+                            <a class="label label-default" href="#prop-hasoutputvalue">hasOutputValue</a> 
+                    </td>
+                </tr>
+            
+            
+            
+        </table>
+    
+        <h3 id="class-input">Input</h3>
+        <p>An Input represents a single input parameter of a Function or an Event. It's properties include a data type of the Input Value a name and a position in the signature of its Function or Event. 
+
+If it represents an Input of an Event it can have the boolean property isIndexed. If true, the values of this Input should be stored in a modified merkle patricia tree structure and be created as LogTopics to be easily queryable. Otherwise the value is stored in the data of a LogEntry.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/Input">http://ethon.consensys.net/Contracts/Input</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-isindexed">isIndexed</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ofinput">ofInput</a> 
+                            <a class="label label-default" href="#prop-hasinput">hasInput</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-inputvalue">InputValue</h3>
+        <p>Represents an Input Value of a Function Call or or a Log Entry. For example, if a smart contract has the function decryptXY(string x, bytes32 y) and the function is called in a Message, the two input values are each represented by an instance of this class. The value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Input of this Input Value.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/InputValue">http://ethon.consensys.net/Contracts/InputValue</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ofinput">ofInput</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hasinputvalue">hasInputValue</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-opcode">Opcode</h3>
+        <p>An Opcode an instruction in the instruction set of the Ethereum virtual machine. The set of existing Opcodes are defined as Individuals (instances) of this class.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/Opcode">http://ethon.consensys.net/Contracts/Opcode</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-cost">cost</a> 
+                            <a class="label label-default" href="#prop-hexvalue">hexValue</a> 
+                            <a class="label label-default" href="#prop-stackitemsadded">stackItemsAdded</a> 
+                            <a class="label label-default" href="#prop-stackitemsremoved">stackItemsRemoved</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-usesopcode">usesOpcode</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-output">Output</h3>
+        <p>An Output represents a single return value of a Function in a smart contract. It's properties include a data type of the Output Value, a name and a position in the signature of its Function.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/Output">http://ethon.consensys.net/Contracts/Output</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ofoutput">ofOutput</a> 
+                            <a class="label label-default" href="#prop-hasoutput">hasOutput</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-outputvalue">OutputValue</h3>
+        <p>Represents an Output Value of a Function Call. For example, if a smart contract has the function decryptXY(string x, bytes32 y) returns(string) and the function is called in a Contract Message, the returned string is represented as an instance of this class. The return value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Output of this Output Value.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/OutputValue">http://ethon.consensys.net/Contracts/OutputValue</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractsconcept">EthOnContractsConcept</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ofoutput">ofOutput</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Used with</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-hasoutputvalue">hasOutputValue</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="class-staticfunction">StaticFunction</h3>
+        <p>Static Functions are Functions don't change the state of the blockchain. They can be executed on the local copy of the blockchain and it's not necessary to broadcast the call to the network. Calling a Static Function doesn't cost any gas. They are only executed by the node calling it.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/StaticFunction">http://ethon.consensys.net/Contracts/StaticFunction</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="class-ethoncontractaccount">ContractAccount</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/ContractAccount">http://ethon.consensys.net/ContractAccount</a></td>
+                </tr>
+            
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-implementsevent">implementsEvent</a> 
+                            <a class="label label-default" href="#prop-implementsfunction">implementsFunction</a> 
+                            <a class="label label-default" href="#prop-usesopcode">usesOpcode</a> 
+                    </td>
+                </tr>
+            
+            
+            
+        </table>
+    
+        <h3 id="class-ethonlogentry">LogEntry</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/LogEntry">http://ethon.consensys.net/LogEntry</a></td>
+                </tr>
+            
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Properties include</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-representsevent">representsEvent</a> 
+                    </td>
+                </tr>
+            
+            
+            
+        </table>
+    
+
+
+    <!-- Object Property list-->
+    <h2>Object Property descriptions <span class="badge">12</span></h2>
+    
+        <h3 id="prop-callsfunction">callsFunction</h3>
+        <p>Relates a Function Call to the Function that is called by it.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/callsFunction">http://ethon.consensys.net/Contracts/callsFunction</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-functioncall">FunctionCall</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-ofinput">ofInput</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/ofInput">http://ethon.consensys.net/Contracts/ofInput</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-inputvalue">InputValue</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-input">Input</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-ofoutput">ofOutput</h3>
+        <p>Relates an Output Value to the Output it is a value of.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/ofOutput">http://ethon.consensys.net/Contracts/ofOutput</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-outputvalue">OutputValue</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-output">Output</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-representsevent">representsEvent</h3>
+        <p>Relates a LogEntry to the Event it represents.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/representsEvent">http://ethon.consensys.net/Contracts/representsEvent</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethonlogentry">LogEntry</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-event">Event</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hasinput">hasInput</h3>
+        <p>Relates an Event or a Function to an Input of that Event or Function. An Event or Function may have 0 or more Inputs but an Input can only belong to a single Event or Function.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/hasInput">http://ethon.consensys.net/Contracts/hasInput</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#None">N0cdbd7fdca6f44fda85a613010848f4a</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-input">Input</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hasinputvalue">hasInputValue</h3>
+        <p>Relates a FunctionCall or a LogEntry to an Input Value that is represented by it. For example a Function Call add(5,6) would be related to two Input Values, one for each Input to the Function.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/hasInputValue">http://ethon.consensys.net/Contracts/hasInputValue</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#None">Nab16ad8192864d99becf98dc4baa026e</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-inputvalue">InputValue</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hasoutput">hasOutput</h3>
+        <p>Relates a Function to an Output of that Function. A Function may have 0 or more Outputs but an Output can only belong to a single Function.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/hasOutput">http://ethon.consensys.net/Contracts/hasOutput</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-output">Output</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hasoutputvalue">hasOutputValue</h3>
+        <p>Relates a FunctionCall to an Output Value that is represented by it. For example a Function Call add(5,6) that returns the sum of two integers would be related to one Output Value, that contains the result of the addition.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/hasOutputValue">http://ethon.consensys.net/Contracts/hasOutputValue</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-functioncall">FunctionCall</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-outputvalue">OutputValue</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</h3>
+        <p>Groups all EthOn Contracts extension Object Properties</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty">http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty</a></td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-callsfunction">callsFunction</a> 
+                            <a class="label label-default" href="#prop-ofinput">ofInput</a> 
+                            <a class="label label-default" href="#prop-ofoutput">ofOutput</a> 
+                            <a class="label label-default" href="#prop-representsevent">representsEvent</a> 
+                            <a class="label label-default" href="#prop-hasinput">hasInput</a> 
+                            <a class="label label-default" href="#prop-hasinputvalue">hasInputValue</a> 
+                            <a class="label label-default" href="#prop-hasoutput">hasOutput</a> 
+                            <a class="label label-default" href="#prop-hasoutputvalue">hasOutputValue</a> 
+                            <a class="label label-default" href="#prop-implementsevent">implementsEvent</a> 
+                            <a class="label label-default" href="#prop-implementsfunction">implementsFunction</a> 
+                            <a class="label label-default" href="#prop-usesopcode">usesOpcode</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-implementsevent">implementsEvent</h3>
+        <p>Relates a Contract Account to Events it implements.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/implementsEvent">http://ethon.consensys.net/Contracts/implementsEvent</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractaccount">ContractAccount</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-event">Event</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-implementsfunction">implementsFunction</h3>
+        <p>Relates a Contract Account to Functions it implements.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/implementsFunction">http://ethon.consensys.net/Contracts/implementsFunction</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractaccount">ContractAccount</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-usesopcode">usesOpcode</h3>
+        <p>Relates a Contract Account to an Opcode used in the code of that Account.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/usesOpcode">http://ethon.consensys.net/Contracts/usesOpcode</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsobjectproperty">EthOnContractsObjectProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-ethoncontractaccount">ContractAccount</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-opcode">Opcode</a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+
+
+    <!-- Datatype Property list-->
+    <h2>Datatype Property descriptions <span class="badge">16</span></h2>
+    
+        <h3 id="prop-ethoncontractsdataproperty">EthOnContractsDataProperty</h3>
+        <p>Groups all EthOn Contracts extension Data Properties.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/EthOnContractsDataProperty">http://ethon.consensys.net/Contracts/EthOnContractsDataProperty</a></td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td class="col-md-2">Subclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-cost">cost</a> 
+                            <a class="label label-default" href="#prop-functionselector">functionSelector</a> 
+                            <a class="label label-default" href="#prop-hexvalue">hexValue</a> 
+                            <a class="label label-default" href="#prop-isanonymous">isAnonymous</a> 
+                            <a class="label label-default" href="#prop-isconstant">isConstant</a> 
+                            <a class="label label-default" href="#prop-isindexed">isIndexed</a> 
+                            <a class="label label-default" href="#prop-ispayable">isPayable</a> 
+                            <a class="label label-default" href="#prop-name">name</a> 
+                            <a class="label label-default" href="#prop-position">position</a> 
+                            <a class="label label-default" href="#prop-signature">signature</a> 
+                            <a class="label label-default" href="#prop-stackitemsadded">stackItemsAdded</a> 
+                            <a class="label label-default" href="#prop-stackitemsremoved">stackItemsRemoved</a> 
+                            <a class="label label-default" href="#prop-topic">topic</a> 
+                            <a class="label label-default" href="#prop-type">type</a> 
+                            <a class="label label-default" href="#prop-value">value</a> 
+                    </td>
+                </tr>
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-cost">cost</h3>
+        <p>Specifies the amount of gas that has to be paid to execute an Opcode.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/cost">http://ethon.consensys.net/Contracts/cost</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-opcode">Opcode</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#integer*>"><Class *http://www.w3.org/2001/XMLSchema#integer*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-functionselector">functionSelector</h3>
+        <p>A function can be identified by its function Selector. It is generated from an abbreviated version of the signature. For example the Function bar(uint32 x, bool y) returns (bool r) has the abbreviated signature bar(uint32,bool). The first 4 bytes of the Keccac 256 hash of this forms the functionSelector of the Function, in the example that would be 0xcdcd77c0.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/functionSelector">http://ethon.consensys.net/Contracts/functionSelector</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#hexBinary*>"><Class *http://www.w3.org/2001/XMLSchema#hexBinary*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-hexvalue">hexValue</h3>
+        <p>Specifies the hexadecimal code that represents an Opcode. This is the actual value used for the Opcode in byte code.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/hexValue">http://ethon.consensys.net/Contracts/hexValue</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-opcode">Opcode</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#hexBinary*>"><Class *http://www.w3.org/2001/XMLSchema#hexBinary*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-isanonymous">isAnonymous</h3>
+        <p>Specifies if an Event is anonymous. Anonymous Events will not store the Event signature as the LogTopic of a LogEntry.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/isAnonymous">http://ethon.consensys.net/Contracts/isAnonymous</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-event">Event</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#boolean*>"><Class *http://www.w3.org/2001/XMLSchema#boolean*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-isconstant">isConstant</h3>
+        <p>Functions with the property isConstant set to true promise to not modify the state of the blockchain. For instance, in solidity this can be achieved by a function modifier that declares the function to be constant (solidity doesn't enforce this, yet).</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/isConstant">http://ethon.consensys.net/Contracts/isConstant</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#boolean*>"><Class *http://www.w3.org/2001/XMLSchema#boolean*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-isindexed">isIndexed</h3>
+        <p>True if the Input of an Event should be stored as a LogTopic of a LogEntry. Up to three parameters can receive this property which will cause the respective arguments to be treated as LogTopics instead of data. All non-indexed arguments will be stored in the data part of the LogEntry that represents the Event.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/isIndexed">http://ethon.consensys.net/Contracts/isIndexed</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-input">Input</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#boolean*>"><Class *http://www.w3.org/2001/XMLSchema#boolean*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-ispayable">isPayable</h3>
+        <p>True if a Function can receive Ether together with a FunctionCall.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/isPayable">http://ethon.consensys.net/Contracts/isPayable</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#boolean*>"><Class *http://www.w3.org/2001/XMLSchema#boolean*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-name">name</h3>
+        <p>A property that defines the name of Functions, Events, Inputs, Outputs and Opcodes as specified in code or specification. There can be only one name for each Individual of these types.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/name">http://ethon.consensys.net/Contracts/name</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#None">Nf60f77932d294bc99909962a7b216749</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#string*>"><Class *http://www.w3.org/2001/XMLSchema#string*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-position">position</h3>
+        <p>Specifies the position of the Input or Output parameter in an Event's or Function's signature.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/position">http://ethon.consensys.net/Contracts/position</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#None">N9bba37f571dd44d8b0b5a381751ee820</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#integer*>"><Class *http://www.w3.org/2001/XMLSchema#integer*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-signature">signature</h3>
+        <p>The signature of the function in the canonical form which is used to create the functionSelector. Example: "bar(uint32,bool)"</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/signature">http://ethon.consensys.net/Contracts/signature</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-function">Function</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#string*>"><Class *http://www.w3.org/2001/XMLSchema#string*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-stackitemsadded">stackItemsAdded</h3>
+        <p>Specifies the number of items added to the stack by executing an Opcode.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/stackItemsAdded">http://ethon.consensys.net/Contracts/stackItemsAdded</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-opcode">Opcode</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#integer*>"><Class *http://www.w3.org/2001/XMLSchema#integer*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-stackitemsremoved">stackItemsRemoved</h3>
+        <p>Specifies the number of items removed from the stack when executing an Opcode.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/stackItemsRemoved">http://ethon.consensys.net/Contracts/stackItemsRemoved</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-opcode">Opcode</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#integer*>"><Class *http://www.w3.org/2001/XMLSchema#integer*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-topic">topic</h3>
+        <p>An Event can be identified by its topic. It is generated from an abbreviated version of its signature. For example the Event Foo(uint32 x, bool y) has the abbreviated signature Foo(uint32,bool). The Keccac 256 hash of this forms the event topic.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/topic">http://ethon.consensys.net/Contracts/topic</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#class-event">Event</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#hexBinary*>"><Class *http://www.w3.org/2001/XMLSchema#hexBinary*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-type">type</h3>
+        <p>Specifies the canonical type of the Input or Output, e.g. uint32.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/type">http://ethon.consensys.net/Contracts/type</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#None">N227085599ec34d2f8ad001671b459ffa</a> 
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">Every value is a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="<Class *http://www.w3.org/2001/XMLSchema#string*>"><Class *http://www.w3.org/2001/XMLSchema#string*></a> 
+                    </td>
+                </tr>
+            
+            
+        </table>
+    
+        <h3 id="prop-value">value</h3>
+        <p>The actual value of an InputValue or OutputValue. It is of the type defined in the Input or Output of the InputValue or OutputValue.</p>
+        <table class="table table-striped">
+            
+                <tr>
+                    <td class="col-md-2">Status</td>
+                    <td class="col-md-10 
+        text-danger
+    ">unstable</td>
+                </tr>
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/value">http://ethon.consensys.net/Contracts/value</a></td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Superclasses</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-default" href="#prop-ethoncontractsdataproperty">EthOnContractsDataProperty</a> 
+                    </td>
+                </tr>
+            
+            
+                <tr>
+                    <td class="col-md-2">Implies being a</td>
+                    <td class="col-md-10">
+                        
+                            <a class="label label-primary" href="#None">N0ca94e82f46d40e68ff2b4545854f100</a> 
+                    </td>
+                </tr>
+            
+            
+            
+        </table>
+    
+
+    <!-- Annotation Property list-->
+    <h2>Annotation Property descriptions <span class="badge">8</span></h2>
+    
+        <h3 id="prop-dase_rule">DASE_RULE</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/Contracts/DASE_RULE">http://ethon.consensys.net/Contracts/DASE_RULE</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-ethonsuggestedstringrepresentation">suggestedStringRepresentation</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://ethon.consensys.net/suggestedStringRepresentation">http://ethon.consensys.net/suggestedStringRepresentation</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-dccontributor">contributor</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/dc/elements/1.1/contributor">http://purl.org/dc/elements/1.1/contributor</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-dccreator">creator</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/dc/elements/1.1/creator">http://purl.org/dc/elements/1.1/creator</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-dctitle">title</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/dc/elements/1.1/title">http://purl.org/dc/elements/1.1/title</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-vannpreferrednamespaceprefix">preferredNamespacePrefix</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/vocab/vann/preferredNamespacePrefix">http://purl.org/vocab/vann/preferredNamespacePrefix</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-vannpreferrednamespaceuri">preferredNamespaceUri</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://purl.org/vocab/vann/preferredNamespaceUri">http://purl.org/vocab/vann/preferredNamespaceUri</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+        <h3 id="prop-nsterm_status">term_status</h3>
+        <p></p>
+        <table class="table table-striped">
+            
+            
+                <tr>
+                    <td class="col-md-2">URI</td>
+                    <td class="col-md-10"><a href="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">http://www.w3.org/2003/06/sw-vocab-status/ns#term_status</a></td>
+                </tr>
+            
+            
+            
+            
+            
+            
+            
+        </table>
+    
+</div>
+
+</body>
+</html>
+
