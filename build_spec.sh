@@ -5,3 +5,4 @@ BUILD_NUM=$(curl -s 'https://api.travis-ci.org/repos/ConsenSys/EthOn/builds' | g
 echo $BUILD_NUM
 # Restart last project build
 curl -X POST https://api.travis-ci.org/builds/$BUILD_NUM/restart --header "Authorization: token "$AUTH_TOKEN
+
