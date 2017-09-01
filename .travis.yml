@@ -2,6 +2,6 @@ language: generic
 env:
   global:
     - secure: "ZQf4xBuMyeW1E32+9RBky8LmVaQT27GWCiNr0WlxusipmM3SVz3cYqu7yDbdtD0AW3yHsyPQRQ50FYJ8Nw3fkTDVVzAGkdgo6xDGqOxUr//+4jq0tSTX+TZvouWbiwRZn30PYAccZ6ucl0DWC460mXD25SmklttBOGR084jqsroxSZXvhFPFnIosRzzznTCvQoco6PLl1o8NS+ldV0toHUJdHLYvI6uRkOMsjEPwuLPdLyLPi76B0irSv/zhWGH5X6v456rPV491th5hkgWQKXGpAozBqGQVETEseKTwNWRHxVKy0oYXAK/YFgtAPEmCrOAiOiuKPBfPV806cibaSqhh1rylBKkJdn345XIycz357KKMagn5TRQX3yc9JtOGGxYs3qruw4tFf+5cJB7yPOQ1RM+1hRBzQLuhhY4asGxO21SQSrd4A9688jdYjrgVJOlTm4M9EWOV1oX2SB+YXSMtemXnx3yRF14MjmW9J6o0ok1J7O80XJiSrw63fURul65d4UiCkX2LRIAubJFGkoSNIcGKKqUuZN6pwPv47Gn+Mjgg1vT95muKVonU0+pg4mhGAehpFoMWE5eMgKTxYlp5SCR2I7q95gnGE0joY4/nb+znxln0Z8Bsi0UmVLa3/Ia+F5//3lfG9NNXFCamrh/VtNxIwK3W6fu4MxiwDQ4="
-after_success: |
-  chmod 755 ./build_spec.sh
-  ./build_spec.sh
+after_success: 
+  - chmod 755 ./build_spec.sh
+  - ./build_spec.sh
