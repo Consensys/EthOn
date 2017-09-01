@@ -7,7 +7,6 @@
      xmlns:untitled-ontology-47="http://www.semanticweb.org/jo/ontologies/2017/0/untitled-ontology-47#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
-     xmlns:0="http://ethon.consensys.net/ERC20/0/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:vann="http://purl.org/vocab/vann/"
