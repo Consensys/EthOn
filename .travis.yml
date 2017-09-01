@@ -5,4 +5,3 @@ env:
 after_success: |
   chmod 755 ./build_spec.sh
   ./build_spec.sh
-
