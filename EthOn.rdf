@@ -441,6 +441,8 @@
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+        <rdfs:range rdf:resource="http://ethon.consensys.net/ReceiptsTrie"/>
         <suggestedStringRepresentation>hasReceiptsTrie</suggestedStringRepresentation>
         <rdfs:comment xml:lang="en">Relates a block to the trie that contains the block&apos;s receipt data.</rdfs:comment>
         <rdfs:label xml:lang="en">has receipts trie</rdfs:label>
