@@ -2259,7 +2259,6 @@
         <owl:annotatedSource rdf:resource="http://ethon.consensys.net/Tx"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
         <owl:annotatedTarget rdf:resource="http://ethon.consensys.net/Msg"/>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.2___Tx(?x)-&gt;Msg(?x)___A valid State Transition is one which comes about through a Transaction.</DASE_RULE>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://ethon.consensys.net/Tx"/>
@@ -2411,73 +2410,6 @@
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
-
-    <owl:Axiom>
-        <owl:annotatedSource>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ethon.consensys.net/Account"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://ethon.consensys.net/hasState"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://ethon.consensys.net/AccountState"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://ethon.consensys.net/accountCodeHash"/>
-                                        <owl:someValuesFrom>
-                                            <rdfs:Datatype>
-                                                <owl:oneOf>
-                                                    <rdf:Description>
-                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470</rdf:first>
-                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                                    </rdf:Description>
-                                                </owl:oneOf>
-                                            </rdfs:Datatype>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-                <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
-            </owl:Class>
-        </owl:annotatedSource>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-p4.1___Account(?x)^AccountState(?y)^hasState(?x,?y)^accountCodeHash(?y,&quot;c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470&quot;)-&gt;ExternalAccount(?x)___If the codeHash field of an Account is the Keccac-256 hash of the empty string, then the node represents an External Account.</DASE_RULE>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://ethon.consensys.net/Block"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://ethon.consensys.net/createsPostBlockState"/>
-                        <owl:someValuesFrom rdf:resource="http://ethon.consensys.net/PostBlockState"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-                <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/StateTransition"/>
-            </owl:Class>
-        </owl:annotatedSource>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:resource="http://ethon.consensys.net/StateTransition"/>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-1.1___Block(?b)^hasPostBlockState(?b,?s)^PostBlockState(?s)-&gt;StateTransition(?b)___A valid Message State Transition is one which comes about through a Message.</DASE_RULE>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://ethon.consensys.net/hasTxTrie"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-                <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Block"/>
-            </owl:Restriction>
-        </owl:annotatedSource>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:resource="http://ethon.consensys.net/Block"/>
-        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-3.1___hasTxTrie(?x,?y)-&gt;Block(?x)___Anything that has a TxTrie is a Block.</DASE_RULE>
-    </owl:Axiom>
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
@@ -2512,83 +2444,5 @@
             <rdf:Description rdf:about="http://ethon.consensys.net/ValueTx"/>
         </owl:members>
     </rdf:Description>
-
-
-
-    <!--
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Rules
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description rdf:about="http://ethon.consensys.net/x">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description rdf:about="http://ethon.consensys.net/y">
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
-    </rdf:Description>
-    <rdf:Description>
-        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Block level state transition function is the collection of all Transaction level state transition functions.</rdfs:comment>
-        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">YP-4.1</rdfs:label>
-        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
-        <swrl:body>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://ethon.consensys.net/containsTx"/>
-                        <swrl:argument1 rdf:resource="http://ethon.consensys.net/x"/>
-                        <swrl:argument2 rdf:resource="http://ethon.consensys.net/y"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                        <rdf:first>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                <swrl:classPredicate rdf:resource="http://ethon.consensys.net/Tx"/>
-                                <swrl:argument1 rdf:resource="http://ethon.consensys.net/y"/>
-                            </rdf:Description>
-                        </rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                                <rdf:first>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                        <swrl:classPredicate rdf:resource="http://ethon.consensys.net/Block"/>
-                                        <swrl:argument1 rdf:resource="http://ethon.consensys.net/x"/>
-                                    </rdf:Description>
-                                </rdf:first>
-                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </rdf:rest>
-            </rdf:Description>
-        </swrl:body>
-        <swrl:head>
-            <rdf:Description>
-                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
-                <rdf:first>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://ethon.consensys.net/partOf"/>
-                        <swrl:argument1 rdf:resource="http://ethon.consensys.net/y"/>
-                        <swrl:argument2 rdf:resource="http://ethon.consensys.net/x"/>
-                    </rdf:Description>
-                </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-        </swrl:head>
-    </rdf:Description>
-</rdf:RDF>
-
-
 
 <!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
