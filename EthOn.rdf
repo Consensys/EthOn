@@ -1121,10 +1121,10 @@
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/cumulativeGasUsed">
         <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/TxReceipt"/>
+        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <suggestedStringRepresentation>cumulativeGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The cumulative gas used in the block containing the transaction that caused this receipt as of immediately after the transaction has happened.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The cumulative gas used in the block containing the transaction as of immediately after the transaction has happened.</rdfs:comment>
         <rdfs:label xml:lang="en">cumulative gas used</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
