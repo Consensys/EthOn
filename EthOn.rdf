@@ -1481,19 +1481,6 @@
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
 
-    <!-- http://ethon.consensys.net/txCumulativeGasUsed -->
-
-    <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txCumulativeGasUsed">
-        <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
-        <suggestedStringRepresentation>txCumulativeGasUsed</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The cumulative amount of gas that was used by all transactions in this block, so far. It is measured right after the execution of this transaction.</rdfs:comment>
-        <rdfs:label xml:lang="en">Cumulative Tx gas used</rdfs:label>
-        <ns:term_status>unstable</ns:term_status>
-    </owl:DatatypeProperty>
-
     <!-- http://ethon.consensys.net/txHash -->
 
     <owl:DatatypeProperty rdf:about="http://ethon.consensys.net/txHash">
