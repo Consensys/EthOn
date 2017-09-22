@@ -538,7 +538,7 @@
             </owl:Class>
         </rdfs:range>
         <suggestedStringRepresentation>includesUncle</suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">Relates a block to another block by including it as an uncle. Block B can be an uncle of block A if it is the direct child of the k'th generation ancestor of block B, where 2<=k<=7 but not a direct ancestor of block A. Uncles are blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a block to another block by including it as an uncle. Block B can be an uncle of block A if it is the direct child of the k'th generation ancestor of block B, where 2&lt;=k&lt;=7 but not a direct ancestor of block A. Uncles are blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.</rdfs:comment>
         <rdfs:label xml:lang="en">includes Uncle</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:ObjectProperty>
