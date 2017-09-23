@@ -353,7 +353,7 @@
     <!-- http://ethon.consensys.net/value -->
 
     <rdf:Description rdf:about="http://ethon.consensys.net/value">
-        <owl:propertyDisjointWith rdf:resource="http://ethon.consensys.net/ERC20/http://ethon.consensys.net/ERC20/value"/>
+        <owl:propertyDisjointWith rdf:resource="http://ethon.consensys.net/ERC20/value"/>
     </rdf:Description>
     
 
