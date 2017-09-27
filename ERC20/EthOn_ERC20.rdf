@@ -390,7 +390,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <ethon:suggestedStringRepresentation>balance</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">The remaining balance as provided by the token contract. This value is updated with the most recent known value - but should always be considered potentially outdated.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The remaining balance as provided by the token contract.</rdfs:comment>
         <rdfs:label xml:lang="en">balance</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
@@ -517,7 +517,7 @@
         <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
         <ethon:suggestedStringRepresentation>transferBalance</ethon:suggestedStringRepresentation>
-        <rdfs:comment xml:lang="en">A value equal to the base units of a Token that make up the current balance at the time of the last Transfer Event that affects the Token Balance. This doesn&apos;t represent the actual Token balance because it cannot be known what initial balances are defined in the Token Contract. It represents the Token balance of an account minus its initial balance defined in the Token Contract.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A value equal to the base units of a Token calculated from all observable ERC-20 Transfer events. This doesn&apos;t necessarily represent the actual Token balance because it cannot be known what initial balances may be defined, what mechanisms may exist to generate or burn tokens and what other mechanisms that affect the token balances may be implemented in the token contract.</rdfs:comment>
         <rdfs:label xml:lang="en">transfer balance</rdfs:label>
         <ns:term_status>unstable</ns:term_status>
     </owl:DatatypeProperty>
