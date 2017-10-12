@@ -389,16 +389,16 @@ ns:term_status rdf:type owl:AnnotationProperty .
                  ns:term_status "unstable" .
 
 
-###  http://ethon.consensys.net/ERC20/http://ethon.consensys.net/ERC20/value
-<http://ethon.consensys.net/ERC20/http://ethon.consensys.net/ERC20/value> rdf:type owl:DatatypeProperty ;
-                                                                          rdfs:subPropertyOf :EthOnERC20DataProperty ;
-                                                                          rdf:type owl:FunctionalProperty ;
-                                                                          rdfs:domain :TokenTransfer ;
-                                                                          rdfs:range xsd:integer ;
-                                                                          ethon:suggestedStringRepresentation "value" ;
-                                                                          rdfs:comment "Number of tokens transferred."@en ;
-                                                                          rdfs:label "value"@en ;
-                                                                          ns:term_status "unstable" .
+###  http://ethon.consensys.net/ERC20/value
+:value rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :EthOnERC20DataProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :TokenTransfer ;
+       rdfs:range xsd:integer ;
+       ethon:suggestedStringRepresentation "value" ;
+       rdfs:comment "Number of tokens transferred."@en ;
+       rdfs:label "value"@en ;
+       ns:term_status "unstable" .
 
 
 #################################################################
