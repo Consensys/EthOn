@@ -1231,6 +1231,17 @@ ethon:txS rdf:type owl:DatatypeProperty ;
           ns:term_status "unstable" .
 
 
+###  http://ethon.consensys.net/txStatus
+ethon:txStatus rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf ethon:MessageDataProperty ;
+              rdfs:domain ethon:Tx ;
+              rdfs:range xsd:boolean ;
+              ethon:suggestedStringRepresentation "txStatus" ;
+              rdfs:comment "A status code for the transaction. False indicates failure (due to any operation that can cause the transaction or top-level call to revert) and true indicates success. This property was introduced with the Byzantium hard fork (EIP-658)."@en ;
+              rdfs:label "Transaction status"@en ;
+              ns:term_status "unstable" .
+
+
 ###  http://ethon.consensys.net/txV
 ethon:txV rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf ethon:MessageDataProperty ;
@@ -1497,7 +1508,7 @@ ethon:LightNode rdf:type owl:Class ;
 ethon:LogEntry rdf:type owl:Class ;
                rdfs:subClassOf ethon:MessageConcept ;
                ethon:suggestedStringRepresentation "LogEntry" ;
-               rdfs:comment "A log ntry is the result of an event in a smart contract, emitted during creation or execution of a contract account's code. It is related to the TxReceipt it was created in, the contract account that had the event, a series of 32-bytes log topics and a number of bytes of data."@en ;
+               rdfs:comment "A log entry is the result of an event in a smart contract, emitted during creation or execution of a contract account's code. It is related to the Tx it was created in, the contract account that had the event, a series of 32-bytes log topics and a number of bytes of data."@en ;
                rdfs:label "Log Entry"@en ;
                ns:term_status "unstable" .
 
@@ -1678,7 +1689,7 @@ ethon:Tx rdf:type owl:Class ;
 ethon:TxReceipt rdf:type owl:Class ;
                 rdfs:subClassOf ethon:MessageConcept ;
                 ethon:suggestedStringRepresentation "TxReceipt" ;
-                rdfs:comment "The transaction receipt is a tuple of four items comprising the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction and the bloom filter composed from information in those logs."@en ;
+                rdfs:comment "The transaction receipt is comprised of the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction, the bloom filter composed from information in those logs and a boolean status code indicating success of failure of the transaction. However, in EthOn these properties are not related to the receipt but to the transaction directly, in order to simplify the resulting data model."@en ;
                 rdfs:label "Transaction Receipt"@en ;
                 ns:term_status "unstable" .
 
