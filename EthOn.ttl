@@ -7,11 +7,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix ethon: <http://ethon.consensys.net/> .
-@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
-@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
 @base <http://ethon.consensys.net/> .
 
 <http://ethon.consensys.net/> rdf:type owl:Ontology ;
@@ -41,9 +38,6 @@
 #    Annotation properties
 #################################################################
 
-###  http://ethon.consensys.net/DASE_RULE
-ethon:DASE_RULE rdf:type owl:AnnotationProperty .
-
 
 ###  http://ethon.consensys.net/EthOnAnnotationProperty
 ethon:EthOnAnnotationProperty rdf:type owl:AnnotationProperty ;
@@ -65,10 +59,6 @@ ethon:suggestedStringRepresentation rdf:type owl:AnnotationProperty ;
                                     ns:term_status "unstable" ;
                                     rdfs:subPropertyOf ethon:EthOnAnnotationProperty ;
                                     rdfs:domain ethon:EthOnConcept .
-
-
-###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
-swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -1301,24 +1291,6 @@ ethon:Account rdf:type owl:Class ;
               rdfs:label "Account"@en ;
               ns:term_status "unstable" .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:Account ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:hasState ;
-                         owl:someValuesFrom ethon:AccountState
-                       ] ;
-   rdfs:comment "An Account must have at least 1 state."@en
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:Account ;
-   owl:annotatedProperty owl:hasKey ;
-   owl:annotatedTarget ( ethon:address
-                       ) ;
-   rdfs:comment "An Address is the unique 160-bit identifier of an Account."@en
- ] .
-
 
 ###  http://ethon.consensys.net/AccountConcept
 ethon:AccountConcept rdf:type owl:Class ;
@@ -1362,21 +1334,6 @@ ethon:Block rdf:type owl:Class ;
             rdfs:label "Block"@en ;
             ns:term_status "unstable" .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:Block ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget ethon:StateTransition ;
-   ethon:DASE_RULE "YP-2.1___Block(?x)->StateTransition(?x)___A valid State Transition is one which comes about through a Block."^^xsd:string
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:Block ;
-   owl:annotatedProperty owl:hasKey ;
-   owl:annotatedTarget ( ethon:blockHash
-                       ) ;
-   rdfs:comment "The blockHash is the unique identifier of a block. It is generated via the Keccak 256-bit hash of its block header."@en
- ] .
-
 
 ###  http://ethon.consensys.net/BlockConcept
 ethon:BlockConcept rdf:type owl:Class ;
@@ -1409,17 +1366,6 @@ ethon:CallContractMsg rdf:type owl:Class ;
                       rdfs:label "Call Contract Message"@en ;
                       ns:term_status "unstable" .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:CallContractMsg ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:to ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:ContractAccount
-                       ] ;
-   rdfs:comment "Call contract accounts call functions in other contract accounts."
- ] .
-
 
 ###  http://ethon.consensys.net/CallTx
 ethon:CallTx rdf:type owl:Class ;
@@ -1433,17 +1379,6 @@ ethon:CallTx rdf:type owl:Class ;
              rdfs:comment "A type of transaction that is directed towards a contract account and calls a method in the contract's code."@en ;
              rdfs:label "Call Transaction"@en ;
              ns:term_status "unstable" .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:CallTx ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:to ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:ContractAccount
-                       ] ;
-   rdfs:comment "Call transactions are directed towards a contract account."
- ] .
 
 
 ###  http://ethon.consensys.net/ContractAccount
@@ -1470,17 +1405,6 @@ ethon:ContractMsg rdf:type owl:Class ;
                   rdfs:label "Contract Message"@en ;
                   ns:term_status "unstable" .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:ContractMsg ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:from ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:ContractAccount
-                       ] ;
-   rdfs:comment "Contract messages originate from contract accounts."
- ] .
-
 
 ###  http://ethon.consensys.net/CreateContractMsg
 ethon:CreateContractMsg rdf:type owl:Class ;
@@ -1495,17 +1419,6 @@ ethon:CreateContractMsg rdf:type owl:Class ;
                         rdfs:label "Create Contract Message"@en ;
                         ns:term_status "unstable" .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:CreateContractMsg ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:creates ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:ContractAccount
-                       ] ;
-   rdfs:comment "Create contract messages create contract accounts."
- ] .
-
 
 ###  http://ethon.consensys.net/CreateTx
 ethon:CreateTx rdf:type owl:Class ;
@@ -1519,17 +1432,6 @@ ethon:CreateTx rdf:type owl:Class ;
                rdfs:comment "A type of transaction that results in creation of a new contract account."@en ;
                rdfs:label "Create Transaction"@en ;
                ns:term_status "unstable" .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:CreateTx ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:creates ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:ContractAccount
-                       ] ;
-   rdfs:comment "All create transactions are directed toward a contract account they create."
- ] .
 
 
 ###  http://ethon.consensys.net/EthOnConcept
@@ -1635,13 +1537,6 @@ ethon:Msg rdf:type owl:Class ;
           rdfs:comment "Data (as a set of bytes) and value (specified as Ether) that is passed between two accounts, either through the deterministic operation of an autonomous object (contract account) or the cryptographically secure signature of an external account."@en ;
           rdfs:label "Message"@en ;
           ns:term_status "unstable" .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:Msg ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget ethon:StateTransition ;
-   ethon:DASE_RULE "YP-1.1___Msg(?x)->StateTransition(?x)___A valid State Transition is one which comes about through a Message."^^xsd:string
- ] .
 
 
 ###  http://ethon.consensys.net/Network
@@ -1778,17 +1673,6 @@ ethon:Tx rdf:type owl:Class ;
          rdfs:label "Transaction"@en ;
          ns:term_status "unstable" .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:Tx ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:from ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:ExternalAccount
-                       ] ;
-   rdfs:comment "All transactions originate from an external account."
- ] .
-
 
 ###  http://ethon.consensys.net/TxReceipt
 ethon:TxReceipt rdf:type owl:Class ;
@@ -1837,17 +1721,6 @@ ethon:ValueContractMsg rdf:type owl:Class ;
                        rdfs:label "Value Contract Message"@en ;
                        ns:term_status "unstable" .
 
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:ValueContractMsg ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:to ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:Account
-                       ] ;
-   rdfs:comment "Value Contract Messages are always directed to an External Account."
- ] .
-
 
 ###  http://ethon.consensys.net/ValueTx
 ethon:ValueTx rdf:type owl:Class ;
@@ -1861,17 +1734,6 @@ ethon:ValueTx rdf:type owl:Class ;
               rdfs:comment "A Value Transaction is a Transaction that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called \"value\" Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract."@en ;
               rdfs:label "Value Transaction"@en ;
               ns:term_status "unstable" .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource ethon:ValueTx ;
-   owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget [ rdf:type owl:Restriction ;
-                         owl:onProperty ethon:to ;
-                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass ethon:Account
-                       ] ;
-   rdfs:comment "Value transactions are directed to External Accounts."
- ] .
 
 
 ###  http://ethon.consensys.net/WorldState
