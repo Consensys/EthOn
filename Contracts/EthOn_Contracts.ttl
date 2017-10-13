@@ -225,6 +225,10 @@ _:genid5 a rdf:List ;
 	rdfs:label "uses Opcode"@en ;
 	ns:term_status "unstable" .
 # 
+# http://purl.org/dc/terms/isRequiredBy
+
+<http://purl.org/dc/terms/isRequiredBy> a owl:ObjectProperty .
+# 
 # 
 # 
 # #################################################################
@@ -794,6 +798,7 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 # http://ethon.consensys.net/Contracts/Opcode_DELEGATECALL
 
 :Opcode_DELEGATECALL a owl:NamedIndividual , :Opcode ;
+	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Homestead ;
 	:cost "40"^^xsd:integer ;
 	:hexValue "f4"^^xsd:hexBinary ;
 	:name "DELEGATECALL"^^xsd:string ;
@@ -1624,6 +1629,7 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 # http://ethon.consensys.net/Contracts/Opcode_REVERT
 
 :Opcode_REVERT a owl:NamedIndividual , :Opcode ;
+	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
 	:cost "0"^^xsd:integer ;
 	:hexValue "fd"^^xsd:hexBinary ;
 	:name "RETURN"^^xsd:string ;
@@ -1714,13 +1720,13 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 # http://ethon.consensys.net/Contracts/Opcode_STATICCALL
 
 :Opcode_STATICCALL a owl:NamedIndividual , :Opcode ;
+	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
 	:cost "40"^^xsd:integer ;
 	:hexValue "f4"^^xsd:hexBinary ;
 	:name "STATICCALL"^^xsd:string ;
 	:stackItemsAdded "6"^^xsd:integer ;
 	:stackItemsRemoved "1"^^xsd:integer ;
 	rdfs:comment "Non-state-changing call to another contract. Any modifications to the state during the call (and its subcalls, if present) are disallowed."@en .
-
 # 
 # http://ethon.consensys.net/Contracts/Opcode_STOP
 
