@@ -1299,17 +1299,6 @@ _:genid52 a rdf:List ;
 	rdfs:label "Receipts root"@en ;
 	ns:term_status "unstable" .
 # 
-# http://ethon.consensys.net/startBlockNumber
-
-:startBlockNumber a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :NetworkDataProperty ;
-	rdfs:domain :Blockchain ;
-	rdfs:range xsd:integer ;
-	:suggestedStringRepresentation "startBlockNumber" ;
-	rdfs:comment "The block number of the first block in a new blockchain after a hard fork."@en ;
-	rdfs:label "start Block number"@en ;
-	ns:term_status "unstable" .
-# 
 # http://ethon.consensys.net/stateRoot
 
 :stateRoot a owl:DatatypeProperty ;
