@@ -1999,6 +1999,11 @@ _:genid66 a owl:Restriction ;
 <http://ethereum.ethstats.io/Block_200000> a owl:NamedIndividual , :Block ;
 	:conformsTo :ProtocolVariant_IceAge .
 # 
+# http://ethereum.ethstats.io/Block_2463000
+
+<http://ethereum.ethstats.io/Block_2463000> a owl:NamedIndividual , :Block ;
+	:conformsTo :ProtocolVariant_TangerineWhistle .
+# 
 # http://ethereum.ethstats.io/Block_2675000
 
 <http://ethereum.ethstats.io/Block_2675000> a owl:NamedIndividual , :Block ;
@@ -2012,7 +2017,7 @@ _:genid66 a owl:Restriction ;
 # http://ethereum.ethstats.io/EthereumFoundationMainChain
 
 <http://ethereum.ethstats.io/EthereumFoundationMainChain> a owl:NamedIndividual , :Blockchain ;
-	:containsCanonicalBlock <http://ethereum.ethstats.io/Block_0> , <http://ethereum.ethstats.io/Block_1150000> , <http://ethereum.ethstats.io/Block_1920000> , <http://ethereum.ethstats.io/Block_200000> , <http://ethereum.ethstats.io/Block_2675000> , <http://ethereum.ethstats.io/Block_4370000> , <http://ethon.consensys.net/2463000http://ethereum.ethstats.io/Block_2463000> ;
+	:containsCanonicalBlock <http://ethereum.ethstats.io/Block_0> , <http://ethereum.ethstats.io/Block_1150000> , <http://ethereum.ethstats.io/Block_1920000> , <http://ethereum.ethstats.io/Block_200000> , <http://ethereum.ethstats.io/Block_2463000> , <http://ethereum.ethstats.io/Block_2675000> , <http://ethereum.ethstats.io/Block_4370000> ;
 	rdfs:label "Ethereum Foundation main chain"@en ;
 	rdfs:seeAlso <http://ethereum.ethstats.io/EthereumFoundationMainChain> .
 # 
@@ -2072,11 +2077,6 @@ As a result of this fork block 1920000 introduced an irregular state change to t
 	rdfs:comment "The Tangerine Whistle protocol variant resulted in a hard fork that was the first of two steps to protect the Ethereum main chain from DOS attacks. These attacks happened in September and October 2016 and resulted in large delays for transaction processing. The changes maiinly affect the gas cost for IO-heavy operations."@en ;
 	rdfs:label "Tangerine Whistle"@en ;
 	rdfs:seeAlso <https://blog.ethereum.org/2016/10/18/faq-upcoming-ethereum-hard-fork/> , <https://github.com/ethereum/EIPs/blob/master/EIPS/eip-150.md> .
-# 
-# http://ethon.consensys.net/2463000http://ethereum.ethstats.io/Block_2463000
-
-<http://ethon.consensys.net/2463000http://ethereum.ethstats.io/Block_2463000> a owl:NamedIndividual , :Block ;
-	:conformsTo :ProtocolVariant_TangerineWhistle .
 # 
 # 
 # 
