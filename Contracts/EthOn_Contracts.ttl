@@ -1711,6 +1711,17 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 	:stackItemsRemoved "0"^^xsd:integer ;
 	rdfs:comment "Save word to storage."@en .
 # 
+# http://ethon.consensys.net/Contracts/Opcode_STATICCALL
+
+:Opcode_STATICCALL a owl:NamedIndividual , :Opcode ;
+	:cost "40"^^xsd:integer ;
+	:hexValue "f4"^^xsd:hexBinary ;
+	:name "STATICCALL"^^xsd:string ;
+	:stackItemsAdded "6"^^xsd:integer ;
+	:stackItemsRemoved "1"^^xsd:integer ;
+	rdfs:comment "Non-state-changing call to another contract. Any modifications to the state during the call (and its subcalls, if present) are disallowed."@en .
+
+# 
 # http://ethon.consensys.net/Contracts/Opcode_STOP
 
 :Opcode_STOP a owl:NamedIndividual , :Opcode ;
