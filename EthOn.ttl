@@ -1982,36 +1982,43 @@ _:genid66 a owl:Restriction ;
 # http://ethereum.ethstats.io/Block_0
 
 <http://ethereum.ethstats.io/Block_0> a owl:NamedIndividual , :Block , :GenesisBlock ;
+	rdfs:label "Block 0"@en ;
 	:conformsTo :ProtocolVariant_Frontier .
 # 
 # http://ethereum.ethstats.io/Block_1150000
 
 <http://ethereum.ethstats.io/Block_1150000> a owl:NamedIndividual , :Block ;
+	rdfs:label "Block 150000>"@en ;
 	:conformsTo :ProtocolVariant_Homestead .
 # 
 # http://ethereum.ethstats.io/Block_1920000
 
 <http://ethereum.ethstats.io/Block_1920000> a owl:NamedIndividual , :Block ;
+	rdfs:label "Block 1920000"@en ;
 	:conformsTo :ProtocolVariant_DAO .
 # 
 # http://ethereum.ethstats.io/Block_200000
 
 <http://ethereum.ethstats.io/Block_200000> a owl:NamedIndividual , :Block ;
+	rdfs:label "Block 200000"@en ;
 	:conformsTo :ProtocolVariant_IceAge .
 # 
 # http://ethereum.ethstats.io/Block_2463000
 
 <http://ethereum.ethstats.io/Block_2463000> a owl:NamedIndividual , :Block ;
+	rdfs:label "Block 2463000"@en ;
 	:conformsTo :ProtocolVariant_TangerineWhistle .
 # 
 # http://ethereum.ethstats.io/Block_2675000
 
 <http://ethereum.ethstats.io/Block_2675000> a owl:NamedIndividual , :Block ;
+	rdfs:label "Block 2675000"@en ;
 	:conformsTo :ProtocolVariant_SpuriousDragon .
 # 
 # http://ethereum.ethstats.io/Block_4370000
 
 <http://ethereum.ethstats.io/Block_4370000> a owl:NamedIndividual , :Block ;
+	rdfs:label "Block 4370000"@en ;
 	:conformsTo :ProtocolVariant_Byzantium .
 # 
 # http://ethereum.ethstats.io/EthereumFoundationMainChain
