@@ -1626,6 +1626,26 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 	:stackItemsRemoved "0"^^xsd:integer ;
 	rdfs:comment "Halt execution returning output data."@en .
 # 
+# http://ethon.consensys.net/Contracts/Opcode_RETURNDATASIZE
+
+:Opcode_RETURNDATASIZE a owl:NamedIndividual , :Opcode ;
+	:cost "2"^^xsd:integer ;
+	:hexValue "3d"^^xsd:hexBinary ;
+	:name "RETURNDATASIZE"^^xsd:string ;
+	:stackItemsAdded "0"^^xsd:integer ;
+	:stackItemsRemoved "1"^^xsd:integer ;
+	rdfs:comment ""@en .
+# 
+# http://ethon.consensys.net/Contracts/Opcode_RETURNDATACOPY
+
+:Opcode_RETURNDATACOPY a owl:NamedIndividual , :Opcode ;
+	:cost "3"^^xsd:integer ;
+	:hexValue "3e"^^xsd:hexBinary ;
+	:name "RETURNDATACOPY"^^xsd:string ;
+	:stackItemsAdded "3"^^xsd:integer ;
+	:stackItemsRemoved "0"^^xsd:integer ;
+	rdfs:comment ""@en .
+# 
 # http://ethon.consensys.net/Contracts/Opcode_REVERT
 
 :Opcode_REVERT a owl:NamedIndividual , :Opcode ;
