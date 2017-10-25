@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="http://ethon.consensys.net/icons/ProtocollVariant_icon"
+   width="64"
+   height="64"
+   viewBox="-14 -14 134 134"
+   sodipodi:docname="ProtocolVariant.svg"
+   inkscape:version="0.92.1 r">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1403"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="3.6875"
+     inkscape:cx="32.542373"
+     inkscape:cy="32"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="http://ethon.consensys.net/icons/ProtocollVariant_icon" />
+  <style
+     type="text/css"
+     id="style2">
+	.st0{fill:#333333;}
+</style>
+  <path
+     id="path895"
+     d="M 54,13 V 93.000001 C 54,93.600001 53.6,94 53,94 52.4,94 52,93.600001 52,93.000001 V 13 c 0,-0.6 0.4,-1 1,-1 0.6,0 1,0.4 1,1 z m 31.7,48.7 -24,24.000001 c -0.2,0.199999 -0.4,0.3 -0.7,0.3 -0.10001,0 -0.3,0 -0.4,-0.100004 -0.3,-0.100005 -0.6,-0.499999 -0.6,-0.9 V 21 c 0,-0.4 0.3,-0.8 0.7,-1 0.4,-0.1 0.9,0.1 1.1,0.5 l 24,40 c 0.3,0.400001 0.2,0.9 -0.10001,1.2 z M 46,21 v 64.000001 c 0,0.4 -0.2,0.8 -0.6,0.899999 -0.10001,0.100005 -0.2,0.100005 -0.4,0.100005 -0.3,0 -0.5,-0.100005 -0.7,-0.3 L 20.3,61.7 C 20,61.4 19.9,60.900001 20.1,60.5 l 24,-40 c 0.2,-0.4 0.7,-0.6 1.1,-0.4 0.5,0 0.8,0.4 0.8,0.9 z"
+     class="st0"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;stroke-width:1;opacity:0.01"
+     sodipodi:nodetypes="sssssssssscsscccssscssscccs" />
+  <path
+     class="st0"
+     d="M54,13v80c0,0.6-0.4,1-1,1s-1-0.4-1-1V13c0-0.6,0.4-1,1-1S54,12.4,54,13z   M85.7,61.7l-24,24C61.5,85.9,61.3,86,61,86c-0.1,0-0.3,0-0.4-0.1C60.3,85.8,60,85.4,60,85V21c0-0.4,0.3-0.8,0.7-1  c0.4-0.1,0.9,0.1,1.1,0.5l24,40C86.1,60.9,86,61.4,85.7,61.7z M83.7,60.9L62,24.6v58L83.7,60.9z M46,21v64c0,0.4-0.2,0.8-0.6,0.9  C45.3,86,45.2,86,45,86c-0.3,0-0.5-0.1-0.7-0.3l-24-24c-0.3-0.3-0.4-0.8-0.2-1.2l24-40c0.2-0.4,0.7-0.6,1.1-0.4  C45.7,20.1,46,20.5,46,21z M44,24.6L22.3,60.9L44,82.6V24.6z"
+     id="path4" />
+</svg>

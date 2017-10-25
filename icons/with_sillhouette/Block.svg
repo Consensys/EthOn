@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="http://ethon.consensys.net/icons/Block_icon"
+   width="64px"
+   height="64px"
+   viewBox="-14 -14 134 134"
+   sodipodi:docname="Block.svg"
+   inkscape:version="0.92.1 r">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1403"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="14.75"
+     inkscape:cx="32.314432"
+     inkscape:cy="13.700702"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="http://ethon.consensys.net/icons/Block_icon" />
+  <style
+     type="text/css"
+     id="style2">
+	.st0{fill:#333333;}
+</style>
+  <path
+     id="path4488"
+     d="M 81,52.1 H 70 V 47 c 0,-1.7 -1.3,-3 -3,-3 H 39 c -1.7,0 -3,1.3 -3,3 v 5.1 H 25 c -0.6,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 H 36 V 59 c 0,1.7 1.3,3 3,3 h 28 c 1.7,0 3,-1.3 3,-3 v -4.9 h 11 c 0.6,0 1,-0.4 1,-1 0,-0.6 -0.4,-1 -1,-1 z"
+     class="st0"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;opacity:0.01"
+     sodipodi:nodetypes="scsssscssscsssscsss" />
+  <path
+     class="st0"
+     d="M81,52.1H70V47c0-1.7-1.3-3-3-3H39c-1.7,0-3,1.3-3,3v5.1H25c-0.6,0-1,0.4-1,1s0.4,1,1,1h11  V59c0,1.7,1.3,3,3,3h28c1.7,0,3-1.3,3-3v-4.9h11c0.6,0,1-0.4,1-1S81.6,52.1,81,52.1z M68,59c0,0.6-0.4,1-1,1H39c-0.6,0-1-0.4-1-1  v-4.9h3c0.6,0,1-0.4,1-1s-0.4-1-1-1h-3V47c0-0.6,0.4-1,1-1h28c0.6,0,1,0.4,1,1v5.1h-3c-0.6,0-1,0.4-1,1s0.4,1,1,1h3V59z"
+     id="path4" />
+</svg>

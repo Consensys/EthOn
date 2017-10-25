@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="http://ethon.consensys.net/icons/ContractAccount_icon"
+   width="64"
+   height="64"
+   viewBox="-14 -14 134 134"
+   sodipodi:docname="ContractAccount.svg"
+   inkscape:version="0.92.1 r">
+  <metadata
+     id="metadata11">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1403"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="3.6875"
+     inkscape:cx="-40.677966"
+     inkscape:cy="32"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="http://ethon.consensys.net/icons/ContractAccount_icon" />
+  <style
+     type="text/css"
+     id="style2">
+	.st0{fill:#333333;}
+</style>
+  <path
+     id="path921"
+     d="m 89,68 v 0 0 H 73.9 L 74,37 c 0,-5 -4,-9 -9,-9 H 25 v 0 c -4.9,0 -9,4 -9,9 0,0.6 0.4,1 1,1 h 15 v 29 2 c 0,4.9 4,9 9,9 v 0 h 40 c 5,0 9,-4 9,-9 0,-0.6 -0.5,-1 -1,-1 z"
+     class="st0"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;stroke-width:1;opacity:0.01"
+     sodipodi:nodetypes="cccccsccssccsccssc" />
+  <path
+     class="st0"
+     d="M89,68C89,68,89,68,89,68C89,68,89,68,89,68l-15.1,0L74,37c0-5-4-9-9-9H25  c0,0,0,0,0,0c-4.9,0-9,4-9,9c0,0.6,0.4,1,1,1h15l0,29l0,2c0,4.9,4,9,9,9c0,0,0,0,0,0h40c5,0,9-4,9-9C90,68.4,89.5,68,89,68z   M18.1,36c0.5-3.4,3.4-6,6.9-6s6.4,2.6,6.9,6H18.1z M34,69l0-2l0-30c0-2.8-1.3-5.4-3.4-7H65c3.9,0,7,3.1,7,7l-0.1,31H49  c-0.6,0-1,0.4-1,1c0,3.9-3.1,7-7,7S34,72.9,34,69z M81,76H46.6c1.8-1.5,3-3.6,3.3-6h38C87.4,73.4,84.5,76,81,76z M38.2,51  c-0.1-0.1-0.2-0.2-0.2-0.3c-0.1-0.4-0.1-0.8,0.2-1.1c0,0,0,0,0,0l7.8-7.8c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-7.1,7.1l7.1,7.1  c0.4,0.4,0.4,1,0,1.4c-0.2,0.2-0.5,0.3-0.7,0.3s-0.5-0.1-0.7-0.3L38.2,51C38.2,51,38.2,51,38.2,51z M58.3,57.4l7.1-7.1l-7.1-7.1  c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l7.8,7.8c0,0,0,0,0,0c0.1,0.1,0.2,0.2,0.2,0.3c0.1,0.4,0.1,0.8-0.2,1.1c0,0,0,0,0,0l-7.8,7.8  c-0.2,0.2-0.5,0.3-0.7,0.3s-0.5-0.1-0.7-0.3C57.9,58.4,57.9,57.8,58.3,57.4z M49.8,57.7l4.7-16c0.2-0.5,0.7-0.8,1.2-0.7  c0.5,0.2,0.8,0.7,0.7,1.2l-4.7,16c-0.1,0.4-0.5,0.7-1,0.7c-0.1,0-0.2,0-0.3,0C50,58.8,49.7,58.3,49.8,57.7z"
+     id="path4" />
+</svg>
