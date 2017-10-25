@@ -1647,6 +1647,28 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 	:stackItemsRemoved "0"^^xsd:integer ;
 	rdfs:comment "Halt execution returning output data."@en .
 # 
+# http://ethon.consensys.net/Contracts/Opcode_RETURNDATASIZE
+
+:Opcode_RETURNDATASIZE a owl:NamedIndividual , :Opcode ;
+	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
+	:cost "2"^^xsd:integer ;
+	:hexValue "3d"^^xsd:hexBinary ;
+	:name "RETURNDATASIZE"^^xsd:string ;
+	:stackItemsAdded "0"^^xsd:integer ;
+	:stackItemsRemoved "1"^^xsd:integer ;
+	rdfs:comment "Pushes the size of the return data buffer onto the stack."@en .
+# 
+# http://ethon.consensys.net/Contracts/Opcode_RETURNDATACOPY
+
+:Opcode_RETURNDATACOPY a owl:NamedIndividual , :Opcode ;
+	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
+	:cost "3"^^xsd:integer ;
+	:hexValue "3e"^^xsd:hexBinary ;
+	:name "RETURNDATACOPY"^^xsd:string ;
+	:stackItemsAdded "3"^^xsd:integer ;
+	:stackItemsRemoved "0"^^xsd:integer ;
+	rdfs:comment "This opcode has similar semantics to `CALLDATACOPY`, but instead of copying data from the call data, it copies data from the return data buffer. Furthermore, accessing the return data buffer beyond its size results in a failure, i.e. if `start + length` overflows or results in a value larger than `RETURNDATASIZE`, the current call stops in an out-of-gas condition. In particular, reading 0 bytes from the end of the buffer will read 0 bytes; reading 0 bytes from one-byte out of the buffer causes an exception."@en .
+# 
 # http://ethon.consensys.net/Contracts/Opcode_REVERT
 
 :Opcode_REVERT a owl:NamedIndividual , :Opcode ;
