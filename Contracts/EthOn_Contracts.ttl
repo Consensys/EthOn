@@ -11,7 +11,7 @@
 
 <http://ethon.consensys.net/Contracts/> a owl:Ontology ;
 	owl:versionIRI <http://ethon.consensys.net/Contracts/v0/> ;
-	owl:imports <http://ethon.consensys.net/Contracts/v0/> , <http://ethon.consensys.net/v0/> ;
+	owl:imports <http://ethon.consensys.net/v0/> ;
 	dc:creator "Johannes Pfeffer" ;
 	ns:term_status "unstable" ;
 	owl:versionInfo "0.0.1" ;
@@ -246,6 +246,32 @@ _:genid5 a rdf:List ;
 	rdfs:label "EthOn Contracts Data Property"@en ;
 	ns:term_status "unstable" .
 # 
+# http://ethon.consensys.net/Contracts/byteSignature
+
+:byteSignature a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :EthOnContractsDataProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain :FunctionSelector ;
+	rdfs:range xsd:hexBinary ;
+	ethon:suggestedStringRepresentation "byteSignature" ;
+	rdfs:comment "A function can be identified by its byte signature. It is generated from the canonical signature. For example the Function `bar(uint32 x, bool y)` returns `(bool r)` has the canonical signature `bar(uint32,bool)`. The first 4 bytes of the Keccac 256 hash of this forms the byte signature of the function, in the example that would be `0xcdcd77c0`."@en ;
+	rdfs:label "byte signature"@en ;
+	rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding> ;
+	ns:term_status "unstable" .
+# 
+# http://ethon.consensys.net/Contracts/canonicalSignature
+
+:canonicalSignature a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :EthOnContractsDataProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain :FunctionSelector ;
+	rdfs:range xsd:string ;
+	ethon:suggestedStringRepresentation "canonicalSignature" ;
+	rdfs:comment "The signature of the function in the canonical form which is used to create the functionSelector. Example: `bar(uint32,bool)`"@en ;
+	rdfs:label "canonicalSignature"@en ;
+	rdfs:seeAlso "https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI" ;
+	ns:term_status "unstable" .
+# 
 # http://ethon.consensys.net/Contracts/cost
 
 :cost a owl:DatatypeProperty ;
@@ -256,19 +282,6 @@ _:genid5 a rdf:List ;
 	ethon:suggestedStringRepresentation "cost" ;
 	rdfs:comment "Specifies the amount of gas that has to be paid to execute an Opcode."@en ;
 	rdfs:label "cost"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/functionSelector
-
-:functionSelector a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Function ;
-	rdfs:range xsd:hexBinary ;
-	ethon:suggestedStringRepresentation "functionSelector" ;
-	rdfs:comment "A function can be identified by its function Selector. It is generated from an abbreviated version of the signature. For example the Function bar(uint32 x, bool y) returns (bool r) has the abbreviated signature bar(uint32,bool). The first 4 bytes of the Keccac 256 hash of this forms the functionSelector of the Function, in the example that would be 0xcdcd77c0."@en ;
-	rdfs:label "function Selector"@en ;
-	rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding> ;
 	ns:term_status "unstable" .
 # 
 # http://ethon.consensys.net/Contracts/hexValue
@@ -399,9 +412,8 @@ _:genid14 a rdf:List ;
 	rdfs:domain :Function ;
 	rdfs:range xsd:string ;
 	ethon:suggestedStringRepresentation "signature" ;
-	rdfs:comment "The signature of the function in the canonical form which is used to create the functionSelector. Example: \"bar(uint32,bool)\""@en ;
+	rdfs:comment "The signature of the function as specified in the source language of the contract."@en ;
 	rdfs:label "signature"@en ;
-	rdfs:seeAlso "https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI" ;
 	ns:term_status "unstable" .
 # 
 # http://ethon.consensys.net/Contracts/stackItemsAdded
@@ -536,9 +548,9 @@ ethon:Msg a owl:Class .
 
 :Function a owl:Class ;
 	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "Event" ;
+	ethon:suggestedStringRepresentation "Function" ;
 	rdfs:comment "Functions are structures in smart contracts that implement functionality, just as functions or methods do in general programming. Functions can be called by Accounts (External Accounts or Contract Accounts) to execute the code stored in it. Functions can have Inputs (parameters) and Outputs (return values)."@en ;
-	rdfs:label "Function"@en ;
+	rdfs:label "function"@en ;
 	ns:term_status "unstable" .
 # 
 # http://ethon.consensys.net/Contracts/FunctionCall
@@ -548,6 +560,15 @@ ethon:Msg a owl:Class .
 	ethon:suggestedStringRepresentation "FunctionCall" ;
 	rdfs:comment "Functions Calls are calls to Functions that are recorded in the blockchain. They are a subset of all Messages in a blockchain. Examples for Function Calls are Transactions (which is a sub-type of a Message) that call a Dynamic Function in a smart contract and Contract Calls that call Dynamic or Static Functions in smart contracts. Function Calls originate from either an External Account or a Contract Account and are always directed towards Contract Accounts."@en ;
 	rdfs:label "Function Call"@en ;
+	ns:term_status "unstable" .
+# 
+# http://ethon.consensys.net/Contracts/FunctionSelector
+
+:FunctionSelector a owl:Class ;
+	rdfs:subClassOf :EthOnContractsConcept ;
+	ethon:suggestedStringRepresentation "FunctionSelector" ;
+	rdfs:comment "A function selector can be represented either by a canonical text form of the function signature (e.g. `exampleFunction(bytes32)`) or by its bytes form (e.g. `0xfc13a76a`). The latter is used by the EVM to call a certain function in a contract. It is created by taking the first 4 bytes of the keccac hash of the canonical text form of the signature."@en ;
+	rdfs:label "function selector"@en ;
 	ns:term_status "unstable" .
 # 
 # http://ethon.consensys.net/Contracts/Input
