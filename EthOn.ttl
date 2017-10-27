@@ -937,6 +937,18 @@ _:genid28 a rdf:List ;
 :blockHeader a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:hexBinary ;
+	:suggestedStringRepresentation "blockHeader" ;
+	rdfs:comment "Relates a block to its block header data. The block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the block number, 10. the gas limit of the block, 11. the gas used by all transactions in the block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the block nonce. The property is functional because a block can have only exactly one block header."@en ;
+	rdfs:label "Block header"@en ;
+	ns:term_status "unstable" .
+# 
+# http://ethon.consensys.net/blockLogsBloom
+
+:blockLogsBloom a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :BlockDataProperty ;
+	a owl:FunctionalProperty ;
 	rdfs:domain _:genid30 .
 
 _:genid30 a owl:Class ;
@@ -950,15 +962,18 @@ _:genid31 a rdf:List ;
 	rdf:first :Uncle ;
 	rdf:rest rdf:nil .
 
-:blockHeader rdfs:range xsd:hexBinary ;
-	:suggestedStringRepresentation "blockHeader" ;
-	rdfs:comment "Relates a block to its block header data. The block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the block number, 10. the gas limit of the block, 11. the gas used by all transactions in the block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the block nonce. The property is functional because a block can have only exactly one block header."@en ;
-	rdfs:label "Block header"@en ;
+:blockLogsBloom rdfs:range xsd:hexBinary ;
+	:suggestedStringRepresentation "blockLogsBloom" ;
+	rdfs:comment """The bloom filter of log entries resulting from the transactions in the block. 
+
+The bloom filter helps to identify blocks with logs quickly. To find the indexed log entries from a contract, only the bloom filters of all blocks, which are included in the block header have to be checked. Note that bloom filters can produce false positives but not false negatives. In other words, if the bloom filter indicates that the topic and contract have not produced any logs in a block, this information is final. If the bloom filter indicates a match, it is only a probabilistic result and has to be verified further. The transactions in the block can then be re-executed and the probabilistic match of the bloom filter can be verified."""@en ;
+	rdfs:label "block logs bloom filter"@en ;
+	rdfs:seeAlso :txLogsBloom ;
 	ns:term_status "unstable" .
 # 
-# http://ethon.consensys.net/blockLogsBloom
+# http://ethon.consensys.net/blockMixHash
 
-:blockLogsBloom a owl:DatatypeProperty ;
+:blockMixHash a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
 	rdfs:domain _:genid33 .
@@ -974,15 +989,15 @@ _:genid34 a rdf:List ;
 	rdf:first :Uncle ;
 	rdf:rest rdf:nil .
 
-:blockLogsBloom rdfs:range xsd:hexBinary ;
-	:suggestedStringRepresentation "blockLogsBloom" ;
-	rdfs:comment "The Bloom filter composed from indexable information (logger address and log topics) contained in each log entry from the receipt of each transaction in the transactions list."@en ;
-	rdfs:label "Block logs bloom filter"@en ;
+:blockMixHash rdfs:range xsd:hexBinary ;
+	:suggestedStringRepresentation "blockMixHash" ;
+	rdfs:comment "A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block."@en ;
+	rdfs:label "Block mix hash"@en ;
 	ns:term_status "unstable" .
 # 
-# http://ethon.consensys.net/blockMixHash
+# http://ethon.consensys.net/blockNonce
 
-:blockMixHash a owl:DatatypeProperty ;
+:blockNonce a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
 	rdfs:domain _:genid36 .
@@ -995,30 +1010,6 @@ _:genid38 a rdf:List ;
 	rdf:rest _:genid37 .
 
 _:genid37 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockMixHash rdfs:range xsd:hexBinary ;
-	:suggestedStringRepresentation "blockMixHash" ;
-	rdfs:comment "A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block."@en ;
-	rdfs:label "Block mix hash"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/blockNonce
-
-:blockNonce a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :BlockDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain _:genid39 .
-
-_:genid39 a owl:Class ;
-	owl:unionOf _:genid41 .
-
-_:genid41 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid40 .
-
-_:genid40 a rdf:List ;
 	rdf:first :Uncle ;
 	rdf:rest rdf:nil .
 
@@ -1125,16 +1116,16 @@ _:genid40 a rdf:List ;
 
 :msgData a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :msgPayload ;
-	rdfs:domain _:genid42 .
+	rdfs:domain _:genid39 .
 
-_:genid42 a owl:Class ;
-	owl:unionOf _:genid44 .
+_:genid39 a owl:Class ;
+	owl:unionOf _:genid41 .
 
-_:genid44 a rdf:List ;
+_:genid41 a rdf:List ;
 	rdf:first :CallContractMsg ;
-	rdf:rest _:genid43 .
+	rdf:rest _:genid40 .
 
-_:genid43 a rdf:List ;
+_:genid40 a rdf:List ;
 	rdf:first :CallTx ;
 	rdf:rest rdf:nil .
 
@@ -1196,16 +1187,16 @@ _:genid43 a rdf:List ;
 
 :msgInit a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :msgPayload ;
-	rdfs:domain _:genid45 .
+	rdfs:domain _:genid42 .
 
-_:genid45 a owl:Class ;
-	owl:unionOf _:genid47 .
+_:genid42 a owl:Class ;
+	owl:unionOf _:genid44 .
 
-_:genid47 a rdf:List ;
+_:genid44 a rdf:List ;
 	rdf:first :CreateContractMsg ;
-	rdf:rest _:genid46 .
+	rdf:rest _:genid43 .
 
-_:genid46 a rdf:List ;
+_:genid43 a rdf:List ;
 	rdf:first :CreateTx ;
 	rdf:rest rdf:nil .
 
@@ -1220,16 +1211,16 @@ _:genid46 a rdf:List ;
 :msgOutput a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :MessageDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid48 .
+	rdfs:domain _:genid45 .
 
-_:genid48 a owl:Class ;
-	owl:unionOf _:genid50 .
+_:genid45 a owl:Class ;
+	owl:unionOf _:genid47 .
 
-_:genid50 a rdf:List ;
+_:genid47 a rdf:List ;
 	rdf:first :CallContractMsg ;
-	rdf:rest _:genid49 .
+	rdf:rest _:genid46 .
 
-_:genid49 a rdf:List ;
+_:genid46 a rdf:List ;
 	rdf:first :CallTx ;
 	rdf:rest rdf:nil .
 
@@ -1268,16 +1259,16 @@ _:genid49 a rdf:List ;
 :number a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid51 .
+	rdfs:domain _:genid48 .
 
-_:genid51 a owl:Class ;
-	owl:unionOf _:genid53 .
+_:genid48 a owl:Class ;
+	owl:unionOf _:genid50 .
 
-_:genid53 a rdf:List ;
+_:genid50 a rdf:List ;
 	rdf:first :Block ;
-	rdf:rest _:genid52 .
+	rdf:rest _:genid49 .
 
-_:genid52 a rdf:List ;
+_:genid49 a rdf:List ;
 	rdf:first :Uncle ;
 	rdf:rest rdf:nil .
 
@@ -1387,8 +1378,11 @@ _:genid52 a rdf:List ;
 	rdfs:domain :Tx ;
 	rdfs:range xsd:hexBinary ;
 	:suggestedStringRepresentation "txLogsBloom" ;
-	rdfs:comment "Relates a transaction to the Bloom filter of its log entries."@en ;
-	rdfs:label "Transaction Logs Bloom filter"@en ;
+	rdfs:comment """The bloom filter of log entries resulting from a transaction.
+
+For a more detailed description of log filters in Ethereum, see [block blogs bloom filter](http://ethon.consensys.net/blockLogsBloom)."""@en ;
+	rdfs:label "transaction logs bloom filter"@en ;
+	rdfs:seeAlso :blockLogsBloom ;
 	ns:term_status "unstable" .
 # 
 # http://ethon.consensys.net/txNonce
@@ -1483,22 +1477,22 @@ _:genid52 a rdf:List ;
 # http://ethon.consensys.net/Account
 
 :Account a owl:Class ;
-	rdfs:subClassOf :AccountConcept , _:genid54 .
+	rdfs:subClassOf :AccountConcept , _:genid51 .
 
-_:genid54 a owl:Restriction ;
+_:genid51 a owl:Restriction ;
 	owl:onProperty :hasState ;
 	owl:someValuesFrom :AccountState .
 
-:Account rdfs:subClassOf _:genid55 .
+:Account rdfs:subClassOf _:genid52 .
 
-_:genid55 a owl:Restriction ;
+_:genid52 a owl:Restriction ;
 	owl:onProperty :address ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:hexBinary .
 
-:Account owl:hasKey _:genid56 .
+:Account owl:hasKey _:genid53 .
 
-_:genid56 a rdf:List ;
+_:genid53 a rdf:List ;
 	rdf:first :address ;
 	rdf:rest rdf:nil .
 
@@ -1540,9 +1534,9 @@ _:genid56 a rdf:List ;
 
 :Block a owl:Class ;
 	rdfs:subClassOf :BlockConcept , :StateTransition ;
-	owl:hasKey _:genid57 .
+	owl:hasKey _:genid54 .
 
-_:genid57 a rdf:List ;
+_:genid54 a rdf:List ;
 	rdf:first :blockHash ;
 	rdf:rest rdf:nil .
 
@@ -1573,9 +1567,9 @@ _:genid57 a rdf:List ;
 # http://ethon.consensys.net/CallContractMsg
 
 :CallContractMsg a owl:Class ;
-	rdfs:subClassOf :ContractMsg , _:genid58 .
+	rdfs:subClassOf :ContractMsg , _:genid55 .
 
-_:genid58 a owl:Restriction ;
+_:genid55 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1588,9 +1582,9 @@ _:genid58 a owl:Restriction ;
 # http://ethon.consensys.net/CallTx
 
 :CallTx a owl:Class ;
-	rdfs:subClassOf :Tx , _:genid59 .
+	rdfs:subClassOf :Tx , _:genid56 .
 
-_:genid59 a owl:Restriction ;
+_:genid56 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1614,9 +1608,9 @@ _:genid59 a owl:Restriction ;
 # http://ethon.consensys.net/ContractMsg
 
 :ContractMsg a owl:Class ;
-	rdfs:subClassOf :Msg , _:genid60 .
+	rdfs:subClassOf :Msg , _:genid57 .
 
-_:genid60 a owl:Restriction ;
+_:genid57 a owl:Restriction ;
 	owl:onProperty :from ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1629,9 +1623,9 @@ _:genid60 a owl:Restriction ;
 # http://ethon.consensys.net/CreateContractMsg
 
 :CreateContractMsg a owl:Class ;
-	rdfs:subClassOf :ContractMsg , _:genid61 .
+	rdfs:subClassOf :ContractMsg , _:genid58 .
 
-_:genid61 a owl:Restriction ;
+_:genid58 a owl:Restriction ;
 	owl:onProperty :creates ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1644,9 +1638,9 @@ _:genid61 a owl:Restriction ;
 # http://ethon.consensys.net/CreateTx
 
 :CreateTx a owl:Class ;
-	rdfs:subClassOf :Tx , _:genid62 .
+	rdfs:subClassOf :Tx , _:genid59 .
 
-_:genid62 a owl:Restriction ;
+_:genid59 a owl:Restriction ;
 	owl:onProperty :creates ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1881,9 +1875,9 @@ _:genid62 a owl:Restriction ;
 # http://ethon.consensys.net/Tx
 
 :Tx a owl:Class ;
-	rdfs:subClassOf :Msg , _:genid63 .
+	rdfs:subClassOf :Msg , _:genid60 .
 
-_:genid63 a owl:Restriction ;
+_:genid60 a owl:Restriction ;
 	owl:onProperty :from ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ExternalAccount .
@@ -1914,14 +1908,8 @@ _:genid63 a owl:Restriction ;
 # http://ethon.consensys.net/Uncle
 
 :Uncle a owl:Class ;
-	rdfs:subClassOf :BlockConcept , _:genid64 .
-
-_:genid64 a owl:Restriction ;
-	owl:onProperty :containsTx ;
-	owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-	owl:onClass :Tx .
-
-:Uncle :suggestedStringRepresentation "Uncle"@en ;
+	rdfs:subClassOf :Block ;
+	:suggestedStringRepresentation "Uncle"@en ;
 	rdfs:comment "An uncle is the direct child of the k'th generation ancestor of a block B, where 2<=k<=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an uncle is an ancestor of the inserting block, located at the tip of the blockchain."@en ;
 	rdfs:label "Uncle"@en ;
 	ns:term_status "unstable" .
@@ -1929,9 +1917,9 @@ _:genid64 a owl:Restriction ;
 # http://ethon.consensys.net/ValueContractMsg
 
 :ValueContractMsg a owl:Class ;
-	rdfs:subClassOf :ContractMsg , _:genid65 .
+	rdfs:subClassOf :ContractMsg , _:genid61 .
 
-_:genid65 a owl:Restriction ;
+_:genid61 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :Account .
@@ -1944,9 +1932,9 @@ _:genid65 a owl:Restriction ;
 # http://ethon.consensys.net/ValueTx
 
 :ValueTx a owl:Class ;
-	rdfs:subClassOf :Tx , _:genid66 .
+	rdfs:subClassOf :Tx , _:genid62 .
 
-_:genid66 a owl:Restriction ;
+_:genid62 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :Account .
@@ -1982,51 +1970,51 @@ _:genid66 a owl:Restriction ;
 # http://ethereum.ethstats.io/Block_0
 
 <http://ethereum.ethstats.io/Block_0> a owl:NamedIndividual , :Block , :GenesisBlock ;
-	rdfs:label "Block 0"@en ;
-	:number 0;
-	:conformsTo :ProtocolVariant_Frontier .
+	:conformsTo :ProtocolVariant_Frontier ;
+	:number "0"^^xsd:integer ;
+	rdfs:label "Block 0"@en .
 # 
 # http://ethereum.ethstats.io/Block_1150000
 
 <http://ethereum.ethstats.io/Block_1150000> a owl:NamedIndividual , :Block ;
-	rdfs:label "Block 1150000"@en ;
-	:number 1150000;
-	:conformsTo :ProtocolVariant_Homestead .
+	:conformsTo :ProtocolVariant_Homestead ;
+	:number "1150000"^^xsd:integer ;
+	rdfs:label "Block 1150000"@en .
 # 
 # http://ethereum.ethstats.io/Block_1920000
 
 <http://ethereum.ethstats.io/Block_1920000> a owl:NamedIndividual , :Block ;
-	rdfs:label "Block 1920000"@en ;
-	:number 1920000;
-	:conformsTo :ProtocolVariant_DAO .
+	:conformsTo :ProtocolVariant_DAO ;
+	:number "1920000"^^xsd:integer ;
+	rdfs:label "Block 1920000"@en .
 # 
 # http://ethereum.ethstats.io/Block_200000
 
 <http://ethereum.ethstats.io/Block_200000> a owl:NamedIndividual , :Block ;
-	rdfs:label "Block 200000"@en ;
-	:number 200000;
-	:conformsTo :ProtocolVariant_IceAge .
+	:conformsTo :ProtocolVariant_IceAge ;
+	:number "200000"^^xsd:integer ;
+	rdfs:label "Block 200000"@en .
 # 
 # http://ethereum.ethstats.io/Block_2463000
 
 <http://ethereum.ethstats.io/Block_2463000> a owl:NamedIndividual , :Block ;
-	rdfs:label "Block 2463000"@en ;
-	:number 2463000;
-	:conformsTo :ProtocolVariant_TangerineWhistle .
+	:conformsTo :ProtocolVariant_TangerineWhistle ;
+	:number "2463000"^^xsd:integer ;
+	rdfs:label "Block 2463000"@en .
 # 
 # http://ethereum.ethstats.io/Block_2675000
 
 <http://ethereum.ethstats.io/Block_2675000> a owl:NamedIndividual , :Block ;
-	rdfs:label "Block 2675000"@en ;
-	:number 2675000;
-	:conformsTo :ProtocolVariant_SpuriousDragon .
+	:conformsTo :ProtocolVariant_SpuriousDragon ;
+	:number "2675000"^^xsd:integer ;
+	rdfs:label "Block 2675000"@en .
 # 
 # http://ethereum.ethstats.io/Block_4370000
 
 <http://ethereum.ethstats.io/Block_4370000> a owl:NamedIndividual , :Block ;
-	rdfs:label "Block 4370000"@en ;
-	:number 4370000;
-	:conformsTo :ProtocolVariant_Byzantium .
+	:conformsTo :ProtocolVariant_Byzantium ;
+	:number "4370000"^^xsd:integer ;
+	rdfs:label "Block 4370000"@en .
 # 
 # http://ethereum.ethstats.io/EthereumFoundationMainChain
 
@@ -2102,43 +2090,59 @@ As a result of this fork block 1920000 introduced an irregular state change to t
 # 
 # 
 
-_:genid67 a owl:AllDisjointClasses ;
-	owl:members _:genid71 .
+_:genid63 a owl:AllDisjointClasses ;
+	owl:members _:genid67 .
 
-_:genid71 a rdf:List ;
+_:genid67 a rdf:List ;
 	rdf:first :Block ;
-	rdf:rest _:genid70 .
+	rdf:rest _:genid66 .
 
-_:genid70 a rdf:List ;
+_:genid66 a rdf:List ;
 	rdf:first :ReceiptsTrie ;
-	rdf:rest _:genid69 .
+	rdf:rest _:genid65 .
 
-_:genid69 a rdf:List ;
+_:genid65 a rdf:List ;
 	rdf:first :TxTrie ;
-	rdf:rest _:genid68 .
+	rdf:rest _:genid64 .
 
-_:genid68 a rdf:List ;
+_:genid64 a rdf:List ;
 	rdf:first :Uncle ;
 	rdf:rest rdf:nil .
 # 
 
-_:genid72 a owl:AllDisjointClasses ;
+_:genid68 a owl:AllDisjointClasses ;
+	owl:members _:genid72 .
+
+_:genid72 a rdf:List ;
+	rdf:first :Blockchain ;
+	rdf:rest _:genid71 .
+
+_:genid71 a rdf:List ;
+	rdf:first :Network ;
+	rdf:rest _:genid70 .
+
+_:genid70 a rdf:List ;
+	rdf:first :Node ;
+	rdf:rest _:genid69 .
+
+_:genid69 a rdf:List ;
+	rdf:first :ProtocolVariant ;
+	rdf:rest rdf:nil .
+# 
+
+_:genid73 a owl:AllDisjointClasses ;
 	owl:members _:genid76 .
 
 _:genid76 a rdf:List ;
-	rdf:first :Blockchain ;
+	rdf:first :CallContractMsg ;
 	rdf:rest _:genid75 .
 
 _:genid75 a rdf:List ;
-	rdf:first :Network ;
+	rdf:first :CreateContractMsg ;
 	rdf:rest _:genid74 .
 
 _:genid74 a rdf:List ;
-	rdf:first :Node ;
-	rdf:rest _:genid73 .
-
-_:genid73 a rdf:List ;
-	rdf:first :ProtocolVariant ;
+	rdf:first :ValueContractMsg ;
 	rdf:rest rdf:nil .
 # 
 
@@ -2146,30 +2150,14 @@ _:genid77 a owl:AllDisjointClasses ;
 	owl:members _:genid80 .
 
 _:genid80 a rdf:List ;
-	rdf:first :CallContractMsg ;
+	rdf:first :CallTx ;
 	rdf:rest _:genid79 .
 
 _:genid79 a rdf:List ;
-	rdf:first :CreateContractMsg ;
+	rdf:first :CreateTx ;
 	rdf:rest _:genid78 .
 
 _:genid78 a rdf:List ;
-	rdf:first :ValueContractMsg ;
-	rdf:rest rdf:nil .
-# 
-
-_:genid81 a owl:AllDisjointClasses ;
-	owl:members _:genid84 .
-
-_:genid84 a rdf:List ;
-	rdf:first :CallTx ;
-	rdf:rest _:genid83 .
-
-_:genid83 a rdf:List ;
-	rdf:first :CreateTx ;
-	rdf:rest _:genid82 .
-
-_:genid82 a rdf:List ;
 	rdf:first :ValueTx ;
 	rdf:rest rdf:nil .
 # 
