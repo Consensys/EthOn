@@ -463,21 +463,8 @@ It is inverse functional because a forked protocol can have only one protocol va
 :includesUncle a owl:ObjectProperty ;
 	rdfs:subPropertyOf :BlockObjectProperty ;
 	rdfs:domain :Block ;
-	rdfs:range _:genid4 .
-
-_:genid4 owl:intersectionOf _:genid6 .
-
-_:genid6 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid5 .
-
-_:genid5 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-_:genid4 a owl:Class .
-
-:includesUncle :suggestedStringRepresentation "includesUncle" ;
+	rdfs:range :Uncle ;
+	:suggestedStringRepresentation "includesUncle" ;
 	rdfs:comment "Relates a block to another block by including it as an uncle. Block B can be an uncle of block A if it is the direct child of the k'th generation ancestor of block B, where 2<=k<=7 but not a direct ancestor of block A. Uncles are blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”."@en ;
 	rdfs:label "includes Uncle"@en ;
 	ns:term_status "unstable" .
@@ -608,24 +595,24 @@ _:genid4 a owl:Class .
 
 :triggersMsg a owl:ObjectProperty ;
 	rdfs:subPropertyOf :MessageObjectProperty ;
-	rdfs:domain _:genid7 .
+	rdfs:domain _:genid4 .
 
-_:genid7 a owl:Class ;
-	owl:unionOf _:genid11 .
-
-_:genid11 a rdf:List ;
-	rdf:first :CallContractMsg ;
-	rdf:rest _:genid10 .
-
-_:genid10 a rdf:List ;
-	rdf:first :CallTx ;
-	rdf:rest _:genid9 .
-
-_:genid9 a rdf:List ;
-	rdf:first :CreateContractMsg ;
-	rdf:rest _:genid8 .
+_:genid4 a owl:Class ;
+	owl:unionOf _:genid8 .
 
 _:genid8 a rdf:List ;
+	rdf:first :CallContractMsg ;
+	rdf:rest _:genid7 .
+
+_:genid7 a rdf:List ;
+	rdf:first :CallTx ;
+	rdf:rest _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :CreateContractMsg ;
+	rdf:rest _:genid5 .
+
+_:genid5 a rdf:List ;
 	rdf:first :CreateTx ;
 	rdf:rest rdf:nil .
 
@@ -793,20 +780,8 @@ _:genid8 a rdf:List ;
 :blockCreationTime a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid12 .
-
-_:genid12 a owl:Class ;
-	owl:unionOf _:genid14 .
-
-_:genid14 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid13 .
-
-_:genid13 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockCreationTime rdfs:range xsd:dateTime ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:dateTime ;
 	:suggestedStringRepresentation "blockCreationTime" ;
 	rdfs:comment "This block's inception date and time."@en ;
 	rdfs:label "Block creation time"@en ;
@@ -817,20 +792,8 @@ _:genid13 a rdf:List ;
 :blockDifficulty a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid15 .
-
-_:genid15 a owl:Class ;
-	owl:unionOf _:genid17 .
-
-_:genid17 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid16 .
-
-_:genid16 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockDifficulty rdfs:range xsd:integer ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:integer ;
 	:suggestedStringRepresentation "blockDifficulty" ;
 	rdfs:comment "A scalar value corresponding to the difficulty level of this block. This can be calculated from the previous block's difficulty level and the timestamp."@en ;
 	rdfs:label "Block difficulty"@en ;
@@ -841,20 +804,8 @@ _:genid16 a rdf:List ;
 :blockExtraData a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid18 .
-
-_:genid18 a owl:Class ;
-	owl:unionOf _:genid20 .
-
-_:genid20 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid19 .
-
-_:genid19 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockExtraData rdfs:range xsd:hexBinary ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:hexBinary ;
 	:suggestedStringRepresentation "blockExtraData" ;
 	rdfs:comment "An arbitrary byte array containing data relevant to this block. This must be 32 bytes or fewer."@en ;
 	rdfs:label "Block extra data"@en ;
@@ -865,20 +816,8 @@ _:genid19 a rdf:List ;
 :blockGasLimit a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid21 .
-
-_:genid21 a owl:Class ;
-	owl:unionOf _:genid23 .
-
-_:genid23 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid22 .
-
-_:genid22 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockGasLimit rdfs:range xsd:integer ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:integer ;
 	:suggestedStringRepresentation "blockGasLimit" ;
 	rdfs:comment "A scalar value equal to the current limit of gas expenditure per block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor."@en ;
 	rdfs:label "Block gas limit"@en ;
@@ -889,20 +828,8 @@ _:genid22 a rdf:List ;
 :blockGasUsed a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid24 .
-
-_:genid24 a owl:Class ;
-	owl:unionOf _:genid26 .
-
-_:genid26 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid25 .
-
-_:genid25 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockGasUsed rdfs:range xsd:integer ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:integer ;
 	:suggestedStringRepresentation "blockGasUsed" ;
 	rdfs:comment "A scalar value equal to the total gas used by all transactions in this block."@en ;
 	rdfs:label "Block gas used"@en ;
@@ -913,20 +840,8 @@ _:genid25 a rdf:List ;
 :blockHash a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid27 .
-
-_:genid27 a owl:Class ;
-	owl:unionOf _:genid29 .
-
-_:genid29 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid28 .
-
-_:genid28 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockHash rdfs:range xsd:hexBinary ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:hexBinary ;
 	:suggestedStringRepresentation "blockHash" ;
 	rdfs:comment "The Keccak 256-bit hash of the block's header, in its entierty."@en ;
 	rdfs:label "Block hash"@en ;
@@ -949,20 +864,8 @@ _:genid28 a rdf:List ;
 :blockLogsBloom a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid30 .
-
-_:genid30 a owl:Class ;
-	owl:unionOf _:genid32 .
-
-_:genid32 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid31 .
-
-_:genid31 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockLogsBloom rdfs:range xsd:hexBinary ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:hexBinary ;
 	:suggestedStringRepresentation "blockLogsBloom" ;
 	rdfs:comment """The bloom filter of log entries resulting from the transactions in the block. 
 
@@ -976,20 +879,8 @@ The bloom filter helps to identify blocks with logs quickly. To find the indexed
 :blockMixHash a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid33 .
-
-_:genid33 a owl:Class ;
-	owl:unionOf _:genid35 .
-
-_:genid35 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid34 .
-
-_:genid34 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockMixHash rdfs:range xsd:hexBinary ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:hexBinary ;
 	:suggestedStringRepresentation "blockMixHash" ;
 	rdfs:comment "A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block."@en ;
 	rdfs:label "Block mix hash"@en ;
@@ -1000,20 +891,8 @@ _:genid34 a rdf:List ;
 :blockNonce a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid36 .
-
-_:genid36 a owl:Class ;
-	owl:unionOf _:genid38 .
-
-_:genid38 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid37 .
-
-_:genid37 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:blockNonce rdfs:range xsd:hexBinary ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:hexBinary ;
 	:suggestedStringRepresentation "blockNonce" ;
 	rdfs:comment "A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this block."@en ;
 	rdfs:label "Block nonce"@en ;
@@ -1116,16 +995,16 @@ _:genid37 a rdf:List ;
 
 :msgData a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :msgPayload ;
-	rdfs:domain _:genid39 .
+	rdfs:domain _:genid9 .
 
-_:genid39 a owl:Class ;
-	owl:unionOf _:genid41 .
+_:genid9 a owl:Class ;
+	owl:unionOf _:genid11 .
 
-_:genid41 a rdf:List ;
+_:genid11 a rdf:List ;
 	rdf:first :CallContractMsg ;
-	rdf:rest _:genid40 .
+	rdf:rest _:genid10 .
 
-_:genid40 a rdf:List ;
+_:genid10 a rdf:List ;
 	rdf:first :CallTx ;
 	rdf:rest rdf:nil .
 
@@ -1187,16 +1066,16 @@ _:genid40 a rdf:List ;
 
 :msgInit a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :msgPayload ;
-	rdfs:domain _:genid42 .
+	rdfs:domain _:genid12 .
 
-_:genid42 a owl:Class ;
-	owl:unionOf _:genid44 .
+_:genid12 a owl:Class ;
+	owl:unionOf _:genid14 .
 
-_:genid44 a rdf:List ;
+_:genid14 a rdf:List ;
 	rdf:first :CreateContractMsg ;
-	rdf:rest _:genid43 .
+	rdf:rest _:genid13 .
 
-_:genid43 a rdf:List ;
+_:genid13 a rdf:List ;
 	rdf:first :CreateTx ;
 	rdf:rest rdf:nil .
 
@@ -1211,16 +1090,16 @@ _:genid43 a rdf:List ;
 :msgOutput a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :MessageDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid45 .
+	rdfs:domain _:genid15 .
 
-_:genid45 a owl:Class ;
-	owl:unionOf _:genid47 .
+_:genid15 a owl:Class ;
+	owl:unionOf _:genid17 .
 
-_:genid47 a rdf:List ;
+_:genid17 a rdf:List ;
 	rdf:first :CallContractMsg ;
-	rdf:rest _:genid46 .
+	rdf:rest _:genid16 .
 
-_:genid46 a rdf:List ;
+_:genid16 a rdf:List ;
 	rdf:first :CallTx ;
 	rdf:rest rdf:nil .
 
@@ -1259,20 +1138,8 @@ _:genid46 a rdf:List ;
 :number a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :BlockDataProperty ;
 	a owl:FunctionalProperty ;
-	rdfs:domain _:genid48 .
-
-_:genid48 a owl:Class ;
-	owl:unionOf _:genid50 .
-
-_:genid50 a rdf:List ;
-	rdf:first :Block ;
-	rdf:rest _:genid49 .
-
-_:genid49 a rdf:List ;
-	rdf:first :Uncle ;
-	rdf:rest rdf:nil .
-
-:number rdfs:range xsd:integer ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:integer ;
 	:suggestedStringRepresentation "number" ;
 	rdfs:comment "A scalar value equal to the number of ancestor blocks. The genesis block has a number of zero."@en ;
 	rdfs:label "Block number"@en ;
@@ -1477,22 +1344,22 @@ For a more detailed description of log filters in Ethereum, see [block blogs blo
 # http://ethon.consensys.net/Account
 
 :Account a owl:Class ;
-	rdfs:subClassOf :AccountConcept , _:genid51 .
+	rdfs:subClassOf :AccountConcept , _:genid18 .
 
-_:genid51 a owl:Restriction ;
+_:genid18 a owl:Restriction ;
 	owl:onProperty :hasState ;
 	owl:someValuesFrom :AccountState .
 
-:Account rdfs:subClassOf _:genid52 .
+:Account rdfs:subClassOf _:genid19 .
 
-_:genid52 a owl:Restriction ;
+_:genid19 a owl:Restriction ;
 	owl:onProperty :address ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:hexBinary .
 
-:Account owl:hasKey _:genid53 .
+:Account owl:hasKey _:genid20 .
 
-_:genid53 a rdf:List ;
+_:genid20 a rdf:List ;
 	rdf:first :address ;
 	rdf:rest rdf:nil .
 
@@ -1534,9 +1401,9 @@ _:genid53 a rdf:List ;
 
 :Block a owl:Class ;
 	rdfs:subClassOf :BlockConcept , :StateTransition ;
-	owl:hasKey _:genid54 .
+	owl:hasKey _:genid21 .
 
-_:genid54 a rdf:List ;
+_:genid21 a rdf:List ;
 	rdf:first :blockHash ;
 	rdf:rest rdf:nil .
 
@@ -1567,9 +1434,9 @@ _:genid54 a rdf:List ;
 # http://ethon.consensys.net/CallContractMsg
 
 :CallContractMsg a owl:Class ;
-	rdfs:subClassOf :ContractMsg , _:genid55 .
+	rdfs:subClassOf :ContractMsg , _:genid22 .
 
-_:genid55 a owl:Restriction ;
+_:genid22 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1582,9 +1449,9 @@ _:genid55 a owl:Restriction ;
 # http://ethon.consensys.net/CallTx
 
 :CallTx a owl:Class ;
-	rdfs:subClassOf :Tx , _:genid56 .
+	rdfs:subClassOf :Tx , _:genid23 .
 
-_:genid56 a owl:Restriction ;
+_:genid23 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1608,9 +1475,9 @@ _:genid56 a owl:Restriction ;
 # http://ethon.consensys.net/ContractMsg
 
 :ContractMsg a owl:Class ;
-	rdfs:subClassOf :Msg , _:genid57 .
+	rdfs:subClassOf :Msg , _:genid24 .
 
-_:genid57 a owl:Restriction ;
+_:genid24 a owl:Restriction ;
 	owl:onProperty :from ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1623,9 +1490,9 @@ _:genid57 a owl:Restriction ;
 # http://ethon.consensys.net/CreateContractMsg
 
 :CreateContractMsg a owl:Class ;
-	rdfs:subClassOf :ContractMsg , _:genid58 .
+	rdfs:subClassOf :ContractMsg , _:genid25 .
 
-_:genid58 a owl:Restriction ;
+_:genid25 a owl:Restriction ;
 	owl:onProperty :creates ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1638,9 +1505,9 @@ _:genid58 a owl:Restriction ;
 # http://ethon.consensys.net/CreateTx
 
 :CreateTx a owl:Class ;
-	rdfs:subClassOf :Tx , _:genid59 .
+	rdfs:subClassOf :Tx , _:genid26 .
 
-_:genid59 a owl:Restriction ;
+_:genid26 a owl:Restriction ;
 	owl:onProperty :creates ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ContractAccount .
@@ -1875,9 +1742,9 @@ _:genid59 a owl:Restriction ;
 # http://ethon.consensys.net/Tx
 
 :Tx a owl:Class ;
-	rdfs:subClassOf :Msg , _:genid60 .
+	rdfs:subClassOf :Msg , _:genid27 .
 
-_:genid60 a owl:Restriction ;
+_:genid27 a owl:Restriction ;
 	owl:onProperty :from ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :ExternalAccount .
@@ -1917,9 +1784,9 @@ _:genid60 a owl:Restriction ;
 # http://ethon.consensys.net/ValueContractMsg
 
 :ValueContractMsg a owl:Class ;
-	rdfs:subClassOf :ContractMsg , _:genid61 .
+	rdfs:subClassOf :ContractMsg , _:genid28 .
 
-_:genid61 a owl:Restriction ;
+_:genid28 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :Account .
@@ -1932,9 +1799,9 @@ _:genid61 a owl:Restriction ;
 # http://ethon.consensys.net/ValueTx
 
 :ValueTx a owl:Class ;
-	rdfs:subClassOf :Tx , _:genid62 .
+	rdfs:subClassOf :Tx , _:genid29 .
 
-_:genid62 a owl:Restriction ;
+_:genid29 a owl:Restriction ;
 	owl:onProperty :to ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass :Account .
@@ -2090,74 +1957,74 @@ As a result of this fork block 1920000 introduced an irregular state change to t
 # 
 # 
 
-_:genid63 a owl:AllDisjointClasses ;
-	owl:members _:genid67 .
+_:genid30 a owl:AllDisjointClasses ;
+	owl:members _:genid34 .
 
-_:genid67 a rdf:List ;
+_:genid34 a rdf:List ;
 	rdf:first :Block ;
-	rdf:rest _:genid66 .
+	rdf:rest _:genid33 .
 
-_:genid66 a rdf:List ;
+_:genid33 a rdf:List ;
 	rdf:first :ReceiptsTrie ;
-	rdf:rest _:genid65 .
+	rdf:rest _:genid32 .
 
-_:genid65 a rdf:List ;
+_:genid32 a rdf:List ;
 	rdf:first :TxTrie ;
-	rdf:rest _:genid64 .
+	rdf:rest _:genid31 .
 
-_:genid64 a rdf:List ;
+_:genid31 a rdf:List ;
 	rdf:first :Uncle ;
 	rdf:rest rdf:nil .
 # 
 
-_:genid68 a owl:AllDisjointClasses ;
-	owl:members _:genid72 .
+_:genid35 a owl:AllDisjointClasses ;
+	owl:members _:genid39 .
 
-_:genid72 a rdf:List ;
+_:genid39 a rdf:List ;
 	rdf:first :Blockchain ;
-	rdf:rest _:genid71 .
+	rdf:rest _:genid38 .
 
-_:genid71 a rdf:List ;
+_:genid38 a rdf:List ;
 	rdf:first :Network ;
-	rdf:rest _:genid70 .
+	rdf:rest _:genid37 .
 
-_:genid70 a rdf:List ;
+_:genid37 a rdf:List ;
 	rdf:first :Node ;
-	rdf:rest _:genid69 .
+	rdf:rest _:genid36 .
 
-_:genid69 a rdf:List ;
+_:genid36 a rdf:List ;
 	rdf:first :ProtocolVariant ;
 	rdf:rest rdf:nil .
 # 
 
-_:genid73 a owl:AllDisjointClasses ;
-	owl:members _:genid76 .
+_:genid40 a owl:AllDisjointClasses ;
+	owl:members _:genid43 .
 
-_:genid76 a rdf:List ;
+_:genid43 a rdf:List ;
 	rdf:first :CallContractMsg ;
-	rdf:rest _:genid75 .
+	rdf:rest _:genid42 .
 
-_:genid75 a rdf:List ;
+_:genid42 a rdf:List ;
 	rdf:first :CreateContractMsg ;
-	rdf:rest _:genid74 .
+	rdf:rest _:genid41 .
 
-_:genid74 a rdf:List ;
+_:genid41 a rdf:List ;
 	rdf:first :ValueContractMsg ;
 	rdf:rest rdf:nil .
 # 
 
-_:genid77 a owl:AllDisjointClasses ;
-	owl:members _:genid80 .
+_:genid44 a owl:AllDisjointClasses ;
+	owl:members _:genid47 .
 
-_:genid80 a rdf:List ;
+_:genid47 a rdf:List ;
 	rdf:first :CallTx ;
-	rdf:rest _:genid79 .
+	rdf:rest _:genid46 .
 
-_:genid79 a rdf:List ;
+_:genid46 a rdf:List ;
 	rdf:first :CreateTx ;
-	rdf:rest _:genid78 .
+	rdf:rest _:genid45 .
 
-_:genid78 a rdf:List ;
+_:genid45 a rdf:List ;
 	rdf:first :ValueTx ;
 	rdf:rest rdf:nil .
 # 
