@@ -80,9 +80,21 @@ ns:term_status a owl:AnnotationProperty .
 	a owl:FunctionalProperty ;
 	rdfs:domain :FunctionCall ;
 	rdfs:range :Function ;
-	ethon:suggestedStringRepresentation "string" ;
+	ethon:suggestedStringRepresentation "callsFunction" ;
 	rdfs:comment "Relates a Function Call to the Function that is called by it."@en ;
-	rdfs:label "calls Function"@en ;
+	rdfs:label "calls function"@en ;
+	ns:term_status "unstable" .
+# 
+# http://ethon.consensys.net/Contracts/hasFunctionSelector
+
+:hasFunctionSelector a owl:ObjectProperty ;
+	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain :Function ;
+	rdfs:range :FunctionSelector ;
+	ethon:suggestedStringRepresentation "hasFunctionSelector" ;
+	rdfs:comment "Relates a function to a function selector (also \"signature\") that identifies it."@en ;
+	rdfs:label "has function selector"@en ;
 	ns:term_status "unstable" .
 # 
 # http://ethon.consensys.net/Contracts/hasInput
@@ -1647,17 +1659,6 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 	:stackItemsRemoved "0"^^xsd:integer ;
 	rdfs:comment "Halt execution returning output data."@en .
 # 
-# http://ethon.consensys.net/Contracts/Opcode_RETURNDATASIZE
-
-:Opcode_RETURNDATASIZE a owl:NamedIndividual , :Opcode ;
-	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "3d"^^xsd:hexBinary ;
-	:name "RETURNDATASIZE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Pushes the size of the return data buffer onto the stack."@en .
-# 
 # http://ethon.consensys.net/Contracts/Opcode_RETURNDATACOPY
 
 :Opcode_RETURNDATACOPY a owl:NamedIndividual , :Opcode ;
@@ -1668,6 +1669,17 @@ If it represents an Input of an Event it can have the boolean property isIndexed
 	:stackItemsAdded "3"^^xsd:integer ;
 	:stackItemsRemoved "0"^^xsd:integer ;
 	rdfs:comment "This opcode has similar semantics to `CALLDATACOPY`, but instead of copying data from the call data, it copies data from the return data buffer. Furthermore, accessing the return data buffer beyond its size results in a failure, i.e. if `start + length` overflows or results in a value larger than `RETURNDATASIZE`, the current call stops in an out-of-gas condition. In particular, reading 0 bytes from the end of the buffer will read 0 bytes; reading 0 bytes from one-byte out of the buffer causes an exception."@en .
+# 
+# http://ethon.consensys.net/Contracts/Opcode_RETURNDATASIZE
+
+:Opcode_RETURNDATASIZE a owl:NamedIndividual , :Opcode ;
+	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
+	:cost "2"^^xsd:integer ;
+	:hexValue "3d"^^xsd:hexBinary ;
+	:name "RETURNDATASIZE"^^xsd:string ;
+	:stackItemsAdded "0"^^xsd:integer ;
+	:stackItemsRemoved "1"^^xsd:integer ;
+	rdfs:comment "Pushes the size of the return data buffer onto the stack."@en .
 # 
 # http://ethon.consensys.net/Contracts/Opcode_REVERT
 
