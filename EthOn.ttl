@@ -1332,6 +1332,17 @@ For a more detailed description of log filters in Ethereum, see [block blogs blo
 	rdfs:label "Uncle beneficiary reward"@en ;
 	ns:term_status "unstable" .
 # 
+# http://ethon.consensys.net/uncleIndex
+
+:uncleIndex a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :BlockDataProperty ;
+	rdfs:domain :Uncle ;
+	rdfs:range xsd:integer ;
+	:suggestedStringRepresentation "uncleIndex" ;
+	rdfs:comment "Represents the order of uncles included in a block."@en ;
+	rdfs:label "Uncle index"@en ;
+	ns:term_status "unstable" .
+# 
 # http://ethon.consensys.net/value
 
 :value a owl:DatatypeProperty ;
