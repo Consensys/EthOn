@@ -795,8 +795,20 @@ _:genid5 a rdf:List ;
 	rdfs:domain :Block ;
 	rdfs:range xsd:integer ;
 	:suggestedStringRepresentation "blockDifficulty" ;
-	rdfs:comment "A scalar value corresponding to the difficulty level of this block. This can be calculated from the previous block's difficulty level and the timestamp."@en ;
+	rdfs:comment "The difficulty level of this block."@en ;
 	rdfs:label "Block difficulty"@en ;
+	ns:term_status "unstable" .
+# 
+# http://ethon.consensys.net/totalBlockDifficulty
+
+:totalBlockDifficulty a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :BlockDataProperty ;
+	a owl:FunctionalProperty ;
+	rdfs:domain :Block ;
+	rdfs:range xsd:integer ;
+	:suggestedStringRepresentation "totalBlockDifficulty" ;
+	rdfs:comment "The difficulty of the total chain until this block."@en ;
+	rdfs:label "Total block difficulty"@en ;
 	ns:term_status "unstable" .
 # 
 # http://ethon.consensys.net/blockExtraData
