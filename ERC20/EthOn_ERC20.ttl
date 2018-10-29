@@ -13,18 +13,18 @@
 
 <http://ethon.consensys.net/ERC20/> rdf:type owl:Ontology ;
                                      owl:versionIRI <http://ethon.consensys.net/ERC20/v0/> ;
-                                     owl:imports <http://ethon.consensys.net/v0/> ;
-                                     owl:imports <http://ethon.consensys.net/Contracts/v0/> ;
-                                     rdfs:comment "This ontology extends EthOn with concepts that can be used to describe ERC-20 compliant Tokens." ;
+                                     owl:imports <http://ethon.consensys.net/Contracts/v0/> ,
+                                                 <http://ethon.consensys.net/v0/> ;
+                                     dc:contributor "Marian Oancea" ;
                                      dc:creator "Johannes Pfeffer" ;
-                                     ns:term_status "unstable" ;
-                                     rdfs:seeAlso ethon:ERC20 ;
-                                     owl:versionInfo "0.0.2" ;
-                                     rdfs:seeAlso <https://github.com/ConsenSys/EthOn> ;
-                                     vann:preferredNamespacePrefix "erc20" ;
-                                     rdfs:seeAlso <https://github.com/ethereum/EIPs/issues/20> ;
                                      dc:title "EthOn ERC-20 - An ERC-20 Extension to EthOn" ;
-                                     dc:contributor "Marian Oancea" .
+                                     vann:preferredNamespacePrefix "erc20" ;
+                                     rdfs:comment "This ontology extends EthOn with concepts that can be used to describe ERC-20 compliant Tokens." ;
+                                     rdfs:seeAlso ethon:ERC20 ,
+                                                  <https://github.com/ConsenSys/EthOn> ,
+                                                  <https://github.com/ethereum/EIPs/issues/20> ;
+                                     owl:versionInfo "0.0.2" ;
+                                     ns:term_status "unstable" .
 
 #################################################################
 #    Annotation properties
@@ -427,7 +427,6 @@ Contracts:FunctionCall rdf:type owl:Class .
 
 ###  http://ethon.consensys.net/ERC20/Allowance
 :Allowance rdf:type owl:Class ;
-           rdfs:subClassOf :EthOnERC20Concept ;
            ethon:suggestedStringRepresentation "Allowance" ;
            rdfs:comment "A Token Allowance provided by a Token Balance. The Delegate Account of the Allowance can spend a fixed amount of Tokens on behalf of the token owner."@en ;
            rdfs:label "Token Allowance"@en ;
@@ -446,22 +445,13 @@ Contracts:FunctionCall rdf:type owl:Class .
 
 ###  http://ethon.consensys.net/ERC20/ERC20Token
 :ERC20Token rdf:type owl:Class ;
-            rdfs:subClassOf ethon:ContractAccount ,
-                            :EthOnERC20Concept ;
+            rdfs:subClassOf ethon:ContractAccount ;
             ethon:suggestedStringRepresentation "ERC20Token" ;
             rdfs:comment "A token is a fungible virtual good that can be traded. ERC-20 Tokens comply to the standard described in the Ethereum ERC-20 proposal."@en ;
             rdfs:label "ERC-20 Token"@en ;
             rdfs:seeAlso <https://github.com/ethereum/EIPs/issues/20> ,
                          <https://theethereum.wiki/w/index.php/ERC20_Token_Standard> ;
             ns:term_status "unstable" .
-
-
-###  http://ethon.consensys.net/ERC20/EthOnERC20Concept
-:EthOnERC20Concept rdf:type owl:Class ;
-                   ethon:suggestedStringRepresentation "EthonERC20Concept"@en ;
-                   rdfs:comment "Groups al EthOn ERC-20 extension concepts."@en ;
-                   rdfs:label "EthOn ERC-20 Concept"@en ;
-                   ns:term_status "unstable" .
 
 
 ###  http://ethon.consensys.net/ERC20/OwnerTokenTransfer
@@ -475,7 +465,6 @@ Contracts:FunctionCall rdf:type owl:Class .
 
 ###  http://ethon.consensys.net/ERC20/TokenBalance
 :TokenBalance rdf:type owl:Class ;
-              rdfs:subClassOf :EthOnERC20Concept ;
               ethon:suggestedStringRepresentation "TokenBalance" ;
               rdfs:comment "The Balance of a Token owned by an Account."@en ;
               rdfs:label "Token Balance"@en ;
@@ -484,8 +473,7 @@ Contracts:FunctionCall rdf:type owl:Class .
 
 ###  http://ethon.consensys.net/ERC20/TokenDelegate
 :TokenDelegate rdf:type owl:Class ;
-               rdfs:subClassOf ethon:Account ,
-                               :EthOnERC20Concept ;
+               rdfs:subClassOf ethon:Account ;
                ethon:suggestedStringRepresentation "TokenDelgate" ;
                rdfs:comment "A token delegate is an account that has received an allowance for a token."@en ;
                rdfs:label "Token Delegate"@en ;
@@ -494,8 +482,7 @@ Contracts:FunctionCall rdf:type owl:Class .
 
 ###  http://ethon.consensys.net/ERC20/TokenHolder
 :TokenHolder rdf:type owl:Class ;
-             rdfs:subClassOf ethon:Account ,
-                             :EthOnERC20Concept ;
+             rdfs:subClassOf ethon:Account ;
              ethon:suggestedStringRepresentation "TokenHolder" ;
              rdfs:comment "A token holder is an account that is (or has ever been) owner of a token balance."@en ;
              rdfs:label "token holder"@en ;
@@ -504,12 +491,11 @@ Contracts:FunctionCall rdf:type owl:Class .
 
 ###  http://ethon.consensys.net/ERC20/TokenTransfer
 :TokenTransfer rdf:type owl:Class ;
-               rdfs:subClassOf ethon:LogEntry ,
-                               :EthOnERC20Concept ;
+               rdfs:subClassOf ethon:LogEntry ;
                ethon:suggestedStringRepresentation "TokenTransfer" ;
                rdfs:comment "A token transfer is the record of an amount of tokens being transferred from one account to another account. If the token complies to ERC-20 the transfer is logged by a LogEntry."@en ;
                rdfs:label "Token Transfer"@en ;
                ns:term_status "unstable" .
 
 
-###  Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi

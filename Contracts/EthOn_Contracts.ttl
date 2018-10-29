@@ -8,1989 +8,2031 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix ethon: <http://ethon.consensys.net/> .
+@base <http://ethon.consensys.net/Contracts/> .
 
-<http://ethon.consensys.net/Contracts/> a owl:Ontology ;
-	owl:versionIRI <http://ethon.consensys.net/Contracts/v0/> ;
-	owl:imports <http://ethon.consensys.net/v0/> ;
-	dc:creator "Johannes Pfeffer" ;
-	ns:term_status "unstable" ;
-	owl:versionInfo "0.0.1" ;
-	vann:preferredNamespacePrefix "contracts" ;
-	rdfs:seeAlso <https://github.com/ConsenSys/EthOn> ;
-	dc:title "EthOn Contracts - An extension to EthOn that models some aspects of smart contracts" ;
-	rdfs:comment "This ontology extends EthOn with concepts that can be used to model some aspects of smart contracts, including Functions, Events, Inputs, Outputs and Opcodes." .
-# 
-# 
-# #################################################################
-# #
-# #    Annotation properties
-# #
-# #################################################################
-# 
-# 
-# http://ethon.consensys.net/suggestedStringRepresentation
-
-ethon:suggestedStringRepresentation a owl:AnnotationProperty .
-# 
-# http://purl.org/dc/elements/1.1/contributor
-
-dc:contributor a owl:AnnotationProperty .
-# 
-# http://purl.org/dc/elements/1.1/creator
-
-dc:creator a owl:AnnotationProperty .
-# 
-# http://purl.org/dc/elements/1.1/title
-
-dc:title a owl:AnnotationProperty .
-# 
-# http://purl.org/vocab/vann/preferredNamespacePrefix
-
-vann:preferredNamespacePrefix a owl:AnnotationProperty .
-# 
-# http://purl.org/vocab/vann/preferredNamespaceUri
-
-vann:preferredNamespaceUri a owl:AnnotationProperty .
-# 
-# http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
-
-ns:term_status a owl:AnnotationProperty .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Object Properties
-# #
-# #################################################################
-# 
-# 
-# http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty
-
-:EthOnContractsObjectProperty a owl:ObjectProperty ;
-	rdfs:subPropertyOf owl:topObjectProperty ;
-	rdfs:comment "Groups all EthOn Contracts extension Object Properties"@en ;
-	rdfs:label "EthOn Contracts Object Property"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/callsFunction
-
-:callsFunction a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :FunctionCall ;
-	rdfs:range :Function ;
-	ethon:suggestedStringRepresentation "callsFunction" ;
-	rdfs:comment "Relates a Function Call to the Function that is called by it."@en ;
-	rdfs:label "calls function"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/hasFunctionSelector
-
-:hasFunctionSelector a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Function ;
-	rdfs:range :FunctionSelector ;
-	ethon:suggestedStringRepresentation "hasFunctionSelector" ;
-	rdfs:comment "Relates a function to a function selector (also \"signature\") that identifies it."@en ;
-	rdfs:label "has function selector"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/hasInput
-
-:hasInput a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:InverseFunctionalProperty ;
-	rdfs:domain _:genid1 .
-
-_:genid1 a owl:Class ;
-	owl:unionOf _:genid3 .
-
-_:genid3 a rdf:List ;
-	rdf:first :Event ;
-	rdf:rest _:genid2 .
-
-_:genid2 a rdf:List ;
-	rdf:first :Function ;
-	rdf:rest rdf:nil .
-
-:hasInput rdfs:range :Input ;
-	ethon:suggestedStringRepresentation "hasInput" ;
-	rdfs:comment "Relates an Event or a Function to an Input of that Event or Function. An Event or Function may have 0 or more Inputs but an Input can only belong to a single Event or Function."@en ;
-	rdfs:label "has Input"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/hasInputValue
-
-:hasInputValue a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:InverseFunctionalProperty ;
-	rdfs:domain _:genid4 .
-
-_:genid4 a owl:Class ;
-	owl:unionOf _:genid6 .
-
-_:genid6 a rdf:List ;
-	rdf:first ethon:LogEntry ;
-	rdf:rest _:genid5 .
-
-_:genid5 a rdf:List ;
-	rdf:first :FunctionCall ;
-	rdf:rest rdf:nil .
-
-:hasInputValue rdfs:range :InputValue ;
-	ethon:suggestedStringRepresentation "hasInputValue" ;
-	rdfs:comment "Relates a FunctionCall or a LogEntry to an Input Value that is represented by it. For example a Function Call add(5,6) would be related to two Input Values, one for each Input to the Function."@en ;
-	rdfs:label "has Input Value"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/hasOutput
-
-:hasOutput a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:InverseFunctionalProperty ;
-	rdfs:domain :Function ;
-	rdfs:range :Output ;
-	ethon:suggestedStringRepresentation "hasOutput" ;
-	rdfs:comment "Relates a Function to an Output of that Function. A Function may have 0 or more Outputs but an Output can only belong to a single Function."@en ;
-	rdfs:label "has Output"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/hasOutputValue
-
-:hasOutputValue a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:InverseFunctionalProperty ;
-	rdfs:domain :FunctionCall ;
-	rdfs:range :OutputValue ;
-	ethon:suggestedStringRepresentation "hasOutputValue" ;
-	rdfs:comment "Relates a FunctionCall to an Output Value that is represented by it. For example a Function Call add(5,6) that returns the sum of two integers would be related to one Output Value, that contains the result of the addition."@en ;
-	rdfs:label "has Output Value"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/implementsEvent
-
-:implementsEvent a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	rdfs:domain ethon:ContractAccount ;
-	rdfs:range :Event ;
-	ethon:suggestedStringRepresentation "implementsEvent" ;
-	rdfs:comment "Relates a Contract Account to Events it implements."@en ;
-	rdfs:label "implements Event"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/implementsFunction
-
-:implementsFunction a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	rdfs:domain ethon:ContractAccount ;
-	rdfs:range :Function ;
-	ethon:suggestedStringRepresentation "implementsFunction" ;
-	rdfs:comment "Relates a Contract Account to Functions it implements."@en ;
-	rdfs:label "implements Function"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/ofInput
-
-:ofInput a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :InputValue ;
-	rdfs:range :Input ;
-	ethon:suggestedStringRepresentation "ofInput" ;
-	rdfs:label "of Input"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/ofOutput
-
-:ofOutput a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :OutputValue ;
-	rdfs:range :Output ;
-	ethon:suggestedStringRepresentation "ofOutput" ;
-	rdfs:comment "Relates an Output Value to the Output it is a value of." ;
-	rdfs:label "of Output"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/representsEvent
-
-:representsEvent a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain ethon:LogEntry ;
-	rdfs:range :Event ;
-	ethon:suggestedStringRepresentation "representsEvent" ;
-	rdfs:comment "Relates a LogEntry to the Event it represents."@en ;
-	rdfs:label "represents Event"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/usesOpcode
-
-:usesOpcode a owl:ObjectProperty ;
-	rdfs:subPropertyOf :EthOnContractsObjectProperty ;
-	rdfs:domain ethon:ContractAccount ;
-	rdfs:range :Opcode ;
-	ethon:suggestedStringRepresentation "usesOpcode" ;
-	rdfs:comment "Relates a Contract Account to an Opcode used in the code of that Account."@en ;
-	rdfs:label "uses Opcode"@en ;
-	ns:term_status "unstable" .
-# 
-# http://purl.org/dc/terms/isRequiredBy
-
-<http://purl.org/dc/terms/isRequiredBy> a owl:ObjectProperty .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Data properties
-# #
-# #################################################################
-# 
-# 
-# http://ethon.consensys.net/Contracts/EthOnContractsDataProperty
-
-:EthOnContractsDataProperty a owl:DatatypeProperty ;
-	rdfs:subPropertyOf owl:topDataProperty ;
-	rdfs:comment "Groups all EthOn Contracts extension Data Properties."@en ;
-	rdfs:label "EthOn Contracts Data Property"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/byteSignature
-
-:byteSignature a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :FunctionSelector ;
-	rdfs:range xsd:hexBinary ;
-	ethon:suggestedStringRepresentation "byteSignature" ;
-	rdfs:comment "A function can be identified by its byte signature. It is generated from the canonical signature. For example the Function `bar(uint32 x, bool y)` returns `(bool r)` has the canonical signature `bar(uint32,bool)`. The first 4 bytes of the Keccac 256 hash of this forms the byte signature of the function, in the example that would be `0xcdcd77c0`."@en ;
-	rdfs:label "byte signature"@en ;
-	rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding> ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/canonicalSignature
-
-:canonicalSignature a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :FunctionSelector ;
-	rdfs:range xsd:string ;
-	ethon:suggestedStringRepresentation "canonicalSignature" ;
-	rdfs:comment "The signature of the function in the canonical form which is used to create the functionSelector. Example: `bar(uint32,bool)`"@en ;
-	rdfs:label "canonicalSignature"@en ;
-	rdfs:seeAlso "https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI" ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/cost
-
-:cost a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Opcode ;
-	rdfs:range xsd:integer ;
-	ethon:suggestedStringRepresentation "cost" ;
-	rdfs:comment "Specifies the amount of gas that has to be paid to execute an Opcode."@en ;
-	rdfs:label "cost"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/hexValue
-
-:hexValue a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Opcode ;
-	rdfs:range xsd:hexBinary ;
-	ethon:suggestedStringRepresentation "hexValue" ;
-	rdfs:comment "Specifies the hexadecimal code that represents an Opcode. This is the actual value used for the Opcode in byte code."@en ;
-	rdfs:label "hex Value"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/isAnonymous
-
-:isAnonymous a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Event ;
-	rdfs:range xsd:boolean ;
-	ethon:suggestedStringRepresentation "isAnonymous" ;
-	rdfs:comment "Specifies if an Event is anonymous. Anonymous Events will not store the Event signature as the LogTopic of a LogEntry."@en ;
-	rdfs:label "is anonymous"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/isConstant
-
-:isConstant a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Function ;
-	rdfs:range xsd:boolean ;
-	ethon:suggestedStringRepresentation "isConstant" ;
-	rdfs:comment "Functions with the property isConstant set to true promise to not modify the state of the blockchain. For instance, in solidity this can be achieved by a function modifier that declares the function to be constant (solidity doesn't enforce this, yet)."@en ;
-	rdfs:label "is constant"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/isIndexed
-
-:isIndexed a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Input ;
-	rdfs:range xsd:boolean ;
-	ethon:suggestedStringRepresentation "isIndexed" ;
-	rdfs:comment "True if the Input of an Event should be stored as a LogTopic of a LogEntry. Up to three parameters can receive this property which will cause the respective arguments to be treated as LogTopics instead of data. All non-indexed arguments will be stored in the data part of the LogEntry that represents the Event."@en ;
-	rdfs:label "is indexed"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/isPayable
-
-:isPayable a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Function ;
-	rdfs:range xsd:boolean ;
-	ethon:suggestedStringRepresentation "isPayable" ;
-	rdfs:comment "True if a Function can receive Ether together with a FunctionCall."@en ;
-	rdfs:label "is payable"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/name
-
-:name a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain _:genid7 .
-
-_:genid7 a owl:Class ;
-	owl:unionOf _:genid12 .
-
-_:genid12 a rdf:List ;
-	rdf:first :Event ;
-	rdf:rest _:genid11 .
-
-_:genid11 a rdf:List ;
-	rdf:first :Function ;
-	rdf:rest _:genid10 .
-
-_:genid10 a rdf:List ;
-	rdf:first :Input ;
-	rdf:rest _:genid9 .
-
-_:genid9 a rdf:List ;
-	rdf:first :Opcode ;
-	rdf:rest _:genid8 .
-
-_:genid8 a rdf:List ;
-	rdf:first :Output ;
-	rdf:rest rdf:nil .
-
-:name rdfs:range xsd:string ;
-	ethon:suggestedStringRepresentation "name" ;
-	rdfs:comment "A property that defines the name of Functions, Events, Inputs, Outputs and Opcodes as specified in code or specification. There can be only one name for each Individual of these types."@en ;
-	rdfs:label "name"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/position
-
-:position a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain _:genid13 .
-
-_:genid13 a owl:Class ;
-	owl:unionOf _:genid15 .
-
-_:genid15 a rdf:List ;
-	rdf:first :Input ;
-	rdf:rest _:genid14 .
-
-_:genid14 a rdf:List ;
-	rdf:first :Output ;
-	rdf:rest rdf:nil .
-
-:position rdfs:range xsd:integer ;
-	ethon:suggestedStringRepresentation "position" ;
-	rdfs:comment "Specifies the position of the Input or Output parameter in an Event's or Function's signature."@en ;
-	rdfs:label "position"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/signature
-
-:signature a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Function ;
-	rdfs:range xsd:string ;
-	ethon:suggestedStringRepresentation "signature" ;
-	rdfs:comment "The signature of the function as specified in the source language of the contract."@en ;
-	rdfs:label "signature"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/stackItemsAdded
-
-:stackItemsAdded a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Opcode ;
-	rdfs:range xsd:integer ;
-	ethon:suggestedStringRepresentation "stackItemsAdded" ;
-	rdfs:comment "Specifies the number of items added to the stack by executing an Opcode."@en ;
-	rdfs:label "stack items added"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/stackItemsRemoved
-
-:stackItemsRemoved a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Opcode ;
-	rdfs:range xsd:integer ;
-	ethon:suggestedStringRepresentation "stackItemsRemoved" ;
-	rdfs:comment "Specifies the number of items removed from the stack when executing an Opcode."@en ;
-	rdfs:label "stack items removed"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/topic
-
-:topic a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain :Event ;
-	rdfs:range xsd:hexBinary ;
-	ethon:suggestedStringRepresentation "topic" ;
-	rdfs:comment "An Event can be identified by its topic. It is generated from an abbreviated version of its signature. For example the Event Foo(uint32 x, bool y) has the abbreviated signature Foo(uint32,bool). The Keccac 256 hash of this forms the event topic."@en ;
-	rdfs:label "topic"@en ;
-	rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#events> ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/type
-
-:type a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain _:genid16 .
-
-_:genid16 a owl:Class ;
-	owl:unionOf _:genid18 .
-
-_:genid18 a rdf:List ;
-	rdf:first :Input ;
-	rdf:rest _:genid17 .
-
-_:genid17 a rdf:List ;
-	rdf:first :Output ;
-	rdf:rest rdf:nil .
-
-:type rdfs:range xsd:string ;
-	ethon:suggestedStringRepresentation "type" ;
-	rdfs:comment "Specifies the canonical type of the Input or Output, e.g. uint32."@en ;
-	rdfs:label "type"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/value
-
-:value a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :EthOnContractsDataProperty ;
-	a owl:FunctionalProperty ;
-	rdfs:domain _:genid19 .
-
-_:genid19 a owl:Class ;
-	owl:unionOf _:genid21 .
-
-_:genid21 a rdf:List ;
-	rdf:first :InputValue ;
-	rdf:rest _:genid20 .
-
-_:genid20 a rdf:List ;
-	rdf:first :OutputValue ;
-	rdf:rest rdf:nil .
-
-:value ethon:suggestedStringRepresentation "value" ;
-	rdfs:comment "The actual value of an InputValue or OutputValue. It is of the type defined in the Input or Output of the InputValue or OutputValue."@en ;
-	rdfs:label "value"@en ;
-	ns:term_status "unstable" .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Classes
-# #
-# #################################################################
-# 
-# 
-# http://ethon.consensys.net/ContractAccount
-
-ethon:ContractAccount a owl:Class .
-# 
-# http://ethon.consensys.net/LogEntry
-
-ethon:LogEntry a owl:Class .
-# 
-# http://ethon.consensys.net/Msg
-
-ethon:Msg a owl:Class .
-# 
-# http://ethon.consensys.net/Contracts/DynamicFunction
-
-:DynamicFunction a owl:Class ;
-	rdfs:subClassOf :Function ;
-	owl:disjointWith :StaticFunction ;
-	ethon:suggestedStringRepresentation "DynamicFunction" ;
-	rdfs:comment "Dynamic Functions are Functions that potentially change the state of the blockchain when executed. Executing a dynamic function costs gas and is broadcast to the network. When a Dynamic Function is called, the resulting computation is carried out by every Full Node in the Network."@en ;
-	rdfs:label "Dynamic Function"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/EthOnContractsConcept
-
-:EthOnContractsConcept a owl:Class .
-# 
-# http://ethon.consensys.net/Contracts/Event
-
-:Event a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "Event" ;
-	rdfs:comment "Events are structures implemented in smart contracts in order to create a LogEntry. Once created they cannot be accessed from the contract but can be used from the outside, e.g. by a web application that reacts to Events in a smart contract."@en ;
-	rdfs:label "Event"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/Function
-
-:Function a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "Function" ;
-	rdfs:comment "Functions are structures in smart contracts that implement functionality, just as functions or methods do in general programming. Functions can be called by Accounts (External Accounts or Contract Accounts) to execute the code stored in it. Functions can have Inputs (parameters) and Outputs (return values)."@en ;
-	rdfs:label "function"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/FunctionCall
-
-:FunctionCall a owl:Class ;
-	rdfs:subClassOf ethon:Msg , :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "FunctionCall" ;
-	rdfs:comment "Functions Calls are calls to Functions that are recorded in the blockchain. They are a subset of all Messages in a blockchain. Examples for Function Calls are Transactions (which is a sub-type of a Message) that call a Dynamic Function in a smart contract and Contract Calls that call Dynamic or Static Functions in smart contracts. Function Calls originate from either an External Account or a Contract Account and are always directed towards Contract Accounts."@en ;
-	rdfs:label "Function Call"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/FunctionSelector
-
-:FunctionSelector a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "FunctionSelector" ;
-	rdfs:comment "A function selector can be represented either by a canonical text form of the function signature (e.g. `exampleFunction(bytes32)`) or by its bytes form (e.g. `0xfc13a76a`). The latter is used by the EVM to call a certain function in a contract. It is created by taking the first 4 bytes of the keccac hash of the canonical text form of the signature."@en ;
-	rdfs:label "function selector"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/Input
-
-:Input a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "Input" ;
-	rdfs:comment """An Input represents a single input parameter of a Function or an Event. It's properties include a data type of the Input Value a name and a position in the signature of its Function or Event. 
+<http://ethon.consensys.net/Contracts/> rdf:type owl:Ontology ;
+                                         owl:versionIRI <http://ethon.consensys.net/Contracts/v0/> ;
+                                         owl:imports <http://ethon.consensys.net/v0/> ;
+                                         dc:creator "Johannes Pfeffer" ;
+                                         dc:title "EthOn Contracts - An extension to EthOn that models some aspects of smart contracts" ;
+                                         vann:preferredNamespacePrefix "contracts" ;
+                                         rdfs:comment "This ontology extends EthOn with concepts that can be used to model some aspects of smart contracts, including Functions, Events, Inputs, Outputs and Opcodes." ;
+                                         rdfs:seeAlso <https://github.com/ConsenSys/EthOn> ;
+                                         owl:versionInfo "0.0.1" ;
+                                         ns:term_status "unstable" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://ethon.consensys.net/suggestedStringRepresentation
+ethon:suggestedStringRepresentation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2003/06/sw-vocab-status/ns#term_status
+ns:term_status rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ethon.consensys.net/Contracts/EthOnContractsObjectProperty
+:EthOnContractsObjectProperty rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf owl:topObjectProperty ;
+                              rdfs:comment "Groups all EthOn Contracts extension Object Properties"@en ;
+                              rdfs:label "EthOn Contracts Object Property"@en ;
+                              ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/callsFunction
+:callsFunction rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :FunctionCall ;
+               rdfs:range :Function ;
+               ethon:suggestedStringRepresentation "callsFunction" ;
+               rdfs:comment "Relates a Function Call to the Function that is called by it."@en ;
+               rdfs:label "calls function"@en ;
+               ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/hasFunctionSelector
+:hasFunctionSelector rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+                     rdf:type owl:FunctionalProperty ;
+                     rdfs:domain :Function ;
+                     rdfs:range :FunctionSelector ;
+                     ethon:suggestedStringRepresentation "hasFunctionSelector" ;
+                     rdfs:comment "Relates a function to a function selector (also \"signature\") that identifies it."@en ;
+                     rdfs:label "has function selector"@en ;
+                     ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/hasInput
+:hasInput rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+          rdf:type owl:InverseFunctionalProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :Event
+                                      :Function
+                                    )
+                      ] ;
+          rdfs:range :Input ;
+          ethon:suggestedStringRepresentation "hasInput" ;
+          rdfs:comment "Relates an Event or a Function to an Input of that Event or Function. An Event or Function may have 0 or more Inputs but an Input can only belong to a single Event or Function."@en ;
+          rdfs:label "has Input"@en ;
+          ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/hasInputValue
+:hasInputValue rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+               rdf:type owl:InverseFunctionalProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( ethon:LogEntry
+                                           :FunctionCall
+                                         )
+                           ] ;
+               rdfs:range :InputValue ;
+               ethon:suggestedStringRepresentation "hasInputValue" ;
+               rdfs:comment "Relates a FunctionCall or a LogEntry to an Input Value that is represented by it. For example a Function Call add(5,6) would be related to two Input Values, one for each Input to the Function."@en ;
+               rdfs:label "has Input Value"@en ;
+               ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/hasOutput
+:hasOutput rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+           rdf:type owl:InverseFunctionalProperty ;
+           rdfs:domain :Function ;
+           rdfs:range :Output ;
+           ethon:suggestedStringRepresentation "hasOutput" ;
+           rdfs:comment "Relates a Function to an Output of that Function. A Function may have 0 or more Outputs but an Output can only belong to a single Function."@en ;
+           rdfs:label "has Output"@en ;
+           ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/hasOutputValue
+:hasOutputValue rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+                rdf:type owl:InverseFunctionalProperty ;
+                rdfs:domain :FunctionCall ;
+                rdfs:range :OutputValue ;
+                ethon:suggestedStringRepresentation "hasOutputValue" ;
+                rdfs:comment "Relates a FunctionCall to an Output Value that is represented by it. For example a Function Call add(5,6) that returns the sum of two integers would be related to one Output Value, that contains the result of the addition."@en ;
+                rdfs:label "has Output Value"@en ;
+                ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/implementsEvent
+:implementsEvent rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+                 rdfs:domain ethon:ContractAccount ;
+                 rdfs:range :Event ;
+                 ethon:suggestedStringRepresentation "implementsEvent" ;
+                 rdfs:comment "Relates a Contract Account to Events it implements."@en ;
+                 rdfs:label "implements Event"@en ;
+                 ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/implementsFunction
+:implementsFunction rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+                    rdfs:domain ethon:ContractAccount ;
+                    rdfs:range :Function ;
+                    ethon:suggestedStringRepresentation "implementsFunction" ;
+                    rdfs:comment "Relates a Contract Account to Functions it implements."@en ;
+                    rdfs:label "implements Function"@en ;
+                    ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/ofInput
+:ofInput rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:domain :InputValue ;
+         rdfs:range :Input ;
+         ethon:suggestedStringRepresentation "ofInput" ;
+         rdfs:label "of Input"@en ;
+         ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/ofOutput
+:ofOutput rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :OutputValue ;
+          rdfs:range :Output ;
+          ethon:suggestedStringRepresentation "ofOutput" ;
+          rdfs:comment "Relates an Output Value to the Output it is a value of." ;
+          rdfs:label "of Output"@en ;
+          ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/representsEvent
+:representsEvent rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain ethon:LogEntry ;
+                 rdfs:range :Event ;
+                 ethon:suggestedStringRepresentation "representsEvent" ;
+                 rdfs:comment "Relates a LogEntry to the Event it represents."@en ;
+                 rdfs:label "represents Event"@en ;
+                 ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/usesOpcode
+:usesOpcode rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+            rdfs:domain ethon:ContractAccount ;
+            rdfs:range :Opcode ;
+            ethon:suggestedStringRepresentation "usesOpcode" ;
+            rdfs:comment "Relates a Contract Account to an Opcode used in the code of that Account."@en ;
+            rdfs:label "uses Opcode"@en ;
+            ns:term_status "unstable" .
+
+
+###  http://purl.org/dc/terms/isRequiredBy
+<http://purl.org/dc/terms/isRequiredBy> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ethon.consensys.net/Contracts/EthOnContractsDataProperty
+:EthOnContractsDataProperty rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdfs:comment "Groups all EthOn Contracts extension Data Properties."@en ;
+                            rdfs:label "EthOn Contracts Data Property"@en ;
+                            ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/byteSignature
+:byteSignature rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :EthOnContractsDataProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :FunctionSelector ;
+               rdfs:range xsd:hexBinary ;
+               ethon:suggestedStringRepresentation "byteSignature" ;
+               rdfs:comment "A function can be identified by its byte signature. It is generated from the canonical signature. For example the Function `bar(uint32 x, bool y)` returns `(bool r)` has the canonical signature `bar(uint32,bool)`. The first 4 bytes of the Keccac 256 hash of this forms the byte signature of the function, in the example that would be `0xcdcd77c0`."@en ;
+               rdfs:label "byte signature"@en ;
+               rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding> ;
+               ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/canonicalSignature
+:canonicalSignature rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+                    rdf:type owl:FunctionalProperty ;
+                    rdfs:domain :FunctionSelector ;
+                    rdfs:range xsd:string ;
+                    ethon:suggestedStringRepresentation "canonicalSignature" ;
+                    rdfs:comment "The signature of the function in the canonical form which is used to create the functionSelector. Example: `bar(uint32,bool)`"@en ;
+                    rdfs:label "canonicalSignature"@en ;
+                    rdfs:seeAlso "https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI" ;
+                    ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/cost
+:cost rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :EthOnContractsDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain :Opcode ;
+      rdfs:range xsd:integer ;
+      ethon:suggestedStringRepresentation "cost" ;
+      rdfs:comment "Specifies the amount of gas that has to be paid to execute an Opcode."@en ;
+      rdfs:label "cost"@en ;
+      ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/hexValue
+:hexValue rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :EthOnContractsDataProperty ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :Opcode ;
+          rdfs:range xsd:hexBinary ;
+          ethon:suggestedStringRepresentation "hexValue" ;
+          rdfs:comment "Specifies the hexadecimal code that represents an Opcode. This is the actual value used for the Opcode in byte code."@en ;
+          rdfs:label "hex Value"@en ;
+          ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/isAnonymous
+:isAnonymous rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :EthOnContractsDataProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Event ;
+             rdfs:range xsd:boolean ;
+             ethon:suggestedStringRepresentation "isAnonymous" ;
+             rdfs:comment "Specifies if an Event is anonymous. Anonymous Events will not store the Event signature as the LogTopic of a LogEntry."@en ;
+             rdfs:label "is anonymous"@en ;
+             ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/isConstant
+:isConstant rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :EthOnContractsDataProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Function ;
+            rdfs:range xsd:boolean ;
+            ethon:suggestedStringRepresentation "isConstant" ;
+            rdfs:comment "Functions with the property isConstant set to true promise to not modify the state of the blockchain. For instance, in solidity this can be achieved by a function modifier that declares the function to be constant (solidity doesn't enforce this, yet)."@en ;
+            rdfs:label "is constant"@en ;
+            ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/isIndexed
+:isIndexed rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :EthOnContractsDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Input ;
+           rdfs:range xsd:boolean ;
+           ethon:suggestedStringRepresentation "isIndexed" ;
+           rdfs:comment "True if the Input of an Event should be stored as a LogTopic of a LogEntry. Up to three parameters can receive this property which will cause the respective arguments to be treated as LogTopics instead of data. All non-indexed arguments will be stored in the data part of the LogEntry that represents the Event."@en ;
+           rdfs:label "is indexed"@en ;
+           ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/isPayable
+:isPayable rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :EthOnContractsDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Function ;
+           rdfs:range xsd:boolean ;
+           ethon:suggestedStringRepresentation "isPayable" ;
+           rdfs:comment "True if a Function can receive Ether together with a FunctionCall."@en ;
+           rdfs:label "is payable"@en ;
+           ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/name
+:name rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :EthOnContractsDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( :Event
+                                  :Function
+                                  :Input
+                                  :Opcode
+                                  :Output
+                                )
+                  ] ;
+      rdfs:range xsd:string ;
+      ethon:suggestedStringRepresentation "name" ;
+      rdfs:comment "A property that defines the name of Functions, Events, Inputs, Outputs and Opcodes as specified in code or specification. There can be only one name for each Individual of these types."@en ;
+      rdfs:label "name"@en ;
+      ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/position
+:position rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :EthOnContractsDataProperty ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( :Input
+                                      :Output
+                                    )
+                      ] ;
+          rdfs:range xsd:integer ;
+          ethon:suggestedStringRepresentation "position" ;
+          rdfs:comment "Specifies the position of the Input or Output parameter in an Event's or Function's signature."@en ;
+          rdfs:label "position"@en ;
+          ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/signature
+:signature rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :EthOnContractsDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Function ;
+           rdfs:range xsd:string ;
+           ethon:suggestedStringRepresentation "signature" ;
+           rdfs:comment "The signature of the function as specified in the source language of the contract."@en ;
+           rdfs:label "signature"@en ;
+           ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/stackItemsAdded
+:stackItemsAdded rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :EthOnContractsDataProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :Opcode ;
+                 rdfs:range xsd:integer ;
+                 ethon:suggestedStringRepresentation "stackItemsAdded" ;
+                 rdfs:comment "Specifies the number of items added to the stack by executing an Opcode."@en ;
+                 rdfs:label "stack items added"@en ;
+                 ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/stackItemsRemoved
+:stackItemsRemoved rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :EthOnContractsDataProperty ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:domain :Opcode ;
+                   rdfs:range xsd:integer ;
+                   ethon:suggestedStringRepresentation "stackItemsRemoved" ;
+                   rdfs:comment "Specifies the number of items removed from the stack when executing an Opcode."@en ;
+                   rdfs:label "stack items removed"@en ;
+                   ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/topic
+:topic rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :EthOnContractsDataProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :Event ;
+       rdfs:range xsd:hexBinary ;
+       ethon:suggestedStringRepresentation "topic" ;
+       rdfs:comment "An Event can be identified by its topic. It is generated from an abbreviated version of its signature. For example the Event Foo(uint32 x, bool y) has the abbreviated signature Foo(uint32,bool). The Keccac 256 hash of this forms the event topic."@en ;
+       rdfs:label "topic"@en ;
+       rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#events> ;
+       ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/type
+:type rdf:type owl:DatatypeProperty ;
+      rdfs:subPropertyOf :EthOnContractsDataProperty ;
+      rdf:type owl:FunctionalProperty ;
+      rdfs:domain [ rdf:type owl:Class ;
+                    owl:unionOf ( :Input
+                                  :Output
+                                )
+                  ] ;
+      rdfs:range xsd:string ;
+      ethon:suggestedStringRepresentation "type" ;
+      rdfs:comment "Specifies the canonical type of the Input or Output, e.g. uint32."@en ;
+      rdfs:label "type"@en ;
+      ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/value
+:value rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf :EthOnContractsDataProperty ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain [ rdf:type owl:Class ;
+                     owl:unionOf ( :InputValue
+                                   :OutputValue
+                                 )
+                   ] ;
+       ethon:suggestedStringRepresentation "value" ;
+       rdfs:comment "The actual value of an InputValue or OutputValue. It is of the type defined in the Input or Output of the InputValue or OutputValue."@en ;
+       rdfs:label "value"@en ;
+       ns:term_status "unstable" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ethon.consensys.net/ContractAccount
+ethon:ContractAccount rdf:type owl:Class .
+
+
+###  http://ethon.consensys.net/LogEntry
+ethon:LogEntry rdf:type owl:Class .
+
+
+###  http://ethon.consensys.net/Msg
+ethon:Msg rdf:type owl:Class .
+
+
+###  http://ethon.consensys.net/Contracts/DynamicFunction
+:DynamicFunction rdf:type owl:Class ;
+                 rdfs:subClassOf :Function ;
+                 owl:disjointWith :StaticFunction ;
+                 ethon:suggestedStringRepresentation "DynamicFunction" ;
+                 rdfs:comment "Dynamic Functions are Functions that potentially change the state of the blockchain when executed. Executing a dynamic function costs gas and is broadcast to the network. When a Dynamic Function is called, the resulting computation is carried out by every Full Node in the Network."@en ;
+                 rdfs:label "Dynamic Function"@en ;
+                 ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/Event
+:Event rdf:type owl:Class ;
+       ethon:suggestedStringRepresentation "Event" ;
+       rdfs:comment "Events are structures implemented in smart contracts in order to create a LogEntry. Once created they cannot be accessed from the contract but can be used from the outside, e.g. by a web application that reacts to Events in a smart contract."@en ;
+       rdfs:label "Event"@en ;
+       ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/Function
+:Function rdf:type owl:Class ;
+          ethon:suggestedStringRepresentation "Function" ;
+          rdfs:comment "Functions are structures in smart contracts that implement functionality, just as functions or methods do in general programming. Functions can be called by Accounts (External Accounts or Contract Accounts) to execute the code stored in it. Functions can have Inputs (parameters) and Outputs (return values)."@en ;
+          rdfs:label "function"@en ;
+          ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/FunctionCall
+:FunctionCall rdf:type owl:Class ;
+              rdfs:subClassOf ethon:Msg ;
+              ethon:suggestedStringRepresentation "FunctionCall" ;
+              rdfs:comment "Functions Calls are calls to Functions that are recorded in the blockchain. They are a subset of all Messages in a blockchain. Examples for Function Calls are Transactions (which is a sub-type of a Message) that call a Dynamic Function in a smart contract and Contract Calls that call Dynamic or Static Functions in smart contracts. Function Calls originate from either an External Account or a Contract Account and are always directed towards Contract Accounts."@en ;
+              rdfs:label "Function Call"@en ;
+              ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/FunctionSelector
+:FunctionSelector rdf:type owl:Class ;
+                  ethon:suggestedStringRepresentation "FunctionSelector" ;
+                  rdfs:comment "A function selector can be represented either by a canonical text form of the function signature (e.g. `exampleFunction(bytes32)`) or by its bytes form (e.g. `0xfc13a76a`). The latter is used by the EVM to call a certain function in a contract. It is created by taking the first 4 bytes of the keccac hash of the canonical text form of the signature."@en ;
+                  rdfs:label "function selector"@en ;
+                  ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/Input
+:Input rdf:type owl:Class ;
+       ethon:suggestedStringRepresentation "Input" ;
+       rdfs:comment """An Input represents a single input parameter of a Function or an Event. It's properties include a data type of the Input Value a name and a position in the signature of its Function or Event. 
 
 If it represents an Input of an Event it can have the boolean property isIndexed. If true, the values of this Input should be stored in a modified merkle patricia tree structure and be created as LogTopics to be easily queryable. Otherwise the value is stored in the data of a LogEntry."""@en ;
-	rdfs:label "Input"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/InputValue
-
-:InputValue a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "InputValue" ;
-	rdfs:comment "Represents an Input Value of a Function Call or or a Log Entry. For example, if a smart contract has the function decryptXY(string x, bytes32 y) and the function is called in a Message, the two input values are each represented by an instance of this class. The value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Input of this Input Value."@en ;
-	rdfs:label "Input Value"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/Opcode
-
-:Opcode a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "Opcode" ;
-	rdfs:comment "An Opcode an instruction in the instruction set of the Ethereum virtual machine. The set of existing Opcodes are defined as Individuals (instances) of this class."@en ;
-	rdfs:label "Opcode"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/Output
-
-:Output a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "Output" ;
-	rdfs:comment "An Output represents a single return value of a Function in a smart contract. It's properties include a data type of the Output Value, a name and a position in the signature of its Function."@en ;
-	rdfs:label "Output"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/OutputValue
-
-:OutputValue a owl:Class ;
-	rdfs:subClassOf :EthOnContractsConcept ;
-	ethon:suggestedStringRepresentation "OutputValue" ;
-	rdfs:comment "Represents an Output Value of a Function Call. For example, if a smart contract has the function decryptXY(string x, bytes32 y) returns(string) and the function is called in a Contract Message, the returned string is represented as an instance of this class. The return value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Output of this Output Value."@en ;
-	rdfs:label "Output Value"@en ;
-	ns:term_status "unstable" .
-# 
-# http://ethon.consensys.net/Contracts/StaticFunction
-
-:StaticFunction a owl:Class ;
-	rdfs:subClassOf :Function ;
-	ethon:suggestedStringRepresentation "DynamicFunction" ;
-	rdfs:comment "Static Functions are Functions don't change the state of the blockchain. They can be executed on the local copy of the blockchain and it's not necessary to broadcast the call to the network. Calling a Static Function doesn't cost any gas. They are only executed by the node calling it."@en ;
-	rdfs:label "Static Function"@en ;
-	ns:term_status "unstable" .
-# 
-# 
-# 
-# #################################################################
-# #
-# #    Individuals
-# #
-# #################################################################
-# 
-# 
-# http://ethon.consensys.net/Contracts/Opcode_ADD
-
-:Opcode_ADD a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "01"^^xsd:hexBinary ;
-	:name "ADD"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Addition operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_ADDMOD
-
-:Opcode_ADDMOD a owl:NamedIndividual , :Opcode ;
-	:cost "8"^^xsd:integer ;
-	:hexValue "08"^^xsd:hexBinary ;
-	:name "ADDMOD"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Modulo addition operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_ADDRESS
-
-:Opcode_ADDRESS a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "30"^^xsd:hexBinary ;
-	:name "ADDRESS"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get address of currently executing account."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_AND
-
-:Opcode_AND a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "16"^^xsd:hexBinary ;
-	:name "AND"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Bitwise AND operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_BALANCE
-
-:Opcode_BALANCE a owl:NamedIndividual , :Opcode ;
-	:cost "20"^^xsd:integer ;
-	:hexValue "31"^^xsd:hexBinary ;
-	:name "BALANCE"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get balance of the given account."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_BLOCKHASH
-
-:Opcode_BLOCKHASH a owl:NamedIndividual , :Opcode ;
-	:cost "20"^^xsd:integer ;
-	:hexValue "40"^^xsd:hexBinary ;
-	:name "BLOCKHASH"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the hash of one of the 256 most recent complete blocks."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_BYTE
-
-:Opcode_BYTE a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "1a"^^xsd:hexBinary ;
-	:name "BYTE"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Retrieve single byte from word."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CALL
-
-:Opcode_CALL a owl:NamedIndividual , :Opcode ;
-	:cost "40"^^xsd:integer ;
-	:hexValue "f1"^^xsd:hexBinary ;
-	:name "CALL"^^xsd:string ;
-	:stackItemsAdded "7"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Message-call into an account."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CALLCODE
-
-:Opcode_CALLCODE a owl:NamedIndividual , :Opcode ;
-	:cost "40"^^xsd:integer ;
-	:hexValue "f2"^^xsd:hexBinary ;
-	:name "CALLCODE"^^xsd:string ;
-	:stackItemsAdded "7"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Message-call into this account with an alternative account's code."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CALLDATACOPY
-
-:Opcode_CALLDATACOPY a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "37"^^xsd:hexBinary ;
-	:name "CALLDATACOPY"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Get size of code running in current environment."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CALLDATALOAD
-
-:Opcode_CALLDATALOAD a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "35"^^xsd:hexBinary ;
-	:name "CALLDATALOAD"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get input data of current environment. This pertains to the input data passed with the message call instruction or transaction."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CALLDATASIZE
-
-:Opcode_CALLDATASIZE a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "36"^^xsd:hexBinary ;
-	:name "CALLDATASIZE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get size of input data in current environment. This pertains to the input data passed with the message call instruction or transaction."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CALLER
-
-:Opcode_CALLER a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "33"^^xsd:hexBinary ;
-	:name "CALLER"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get caller address. This is the address of the account that is directly responsible for this execution."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CALLVALUE
-
-:Opcode_CALLVALUE a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "34"^^xsd:hexBinary ;
-	:name "CALLVALUE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get deposited value by the instruction/transaction responsible for this execution."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CODECOPY
-
-:Opcode_CODECOPY a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "39"^^xsd:hexBinary ;
-	:name "CODECOPY"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Get price of gas in current environment. This is the gas price specified by the originating transaction."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CODESIZE
-
-:Opcode_CODESIZE a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "38"^^xsd:hexBinary ;
-	:name "CODESIZE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Copy code running in current environment to memory."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_COINBASE
-
-:Opcode_COINBASE a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "41"^^xsd:hexBinary ;
-	:name "COINBASE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the block's beneficiary address."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_CREATE
-
-:Opcode_CREATE a owl:NamedIndividual , :Opcode ;
-	:cost "32000"^^xsd:integer ;
-	:hexValue "f0"^^xsd:hexBinary ;
-	:name "CREATE"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Create a new account with associated code."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DELEGATECALL
-
-:Opcode_DELEGATECALL a owl:NamedIndividual , :Opcode ;
-	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Homestead ;
-	:cost "40"^^xsd:integer ;
-	:hexValue "f4"^^xsd:hexBinary ;
-	:name "DELEGATECALL"^^xsd:string ;
-	:stackItemsAdded "6"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Message-call into this account with an alternative account's code, but persisting the current values for sender and value."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DIFFICULTY
-
-:Opcode_DIFFICULTY a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "44"^^xsd:hexBinary ;
-	:name "DIFFICULTY"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the block's difficulty."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DIV
-
-:Opcode_DIV a owl:NamedIndividual , :Opcode ;
-	:cost "5"^^xsd:integer ;
-	:hexValue "04"^^xsd:hexBinary ;
-	:name "DIV"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Integer division operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP1
-
-:Opcode_DUP1 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "80"^^xsd:hexBinary ;
-	:name "DUP1"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "2"^^xsd:integer ;
-	rdfs:comment "Duplicate 1st stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP10
-
-:Opcode_DUP10 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "89"^^xsd:hexBinary ;
-	:name "DUP10"^^xsd:string ;
-	:stackItemsAdded "10"^^xsd:integer ;
-	:stackItemsRemoved "11"^^xsd:integer ;
-	rdfs:comment "Duplicate 10th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP11
-
-:Opcode_DUP11 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "8a"^^xsd:hexBinary ;
-	:name "DUP11"^^xsd:string ;
-	:stackItemsAdded "11"^^xsd:integer ;
-	:stackItemsRemoved "12"^^xsd:integer ;
-	rdfs:comment "Duplicate 11th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP12
-
-:Opcode_DUP12 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "8b"^^xsd:hexBinary ;
-	:name "DUP12"^^xsd:string ;
-	:stackItemsAdded "12"^^xsd:integer ;
-	:stackItemsRemoved "13"^^xsd:integer ;
-	rdfs:comment "Duplicate 12th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP13
-
-:Opcode_DUP13 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "8c"^^xsd:hexBinary ;
-	:name "DUP13"^^xsd:string ;
-	:stackItemsAdded "13"^^xsd:integer ;
-	:stackItemsRemoved "14"^^xsd:integer ;
-	rdfs:comment "Duplicate 13th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP14
-
-:Opcode_DUP14 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "8d"^^xsd:hexBinary ;
-	:name "DUP14"^^xsd:string ;
-	:stackItemsAdded "14"^^xsd:integer ;
-	:stackItemsRemoved "15"^^xsd:integer ;
-	rdfs:comment "Duplicate 14th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP15
-
-:Opcode_DUP15 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "8e"^^xsd:hexBinary ;
-	:name "DUP15"^^xsd:string ;
-	:stackItemsAdded "15"^^xsd:integer ;
-	:stackItemsRemoved "16"^^xsd:integer ;
-	rdfs:comment "Duplicate 15th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP16
-
-:Opcode_DUP16 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "8f"^^xsd:hexBinary ;
-	:name "DUP16"^^xsd:string ;
-	:stackItemsAdded "16"^^xsd:integer ;
-	:stackItemsRemoved "17"^^xsd:integer ;
-	rdfs:comment "Duplicate 16th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP2
-
-:Opcode_DUP2 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "81"^^xsd:hexBinary ;
-	:name "DUP2"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "3"^^xsd:integer ;
-	rdfs:comment "Duplicate 2nd stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP3
-
-:Opcode_DUP3 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "82"^^xsd:hexBinary ;
-	:name "DUP3"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "4"^^xsd:integer ;
-	rdfs:comment "Duplicate 3rd stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP4
-
-:Opcode_DUP4 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "83"^^xsd:hexBinary ;
-	:name "DUP4"^^xsd:string ;
-	:stackItemsAdded "4"^^xsd:integer ;
-	:stackItemsRemoved "5"^^xsd:integer ;
-	rdfs:comment "Duplicate 4th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP5
-
-:Opcode_DUP5 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "84"^^xsd:hexBinary ;
-	:name "DUP5"^^xsd:string ;
-	:stackItemsAdded "5"^^xsd:integer ;
-	:stackItemsRemoved "6"^^xsd:integer ;
-	rdfs:comment "Duplicate 5th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP6
-
-:Opcode_DUP6 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "85"^^xsd:hexBinary ;
-	:name "DUP6"^^xsd:string ;
-	:stackItemsAdded "6"^^xsd:integer ;
-	:stackItemsRemoved "7"^^xsd:integer ;
-	rdfs:comment "Duplicate 6th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP7
-
-:Opcode_DUP7 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "86"^^xsd:hexBinary ;
-	:name "DUP7"^^xsd:string ;
-	:stackItemsAdded "7"^^xsd:integer ;
-	:stackItemsRemoved "8"^^xsd:integer ;
-	rdfs:comment "Duplicate 7th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP8
-
-:Opcode_DUP8 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "87"^^xsd:hexBinary ;
-	:name "DUP8"^^xsd:string ;
-	:stackItemsAdded "8"^^xsd:integer ;
-	:stackItemsRemoved "9"^^xsd:integer ;
-	rdfs:comment "Duplicate 8th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_DUP9
-
-:Opcode_DUP9 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "88"^^xsd:hexBinary ;
-	:name "DUP9"^^xsd:string ;
-	:stackItemsAdded "9"^^xsd:integer ;
-	:stackItemsRemoved "10"^^xsd:integer ;
-	rdfs:comment "Duplicate 9th stack item."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_EQ
-
-:Opcode_EQ a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "14"^^xsd:hexBinary ;
-	:name "EQ"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Equality comparison."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_EXP
-
-:Opcode_EXP a owl:NamedIndividual , :Opcode ;
-	:cost "10"^^xsd:integer ;
-	:hexValue "0a"^^xsd:hexBinary ;
-	:name "EXP"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Exponential operation"@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_EXTCODECOPY
-
-:Opcode_EXTCODECOPY a owl:NamedIndividual , :Opcode ;
-	:cost "20"^^xsd:integer ;
-	:hexValue "3c"^^xsd:hexBinary ;
-	:name "EXTCODECOPY"^^xsd:string ;
-	:stackItemsAdded "4"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Copy an account's code to memory."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_EXTCODESIZE
-
-:Opcode_EXTCODESIZE a owl:NamedIndividual , :Opcode ;
-	:cost "20"^^xsd:integer ;
-	:hexValue "3b"^^xsd:hexBinary ;
-	:name "EXTCODESIZE"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get size of an account's code."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_GAS
-
-:Opcode_GAS a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "5a"^^xsd:hexBinary ;
-	:name "GAS"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the amount of available gas, including the corresponding reduction for the cost of this instruction."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_GASLIMIT
-
-:Opcode_GASLIMIT a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "45"^^xsd:hexBinary ;
-	:name "GASLIMIT"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the block's gas limit."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_GASPRICE
-
-:Opcode_GASPRICE a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "3a"^^xsd:hexBinary ;
-	:name "GASPRICE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get price of gas in current environment."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_GT
-
-:Opcode_GT a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "11"^^xsd:hexBinary ;
-	:name "GT"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Greater-than comparison."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_ISZERO
-
-:Opcode_ISZERO a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "15"^^xsd:hexBinary ;
-	:name "ISZERO"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Simple not operator."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_JUMP
-
-:Opcode_JUMP a owl:NamedIndividual , :Opcode ;
-	:cost "8"^^xsd:integer ;
-	:hexValue "56"^^xsd:hexBinary ;
-	:name "JUMP"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Alter the program counter."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_JUMPDEST
-
-:Opcode_JUMPDEST a owl:NamedIndividual , :Opcode ;
-	:cost "1"^^xsd:integer ;
-	:hexValue "5b"^^xsd:hexBinary ;
-	:name "JUMPDEST"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Mark a valid destination for jumps. This operation has no effect on machine state during execution."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_JUMPI
-
-:Opcode_JUMPI a owl:NamedIndividual , :Opcode ;
-	:cost "10"^^xsd:integer ;
-	:hexValue "57"^^xsd:hexBinary ;
-	:name "JUMPI"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Conditionally alter the program counter."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_LOG0
-
-:Opcode_LOG0 a owl:NamedIndividual , :Opcode ;
-	:cost "375"^^xsd:integer ;
-	:hexValue "a0"^^xsd:hexBinary ;
-	:name "LOG0"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Append log record with no topics."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_LOG1
-
-:Opcode_LOG1 a owl:NamedIndividual , :Opcode ;
-	:cost "750"^^xsd:integer ;
-	:hexValue "a1"^^xsd:hexBinary ;
-	:name "LOG1"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Append log record with one topic."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_LOG2
-
-:Opcode_LOG2 a owl:NamedIndividual , :Opcode ;
-	:cost "1125"^^xsd:integer ;
-	:hexValue "a2"^^xsd:hexBinary ;
-	:name "LOG2"^^xsd:string ;
-	:stackItemsAdded "4"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Append log record with two topics."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_LOG3
-
-:Opcode_LOG3 a owl:NamedIndividual , :Opcode ;
-	:cost "1500"^^xsd:integer ;
-	:hexValue "a3"^^xsd:hexBinary ;
-	:name "LOG3"^^xsd:string ;
-	:stackItemsAdded "5"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Append log record with three topics."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_LOG4
-
-:Opcode_LOG4 a owl:NamedIndividual , :Opcode ;
-	:cost "1875"^^xsd:integer ;
-	:hexValue "a4"^^xsd:hexBinary ;
-	:name "LOG4"^^xsd:string ;
-	:stackItemsAdded "6"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Append log record with four topics."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_LT
-
-:Opcode_LT a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "10"^^xsd:hexBinary ;
-	:name "LT"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Less-than comparison."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_MLOAD
-
-:Opcode_MLOAD a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "51"^^xsd:hexBinary ;
-	:name "MLOAD"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Load word from memory."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_MOD
-
-:Opcode_MOD a owl:NamedIndividual , :Opcode ;
-	:cost "5"^^xsd:integer ;
-	:hexValue "06"^^xsd:hexBinary ;
-	:name "MOD"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Modulo remainder operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_MSIZE
-
-:Opcode_MSIZE a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "59"^^xsd:hexBinary ;
-	:name "MSIZE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the size of active memory in bytes."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_MSTORE
-
-:Opcode_MSTORE a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "52"^^xsd:hexBinary ;
-	:name "MSTORE"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Save word to memory."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_MSTORES
-
-:Opcode_MSTORES a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "53"^^xsd:hexBinary ;
-	:name "MSTORES"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Save byte to memory."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_MUL
-
-:Opcode_MUL a owl:NamedIndividual , :Opcode ;
-	:cost "5"^^xsd:integer ;
-	:hexValue "02"^^xsd:hexBinary ;
-	:name "MUL"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Multiplication operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_MULMOD
-
-:Opcode_MULMOD a owl:NamedIndividual , :Opcode ;
-	:cost "8"^^xsd:integer ;
-	:hexValue "09"^^xsd:hexBinary ;
-	:name "MULMOD"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Modulo multiplication operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_NOT
-
-:Opcode_NOT a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "19"^^xsd:hexBinary ;
-	:name "NOT"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Bitwise NOT operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_NUMBER
-
-:Opcode_NUMBER a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "43"^^xsd:hexBinary ;
-	:name "NUMBER"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the block's number."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_OR
-
-:Opcode_OR a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "17"^^xsd:hexBinary ;
-	:name "OR"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Bitwise OR operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_ORIGIN
-
-:Opcode_ORIGIN a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "32"^^xsd:hexBinary ;
-	:name "ORIGIN"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get execution origination address. This is the sender of the original transaction; iti is never an account with non-empty associated code."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PC
-
-:Opcode_PC a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "58"^^xsd:hexBinary ;
-	:name "PC"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the value of the program counter prior to the increment."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_POP
-
-:Opcode_POP a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "50"^^xsd:hexBinary ;
-	:name "POP"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Remove item from stack"@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH1
-
-:Opcode_PUSH1 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "60"^^xsd:hexBinary ;
-	:name "PUSH1"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 1 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH10
-
-:Opcode_PUSH10 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "69"^^xsd:hexBinary ;
-	:name "PUSH10"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 10 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH11
-
-:Opcode_PUSH11 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "6a"^^xsd:hexBinary ;
-	:name "PUSH11"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 11 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH12
-
-:Opcode_PUSH12 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "6b"^^xsd:hexBinary ;
-	:name "PUSH12"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 12 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH13
-
-:Opcode_PUSH13 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "6c"^^xsd:hexBinary ;
-	:name "PUSH13"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 13 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH14
-
-:Opcode_PUSH14 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "6d"^^xsd:hexBinary ;
-	:name "PUSH14"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 14 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH15
-
-:Opcode_PUSH15 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "6e"^^xsd:hexBinary ;
-	:name "PUSH15"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 15 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH16
-
-:Opcode_PUSH16 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "6f"^^xsd:hexBinary ;
-	:name "PUSH16"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 16 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH17
-
-:Opcode_PUSH17 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "70"^^xsd:hexBinary ;
-	:name "PUSH17"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 17 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH18
-
-:Opcode_PUSH18 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "71"^^xsd:hexBinary ;
-	:name "PUSH18"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 18 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH19
-
-:Opcode_PUSH19 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "72"^^xsd:hexBinary ;
-	:name "PUSH19"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 19 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH2
-
-:Opcode_PUSH2 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "61"^^xsd:hexBinary ;
-	:name "PUSH2"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 2 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH20
-
-:Opcode_PUSH20 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "73"^^xsd:hexBinary ;
-	:name "PUSH20"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 20 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH21
-
-:Opcode_PUSH21 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "74"^^xsd:hexBinary ;
-	:name "PUSH21"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 21 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH22
-
-:Opcode_PUSH22 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "75"^^xsd:hexBinary ;
-	:name "PUSH22"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 22 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH23
-
-:Opcode_PUSH23 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "76"^^xsd:hexBinary ;
-	:name "PUSH23"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 23 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH24
-
-:Opcode_PUSH24 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "77"^^xsd:hexBinary ;
-	:name "PUSH24"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 24 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH25
-
-:Opcode_PUSH25 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "78"^^xsd:hexBinary ;
-	:name "PUSH25"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 25 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH26
-
-:Opcode_PUSH26 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "79"^^xsd:hexBinary ;
-	:name "PUSH26"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 26 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH27
-
-:Opcode_PUSH27 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "7a"^^xsd:hexBinary ;
-	:name "PUSH27"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 27 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH28
-
-:Opcode_PUSH28 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "7b"^^xsd:hexBinary ;
-	:name "PUSH28"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 28 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH29
-
-:Opcode_PUSH29 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "7c"^^xsd:hexBinary ;
-	:name "PUSH29"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 29 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH3
-
-:Opcode_PUSH3 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "62"^^xsd:hexBinary ;
-	:name "PUSH3"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 3 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH30
-
-:Opcode_PUSH30 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "7d"^^xsd:hexBinary ;
-	:name "PUSH30"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 30 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH31
-
-:Opcode_PUSH31 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "7e"^^xsd:hexBinary ;
-	:name "PUSH31"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 31 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH32
-
-:Opcode_PUSH32 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "7f"^^xsd:hexBinary ;
-	:name "PUSH32"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 32 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH4
-
-:Opcode_PUSH4 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "63"^^xsd:hexBinary ;
-	:name "PUSH4"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 4 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH5
-
-:Opcode_PUSH5 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "64"^^xsd:hexBinary ;
-	:name "PUSH5"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 5 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH6
-
-:Opcode_PUSH6 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "65"^^xsd:hexBinary ;
-	:name "PUSH6"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 6 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH7
-
-:Opcode_PUSH7 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "66"^^xsd:hexBinary ;
-	:name "PUSH7"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 7 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH8
-
-:Opcode_PUSH8 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "67"^^xsd:hexBinary ;
-	:name "PUSH8"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 8 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_PUSH9
-
-:Opcode_PUSH9 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "68"^^xsd:hexBinary ;
-	:name "PUSH9"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Place 9 byte item on the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_RETURN
-
-:Opcode_RETURN a owl:NamedIndividual , :Opcode ;
-	:cost "0"^^xsd:integer ;
-	:hexValue "f3"^^xsd:hexBinary ;
-	:name "RETURN"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Halt execution returning output data."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_RETURNDATACOPY
-
-:Opcode_RETURNDATACOPY a owl:NamedIndividual , :Opcode ;
-	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "3e"^^xsd:hexBinary ;
-	:name "RETURNDATACOPY"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "This opcode has similar semantics to `CALLDATACOPY`, but instead of copying data from the call data, it copies data from the return data buffer. Furthermore, accessing the return data buffer beyond its size results in a failure, i.e. if `start + length` overflows or results in a value larger than `RETURNDATASIZE`, the current call stops in an out-of-gas condition. In particular, reading 0 bytes from the end of the buffer will read 0 bytes; reading 0 bytes from one-byte out of the buffer causes an exception."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_RETURNDATASIZE
-
-:Opcode_RETURNDATASIZE a owl:NamedIndividual , :Opcode ;
-	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "3d"^^xsd:hexBinary ;
-	:name "RETURNDATASIZE"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Pushes the size of the return data buffer onto the stack."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_REVERT
-
-:Opcode_REVERT a owl:NamedIndividual , :Opcode ;
-	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
-	:cost "0"^^xsd:integer ;
-	:hexValue "fd"^^xsd:hexBinary ;
-	:name "RETURN"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Throw an exception without consuming all gas."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SDIV
-
-:Opcode_SDIV a owl:NamedIndividual , :Opcode ;
-	:cost "5"^^xsd:integer ;
-	:hexValue "05"^^xsd:hexBinary ;
-	:name "SDIV"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Signed integer division operstion (truncated)."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SGT
-
-:Opcode_SGT a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "13"^^xsd:hexBinary ;
-	:name "SGT"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Signed greater-than comparison."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SHA3
-
-:Opcode_SHA3 a owl:NamedIndividual , :Opcode ;
-	:cost "30"^^xsd:integer ;
-	:hexValue "20"^^xsd:hexBinary ;
-	:name "SHA3"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Compute Keccak-256 hash"@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SIGNEXTEND
-
-:Opcode_SIGNEXTEND a owl:NamedIndividual , :Opcode ;
-	:cost "5"^^xsd:integer ;
-	:hexValue "0b"^^xsd:hexBinary ;
-	:name "SIGNEXTEND"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Extend length of two's complement signed integer."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SLOAD
-
-:Opcode_SLOAD a owl:NamedIndividual , :Opcode ;
-	:cost "50"^^xsd:integer ;
-	:hexValue "54"^^xsd:hexBinary ;
-	:name "SLOAD"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Load word from storage."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SLT
-
-:Opcode_SLT a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "12"^^xsd:hexBinary ;
-	:name "SLT"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Signed less-than comparison."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SMOD
-
-:Opcode_SMOD a owl:NamedIndividual , :Opcode ;
-	:cost "5"^^xsd:integer ;
-	:hexValue "07"^^xsd:hexBinary ;
-	:name "SMOD"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Signed modulo remainder operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SSTORE
-
-:Opcode_SSTORE a owl:NamedIndividual , :Opcode ;
-	:cost "0"^^xsd:integer ;
-	:hexValue "55"^^xsd:hexBinary ;
-	:name "SSTORE"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Save word to storage."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_STATICCALL
-
-:Opcode_STATICCALL a owl:NamedIndividual , :Opcode ;
-	<http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
-	:cost "40"^^xsd:integer ;
-	:hexValue "f4"^^xsd:hexBinary ;
-	:name "STATICCALL"^^xsd:string ;
-	:stackItemsAdded "6"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Non-state-changing call to another contract. Any modifications to the state during the call (and its subcalls, if present) are disallowed."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_STOP
-
-:Opcode_STOP a owl:NamedIndividual , :Opcode ;
-	:cost "0"^^xsd:integer ;
-	:hexValue "00"^^xsd:hexBinary ;
-	:name "STOP"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Halts execution."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SUB
-
-:Opcode_SUB a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "03"^^xsd:hexBinary ;
-	:name "SUB"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Substraction operation."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SUICIDE
-
-:Opcode_SUICIDE a owl:NamedIndividual , :Opcode ;
-	:cost "0"^^xsd:integer ;
-	:hexValue "f5"^^xsd:hexBinary ;
-	:name "SUICIDE"^^xsd:string ;
-	:stackItemsAdded "1"^^xsd:integer ;
-	:stackItemsRemoved "0"^^xsd:integer ;
-	rdfs:comment "Halt execution and register account for later deletion."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP1
-
-:Opcode_SWAP1 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "90"^^xsd:hexBinary ;
-	:name "SWAP1"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "2"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 2nd stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP10
-
-:Opcode_SWAP10 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "99"^^xsd:hexBinary ;
-	:name "SWAP10"^^xsd:string ;
-	:stackItemsAdded "11"^^xsd:integer ;
-	:stackItemsRemoved "11"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 11th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP11
-
-:Opcode_SWAP11 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "9a"^^xsd:hexBinary ;
-	:name "SWAP11"^^xsd:string ;
-	:stackItemsAdded "12"^^xsd:integer ;
-	:stackItemsRemoved "12"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 12th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP12
-
-:Opcode_SWAP12 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "9b"^^xsd:hexBinary ;
-	:name "SWAP12"^^xsd:string ;
-	:stackItemsAdded "13"^^xsd:integer ;
-	:stackItemsRemoved "13"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 13th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP13
-
-:Opcode_SWAP13 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "9c"^^xsd:hexBinary ;
-	:name "SWAP13"^^xsd:string ;
-	:stackItemsAdded "14"^^xsd:integer ;
-	:stackItemsRemoved "14"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 14th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP14
-
-:Opcode_SWAP14 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "9d"^^xsd:hexBinary ;
-	:name "SWAP14"^^xsd:string ;
-	:stackItemsAdded "15"^^xsd:integer ;
-	:stackItemsRemoved "15"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 15th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP15
-
-:Opcode_SWAP15 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "9e"^^xsd:hexBinary ;
-	:name "SWAP15"^^xsd:string ;
-	:stackItemsAdded "16"^^xsd:integer ;
-	:stackItemsRemoved "16"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 16th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP16
-
-:Opcode_SWAP16 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "9f"^^xsd:hexBinary ;
-	:name "SWAP16"^^xsd:string ;
-	:stackItemsAdded "17"^^xsd:integer ;
-	:stackItemsRemoved "17"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 17th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP2
-
-:Opcode_SWAP2 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "91"^^xsd:hexBinary ;
-	:name "SWAP2"^^xsd:string ;
-	:stackItemsAdded "3"^^xsd:integer ;
-	:stackItemsRemoved "3"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 3rd stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP3
-
-:Opcode_SWAP3 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "92"^^xsd:hexBinary ;
-	:name "SWAP3"^^xsd:string ;
-	:stackItemsAdded "4"^^xsd:integer ;
-	:stackItemsRemoved "4"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 4th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP4
-
-:Opcode_SWAP4 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "93"^^xsd:hexBinary ;
-	:name "SWAP4"^^xsd:string ;
-	:stackItemsAdded "5"^^xsd:integer ;
-	:stackItemsRemoved "5"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 5th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP5
-
-:Opcode_SWAP5 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "94"^^xsd:hexBinary ;
-	:name "SWAP5"^^xsd:string ;
-	:stackItemsAdded "6"^^xsd:integer ;
-	:stackItemsRemoved "6"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 6th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP6
-
-:Opcode_SWAP6 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "95"^^xsd:hexBinary ;
-	:name "SWAP6"^^xsd:string ;
-	:stackItemsAdded "7"^^xsd:integer ;
-	:stackItemsRemoved "7"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 7th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP7
-
-:Opcode_SWAP7 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "96"^^xsd:hexBinary ;
-	:name "SWAP7"^^xsd:string ;
-	:stackItemsAdded "8"^^xsd:integer ;
-	:stackItemsRemoved "8"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 8th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP8
-
-:Opcode_SWAP8 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "97"^^xsd:hexBinary ;
-	:name "SWAP8"^^xsd:string ;
-	:stackItemsAdded "9"^^xsd:integer ;
-	:stackItemsRemoved "9"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 9th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_SWAP9
-
-:Opcode_SWAP9 a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "98"^^xsd:hexBinary ;
-	:name "SWAP9"^^xsd:string ;
-	:stackItemsAdded "10"^^xsd:integer ;
-	:stackItemsRemoved "10"^^xsd:integer ;
-	rdfs:comment "Exchange 1st and 10th stack items."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_TIMESTAMP
-
-:Opcode_TIMESTAMP a owl:NamedIndividual , :Opcode ;
-	:cost "2"^^xsd:integer ;
-	:hexValue "42"^^xsd:hexBinary ;
-	:name "TIMESTAMP"^^xsd:string ;
-	:stackItemsAdded "0"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Get the block's timestamp."@en .
-# 
-# http://ethon.consensys.net/Contracts/Opcode_XOR
-
-:Opcode_XOR a owl:NamedIndividual , :Opcode ;
-	:cost "3"^^xsd:integer ;
-	:hexValue "18"^^xsd:hexBinary ;
-	:name "XOR"^^xsd:string ;
-	:stackItemsAdded "2"^^xsd:integer ;
-	:stackItemsRemoved "1"^^xsd:integer ;
-	rdfs:comment "Bitwise XOR operation."@en .
-# 
-# Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi
+       rdfs:label "Input"@en ;
+       ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/InputValue
+:InputValue rdf:type owl:Class ;
+            ethon:suggestedStringRepresentation "InputValue" ;
+            rdfs:comment "Represents an Input Value of a Function Call or or a Log Entry. For example, if a smart contract has the function decryptXY(string x, bytes32 y) and the function is called in a Message, the two input values are each represented by an instance of this class. The value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Input of this Input Value."@en ;
+            rdfs:label "Input Value"@en ;
+            ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode
+:Opcode rdf:type owl:Class ;
+        ethon:suggestedStringRepresentation "Opcode" ;
+        rdfs:comment "An Opcode an instruction in the instruction set of the Ethereum virtual machine. The set of existing Opcodes are defined as Individuals (instances) of this class."@en ;
+        rdfs:label "Opcode"@en ;
+        ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/Output
+:Output rdf:type owl:Class ;
+        ethon:suggestedStringRepresentation "Output" ;
+        rdfs:comment "An Output represents a single return value of a Function in a smart contract. It's properties include a data type of the Output Value, a name and a position in the signature of its Function."@en ;
+        rdfs:label "Output"@en ;
+        ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/OutputValue
+:OutputValue rdf:type owl:Class ;
+             ethon:suggestedStringRepresentation "OutputValue" ;
+             rdfs:comment "Represents an Output Value of a Function Call. For example, if a smart contract has the function decryptXY(string x, bytes32 y) returns(string) and the function is called in a Contract Message, the returned string is represented as an instance of this class. The return value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Output of this Output Value."@en ;
+             rdfs:label "Output Value"@en ;
+             ns:term_status "unstable" .
+
+
+###  http://ethon.consensys.net/Contracts/StaticFunction
+:StaticFunction rdf:type owl:Class ;
+                rdfs:subClassOf :Function ;
+                ethon:suggestedStringRepresentation "DynamicFunction" ;
+                rdfs:comment "Static Functions are Functions don't change the state of the blockchain. They can be executed on the local copy of the blockchain and it's not necessary to broadcast the call to the network. Calling a Static Function doesn't cost any gas. They are only executed by the node calling it."@en ;
+                rdfs:label "Static Function"@en ;
+                ns:term_status "unstable" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://ethon.consensys.net/Contracts/Opcode_ADD
+:Opcode_ADD rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 3 ;
+            :hexValue "01"^^xsd:hexBinary ;
+            :name "ADD"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Addition operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_ADDMOD
+:Opcode_ADDMOD rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 8 ;
+               :hexValue "08"^^xsd:hexBinary ;
+               :name "ADDMOD"^^xsd:string ;
+               :stackItemsAdded 3 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Modulo addition operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_ADDRESS
+:Opcode_ADDRESS rdf:type owl:NamedIndividual ,
+                         :Opcode ;
+                :cost 2 ;
+                :hexValue "30"^^xsd:hexBinary ;
+                :name "ADDRESS"^^xsd:string ;
+                :stackItemsAdded 0 ;
+                :stackItemsRemoved 1 ;
+                rdfs:comment "Get address of currently executing account."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_AND
+:Opcode_AND rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 3 ;
+            :hexValue "16"^^xsd:hexBinary ;
+            :name "AND"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Bitwise AND operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_BALANCE
+:Opcode_BALANCE rdf:type owl:NamedIndividual ,
+                         :Opcode ;
+                :cost 20 ;
+                :hexValue "31"^^xsd:hexBinary ;
+                :name "BALANCE"^^xsd:string ;
+                :stackItemsAdded 1 ;
+                :stackItemsRemoved 1 ;
+                rdfs:comment "Get balance of the given account."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_BLOCKHASH
+:Opcode_BLOCKHASH rdf:type owl:NamedIndividual ,
+                           :Opcode ;
+                  :cost 20 ;
+                  :hexValue "40"^^xsd:hexBinary ;
+                  :name "BLOCKHASH"^^xsd:string ;
+                  :stackItemsAdded 1 ;
+                  :stackItemsRemoved 1 ;
+                  rdfs:comment "Get the hash of one of the 256 most recent complete blocks."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_BYTE
+:Opcode_BYTE rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "1a"^^xsd:hexBinary ;
+             :name "BYTE"^^xsd:string ;
+             :stackItemsAdded 2 ;
+             :stackItemsRemoved 1 ;
+             rdfs:comment "Retrieve single byte from word."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CALL
+:Opcode_CALL rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 40 ;
+             :hexValue "f1"^^xsd:hexBinary ;
+             :name "CALL"^^xsd:string ;
+             :stackItemsAdded 7 ;
+             :stackItemsRemoved 1 ;
+             rdfs:comment "Message-call into an account."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CALLCODE
+:Opcode_CALLCODE rdf:type owl:NamedIndividual ,
+                          :Opcode ;
+                 :cost 40 ;
+                 :hexValue "f2"^^xsd:hexBinary ;
+                 :name "CALLCODE"^^xsd:string ;
+                 :stackItemsAdded 7 ;
+                 :stackItemsRemoved 1 ;
+                 rdfs:comment "Message-call into this account with an alternative account's code."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CALLDATACOPY
+:Opcode_CALLDATACOPY rdf:type owl:NamedIndividual ,
+                              :Opcode ;
+                     :cost 3 ;
+                     :hexValue "37"^^xsd:hexBinary ;
+                     :name "CALLDATACOPY"^^xsd:string ;
+                     :stackItemsAdded 3 ;
+                     :stackItemsRemoved 0 ;
+                     rdfs:comment "Get size of code running in current environment."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CALLDATALOAD
+:Opcode_CALLDATALOAD rdf:type owl:NamedIndividual ,
+                              :Opcode ;
+                     :cost 3 ;
+                     :hexValue "35"^^xsd:hexBinary ;
+                     :name "CALLDATALOAD"^^xsd:string ;
+                     :stackItemsAdded 1 ;
+                     :stackItemsRemoved 1 ;
+                     rdfs:comment "Get input data of current environment. This pertains to the input data passed with the message call instruction or transaction."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CALLDATASIZE
+:Opcode_CALLDATASIZE rdf:type owl:NamedIndividual ,
+                              :Opcode ;
+                     :cost 2 ;
+                     :hexValue "36"^^xsd:hexBinary ;
+                     :name "CALLDATASIZE"^^xsd:string ;
+                     :stackItemsAdded 0 ;
+                     :stackItemsRemoved 1 ;
+                     rdfs:comment "Get size of input data in current environment. This pertains to the input data passed with the message call instruction or transaction."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CALLER
+:Opcode_CALLER rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 2 ;
+               :hexValue "33"^^xsd:hexBinary ;
+               :name "CALLER"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Get caller address. This is the address of the account that is directly responsible for this execution."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CALLVALUE
+:Opcode_CALLVALUE rdf:type owl:NamedIndividual ,
+                           :Opcode ;
+                  :cost 2 ;
+                  :hexValue "34"^^xsd:hexBinary ;
+                  :name "CALLVALUE"^^xsd:string ;
+                  :stackItemsAdded 0 ;
+                  :stackItemsRemoved 1 ;
+                  rdfs:comment "Get deposited value by the instruction/transaction responsible for this execution."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CODECOPY
+:Opcode_CODECOPY rdf:type owl:NamedIndividual ,
+                          :Opcode ;
+                 :cost 3 ;
+                 :hexValue "39"^^xsd:hexBinary ;
+                 :name "CODECOPY"^^xsd:string ;
+                 :stackItemsAdded 3 ;
+                 :stackItemsRemoved 0 ;
+                 rdfs:comment "Get price of gas in current environment. This is the gas price specified by the originating transaction."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CODESIZE
+:Opcode_CODESIZE rdf:type owl:NamedIndividual ,
+                          :Opcode ;
+                 :cost 2 ;
+                 :hexValue "38"^^xsd:hexBinary ;
+                 :name "CODESIZE"^^xsd:string ;
+                 :stackItemsAdded 0 ;
+                 :stackItemsRemoved 1 ;
+                 rdfs:comment "Copy code running in current environment to memory."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_COINBASE
+:Opcode_COINBASE rdf:type owl:NamedIndividual ,
+                          :Opcode ;
+                 :cost 2 ;
+                 :hexValue "41"^^xsd:hexBinary ;
+                 :name "COINBASE"^^xsd:string ;
+                 :stackItemsAdded 0 ;
+                 :stackItemsRemoved 1 ;
+                 rdfs:comment "Get the block's beneficiary address."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_CREATE
+:Opcode_CREATE rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 32000 ;
+               :hexValue "f0"^^xsd:hexBinary ;
+               :name "CREATE"^^xsd:string ;
+               :stackItemsAdded 3 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Create a new account with associated code."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DELEGATECALL
+:Opcode_DELEGATECALL rdf:type owl:NamedIndividual ,
+                              :Opcode ;
+                     <http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Homestead ;
+                     :cost 40 ;
+                     :hexValue "f4"^^xsd:hexBinary ;
+                     :name "DELEGATECALL"^^xsd:string ;
+                     :stackItemsAdded 6 ;
+                     :stackItemsRemoved 1 ;
+                     rdfs:comment "Message-call into this account with an alternative account's code, but persisting the current values for sender and value."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DIFFICULTY
+:Opcode_DIFFICULTY rdf:type owl:NamedIndividual ,
+                            :Opcode ;
+                   :cost 2 ;
+                   :hexValue "44"^^xsd:hexBinary ;
+                   :name "DIFFICULTY"^^xsd:string ;
+                   :stackItemsAdded 0 ;
+                   :stackItemsRemoved 1 ;
+                   rdfs:comment "Get the block's difficulty."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DIV
+:Opcode_DIV rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 5 ;
+            :hexValue "04"^^xsd:hexBinary ;
+            :name "DIV"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Integer division operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP1
+:Opcode_DUP1 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "80"^^xsd:hexBinary ;
+             :name "DUP1"^^xsd:string ;
+             :stackItemsAdded 1 ;
+             :stackItemsRemoved 2 ;
+             rdfs:comment "Duplicate 1st stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP10
+:Opcode_DUP10 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "89"^^xsd:hexBinary ;
+              :name "DUP10"^^xsd:string ;
+              :stackItemsAdded 10 ;
+              :stackItemsRemoved 11 ;
+              rdfs:comment "Duplicate 10th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP11
+:Opcode_DUP11 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "8a"^^xsd:hexBinary ;
+              :name "DUP11"^^xsd:string ;
+              :stackItemsAdded 11 ;
+              :stackItemsRemoved 12 ;
+              rdfs:comment "Duplicate 11th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP12
+:Opcode_DUP12 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "8b"^^xsd:hexBinary ;
+              :name "DUP12"^^xsd:string ;
+              :stackItemsAdded 12 ;
+              :stackItemsRemoved 13 ;
+              rdfs:comment "Duplicate 12th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP13
+:Opcode_DUP13 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "8c"^^xsd:hexBinary ;
+              :name "DUP13"^^xsd:string ;
+              :stackItemsAdded 13 ;
+              :stackItemsRemoved 14 ;
+              rdfs:comment "Duplicate 13th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP14
+:Opcode_DUP14 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "8d"^^xsd:hexBinary ;
+              :name "DUP14"^^xsd:string ;
+              :stackItemsAdded 14 ;
+              :stackItemsRemoved 15 ;
+              rdfs:comment "Duplicate 14th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP15
+:Opcode_DUP15 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "8e"^^xsd:hexBinary ;
+              :name "DUP15"^^xsd:string ;
+              :stackItemsAdded 15 ;
+              :stackItemsRemoved 16 ;
+              rdfs:comment "Duplicate 15th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP16
+:Opcode_DUP16 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "8f"^^xsd:hexBinary ;
+              :name "DUP16"^^xsd:string ;
+              :stackItemsAdded 16 ;
+              :stackItemsRemoved 17 ;
+              rdfs:comment "Duplicate 16th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP2
+:Opcode_DUP2 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "81"^^xsd:hexBinary ;
+             :name "DUP2"^^xsd:string ;
+             :stackItemsAdded 2 ;
+             :stackItemsRemoved 3 ;
+             rdfs:comment "Duplicate 2nd stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP3
+:Opcode_DUP3 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "82"^^xsd:hexBinary ;
+             :name "DUP3"^^xsd:string ;
+             :stackItemsAdded 3 ;
+             :stackItemsRemoved 4 ;
+             rdfs:comment "Duplicate 3rd stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP4
+:Opcode_DUP4 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "83"^^xsd:hexBinary ;
+             :name "DUP4"^^xsd:string ;
+             :stackItemsAdded 4 ;
+             :stackItemsRemoved 5 ;
+             rdfs:comment "Duplicate 4th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP5
+:Opcode_DUP5 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "84"^^xsd:hexBinary ;
+             :name "DUP5"^^xsd:string ;
+             :stackItemsAdded 5 ;
+             :stackItemsRemoved 6 ;
+             rdfs:comment "Duplicate 5th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP6
+:Opcode_DUP6 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "85"^^xsd:hexBinary ;
+             :name "DUP6"^^xsd:string ;
+             :stackItemsAdded 6 ;
+             :stackItemsRemoved 7 ;
+             rdfs:comment "Duplicate 6th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP7
+:Opcode_DUP7 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "86"^^xsd:hexBinary ;
+             :name "DUP7"^^xsd:string ;
+             :stackItemsAdded 7 ;
+             :stackItemsRemoved 8 ;
+             rdfs:comment "Duplicate 7th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP8
+:Opcode_DUP8 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "87"^^xsd:hexBinary ;
+             :name "DUP8"^^xsd:string ;
+             :stackItemsAdded 8 ;
+             :stackItemsRemoved 9 ;
+             rdfs:comment "Duplicate 8th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_DUP9
+:Opcode_DUP9 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 3 ;
+             :hexValue "88"^^xsd:hexBinary ;
+             :name "DUP9"^^xsd:string ;
+             :stackItemsAdded 9 ;
+             :stackItemsRemoved 10 ;
+             rdfs:comment "Duplicate 9th stack item."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_EQ
+:Opcode_EQ rdf:type owl:NamedIndividual ,
+                    :Opcode ;
+           :cost 3 ;
+           :hexValue "14"^^xsd:hexBinary ;
+           :name "EQ"^^xsd:string ;
+           :stackItemsAdded 2 ;
+           :stackItemsRemoved 1 ;
+           rdfs:comment "Equality comparison."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_EXP
+:Opcode_EXP rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 10 ;
+            :hexValue "0a"^^xsd:hexBinary ;
+            :name "EXP"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Exponential operation"@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_EXTCODECOPY
+:Opcode_EXTCODECOPY rdf:type owl:NamedIndividual ,
+                             :Opcode ;
+                    :cost 20 ;
+                    :hexValue "3c"^^xsd:hexBinary ;
+                    :name "EXTCODECOPY"^^xsd:string ;
+                    :stackItemsAdded 4 ;
+                    :stackItemsRemoved 0 ;
+                    rdfs:comment "Copy an account's code to memory."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_EXTCODESIZE
+:Opcode_EXTCODESIZE rdf:type owl:NamedIndividual ,
+                             :Opcode ;
+                    :cost 20 ;
+                    :hexValue "3b"^^xsd:hexBinary ;
+                    :name "EXTCODESIZE"^^xsd:string ;
+                    :stackItemsAdded 1 ;
+                    :stackItemsRemoved 1 ;
+                    rdfs:comment "Get size of an account's code."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_GAS
+:Opcode_GAS rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 2 ;
+            :hexValue "5a"^^xsd:hexBinary ;
+            :name "GAS"^^xsd:string ;
+            :stackItemsAdded 0 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Get the amount of available gas, including the corresponding reduction for the cost of this instruction."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_GASLIMIT
+:Opcode_GASLIMIT rdf:type owl:NamedIndividual ,
+                          :Opcode ;
+                 :cost 2 ;
+                 :hexValue "45"^^xsd:hexBinary ;
+                 :name "GASLIMIT"^^xsd:string ;
+                 :stackItemsAdded 0 ;
+                 :stackItemsRemoved 1 ;
+                 rdfs:comment "Get the block's gas limit."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_GASPRICE
+:Opcode_GASPRICE rdf:type owl:NamedIndividual ,
+                          :Opcode ;
+                 :cost 2 ;
+                 :hexValue "3a"^^xsd:hexBinary ;
+                 :name "GASPRICE"^^xsd:string ;
+                 :stackItemsAdded 0 ;
+                 :stackItemsRemoved 1 ;
+                 rdfs:comment "Get price of gas in current environment."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_GT
+:Opcode_GT rdf:type owl:NamedIndividual ,
+                    :Opcode ;
+           :cost 3 ;
+           :hexValue "11"^^xsd:hexBinary ;
+           :name "GT"^^xsd:string ;
+           :stackItemsAdded 2 ;
+           :stackItemsRemoved 1 ;
+           rdfs:comment "Greater-than comparison."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_ISZERO
+:Opcode_ISZERO rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "15"^^xsd:hexBinary ;
+               :name "ISZERO"^^xsd:string ;
+               :stackItemsAdded 1 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Simple not operator."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_JUMP
+:Opcode_JUMP rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 8 ;
+             :hexValue "56"^^xsd:hexBinary ;
+             :name "JUMP"^^xsd:string ;
+             :stackItemsAdded 1 ;
+             :stackItemsRemoved 0 ;
+             rdfs:comment "Alter the program counter."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_JUMPDEST
+:Opcode_JUMPDEST rdf:type owl:NamedIndividual ,
+                          :Opcode ;
+                 :cost 1 ;
+                 :hexValue "5b"^^xsd:hexBinary ;
+                 :name "JUMPDEST"^^xsd:string ;
+                 :stackItemsAdded 0 ;
+                 :stackItemsRemoved 0 ;
+                 rdfs:comment "Mark a valid destination for jumps. This operation has no effect on machine state during execution."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_JUMPI
+:Opcode_JUMPI rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 10 ;
+              :hexValue "57"^^xsd:hexBinary ;
+              :name "JUMPI"^^xsd:string ;
+              :stackItemsAdded 2 ;
+              :stackItemsRemoved 0 ;
+              rdfs:comment "Conditionally alter the program counter."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_LOG0
+:Opcode_LOG0 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 375 ;
+             :hexValue "a0"^^xsd:hexBinary ;
+             :name "LOG0"^^xsd:string ;
+             :stackItemsAdded 2 ;
+             :stackItemsRemoved 0 ;
+             rdfs:comment "Append log record with no topics."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_LOG1
+:Opcode_LOG1 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 750 ;
+             :hexValue "a1"^^xsd:hexBinary ;
+             :name "LOG1"^^xsd:string ;
+             :stackItemsAdded 3 ;
+             :stackItemsRemoved 0 ;
+             rdfs:comment "Append log record with one topic."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_LOG2
+:Opcode_LOG2 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 1125 ;
+             :hexValue "a2"^^xsd:hexBinary ;
+             :name "LOG2"^^xsd:string ;
+             :stackItemsAdded 4 ;
+             :stackItemsRemoved 0 ;
+             rdfs:comment "Append log record with two topics."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_LOG3
+:Opcode_LOG3 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 1500 ;
+             :hexValue "a3"^^xsd:hexBinary ;
+             :name "LOG3"^^xsd:string ;
+             :stackItemsAdded 5 ;
+             :stackItemsRemoved 0 ;
+             rdfs:comment "Append log record with three topics."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_LOG4
+:Opcode_LOG4 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 1875 ;
+             :hexValue "a4"^^xsd:hexBinary ;
+             :name "LOG4"^^xsd:string ;
+             :stackItemsAdded 6 ;
+             :stackItemsRemoved 0 ;
+             rdfs:comment "Append log record with four topics."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_LT
+:Opcode_LT rdf:type owl:NamedIndividual ,
+                    :Opcode ;
+           :cost 3 ;
+           :hexValue "10"^^xsd:hexBinary ;
+           :name "LT"^^xsd:string ;
+           :stackItemsAdded 2 ;
+           :stackItemsRemoved 1 ;
+           rdfs:comment "Less-than comparison."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_MLOAD
+:Opcode_MLOAD rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "51"^^xsd:hexBinary ;
+              :name "MLOAD"^^xsd:string ;
+              :stackItemsAdded 1 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Load word from memory."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_MOD
+:Opcode_MOD rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 5 ;
+            :hexValue "06"^^xsd:hexBinary ;
+            :name "MOD"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Modulo remainder operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_MSIZE
+:Opcode_MSIZE rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 2 ;
+              :hexValue "59"^^xsd:hexBinary ;
+              :name "MSIZE"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Get the size of active memory in bytes."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_MSTORE
+:Opcode_MSTORE rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "52"^^xsd:hexBinary ;
+               :name "MSTORE"^^xsd:string ;
+               :stackItemsAdded 2 ;
+               :stackItemsRemoved 0 ;
+               rdfs:comment "Save word to memory."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_MSTORES
+:Opcode_MSTORES rdf:type owl:NamedIndividual ,
+                         :Opcode ;
+                :cost 3 ;
+                :hexValue "53"^^xsd:hexBinary ;
+                :name "MSTORES"^^xsd:string ;
+                :stackItemsAdded 2 ;
+                :stackItemsRemoved 0 ;
+                rdfs:comment "Save byte to memory."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_MUL
+:Opcode_MUL rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 5 ;
+            :hexValue "02"^^xsd:hexBinary ;
+            :name "MUL"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Multiplication operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_MULMOD
+:Opcode_MULMOD rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 8 ;
+               :hexValue "09"^^xsd:hexBinary ;
+               :name "MULMOD"^^xsd:string ;
+               :stackItemsAdded 3 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Modulo multiplication operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_NOT
+:Opcode_NOT rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 3 ;
+            :hexValue "19"^^xsd:hexBinary ;
+            :name "NOT"^^xsd:string ;
+            :stackItemsAdded 1 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Bitwise NOT operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_NUMBER
+:Opcode_NUMBER rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 2 ;
+               :hexValue "43"^^xsd:hexBinary ;
+               :name "NUMBER"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Get the block's number."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_OR
+:Opcode_OR rdf:type owl:NamedIndividual ,
+                    :Opcode ;
+           :cost 3 ;
+           :hexValue "17"^^xsd:hexBinary ;
+           :name "OR"^^xsd:string ;
+           :stackItemsAdded 2 ;
+           :stackItemsRemoved 1 ;
+           rdfs:comment "Bitwise OR operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_ORIGIN
+:Opcode_ORIGIN rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 2 ;
+               :hexValue "32"^^xsd:hexBinary ;
+               :name "ORIGIN"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Get execution origination address. This is the sender of the original transaction; iti is never an account with non-empty associated code."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PC
+:Opcode_PC rdf:type owl:NamedIndividual ,
+                    :Opcode ;
+           :cost 2 ;
+           :hexValue "58"^^xsd:hexBinary ;
+           :name "PC"^^xsd:string ;
+           :stackItemsAdded 0 ;
+           :stackItemsRemoved 1 ;
+           rdfs:comment "Get the value of the program counter prior to the increment."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_POP
+:Opcode_POP rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 2 ;
+            :hexValue "50"^^xsd:hexBinary ;
+            :name "POP"^^xsd:string ;
+            :stackItemsAdded 1 ;
+            :stackItemsRemoved 0 ;
+            rdfs:comment "Remove item from stack"@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH1
+:Opcode_PUSH1 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "60"^^xsd:hexBinary ;
+              :name "PUSH1"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 1 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH10
+:Opcode_PUSH10 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "69"^^xsd:hexBinary ;
+               :name "PUSH10"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 10 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH11
+:Opcode_PUSH11 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "6a"^^xsd:hexBinary ;
+               :name "PUSH11"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 11 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH12
+:Opcode_PUSH12 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "6b"^^xsd:hexBinary ;
+               :name "PUSH12"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 12 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH13
+:Opcode_PUSH13 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "6c"^^xsd:hexBinary ;
+               :name "PUSH13"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 13 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH14
+:Opcode_PUSH14 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "6d"^^xsd:hexBinary ;
+               :name "PUSH14"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 14 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH15
+:Opcode_PUSH15 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "6e"^^xsd:hexBinary ;
+               :name "PUSH15"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 15 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH16
+:Opcode_PUSH16 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "6f"^^xsd:hexBinary ;
+               :name "PUSH16"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 16 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH17
+:Opcode_PUSH17 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "70"^^xsd:hexBinary ;
+               :name "PUSH17"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 17 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH18
+:Opcode_PUSH18 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "71"^^xsd:hexBinary ;
+               :name "PUSH18"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 18 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH19
+:Opcode_PUSH19 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "72"^^xsd:hexBinary ;
+               :name "PUSH19"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 19 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH2
+:Opcode_PUSH2 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "61"^^xsd:hexBinary ;
+              :name "PUSH2"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 2 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH20
+:Opcode_PUSH20 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "73"^^xsd:hexBinary ;
+               :name "PUSH20"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 20 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH21
+:Opcode_PUSH21 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "74"^^xsd:hexBinary ;
+               :name "PUSH21"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 21 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH22
+:Opcode_PUSH22 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "75"^^xsd:hexBinary ;
+               :name "PUSH22"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 22 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH23
+:Opcode_PUSH23 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "76"^^xsd:hexBinary ;
+               :name "PUSH23"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 23 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH24
+:Opcode_PUSH24 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "77"^^xsd:hexBinary ;
+               :name "PUSH24"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 24 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH25
+:Opcode_PUSH25 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "78"^^xsd:hexBinary ;
+               :name "PUSH25"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 25 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH26
+:Opcode_PUSH26 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "79"^^xsd:hexBinary ;
+               :name "PUSH26"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 26 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH27
+:Opcode_PUSH27 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "7a"^^xsd:hexBinary ;
+               :name "PUSH27"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 27 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH28
+:Opcode_PUSH28 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "7b"^^xsd:hexBinary ;
+               :name "PUSH28"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 28 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH29
+:Opcode_PUSH29 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "7c"^^xsd:hexBinary ;
+               :name "PUSH29"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 29 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH3
+:Opcode_PUSH3 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "62"^^xsd:hexBinary ;
+              :name "PUSH3"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 3 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH30
+:Opcode_PUSH30 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "7d"^^xsd:hexBinary ;
+               :name "PUSH30"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 30 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH31
+:Opcode_PUSH31 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "7e"^^xsd:hexBinary ;
+               :name "PUSH31"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 31 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH32
+:Opcode_PUSH32 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "7f"^^xsd:hexBinary ;
+               :name "PUSH32"^^xsd:string ;
+               :stackItemsAdded 0 ;
+               :stackItemsRemoved 1 ;
+               rdfs:comment "Place 32 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH4
+:Opcode_PUSH4 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "63"^^xsd:hexBinary ;
+              :name "PUSH4"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 4 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH5
+:Opcode_PUSH5 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "64"^^xsd:hexBinary ;
+              :name "PUSH5"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 5 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH6
+:Opcode_PUSH6 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "65"^^xsd:hexBinary ;
+              :name "PUSH6"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 6 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH7
+:Opcode_PUSH7 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "66"^^xsd:hexBinary ;
+              :name "PUSH7"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 7 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH8
+:Opcode_PUSH8 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "67"^^xsd:hexBinary ;
+              :name "PUSH8"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 8 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_PUSH9
+:Opcode_PUSH9 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "68"^^xsd:hexBinary ;
+              :name "PUSH9"^^xsd:string ;
+              :stackItemsAdded 0 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Place 9 byte item on the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_RETURN
+:Opcode_RETURN rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 0 ;
+               :hexValue "f3"^^xsd:hexBinary ;
+               :name "RETURN"^^xsd:string ;
+               :stackItemsAdded 2 ;
+               :stackItemsRemoved 0 ;
+               rdfs:comment "Halt execution returning output data."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_RETURNDATACOPY
+:Opcode_RETURNDATACOPY rdf:type owl:NamedIndividual ,
+                                :Opcode ;
+                       <http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
+                       :cost 3 ;
+                       :hexValue "3e"^^xsd:hexBinary ;
+                       :name "RETURNDATACOPY"^^xsd:string ;
+                       :stackItemsAdded 3 ;
+                       :stackItemsRemoved 0 ;
+                       rdfs:comment "This opcode has similar semantics to `CALLDATACOPY`, but instead of copying data from the call data, it copies data from the return data buffer. Furthermore, accessing the return data buffer beyond its size results in a failure, i.e. if `start + length` overflows or results in a value larger than `RETURNDATASIZE`, the current call stops in an out-of-gas condition. In particular, reading 0 bytes from the end of the buffer will read 0 bytes; reading 0 bytes from one-byte out of the buffer causes an exception."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_RETURNDATASIZE
+:Opcode_RETURNDATASIZE rdf:type owl:NamedIndividual ,
+                                :Opcode ;
+                       <http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
+                       :cost 2 ;
+                       :hexValue "3d"^^xsd:hexBinary ;
+                       :name "RETURNDATASIZE"^^xsd:string ;
+                       :stackItemsAdded 0 ;
+                       :stackItemsRemoved 1 ;
+                       rdfs:comment "Pushes the size of the return data buffer onto the stack."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_REVERT
+:Opcode_REVERT rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               <http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
+               :cost 0 ;
+               :hexValue "fd"^^xsd:hexBinary ;
+               :name "RETURN"^^xsd:string ;
+               :stackItemsAdded 2 ;
+               :stackItemsRemoved 0 ;
+               rdfs:comment "Throw an exception without consuming all gas."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SDIV
+:Opcode_SDIV rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 5 ;
+             :hexValue "05"^^xsd:hexBinary ;
+             :name "SDIV"^^xsd:string ;
+             :stackItemsAdded 2 ;
+             :stackItemsRemoved 1 ;
+             rdfs:comment "Signed integer division operstion (truncated)."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SGT
+:Opcode_SGT rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 3 ;
+            :hexValue "13"^^xsd:hexBinary ;
+            :name "SGT"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Signed greater-than comparison."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SHA3
+:Opcode_SHA3 rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 30 ;
+             :hexValue "20"^^xsd:hexBinary ;
+             :name "SHA3"^^xsd:string ;
+             :stackItemsAdded 2 ;
+             :stackItemsRemoved 1 ;
+             rdfs:comment "Compute Keccak-256 hash"@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SIGNEXTEND
+:Opcode_SIGNEXTEND rdf:type owl:NamedIndividual ,
+                            :Opcode ;
+                   :cost 5 ;
+                   :hexValue "0b"^^xsd:hexBinary ;
+                   :name "SIGNEXTEND"^^xsd:string ;
+                   :stackItemsAdded 2 ;
+                   :stackItemsRemoved 1 ;
+                   rdfs:comment "Extend length of two's complement signed integer."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SLOAD
+:Opcode_SLOAD rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 50 ;
+              :hexValue "54"^^xsd:hexBinary ;
+              :name "SLOAD"^^xsd:string ;
+              :stackItemsAdded 1 ;
+              :stackItemsRemoved 1 ;
+              rdfs:comment "Load word from storage."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SLT
+:Opcode_SLT rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 3 ;
+            :hexValue "12"^^xsd:hexBinary ;
+            :name "SLT"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Signed less-than comparison."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SMOD
+:Opcode_SMOD rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 5 ;
+             :hexValue "07"^^xsd:hexBinary ;
+             :name "SMOD"^^xsd:string ;
+             :stackItemsAdded 2 ;
+             :stackItemsRemoved 1 ;
+             rdfs:comment "Signed modulo remainder operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SSTORE
+:Opcode_SSTORE rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 0 ;
+               :hexValue "55"^^xsd:hexBinary ;
+               :name "SSTORE"^^xsd:string ;
+               :stackItemsAdded 2 ;
+               :stackItemsRemoved 0 ;
+               rdfs:comment "Save word to storage."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_STATICCALL
+:Opcode_STATICCALL rdf:type owl:NamedIndividual ,
+                            :Opcode ;
+                   <http://purl.org/dc/terms/isRequiredBy> ethon:ProtocolVariant_Byzantium ;
+                   :cost 40 ;
+                   :hexValue "f4"^^xsd:hexBinary ;
+                   :name "STATICCALL"^^xsd:string ;
+                   :stackItemsAdded 6 ;
+                   :stackItemsRemoved 1 ;
+                   rdfs:comment "Non-state-changing call to another contract. Any modifications to the state during the call (and its subcalls, if present) are disallowed."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_STOP
+:Opcode_STOP rdf:type owl:NamedIndividual ,
+                      :Opcode ;
+             :cost 0 ;
+             :hexValue "00"^^xsd:hexBinary ;
+             :name "STOP"^^xsd:string ;
+             :stackItemsAdded 0 ;
+             :stackItemsRemoved 0 ;
+             rdfs:comment "Halts execution."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SUB
+:Opcode_SUB rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 3 ;
+            :hexValue "03"^^xsd:hexBinary ;
+            :name "SUB"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Substraction operation."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SUICIDE
+:Opcode_SUICIDE rdf:type owl:NamedIndividual ,
+                         :Opcode ;
+                :cost 0 ;
+                :hexValue "f5"^^xsd:hexBinary ;
+                :name "SUICIDE"^^xsd:string ;
+                :stackItemsAdded 1 ;
+                :stackItemsRemoved 0 ;
+                rdfs:comment "Halt execution and register account for later deletion."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP1
+:Opcode_SWAP1 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "90"^^xsd:hexBinary ;
+              :name "SWAP1"^^xsd:string ;
+              :stackItemsAdded 2 ;
+              :stackItemsRemoved 2 ;
+              rdfs:comment "Exchange 1st and 2nd stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP10
+:Opcode_SWAP10 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "99"^^xsd:hexBinary ;
+               :name "SWAP10"^^xsd:string ;
+               :stackItemsAdded 11 ;
+               :stackItemsRemoved 11 ;
+               rdfs:comment "Exchange 1st and 11th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP11
+:Opcode_SWAP11 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "9a"^^xsd:hexBinary ;
+               :name "SWAP11"^^xsd:string ;
+               :stackItemsAdded 12 ;
+               :stackItemsRemoved 12 ;
+               rdfs:comment "Exchange 1st and 12th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP12
+:Opcode_SWAP12 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "9b"^^xsd:hexBinary ;
+               :name "SWAP12"^^xsd:string ;
+               :stackItemsAdded 13 ;
+               :stackItemsRemoved 13 ;
+               rdfs:comment "Exchange 1st and 13th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP13
+:Opcode_SWAP13 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "9c"^^xsd:hexBinary ;
+               :name "SWAP13"^^xsd:string ;
+               :stackItemsAdded 14 ;
+               :stackItemsRemoved 14 ;
+               rdfs:comment "Exchange 1st and 14th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP14
+:Opcode_SWAP14 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "9d"^^xsd:hexBinary ;
+               :name "SWAP14"^^xsd:string ;
+               :stackItemsAdded 15 ;
+               :stackItemsRemoved 15 ;
+               rdfs:comment "Exchange 1st and 15th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP15
+:Opcode_SWAP15 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "9e"^^xsd:hexBinary ;
+               :name "SWAP15"^^xsd:string ;
+               :stackItemsAdded 16 ;
+               :stackItemsRemoved 16 ;
+               rdfs:comment "Exchange 1st and 16th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP16
+:Opcode_SWAP16 rdf:type owl:NamedIndividual ,
+                        :Opcode ;
+               :cost 3 ;
+               :hexValue "9f"^^xsd:hexBinary ;
+               :name "SWAP16"^^xsd:string ;
+               :stackItemsAdded 17 ;
+               :stackItemsRemoved 17 ;
+               rdfs:comment "Exchange 1st and 17th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP2
+:Opcode_SWAP2 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "91"^^xsd:hexBinary ;
+              :name "SWAP2"^^xsd:string ;
+              :stackItemsAdded 3 ;
+              :stackItemsRemoved 3 ;
+              rdfs:comment "Exchange 1st and 3rd stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP3
+:Opcode_SWAP3 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "92"^^xsd:hexBinary ;
+              :name "SWAP3"^^xsd:string ;
+              :stackItemsAdded 4 ;
+              :stackItemsRemoved 4 ;
+              rdfs:comment "Exchange 1st and 4th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP4
+:Opcode_SWAP4 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "93"^^xsd:hexBinary ;
+              :name "SWAP4"^^xsd:string ;
+              :stackItemsAdded 5 ;
+              :stackItemsRemoved 5 ;
+              rdfs:comment "Exchange 1st and 5th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP5
+:Opcode_SWAP5 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "94"^^xsd:hexBinary ;
+              :name "SWAP5"^^xsd:string ;
+              :stackItemsAdded 6 ;
+              :stackItemsRemoved 6 ;
+              rdfs:comment "Exchange 1st and 6th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP6
+:Opcode_SWAP6 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "95"^^xsd:hexBinary ;
+              :name "SWAP6"^^xsd:string ;
+              :stackItemsAdded 7 ;
+              :stackItemsRemoved 7 ;
+              rdfs:comment "Exchange 1st and 7th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP7
+:Opcode_SWAP7 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "96"^^xsd:hexBinary ;
+              :name "SWAP7"^^xsd:string ;
+              :stackItemsAdded 8 ;
+              :stackItemsRemoved 8 ;
+              rdfs:comment "Exchange 1st and 8th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP8
+:Opcode_SWAP8 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "97"^^xsd:hexBinary ;
+              :name "SWAP8"^^xsd:string ;
+              :stackItemsAdded 9 ;
+              :stackItemsRemoved 9 ;
+              rdfs:comment "Exchange 1st and 9th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_SWAP9
+:Opcode_SWAP9 rdf:type owl:NamedIndividual ,
+                       :Opcode ;
+              :cost 3 ;
+              :hexValue "98"^^xsd:hexBinary ;
+              :name "SWAP9"^^xsd:string ;
+              :stackItemsAdded 10 ;
+              :stackItemsRemoved 10 ;
+              rdfs:comment "Exchange 1st and 10th stack items."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_TIMESTAMP
+:Opcode_TIMESTAMP rdf:type owl:NamedIndividual ,
+                           :Opcode ;
+                  :cost 2 ;
+                  :hexValue "42"^^xsd:hexBinary ;
+                  :name "TIMESTAMP"^^xsd:string ;
+                  :stackItemsAdded 0 ;
+                  :stackItemsRemoved 1 ;
+                  rdfs:comment "Get the block's timestamp."@en .
+
+
+###  http://ethon.consensys.net/Contracts/Opcode_XOR
+:Opcode_XOR rdf:type owl:NamedIndividual ,
+                     :Opcode ;
+            :cost 3 ;
+            :hexValue "18"^^xsd:hexBinary ;
+            :name "XOR"^^xsd:string ;
+            :stackItemsAdded 2 ;
+            :stackItemsRemoved 1 ;
+            rdfs:comment "Bitwise XOR operation."@en .
+
+
+###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
