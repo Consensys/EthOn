@@ -8,4 +8,4 @@ Ressources:
 ![Illustration key](doc_resources/img/EthOn_Contracts_overview.png)
 This is an Overview of how the EthOn Contracts extension models a smart contract.
 
-[Visualize using WebVOWL](http://visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/EthOn/master/Contracts/EthOn_Contracts.rdf)
+[Visualize using WebVOWL](http://visualdataweb.de/webvowl/#iri=https://raw.githubusercontent.com/ConsenSys/EthOn/master/Contracts/EthOn_Contracts.ttl)
